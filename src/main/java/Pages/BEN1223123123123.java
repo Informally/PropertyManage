@@ -6,8 +6,8 @@ package Pages;
 
 /**
  *
- * @author tanke
+ * @author User
  */
-public class BENTESTING {
+public class BEN1223123123123 {
     
 }
