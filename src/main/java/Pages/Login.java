@@ -128,6 +128,13 @@ public class Login {
 					Aem.Aem.setVisible(true);
 					loginPage.setVisible(false);
 
+				} else if(role.equals("Building Executive"))
+				{
+					BuildingExecMenu Bem = new BuildingExecMenu();
+
+					Bem.buildExec.setVisible(true);
+					loginPage.setVisible(false);
+
 				}
 			}
 		});
