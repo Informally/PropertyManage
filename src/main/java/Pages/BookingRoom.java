@@ -23,6 +23,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -374,8 +376,11 @@ public class BookingRoom {
 				String roomType = txtRoomType.getSelectedItem().toString().trim();
 				String year = txtYear.getText().trim();
 				String total = txtTotal.getText().trim();
+                                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                                LocalDateTime now = LocalDateTime.now();
 				
 				ArrayList<String> data = new ArrayList<>();
+                                ArrayList<String> dataIs = new ArrayList<>();
 
 				try {
 					Thread.sleep(500);
@@ -394,8 +399,15 @@ public class BookingRoom {
 					data.add(total);
 					data.add(month);
 					data.add(year);
+                                        
+                                        dataIs.add(uid);
+                                        dataIs.add("Room");
+                                        dataIs.add(roomType);
+                                        dataIs.add(total);
+                                        dataIs.add(dtf.format(now));
 
 					crud.create("C:\\Users\\Alan\\Documents\\BookingRoom.txt", data);
+                                        crud.create("C:\\Users\\Alan\\Documents\\ResidentInvoiceStatement.txt", dataIs);
 
 				} else { // this means update data
 					data.add(userId);
@@ -406,7 +418,15 @@ public class BookingRoom {
 					data.add(total);
 					data.add(month);
 					data.add(year);
+                                       
+                                        dataIs.add(userId);
+                                        dataIs.add("Room");
+                                        dataIs.add(roomType);
+                                        dataIs.add(total);
+                                        dataIs.add(dtf.format(now));
+                                        
 					crud.updateRow("C:\\Users\\Alan\\Documents\\BookingRoom.txt", userId, 0, "", 0, data);
+                                        crud.updateRow("C:\\Users\\Alan\\Documents\\ResidentInvoiceStatement.txt", userId, 0, "", 0, dataIs);
 				}
 
 				// Clear text after update or add

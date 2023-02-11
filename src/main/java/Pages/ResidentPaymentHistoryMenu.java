@@ -72,58 +72,41 @@ public class ResidentPaymentHistoryMenu {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PendingFee pendingFee = new PendingFee();
+				ResidentPendingFee residentPendingFee = new ResidentPendingFee();
 				
-				pendingFee.pf.setVisible(true);
+				residentPendingFee.rpf.setVisible(true);
 				rphm.setVisible(false);
 			}
 		});
 		rphm.getContentPane().add(profileBtn);
 
 		// User Payment Button
-		JButton paymentBtn = new JButton("Invoice");
+		JButton paymentBtn = new JButton("Invoice & Statement");
 		paymentBtn.setBounds(44, 153, 315, 42);
 		paymentBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		paymentBtn.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VendorInvoice vendorInvoice = new VendorInvoice();
-				vendorInvoice.vi.setVisible(true);
+				ResidentInvoiceStatement residentInvoiceStatement = new ResidentInvoiceStatement();
+				residentInvoiceStatement.ris.setVisible(true);
 				rphm.setVisible(false);
 
 			}
 		});
 		rphm.getContentPane().add(paymentBtn);
-
-		// Operation and budget planning Button
-		JButton payHisBtn = new JButton("Statement");
-		payHisBtn.setBounds(44, 213, 315, 42);
-		payHisBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		payHisBtn.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-                VendorStatement vendorStatement = new VendorStatement();
-				vendorStatement.vs.setVisible(true);
-				rphm.setVisible(false);
-
-			}
-		});
-		rphm.getContentPane().add(payHisBtn);
 		
 		// Operation and budget planning Button
 		JButton complaintBtn = new JButton("Receipt");
-		complaintBtn.setBounds(44, 273, 315, 42);
+		complaintBtn.setBounds(44, 213, 315, 42);
 		complaintBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		complaintBtn.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				VendorReceipt vendorReceipt = new VendorReceipt();
-				vendorReceipt.vr.setVisible(true);
+				ResidentReceipt residentReceipt = new ResidentReceipt();
+				residentReceipt.rr.setVisible(true);
 				rphm.setVisible(false);
 
 			}
@@ -132,7 +115,7 @@ public class ResidentPaymentHistoryMenu {
 
 		// Log Out Btn
 		JButton logOutBtn = new JButton("Back");
-		logOutBtn.setBounds(44, 333, 315, 42);
+		logOutBtn.setBounds(44, 273, 315, 42);
 		logOutBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		logOutBtn.addActionListener(new ActionListener() {
 

@@ -391,6 +391,7 @@ public class FacilityPayment {
 				//crud.update("VendorInvoice.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
 				crud.update("C:\\Users\\Alan\\Documents\\FacilityPaymentHistory.txt", uid, 0,"", 0, String.valueOf(total), 2, "", 0);
 				crud.update("C:\\Users\\Alan\\Documents\\FacilityPaymentHistory.txt", uid, 0,"", 0, String.valueOf(amount), 3, "", 0);
+                                crud.update("C:\\Users\\Alan\\Documents\\ResidentInvoiceStatement.txt", userID, 0,"", 0, String.valueOf(total), 3, "", 0);
 
 				// Clear text after update or add
 				txtUID.setText("");

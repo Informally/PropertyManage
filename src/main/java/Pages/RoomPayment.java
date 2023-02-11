@@ -353,6 +353,7 @@ public class RoomPayment {
 				ArrayList<String> data = new ArrayList<>();
 				ArrayList<String> dataReceipt = new ArrayList<>();
 				ArrayList<String> dataMonthly = new ArrayList<>();
+                                ArrayList<String> dataIs = new ArrayList<>();
 
 				try {
 					Thread.sleep(500);
@@ -390,10 +391,17 @@ public class RoomPayment {
 				dataMonthly.add(month);
 				dataMonthly.add(year);
 				dataMonthly.add(dtf.format(now));
+                                
+                                dataIs.add(uid);
+                                dataIs.add("Monthly");
+                                dataIs.add(roomType);
+                                dataIs.add(price);
+                                dataIs.add(dtf.format(now));
 
 				crud.create("C:\\Users\\Alan\\Documents\\ResidentPaymentHistory.txt", data);
 				crud.create("C:\\Users\\Alan\\Documents\\RoomReceipt.txt", dataReceipt);
 				crud.create("C:\\Users\\Alan\\Documents\\MonthlyPayment.txt", dataMonthly);
+                                crud.create("C:\\Users\\Alan\\Documents\\ResidentInvoiceStatement.txt", dataIs);
 				// Update the debt value
 				int totalDebt = Integer.parseInt(out) - Integer.parseInt(amount);
 				int total = Integer.parseInt(amount) - Integer.parseInt(out);
@@ -402,6 +410,7 @@ public class RoomPayment {
 				//crud.update("VendorInvoice.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
 				crud.update("C:\\Users\\Alan\\Documents\\ResidentPaymentHistory.txt", uid, 0,"", 0, String.valueOf(total), 2, "", 0);
 				crud.update("C:\\Users\\Alan\\Documents\\ResidentPaymentHistory.txt", uid, 0,"", 0, String.valueOf(amount), 3, "", 0);
+                                crud.update("C:\\Users\\Alan\\Documents\\ResidentInvoiceStatement.txt", userID, 0,"", 0, String.valueOf(total), 3, "", 0);
 
 				// Clear text after update or add
 				txtUID.setText("");

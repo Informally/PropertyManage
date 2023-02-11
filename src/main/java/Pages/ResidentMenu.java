@@ -174,8 +174,8 @@ public class ResidentMenu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				VendorComplaint vendorComplaint = new VendorComplaint();
-				vendorComplaint.vc.setVisible(true);
+				ResidentComplaint residentComplaint = new ResidentComplaint();
+				residentComplaint.rc.setVisible(true);
 				rm.setVisible(false);
 
 			}

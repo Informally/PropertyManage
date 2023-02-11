@@ -358,6 +358,7 @@ public class FacilityBooking {
                                 int totalPrice = Integer.parseInt(price) * Integer.parseInt(duration);
 				
 				ArrayList<String> data = new ArrayList<>();
+                                ArrayList<String> dataIs = new ArrayList<>();
 
 				try {
 					Thread.sleep(500);
@@ -376,8 +377,15 @@ public class FacilityBooking {
                                         data.add(String.valueOf(totalPrice));
                                         data.add(date);
                                         data.add(time);
+                                        
+                                        dataIs.add(uid);
+                                        dataIs.add("Facility");
+                                        dataIs.add(facilityType);
+                                        dataIs.add(String.valueOf(totalPrice));
+                                        dataIs.add(date);
 
 					crud.create("C:\\Users\\Alan\\Documents\\FacilityBooking.txt", data);
+                                        crud.create("C:\\Users\\Alan\\Documents\\ResidentInvoiceStatement.txt", dataIs);
 
 				} else { // this means update data
 					data.add(userId);
@@ -388,7 +396,15 @@ public class FacilityBooking {
                                         data.add(String.valueOf(totalPrice));
                                         data.add(date);
                                         data.add(time);
+                                        
+                                        dataIs.add(userId);
+                                        dataIs.add("Facility");
+                                        dataIs.add(facilityType);
+                                        dataIs.add(String.valueOf(totalPrice));
+                                        dataIs.add(date);
+                                        
 					crud.updateRow("C:\\Users\\Alan\\Documents\\FacilityBooking.txt", userId, 0, "", 0, data);
+                                        crud.updateRow("C:\\Users\\Alan\\Documents\\ResidentInvoiceStatement.txt", userId, 0, "", 0, dataIs);
 				}
 
 				// Clear text after update or add
