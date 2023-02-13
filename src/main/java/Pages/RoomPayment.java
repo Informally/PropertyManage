@@ -67,7 +67,7 @@ public class RoomPayment {
 	private void initialize() {
 		rp = new JFrame();
 		rp.setTitle("Resident Room Payment");
-		rp.setBounds(100, 100, 1471, 822);
+		rp.setBounds(100, 100, 1000, 822);
 		rp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		rp.getContentPane().setLayout(null);
 
