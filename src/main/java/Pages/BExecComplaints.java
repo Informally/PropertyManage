@@ -5,8 +5,9 @@ import java.awt.EventQueue;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JTextArea;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
@@ -28,11 +29,12 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
-public class VendorComplaint {
+public class BExecComplaints {
 
-	public JFrame vc;
+	public JFrame bec;
 	CRUD crud = new CRUD();
 	ArrayList<ArrayList<String>> tblData = new ArrayList<>();
+        ArrayList<ArrayList<String>> tb2Data = new ArrayList<>();
 
 	/**
 	 * Launch the application.
@@ -41,8 +43,8 @@ public class VendorComplaint {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VendorComplaint window = new VendorComplaint();
-					window.vc.setVisible(true);
+					BExecComplaints window = new BExecComplaints();
+					window.bec.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -53,7 +55,7 @@ public class VendorComplaint {
 	/**
 	 * Create the application.
 	 */
-	public VendorComplaint() {
+	public BExecComplaints() {
 		initialize();
 	}
 
@@ -61,116 +63,125 @@ public class VendorComplaint {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		vc = new JFrame();
-		vc.setTitle("Vendor Complaint");
-		vc.setBounds(100, 100, 1200, 722);
-		vc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		vc.getContentPane().setLayout(null);
+		bec = new JFrame();
+		bec.setTitle("View & Update Complaint");
+		bec.setBounds(100, 100, 1280, 900);
+		bec.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		bec.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Vendor Complaint");
+		JLabel lblNewLabel = new JLabel("View & Update Complaint");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
-		vc.getContentPane().add(lblNewLabel);
-
-
+		bec.getContentPane().add(lblNewLabel);
 
 		// Ticket Number
 		JLabel lblUID = new JLabel("No: ");
 		lblUID.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblUID.setBounds(44, 73, 315, 42);
-		vc.getContentPane().add(lblUID);
+		bec.getContentPane().add(lblUID);
 
 		JTextField txtUID = new JTextField("");
 		txtUID.setBounds(134, 73, 250, 42);
 		txtUID.setBackground(Color.lightGray);
 		txtUID.setEditable(false);
-		vc.getContentPane().add(txtUID);
-
+		bec.getContentPane().add(txtUID);
+                
                 // User
 		JLabel lblUser = new JLabel("User: ");
 		lblUser.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblUser.setBounds(434, 73, 315, 42);
-		vc.getContentPane().add(lblUser);
+		bec.getContentPane().add(lblUser);
 
-		JTextField txtUser = new JTextField("Vendor");
+		JTextField txtUser = new JTextField("");
 		txtUser.setBounds(554, 73, 250, 42);
                 txtUser.setBackground(Color.lightGray);
 		txtUser.setEditable(false);
-		vc.getContentPane().add(txtUser);
-                
+		bec.getContentPane().add(txtUser);
+
 		// Name
 		JLabel lblName = new JLabel("Name: ");
 		lblName.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblName.setBounds(44, 123, 220, 42);
-		vc.getContentPane().add(lblName);
+		bec.getContentPane().add(lblName);
 
 		JTextField txtName = new JTextField();
 		txtName.setBounds(134, 123, 150, 42);
-		vc.getContentPane().add(txtName);
+                txtName.setBackground(Color.lightGray);
+		txtName.setEditable(false);
+		bec.getContentPane().add(txtName);
 
 		// Email
 		JLabel lblEmail = new JLabel("Email: ");
 		lblEmail.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblEmail.setBounds(300, 123, 220, 42);
-		vc.getContentPane().add(lblEmail);
+		bec.getContentPane().add(lblEmail);
 
 		JTextField txtEmail = new JTextField();
 		txtEmail.setBounds(390, 123, 150, 42);
-		vc.getContentPane().add(txtEmail);
+                txtEmail.setBackground(Color.lightGray);
+		txtEmail.setEditable(false);
+		bec.getContentPane().add(txtEmail);
 
 		// Contact
 		JLabel lblContact = new JLabel("Contact:");
 		lblContact.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblContact.setBounds(556, 123, 220, 42);
-		vc.getContentPane().add(lblContact);
+		bec.getContentPane().add(lblContact);
 
 		JTextField txtContact = new JTextField();
 		txtContact.setBounds(646, 123, 150, 42);
-		vc.getContentPane().add(txtContact);
-
-		// Status
+                txtContact.setBackground(Color.lightGray);
+		txtContact.setEditable(false);
+		bec.getContentPane().add(txtContact);
+                
+                // Status
 		JLabel lblStatus = new JLabel("Status:");
 		lblStatus.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblStatus.setBounds(44, 173, 315, 42);
-		vc.getContentPane().add(lblStatus);
+		bec.getContentPane().add(lblStatus);
 
-		JTextField txtStatus = new JTextField("Processing");
+		JTextField txtStatus = new JTextField("");
 		txtStatus.setBounds(134, 173, 250, 42);
-                txtStatus.setBackground(Color.lightGray);
-		txtStatus.setEditable(false);
-		vc.getContentPane().add(txtStatus);
-
+		bec.getContentPane().add(txtStatus);
+		
 		// Date
 		JLabel lblDate = new JLabel("Date:");
 		lblDate.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblDate.setBounds(434, 173, 315, 42);
-		vc.getContentPane().add(lblDate);
+		bec.getContentPane().add(lblDate);
 
 		JTextField txtDate = new JTextField();
 		txtDate.setBounds(554, 173, 250, 42);
-		vc.getContentPane().add(txtDate);
-		
-		// Subject
+                txtDate.setBackground(Color.lightGray);
+		txtDate.setEditable(false);
+		bec.getContentPane().add(txtDate);
+                
+                // Subject
 		JLabel lblSubject = new JLabel("Subject:");
 		lblSubject.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblSubject.setBounds(44, 223, 315, 42);
-		vc.getContentPane().add(lblSubject);
+		bec.getContentPane().add(lblSubject);
 
 		JTextField txtSubject = new JTextField();
 		txtSubject.setBounds(134, 223, 660, 42);
-		vc.getContentPane().add(txtSubject);
+                txtSubject.setBackground(Color.lightGray);
+		txtSubject.setEditable(false);
+		bec.getContentPane().add(txtSubject);
                 
                 // Detail
 		JLabel lblDetail = new JLabel("Detail:");
 		lblDetail.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblDetail.setBounds(44, 273, 315, 42);
-		vc.getContentPane().add(lblDetail);
+		bec.getContentPane().add(lblDetail);
 
 		JTextArea txtDetail = new JTextArea();
-		txtDetail.setBounds(134, 273, 660, 150);
+		txtDetail.setBounds(134, 273, 660, 80);
                 txtDetail.setLineWrap(true);
                 txtDetail.setWrapStyleWord(true);
-		vc.getContentPane().add(txtDetail);
+                txtDetail.setBackground(Color.lightGray);
+		txtDetail.setEditable(false);
+		bec.getContentPane().add(txtDetail);
+
 
 		// Error text
 		JLabel errorText = new JLabel();
@@ -178,15 +189,15 @@ public class VendorComplaint {
 		errorText.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13));
 		errorText.setBounds(204, 273, 330, 42);
 		errorText.setVisible(false);
-		vc.getContentPane().add(errorText);
+		bec.getContentPane().add(errorText);
 
-		// Result Display
-		tblData = crud.read("VendorComplaint.txt");
+		// Result Display 1
+		tblData = crud.read("ResidentComplaint.txt");
 		String row[] = new String[9];
-		String column[] = { "No.", "User", "Name", "Email", "Contact", "Status", "Date", "Subject", "Detail" };
+		String column[] = { "No.", "User", "Name", "Email", "Contact", "Status", "Date", "Subject", "Detail"};
 
 		JTable jTable = new JTable();
-		jTable.setBounds(44, 500, 1100, 150);
+		jTable.setBounds(44, 470, 1100, 110);
 		DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 		tableModel.setColumnIdentifiers(column);
 		jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -228,8 +239,8 @@ public class VendorComplaint {
 		});
 		JScrollPane scroll = new JScrollPane(jTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scroll.setBounds(44, 500, 1100, 150);
-		vc.getContentPane().add(scroll);
+		scroll.setBounds(44, 470, 1100, 110);
+		bec.getContentPane().add(scroll);
 
 		// Error text calculation
 		JLabel calErrorText = new JLabel();
@@ -237,55 +248,66 @@ public class VendorComplaint {
 		calErrorText.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13));
 		calErrorText.setBounds(204, 530, 330, 42);
 		calErrorText.setVisible(false);
-		vc.getContentPane().add(calErrorText);
+		bec.getContentPane().add(calErrorText);
 
 		
 		// Delete Btn
-		JButton deleteBtn = new JButton("Delete");
-		deleteBtn.setBounds(364, 450, 150, 42);
-		deleteBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		deleteBtn.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		//JButton deleteBtn = new JButton("Delete");
+		//deleteBtn.setBounds(364, 450, 150, 42);
+		//deleteBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		//deleteBtn.addActionListener(new ActionListener() {
+			//@Override
+			//public void actionPerformed(ActionEvent e) {
 				
-				String uid = txtUID.getText().trim();
+				//String uid = txtUID.getText().trim();
 				
-				crud.delete("VendorComplaint.txt", uid, 0, "", 0);
+				//crud.delete("ResidentComplaint.txt", uid, 0, "", 0);
 				
 				// Refresh the data in table
-				tblData = crud.read("VendorComplaint.txt");
-				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
-				tableModel.setColumnIdentifiers(column);
-				tableModel.getDataVector().removeAllElements();
-				tableModel.fireTableDataChanged();
-				jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-				for (int i = 0; i < tblData.size(); i++) {
-					row[0] = tblData.get(i).get(0);
-					row[1] = tblData.get(i).get(1);
-					row[2] = tblData.get(i).get(2);
-					row[3] = tblData.get(i).get(3);
-					row[4] = tblData.get(i).get(4);
-					row[5] = tblData.get(i).get(5);
-					row[6] = tblData.get(i).get(6);
-                                        row[7] = tblData.get(i).get(7);
-                                        row[8] = tblData.get(i).get(8);
-					tableModel.addRow(row);
-				}
-				try {
-					Thread.sleep(100);
-				} catch (InterruptedException e1) {
+				//tblData = crud.read("ResidentComplaint.txt");
+				//DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
+				//tableModel.setColumnIdentifiers(column);
+				//tableModel.getDataVector().removeAllElements();
+				//tableModel.fireTableDataChanged();
+				//jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+				//for (int i = 0; i < tblData.size(); i++) {
+					//row[0] = tblData.get(i).get(0);
+					//row[1] = tblData.get(i).get(1);
+					//row[2] = tblData.get(i).get(2);
+					//row[3] = tblData.get(i).get(3);
+					//row[4] = tblData.get(i).get(4);
+					//row[5] = tblData.get(i).get(5);
+					//row[6] = tblData.get(i).get(6);
+                                       // row[7] = tblData.get(i).get(7);
+                                       // row[8] = tblData.get(i).get(8);
+					//tableModel.addRow(row);
+				//}
+				//try {
+				//	Thread.sleep(100);
+				///} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				jTable.updateUI();
+				//	e1.printStackTrace();
+				//}
+				//jTable.updateUI();
 
-			}
-		});
-		vc.getContentPane().add(deleteBtn);
-
+			///}
+		///});
+		//bec.getContentPane().add(deleteBtn);
+                
+                //resident and vendor label
+                JLabel lblRes= new JLabel("Resident Complaints:");
+		lblRes.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblRes.setBounds(44,425, 315, 42);
+		bec.getContentPane().add(lblRes);
+                
+                JLabel lblVen= new JLabel("Vendor Complaints:");
+		lblVen.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblVen.setBounds(44, 580, 315, 42);
+		bec.getContentPane().add(lblVen);
+                
 		// Clear Text field Btn
 		JButton clearBtn = new JButton("Clear All");
-		clearBtn.setBounds(204, 450, 150, 42);
+		clearBtn.setBounds(204, 375, 150, 42);
 		clearBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		clearBtn.addActionListener(new ActionListener() {
 			@Override
@@ -301,12 +323,11 @@ public class VendorComplaint {
                                 txtDetail.setText("");
 			}
 		});
-		vc.getContentPane().add(clearBtn);
+		bec.getContentPane().add(clearBtn);
 
-
-		// Add Complaint Btn
+		// Save complaint Btn
 		JButton addUserBtn = new JButton("Save");
-		addUserBtn.setBounds(44, 450, 150, 42);
+		addUserBtn.setBounds(44, 375, 150, 42);
 		addUserBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		addUserBtn.addActionListener(new ActionListener() {
 
@@ -346,9 +367,8 @@ public class VendorComplaint {
 					data.add(date);
 					data.add(subject);
 					data.add(detail);
-					
 
-					crud.create("VendorComplaint.txt", data);
+					crud.create("ResidentComplaint.txt", data);
 
 				} else { // this means update data
 					data.add(userId);
@@ -360,11 +380,11 @@ public class VendorComplaint {
 					data.add(date);
 					data.add(subject);
 					data.add(detail);
-					crud.updateRow("VendorComplaint.txt", userId, 0, "", 0, data);
+					crud.updateRow("ResidentComplaint.txt", userId, 0, "", 0, data);
 				}
 
 				// Clear text after update or add
-                                txtUID.setText("");
+				txtUID.setText("");
 				txtUser.setText("");
 				txtName.setText("");
 				txtEmail.setText("");
@@ -373,9 +393,9 @@ public class VendorComplaint {
                                 txtDate.setText("");
 				txtSubject.setText("");
                                 txtDetail.setText("");
-                                
+
 				// Refresh the data in table
-				tblData = crud.read("VendorComplaint.txt");
+				tblData = crud.read("ResidentComplaint.txt");
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 				tableModel.setColumnIdentifiers(column);
 				tableModel.getDataVector().removeAllElements();
@@ -403,7 +423,7 @@ public class VendorComplaint {
 
 			}
 		});
-		vc.getContentPane().add(addUserBtn);
+		bec.getContentPane().add(addUserBtn);
 		
 		// back Button
 		JButton backBtn = new JButton("Back");
@@ -413,13 +433,13 @@ public class VendorComplaint {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VendorMenu vm = new VendorMenu();
-				vm.vm.setVisible(true);
-				vc.setVisible(false);
+				BuildingExecMenu Bem = new BuildingExecMenu();
+				Bem.buildExec.setVisible(true);
+				bec.setVisible(false);
 
 			}
 		});
-		vc.getContentPane().add(backBtn);
+		bec.getContentPane().add(backBtn);
 
 
 	}

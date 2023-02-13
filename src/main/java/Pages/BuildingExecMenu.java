@@ -95,21 +95,21 @@ public class BuildingExecMenu {
 		buildExec.getContentPane().add(jobBtn);
 
 		// View & Update complaints status
-		JButton optBgtBtn = new JButton("View & Update complaints status");
-		optBgtBtn.setBounds(44, 213, 315, 42);
-		optBgtBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		optBgtBtn.addActionListener(new ActionListener() {
+		JButton viewupcom = new JButton("View & Update complaints status");
+		viewupcom.setBounds(44, 213, 315, 42);
+		viewupcom.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		viewupcom.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				OperationBudgetPlanning optBgtPlan = new OperationBudgetPlanning();
-				optBgtPlan.optBgtPlan.setVisible(true);
+				BExecComplaints viewupcom = new BExecComplaints();
+				viewupcom.bec.setVisible(true);
 				buildExec.setVisible(false);
 
 			}
 		});
-		buildExec.getContentPane().add(optBgtBtn);
+		buildExec.getContentPane().add(viewupcom);
 		
 		// Setup/View/Modify/Delete Patrolling Schedule & Checkpoints
 		JButton patrolBtn = new JButton("Patrolling Schedule & Checkpoints");
