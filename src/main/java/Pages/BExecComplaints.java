@@ -582,7 +582,7 @@ public class BExecComplaints {
 				// Refresh the data in table
 				tb2Data = crud.read("VendorComplaint.txt");
 				DefaultTableModel tableModel1 = (DefaultTableModel) jTable1.getModel();
-				tableModel1.setColumnIdentifiers(column);
+				tableModel1.setColumnIdentifiers(column1);
 				tableModel1.getDataVector().removeAllElements();
 				tableModel1.fireTableDataChanged();
 				jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -612,7 +612,7 @@ public class BExecComplaints {
                 
                 // Clear Text field Btn for Admin Exec
 		JButton clearBtn3 = new JButton("Clear All");
-		clearBtn3.setBounds(204, 900, 150, 42);
+		clearBtn3.setBounds(204, 440, 150, 42);
 		clearBtn3.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		clearBtn3.addActionListener(new ActionListener() {
 			@Override
@@ -630,9 +630,9 @@ public class BExecComplaints {
 		});
 		bec.getContentPane().add(clearBtn3);
 
-		// Save complaint Btn for Vendor
+		// Save complaint Btn for ADmin Exec
 		JButton addUserBtn3 = new JButton("Save");
-		addUserBtn3.setBounds(44, 900, 150, 42);
+		addUserBtn3.setBounds(44, 440, 150, 42);
 		addUserBtn3.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		addUserBtn3.addActionListener(new ActionListener() {
 
@@ -685,7 +685,7 @@ public class BExecComplaints {
 					data.add(date);
 					data.add(subject);
 					data.add(detail);
-					crud.updateRow("AdminEx.txt", userId, 0, "", 0, data);
+					crud.updateRow("AdminExComplaint.txt", userId, 0, "", 0, data);
 				}
 
 				// Clear text after update or add
