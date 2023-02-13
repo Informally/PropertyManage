@@ -71,7 +71,7 @@ public class VendorComplaint {
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		vc.getContentPane().add(lblNewLabel);
 
-		// UID
+		// Ticket Number
 		JLabel lblUID = new JLabel("No: ");
 		lblUID.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblUID.setBounds(44, 73, 315, 42);
@@ -177,8 +177,8 @@ public class VendorComplaint {
 
 		// Result Display
 		tblData = crud.read("VendorComplaint.txt");
-		String row[] = new String[7];
-		String column[] = { "User Id", "Name", "Email", "Contact", "Title", "Detail", "Date" };
+		String row[] = new String[9];
+		String column[] = { "No.", "User", "Name", "Email", "Contact", "Status", "Date", "Subject", "Detail" };
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 500, 1100, 150);
@@ -193,6 +193,8 @@ public class VendorComplaint {
 			row[4] = tblData.get(i).get(4);
 			row[5] = tblData.get(i).get(5);
 			row[6] = tblData.get(i).get(6);
+                        row[7] = tblData.get(i).get(7);
+                        row[8] = tblData.get(i).get(8);
 			tableModel.addRow(row);
 
 		}
@@ -207,12 +209,14 @@ public class VendorComplaint {
 
 				if (row.length > 0) {
 					txtUID.setText((String) jTable.getValueAt(row[0], 0));
-					txtName.setText((String) jTable.getValueAt(row[0], 1));
-					txtEmail.setText((String) jTable.getValueAt(row[0], 2));
-					txtContact.setText((String) jTable.getValueAt(row[0], 3));
-					//txtTitle.setText((String) jTable.getValueAt(row[0], 4));
-					//txtDetail.setText((String) jTable.getValueAt(row[0], 5));
+					txtUser.setText((String) jTable.getValueAt(row[0], 1));
+					txtName.setText((String) jTable.getValueAt(row[0], 2));
+					txtEmail.setText((String) jTable.getValueAt(row[0], 3));
+					txtContact.setText((String) jTable.getValueAt(row[0], 4));
+					txtStatus.setText((String) jTable.getValueAt(row[0], 5));
 					txtDate.setText((String) jTable.getValueAt(row[0], 6));
+                                        txtSubject.setText((String) jTable.getValueAt(row[0], 7));
+                                        txtDetail.setText((String) jTable.getValueAt(row[0], 8));
 				}
 
 			}
@@ -258,6 +262,8 @@ public class VendorComplaint {
 					row[4] = tblData.get(i).get(4);
 					row[5] = tblData.get(i).get(5);
 					row[6] = tblData.get(i).get(6);
+                                        row[7] = tblData.get(i).get(7);
+                                        row[8] = tblData.get(i).get(8);
 					tableModel.addRow(row);
 				}
 				try {
@@ -280,12 +286,14 @@ public class VendorComplaint {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				txtUID.setText("");
+				txtUser.setText("");
 				txtName.setText("");
-				//txtTitle.setText("");
 				txtEmail.setText("");
 				txtContact.setText("");
-				//txtDetail.setText("");
-				txtDate.setText("");
+                                txtStatus.setText("");
+                                txtDate.setText("");
+				txtSubject.setText("");
+                                txtDetail.setText("");
 			}
 		});
 		vc.getContentPane().add(clearBtn);
@@ -303,12 +311,14 @@ public class VendorComplaint {
 				UUID uuid = UUID.randomUUID();
 
 				String userId = txtUID.getText().trim();
+                                String user1 = txtUser.getText().trim();
 				String name = txtName.getText().trim();
-				//String title = txtTitle.getText().trim();
-				//String detail = txtDetail.getText().trim();
 				String email = txtEmail.getText().trim();
 				String contact = txtContact.getText().trim();
+                                String status = txtStatus.getText().trim();
 				String date = txtDate.getText().trim();
+                                String subject = txtSubject.getText().trim();
+                                String detail = txtDetail.getText().trim();
 
 				ArrayList<String> data = new ArrayList<>();
 
@@ -322,35 +332,42 @@ public class VendorComplaint {
 				if (userId.isEmpty()) { // this means new data is added
 					String uid = uuid.toString();
 					data.add(uid);
+                                        data.add(user1);
 					data.add(name);
 					data.add(email);
-					data.add(contact);
-					//data.add(title);
-					//data.add(detail);
+                                        data.add(contact);
+                                        data.add(status);
 					data.add(date);
+					data.add(subject);
+					data.add(detail);
+					
 
 					crud.create("VendorComplaint.txt", data);
 
 				} else { // this means update data
 					data.add(userId);
+					data.add(user1);
 					data.add(name);
 					data.add(email);
-					data.add(contact);
-					//data.add(title);
-					//data.add(detail);
+                                        data.add(contact);
+                                        data.add(status);
 					data.add(date);
+					data.add(subject);
+					data.add(detail);
 					crud.updateRow("VendorComplaint.txt", userId, 0, "", 0, data);
 				}
 
 				// Clear text after update or add
-				txtUID.setText("");
+                                txtUID.setText("");
+				txtUser.setText("");
 				txtName.setText("");
-				//txtTitle.setText("");
 				txtEmail.setText("");
 				txtContact.setText("");
-				//txtDetail.setText("");
-				txtDate.setText("");
-
+                                txtStatus.setText("");
+                                txtDate.setText("");
+				txtSubject.setText("");
+                                txtDetail.setText("");
+                                
 				// Refresh the data in table
 				tblData = crud.read("VendorComplaint.txt");
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
@@ -366,6 +383,8 @@ public class VendorComplaint {
 					row[4] = tblData.get(i).get(4);
 					row[5] = tblData.get(i).get(5);
 					row[6] = tblData.get(i).get(6);
+                                        row[7] = tblData.get(i).get(7);
+                                        row[8] = tblData.get(i).get(8);
 					tableModel.addRow(row);
 				}
 				try {
