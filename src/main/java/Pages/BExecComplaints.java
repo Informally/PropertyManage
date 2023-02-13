@@ -65,7 +65,7 @@ public class BExecComplaints {
 	private void initialize() {
 		bec = new JFrame();
 		bec.setTitle("View & Update Complaint");
-		bec.setBounds(100, 100, 1280, 900);
+		bec.setBounds(100, 100, 1200, 1000);
 		bec.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		bec.getContentPane().setLayout(null);
 
@@ -191,13 +191,13 @@ public class BExecComplaints {
 		errorText.setVisible(false);
 		bec.getContentPane().add(errorText);
 
-		// Result Display 1
+		// Result Display 1 for resident/tenant
 		tblData = crud.read("ResidentComplaint.txt");
 		String row[] = new String[9];
 		String column[] = { "No.", "User", "Name", "Email", "Contact", "Status", "Date", "Subject", "Detail"};
 
 		JTable jTable = new JTable();
-		jTable.setBounds(44, 470, 1100, 110);
+		jTable.setBounds(44, 425, 1100, 110);
 		DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 		tableModel.setColumnIdentifiers(column);
 		jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -239,8 +239,59 @@ public class BExecComplaints {
 		});
 		JScrollPane scroll = new JScrollPane(jTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scroll.setBounds(44, 470, 1100, 110);
+		scroll.setBounds(44, 425, 1100, 110);
 		bec.getContentPane().add(scroll);
+                
+                // Result Display 2 for vendor
+		//tb2Data = crud.read("VendorComplaint.txt");
+		//String row1[] = new String[9];
+		//String column1[] = { "No.", "User", "Name", "Email", "Contact", "Status", "Date", "Subject", "Detail"};
+
+		//JTable jTable1 = new JTable();
+		//jTable1.setBounds(44, 625, 1100, 110);
+		//DefaultTableModel tableModel1 = (DefaultTableModel) jTable1.getModel();
+		//tableModel1.setColumnIdentifiers(column1);
+		//jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		//for (int i = 0; i < tb2Data.size(); i++) {
+			//row1[0] = tb2Data.get(i).get(0);
+			//row1[1] = tb2Data.get(i).get(1);
+			//row1[2] = tb2Data.get(i).get(2);
+			//row1[3] = tb2Data.get(i).get(3);
+			//row1[4] = tb2Data.get(i).get(4);
+			//row1[5] = tb2Data.get(i).get(5);
+			//row1[6] = tb2Data.get(i).get(6);
+                        //row1[7] = tb2Data.get(i).get(7);
+                       // row1[8] = tb2Data.get(i).get(8);
+			//tableModel1.addRow(row1);
+
+		//}
+		//jTable1.setModel(tableModel1);
+
+		//ListSelectionModel select1 = jTable1.getSelectionModel();
+		//select1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		//select1.addListSelectionListener(new ListSelectionListener() {
+			//public void valueChanged(ListSelectionEvent e) {
+				///int[] row2 = jTable1.getSelectedRows();
+				//int columnNum2 = jTable1.getColumnCount();
+
+				//if (row2.length > 0) {
+					//txtUID.setText((String) jTable1.getValueAt(row2[0], 0));
+					//txtUser.setText((String) jTable1.getValueAt(row2[0], 1));
+					//txtName.setText((String) jTable1.getValueAt(row2[0], 2));
+					//txtEmail.setText((String) jTable1.getValueAt(row2[0], 3));
+					//txtContact.setText((String) jTable1.getValueAt(row2[0], 4));
+					//txtStatus.setText((String) jTable1.getValueAt(row2[0], 5));
+					//txtDate.setText((String) jTable1.getValueAt(row2[0], 6));
+                                       // txtSubject.setText((String) jTable1.getValueAt(row2[0], 7));
+                                       // txtDetail.setText((String) jTable1.getValueAt(row2[0], 8));
+				//}
+
+			//}
+		//});
+		//JScrollPane scroll1 = new JScrollPane(jTable1, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+				//JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		//scroll1.setBounds(44, 625, 1100, 110);
+		//bec.getContentPane().add(scroll1);
 
 		// Error text calculation
 		JLabel calErrorText = new JLabel();
@@ -297,17 +348,17 @@ public class BExecComplaints {
                 //resident and vendor label
                 JLabel lblRes= new JLabel("Resident Complaints:");
 		lblRes.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblRes.setBounds(44,425, 315, 42);
+		lblRes.setBounds(44,375, 315, 42);
 		bec.getContentPane().add(lblRes);
                 
                 JLabel lblVen= new JLabel("Vendor Complaints:");
 		lblVen.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblVen.setBounds(44, 580, 315, 42);
+		lblVen.setBounds(44, 600, 315, 42);
 		bec.getContentPane().add(lblVen);
                 
-		// Clear Text field Btn
+		// Clear Text field Btn for Resident
 		JButton clearBtn = new JButton("Clear All");
-		clearBtn.setBounds(204, 375, 150, 42);
+		clearBtn.setBounds(204, 550, 150, 42);
 		clearBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		clearBtn.addActionListener(new ActionListener() {
 			@Override
@@ -325,9 +376,9 @@ public class BExecComplaints {
 		});
 		bec.getContentPane().add(clearBtn);
 
-		// Save complaint Btn
+		// Save complaint Btn for Resident
 		JButton addUserBtn = new JButton("Save");
-		addUserBtn.setBounds(44, 375, 150, 42);
+		addUserBtn.setBounds(44, 550, 150, 42);
 		addUserBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		addUserBtn.addActionListener(new ActionListener() {
 
