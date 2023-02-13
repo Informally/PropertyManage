@@ -60,7 +60,7 @@ public class ViewPCJReport {
 	private void initialize() {
 		Report = new JFrame();
 		Report.setTitle("View Report");
-		Report.setBounds(100, 100, 871, 622);
+		Report.setBounds(100, 100, 871, 650);
 		Report.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Report.getContentPane().setLayout(null);
 
@@ -85,6 +85,7 @@ public class ViewPCJReport {
 		// Result Display
 		JTextArea textArea = new JTextArea();
 		textArea.setLineWrap(true);
+                textArea.setWrapStyleWord(true);
 		textArea.setEditable(false);
 		textArea.setBounds(44, 130, 770, 450);
 
@@ -100,7 +101,7 @@ public class ViewPCJReport {
 				case "Patrolling Report":
 					ArrayList<ArrayList<String>> patroldata = crud.read("Patrol.txt");
 
-					String patrolreport = "<----- Patrol Report ----->\n";
+					String patrolreport = "<---------- Patrolling Report ---------->\n";
 
 					for (ArrayList<String> row : patroldata) {
 						patrolreport += "\nEmployee Id: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Job Role: " + row.get(2) + "\n" + "Patrol Day: " + row.get(3) + "\n" + "Patrol Schedule: " + row.get(4) + "\n"+ "Checkpoint: " + row.get(5) + "\n----------------------\n";
@@ -111,23 +112,42 @@ public class ViewPCJReport {
 					textArea.setText(patrolreport);
 					break;
 				case "Complaint Report":
-					ArrayList<ArrayList<String>> userdata = crud.read("User.txt");
+					ArrayList<ArrayList<String>> residentdata = crud.read("ResidentComplaint.txt");
+                                       
+					String complaintreport = "<---------- Resident Complaint Report ---------->\n";
+                                        
 
-					String userreport = "<----- User Report ----->\n";
-
-					for (ArrayList<String> row : userdata) {
-						userreport += "\nUser Id: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Email: "
-								+ row.get(2) + "\n" + "Age: " + row.get(4) + "\n" + "Role: " + row.get(5)
-								+ "\n----------------------\n";
+					for (ArrayList<String> row : residentdata) {
+						complaintreport += "\nNo.: " + row.get(0) + "\n" + "User: " + row.get(1) + "\n" + "Name: "
+								+ row.get(2) + "\n" + "Email: " + row.get(3) + "\n" + "Contact: " + row.get(4) 
+                                                                + "\n" + "Status: " + row.get(5) + "\n"+ "Date: " + row.get(6) + "\n" + "Subject: " 
+                                                                + row.get(7) + "\n"+ "Detail: " + row.get(8) +"\n----------------------\n";
+                                                
 
 					}
 
-					textArea.setText(userreport);
+					//textArea.setText(complaintreport);
+					//break;
+                                        
+                                        ArrayList<ArrayList<String>> vendordata = crud.read("VendorComplaint.txt");
+                                                String complaintreport2 = "\n<---------- Vendor Complaint Report ---------->\n";
+                                        
+
+                                                for (ArrayList<String> row2 : vendordata) {
+						complaintreport2 += "\nNo.: " + row2.get(0) + "\n" + "User: " + row2.get(1) + "\n" + "Name: "
+								+ row2.get(2) + "\n" + "Email: " + row2.get(3) + "\n" + "Contact: " + row2.get(4) 
+                                                                + "\n" + "Status: " + row2.get(5) + "\n"+ "Date: " + row2.get(6) + "\n" + "Subject: " 
+                                                                + row2.get(7) + "\n"+ "Detail: " + row2.get(8) +"\n----------------------\n";
+
+					}
+
+					textArea.setText(complaintreport + complaintreport2);
 					break;
+                                        
 				case "Job Report":
 					ArrayList<ArrayList<String>> jobdata = crud.read("Employee.txt");
 
-					String jobreport = "<----- Employees Job Report ----->\n";
+					String jobreport = "<---------- Employees Job Report ----------->\n";
 
 					for (ArrayList<String> row : jobdata) {
 						jobreport += "\nEmployee Id: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Email: " + row.get(2) + "\n" + "Contact: " + row.get(3) + "\n" + "Age: " + row.get(4) + "\n" + "Job Role: " + row.get(5) +"\n----------------------\n";
