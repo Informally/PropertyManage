@@ -243,55 +243,55 @@ public class BExecComplaints {
 		bec.getContentPane().add(scroll);
                 
                 // Result Display 2 for vendor
-		//tb2Data = crud.read("VendorComplaint.txt");
-		//String row1[] = new String[9];
-		//String column1[] = { "No.", "User", "Name", "Email", "Contact", "Status", "Date", "Subject", "Detail"};
+		tb2Data = crud.read("VendorComplaint.txt");
+		String row1[] = new String[9];
+		String column1[] = { "No.", "User", "Name", "Email", "Contact", "Status", "Date", "Subject", "Detail"};
 
-		//JTable jTable1 = new JTable();
-		//jTable1.setBounds(44, 625, 1100, 110);
-		//DefaultTableModel tableModel1 = (DefaultTableModel) jTable1.getModel();
-		//tableModel1.setColumnIdentifiers(column1);
-		//jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		//for (int i = 0; i < tb2Data.size(); i++) {
-			//row1[0] = tb2Data.get(i).get(0);
-			//row1[1] = tb2Data.get(i).get(1);
-			//row1[2] = tb2Data.get(i).get(2);
-			//row1[3] = tb2Data.get(i).get(3);
-			//row1[4] = tb2Data.get(i).get(4);
-			//row1[5] = tb2Data.get(i).get(5);
-			//row1[6] = tb2Data.get(i).get(6);
-                        //row1[7] = tb2Data.get(i).get(7);
-                       // row1[8] = tb2Data.get(i).get(8);
-			//tableModel1.addRow(row1);
+		JTable jTable1 = new JTable();
+		jTable1.setBounds(44, 650, 1100, 110);
+		DefaultTableModel tableModel1 = (DefaultTableModel) jTable1.getModel();
+		tableModel1.setColumnIdentifiers(column1);
+		jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		for (int i = 0; i < tb2Data.size(); i++) {
+			row1[0] = tb2Data.get(i).get(0);
+			row1[1] = tb2Data.get(i).get(1);
+			row1[2] = tb2Data.get(i).get(2);
+			row1[3] = tb2Data.get(i).get(3);
+			row1[4] = tb2Data.get(i).get(4);
+			row1[5] = tb2Data.get(i).get(5);
+			row1[6] = tb2Data.get(i).get(6);
+                        row1[7] = tb2Data.get(i).get(7);
+                        row1[8] = tb2Data.get(i).get(8);
+			tableModel1.addRow(row1);
 
-		//}
-		//jTable1.setModel(tableModel1);
+		}
+		jTable1.setModel(tableModel1);
 
-		//ListSelectionModel select1 = jTable1.getSelectionModel();
-		//select1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		//select1.addListSelectionListener(new ListSelectionListener() {
-			//public void valueChanged(ListSelectionEvent e) {
-				///int[] row2 = jTable1.getSelectedRows();
-				//int columnNum2 = jTable1.getColumnCount();
+		ListSelectionModel select1 = jTable1.getSelectionModel();
+		select1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		select1.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) {
+				int[] row2 = jTable1.getSelectedRows();
+				int columnNum2 = jTable1.getColumnCount();
 
-				//if (row2.length > 0) {
-					//txtUID.setText((String) jTable1.getValueAt(row2[0], 0));
-					//txtUser.setText((String) jTable1.getValueAt(row2[0], 1));
-					//txtName.setText((String) jTable1.getValueAt(row2[0], 2));
-					//txtEmail.setText((String) jTable1.getValueAt(row2[0], 3));
-					//txtContact.setText((String) jTable1.getValueAt(row2[0], 4));
-					//txtStatus.setText((String) jTable1.getValueAt(row2[0], 5));
-					//txtDate.setText((String) jTable1.getValueAt(row2[0], 6));
-                                       // txtSubject.setText((String) jTable1.getValueAt(row2[0], 7));
-                                       // txtDetail.setText((String) jTable1.getValueAt(row2[0], 8));
-				//}
+				if (row2.length > 0) {
+					txtUID.setText((String) jTable1.getValueAt(row2[0], 0));
+					txtUser.setText((String) jTable1.getValueAt(row2[0], 1));
+					txtName.setText((String) jTable1.getValueAt(row2[0], 2));
+					txtEmail.setText((String) jTable1.getValueAt(row2[0], 3));
+					txtContact.setText((String) jTable1.getValueAt(row2[0], 4));
+					txtStatus.setText((String) jTable1.getValueAt(row2[0], 5));
+					txtDate.setText((String) jTable1.getValueAt(row2[0], 6));
+                                        txtSubject.setText((String) jTable1.getValueAt(row2[0], 7));
+                                        txtDetail.setText((String) jTable1.getValueAt(row2[0], 8));
+				}
 
-			//}
-		//});
-		//JScrollPane scroll1 = new JScrollPane(jTable1, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
-				//JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		//scroll1.setBounds(44, 625, 1100, 110);
-		//bec.getContentPane().add(scroll1);
+			}
+		});
+		JScrollPane scroll1 = new JScrollPane(jTable1, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scroll1.setBounds(44, 650, 1100, 110);
+		bec.getContentPane().add(scroll1);
 
 		// Error text calculation
 		JLabel calErrorText = new JLabel();
@@ -475,6 +475,126 @@ public class BExecComplaints {
 			}
 		});
 		bec.getContentPane().add(addUserBtn);
+                
+                // Clear Text field Btn for Vendor
+		JButton clearBtn1 = new JButton("Clear All");
+		clearBtn1.setBounds(204, 775, 150, 42);
+		clearBtn1.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		clearBtn1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				txtUID.setText("");
+				txtUser.setText("");
+				txtName.setText("");
+				txtEmail.setText("");
+				txtContact.setText("");
+                                txtStatus.setText("");
+                                txtDate.setText("");
+				txtSubject.setText("");
+                                txtDetail.setText("");
+			}
+		});
+		bec.getContentPane().add(clearBtn1);
+
+		// Save complaint Btn for Vendor
+		JButton addUserBtn1 = new JButton("Save");
+		addUserBtn1.setBounds(44, 775, 150, 42);
+		addUserBtn1.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		addUserBtn1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				User user = new User();
+				UUID uuid = UUID.randomUUID();
+
+				String userId = txtUID.getText().trim();
+                                String user1 = txtUser.getText().trim();
+				String name = txtName.getText().trim();
+				String email = txtEmail.getText().trim();
+				String contact = txtContact.getText().trim();
+                                String status = txtStatus.getText().trim();
+				String date = txtDate.getText().trim();
+                                String subject = txtSubject.getText().trim();
+                                String detail = txtDetail.getText().trim();
+
+				ArrayList<String> data = new ArrayList<>();
+
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+				if (userId.isEmpty()) { // this means new data is added
+					String uid = uuid.toString();
+					data.add(uid);
+                                        data.add(user1);
+					data.add(name);
+					data.add(email);
+                                        data.add(contact);
+                                        data.add(status);
+					data.add(date);
+					data.add(subject);
+					data.add(detail);
+
+					crud.create("VendorComplaint.txt", data);
+
+				} else { // this means update data
+					data.add(userId);
+					data.add(user1);
+					data.add(name);
+					data.add(email);
+                                        data.add(contact);
+                                        data.add(status);
+					data.add(date);
+					data.add(subject);
+					data.add(detail);
+					crud.updateRow("VendorComplaint.txt", userId, 0, "", 0, data);
+				}
+
+				// Clear text after update or add
+				txtUID.setText("");
+				txtUser.setText("");
+				txtName.setText("");
+				txtEmail.setText("");
+				txtContact.setText("");
+                                txtStatus.setText("");
+                                txtDate.setText("");
+				txtSubject.setText("");
+                                txtDetail.setText("");
+
+				// Refresh the data in table
+				tb2Data = crud.read("VendorComplaint.txt");
+				DefaultTableModel tableModel1 = (DefaultTableModel) jTable1.getModel();
+				tableModel1.setColumnIdentifiers(column);
+				tableModel1.getDataVector().removeAllElements();
+				tableModel1.fireTableDataChanged();
+				jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+				for (int i = 0; i < tb2Data.size(); i++) {
+					row1[0] = tb2Data.get(i).get(0);
+					row1[1] = tb2Data.get(i).get(1);
+					row1[2] = tb2Data.get(i).get(2);
+					row1[3] = tb2Data.get(i).get(3);
+					row1[4] = tb2Data.get(i).get(4);
+					row1[5] = tb2Data.get(i).get(5);
+					row1[6] = tb2Data.get(i).get(6);
+                                        row1[7] = tb2Data.get(i).get(7);
+                                        row1[8] = tb2Data.get(i).get(8);
+					tableModel1.addRow(row1);
+				}
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				jTable1.updateUI();
+
+			}
+		});
+		bec.getContentPane().add(addUserBtn1);
 		
 		// back Button
 		JButton backBtn = new JButton("Back");
