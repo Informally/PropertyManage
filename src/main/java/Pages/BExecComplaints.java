@@ -175,7 +175,7 @@ public class BExecComplaints {
 		bec.getContentPane().add(lblDetail);
 
 		JTextArea txtDetail = new JTextArea();
-		txtDetail.setBounds(134, 273, 660, 150);
+		txtDetail.setBounds(134, 273, 660, 80);
                 txtDetail.setLineWrap(true);
                 txtDetail.setWrapStyleWord(true);
                 txtDetail.setBackground(Color.lightGray);
@@ -197,7 +197,7 @@ public class BExecComplaints {
 		String column[] = { "No.", "User", "Name", "Email", "Contact", "Status", "Date", "Subject", "Detail"};
 
 		JTable jTable = new JTable();
-		jTable.setBounds(44, 500, 1100, 150);
+		jTable.setBounds(44, 470, 1100, 110);
 		DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 		tableModel.setColumnIdentifiers(column);
 		jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -239,7 +239,7 @@ public class BExecComplaints {
 		});
 		JScrollPane scroll = new JScrollPane(jTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scroll.setBounds(44, 500, 1100, 150);
+		scroll.setBounds(44, 470, 1100, 110);
 		bec.getContentPane().add(scroll);
 
 		// Error text calculation
@@ -293,10 +293,21 @@ public class BExecComplaints {
 			///}
 		///});
 		//bec.getContentPane().add(deleteBtn);
-
+                
+                //resident and vendor label
+                JLabel lblRes= new JLabel("Resident Complaints:");
+		lblRes.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblRes.setBounds(44,425, 315, 42);
+		bec.getContentPane().add(lblRes);
+                
+                JLabel lblVen= new JLabel("Vendor Complaints:");
+		lblVen.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblVen.setBounds(44, 580, 315, 42);
+		bec.getContentPane().add(lblVen);
+                
 		// Clear Text field Btn
 		JButton clearBtn = new JButton("Clear All");
-		clearBtn.setBounds(204, 450, 150, 42);
+		clearBtn.setBounds(204, 375, 150, 42);
 		clearBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		clearBtn.addActionListener(new ActionListener() {
 			@Override
@@ -314,9 +325,9 @@ public class BExecComplaints {
 		});
 		bec.getContentPane().add(clearBtn);
 
-		// Add complaint Btn
+		// Save complaint Btn
 		JButton addUserBtn = new JButton("Save");
-		addUserBtn.setBounds(44, 450, 150, 42);
+		addUserBtn.setBounds(44, 375, 150, 42);
 		addUserBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		addUserBtn.addActionListener(new ActionListener() {
 
