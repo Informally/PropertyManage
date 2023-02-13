@@ -62,7 +62,7 @@ public class AdminExComplain {
 	 */
 	private void initialize() {
 		aec = new JFrame();
-		aec.setTitle("Admin Complaint");
+		aec.setTitle("Admin Complaint Management");
 		aec.setBounds(100, 100, 1200, 722);
 		aec.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		aec.getContentPane().setLayout(null);
@@ -93,7 +93,7 @@ public class AdminExComplain {
 		lblUser.setBounds(434, 73, 315, 42);
 		aec.getContentPane().add(lblUser);
 
-		JTextField txtUser = new JTextField("Resident/Tenant");
+		JTextField txtUser = new JTextField("Admin Executive");
 		txtUser.setBounds(554, 73, 250, 42);
                 txtUser.setBackground(Color.lightGray);
 		txtUser.setEditable(false);
@@ -183,7 +183,7 @@ public class AdminExComplain {
 		aec.getContentPane().add(errorText);
 
 		// Result Display
-		tblData = crud.read("ResidentComplaint.txt");
+		tblData = crud.read("AdminExComplaint.txt");
 		String row[] = new String[9];
 		String column[] = { "No.", "User", "Name", "Email", "Contact", "Status", "Date", "Subject", "Detail"};
 
@@ -252,10 +252,10 @@ public class AdminExComplain {
 				
 				String uid = txtUID.getText().trim();
 				
-				crud.delete("ResidentComplaint.txt", uid, 0, "", 0);
+				crud.delete("AdminExComplaint.txt", uid, 0, "", 0);
 				
 				// Refresh the data in table
-				tblData = crud.read("ResidentComplaint.txt");
+				tblData = crud.read("AdminExComplaint.txt");
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 				tableModel.setColumnIdentifiers(column);
 				tableModel.getDataVector().removeAllElements();
@@ -351,7 +351,7 @@ public class AdminExComplain {
 					data.add(subject);
 					data.add(detail);
 
-					crud.create("ResidentComplaint.txt", data);
+					crud.create("AdminExComplaint.txt", data);
 
 				} else { // this means update data
 					data.add(userId);
@@ -363,7 +363,7 @@ public class AdminExComplain {
 					data.add(date);
 					data.add(subject);
 					data.add(detail);
-					crud.updateRow("ResidentComplaint.txt", userId, 0, "", 0, data);
+					crud.updateRow("AdminExComplaint.txt", userId, 0, "", 0, data);
 				}
 
 				// Clear text after update or add
@@ -378,7 +378,7 @@ public class AdminExComplain {
                                 txtDetail.setText("");
 
 				// Refresh the data in table
-				tblData = crud.read("ResidentComplaint.txt");
+				tblData = crud.read("AdminExComplaint.txt");
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 				tableModel.setColumnIdentifiers(column);
 				tableModel.getDataVector().removeAllElements();
