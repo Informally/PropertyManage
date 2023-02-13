@@ -95,21 +95,21 @@ public class AdminExecMenu {
 		Aem.getContentPane().add(resTenBtn);
 
 		// Complaint Management Button
-		JButton optBgtBtn = new JButton("Complaint Management");
-		optBgtBtn.setBounds(44, 213, 315, 42);
-		optBgtBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		optBgtBtn.addActionListener(new ActionListener() {
+		JButton comBtn = new JButton("Complaint Management");
+		comBtn.setBounds(44, 213, 315, 42);
+		comBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		comBtn.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				OperationBudgetPlanning optBgtPlan = new OperationBudgetPlanning();
-				optBgtPlan.optBgtPlan.setVisible(true);
+				AdminExComplain AdCom = new AdminExComplain();
+				AdCom.aec.setVisible(true);
 				Aem.setVisible(false);
 
 			}
 		});
-		Aem.getContentPane().add(optBgtBtn);
+		Aem.getContentPane().add(comBtn);
 		
 		// Employee Management Button
 		JButton teamStructMgtBtn = new JButton("Employee Management");
