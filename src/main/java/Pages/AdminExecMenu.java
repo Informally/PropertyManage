@@ -151,8 +151,8 @@ public class AdminExecMenu {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				TeamStructMgt teamStruct = new TeamStructMgt();
-				teamStruct.teamStructMgt.setVisible(true);
+				AdminFacBooking adfacbook = new AdminFacBooking();
+				adfacbook.afb.setVisible(true);
 				Aem.setVisible(false);
 
 			}

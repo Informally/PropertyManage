@@ -28,7 +28,7 @@ import java.util.UUID;
 
 public class AdminFacBooking {
 
-	public JFrame fb;
+	public JFrame afb;
 	CRUD crud = new CRUD();
 	ArrayList<ArrayList<String>> tblData = new ArrayList<>();
 
@@ -39,8 +39,8 @@ public class AdminFacBooking {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FacilityBooking window = new FacilityBooking();
-					window.fb.setVisible(true);
+					AdminFacBooking window = new AdminFacBooking();
+					window.afb.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -59,44 +59,44 @@ public class AdminFacBooking {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		fb = new JFrame();
-		fb.setTitle("Facility Booking");
-		fb.setBounds(100, 100, 900, 822);
-		fb.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		fb.getContentPane().setLayout(null);
+		afb = new JFrame();
+		afb.setTitle("Facility Booking");
+		afb.setBounds(100, 100, 900, 822);
+		afb.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		afb.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Facility Booking");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
-		fb.getContentPane().add(lblNewLabel);
+		afb.getContentPane().add(lblNewLabel);
 
 		// UID
 		JLabel lblUID = new JLabel("UID: ");
 		lblUID.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblUID.setBounds(44, 73, 315, 42);
-		fb.getContentPane().add(lblUID);
+		afb.getContentPane().add(lblUID);
 
 		JTextField txtUID = new JTextField("");
 		txtUID.setBounds(174, 73, 250, 42);
 		txtUID.setBackground(Color.gray);
 		txtUID.setEditable(false);
-		fb.getContentPane().add(txtUID);
+		afb.getContentPane().add(txtUID);
 
 		// Facility No
 		JLabel lblFacility = new JLabel("Facility No: ");
 		lblFacility.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblFacility.setBounds(444, 73, 315, 42);
-		fb.getContentPane().add(lblFacility);
+		afb.getContentPane().add(lblFacility);
 
 		JTextField txtFacility = new JTextField();
 		txtFacility.setBounds(584, 73, 250, 42);
-		fb.getContentPane().add(txtFacility);
+		afb.getContentPane().add(txtFacility);
 
 		// Facility Type
 		JLabel lblFacilityType = new JLabel("Facility Type:");
 		lblFacilityType.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblFacilityType.setBounds(44, 123, 315, 42);
-		fb.getContentPane().add(lblFacilityType);
+		afb.getContentPane().add(lblFacilityType);
 
 		JComboBox<String> txtFacilityType = new JComboBox<>();
 		txtFacilityType.setBounds(174, 123, 250, 42);
@@ -104,35 +104,35 @@ public class AdminFacBooking {
 		txtFacilityType.addItem("Barbeque Pit");
 		txtFacilityType.addItem("Gym Room");
 		txtFacilityType.addItem("Meeting Room");
-		fb.getContentPane().add(txtFacilityType);
+		afb.getContentPane().add(txtFacilityType);
 		
 		// Facility Price
 		JLabel lblPrice = new JLabel("Facility Price: ");
 		lblPrice.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblPrice.setBounds(444, 123, 315, 42);
-		fb.getContentPane().add(lblPrice);
+		afb.getContentPane().add(lblPrice);
 
 		JTextField txtPrice = new JTextField();
 		txtPrice.setBounds(584, 123, 250, 42);
 		txtPrice.setBackground(Color.white);
 		txtPrice.setEditable(false);
-		fb.getContentPane().add(txtPrice);
+		afb.getContentPane().add(txtPrice);
 
 		// Date
 		JLabel lblDate = new JLabel("Date:");
 		lblDate.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblDate.setBounds(44, 173, 315, 42);
-		fb.getContentPane().add(lblDate);
+		afb.getContentPane().add(lblDate);
 
 		JTextField txtDate = new JTextField();
 		txtDate.setBounds(174, 173, 250, 42);
-		fb.getContentPane().add(txtDate);
+		afb.getContentPane().add(txtDate);
 
 		// Duration
 		JLabel lblDuration = new JLabel("Duration(hours):");
 		lblDuration.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblDuration.setBounds(444, 173, 315, 42);
-		fb.getContentPane().add(lblDuration);
+		afb.getContentPane().add(lblDuration);
 
 		JComboBox<String> txtDuration = new JComboBox<>();
 		txtDuration.setBounds(584, 173, 250, 42);
@@ -140,17 +140,17 @@ public class AdminFacBooking {
 		txtDuration.addItem("2");
 		txtDuration.addItem("3");
 		txtDuration.addItem("5");
-		fb.getContentPane().add(txtDuration);
+		afb.getContentPane().add(txtDuration);
 		
 		//Time
 		JLabel lblTime = new JLabel("Time:");
 		lblTime.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblTime.setBounds(44, 223, 315, 42);
-		fb.getContentPane().add(lblTime);
+		afb.getContentPane().add(lblTime);
 
 		JTextField txtTime = new JTextField();
 		txtTime.setBounds(174, 223, 250, 42);
-		fb.getContentPane().add(txtTime);
+		afb.getContentPane().add(txtTime);
 
 		// Error text
 		JLabel errorText = new JLabel();
@@ -158,7 +158,7 @@ public class AdminFacBooking {
 		errorText.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13));
 		errorText.setBounds(204, 273, 330, 42);
 		errorText.setVisible(false);
-		fb.getContentPane().add(errorText);
+		afb.getContentPane().add(errorText);
 		
 		txtFacilityType.addItemListener(new ItemListener() {
 			@Override
@@ -263,7 +263,7 @@ public class AdminFacBooking {
 		JScrollPane scroll = new JScrollPane(jTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scroll.setBounds(44, 323, 770, 250);
-		fb.getContentPane().add(scroll);
+		afb.getContentPane().add(scroll);
 
 		// Error text calculation
 		JLabel calErrorText = new JLabel();
@@ -271,7 +271,7 @@ public class AdminFacBooking {
 		calErrorText.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13));
 		calErrorText.setBounds(204, 530, 330, 42);
 		calErrorText.setVisible(false);
-		fb.getContentPane().add(calErrorText);
+		afb.getContentPane().add(calErrorText);
 
 		
 		// Delete Btn
@@ -314,7 +314,7 @@ public class AdminFacBooking {
 
 			}
 		});
-		fb.getContentPane().add(deleteBtn);
+		afb.getContentPane().add(deleteBtn);
 
 		// Clear Text field Btn
 		JButton clearBtn = new JButton("Clear All");
@@ -332,7 +332,7 @@ public class AdminFacBooking {
 				txtTime.setText("");
 			}
 		});
-		fb.getContentPane().add(clearBtn);
+		afb.getContentPane().add(clearBtn);
 
 		// Add user Btn
 		JButton addUserBtn = new JButton("Save");
@@ -444,7 +444,7 @@ public class AdminFacBooking {
 
 			}
 		});
-		fb.getContentPane().add(addUserBtn);
+		afb.getContentPane().add(addUserBtn);
 		
 		// back Button
 		JButton backBtn = new JButton("Back");
@@ -454,13 +454,13 @@ public class AdminFacBooking {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ResidentMenu rm = new ResidentMenu();
-				rm.rm.setVisible(true);
-				fb.setVisible(false);
+				AdminExecMenu Aem = new AdminExecMenu();
+				Aem.Aem.setVisible(true);
+				afb.setVisible(false);
 
 			}
 		});
-		fb.getContentPane().add(backBtn);
+		afb.getContentPane().add(backBtn);
 
 
 	}
