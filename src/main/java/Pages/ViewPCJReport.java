@@ -130,7 +130,7 @@ public class ViewPCJReport {
 					String jobreport = "<----- Employees Job Report ----->\n";
 
 					for (ArrayList<String> row : jobdata) {
-						jobreport += "\n Employee Id: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Email: " + row.get(2) + "\n" + "Contact: " + row.get(3) + "\n" + "Age: " + row.get(4) + "\n" + "Job Role: " + row.get(5) +"\n----------------------\n";
+						jobreport += "\nEmployee Id: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Email: " + row.get(2) + "\n" + "Contact: " + row.get(3) + "\n" + "Age: " + row.get(4) + "\n" + "Job Role: " + row.get(5) +"\n----------------------\n";
 
 					}
 
