@@ -35,6 +35,7 @@ public class BExecComplaints {
 	CRUD crud = new CRUD();
 	ArrayList<ArrayList<String>> tblData = new ArrayList<>();
         ArrayList<ArrayList<String>> tb2Data = new ArrayList<>();
+        ArrayList<ArrayList<String>> tblData3 = new ArrayList<>();
 
 	/**
 	 * Launch the application.
@@ -137,21 +138,21 @@ public class BExecComplaints {
                 // Status
 		JLabel lblStatus = new JLabel("Status:");
 		lblStatus.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblStatus.setBounds(44, 173, 315, 42);
+		lblStatus.setBounds(824, 73, 315, 42);
 		bec.getContentPane().add(lblStatus);
 
 		JTextField txtStatus = new JTextField("");
-		txtStatus.setBounds(134, 173, 250, 42);
+		txtStatus.setBounds(944, 73, 210, 42);
 		bec.getContentPane().add(txtStatus);
 		
 		// Date
 		JLabel lblDate = new JLabel("Date:");
 		lblDate.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblDate.setBounds(434, 173, 315, 42);
+		lblDate.setBounds(824, 123, 315, 42);
 		bec.getContentPane().add(lblDate);
 
 		JTextField txtDate = new JTextField();
-		txtDate.setBounds(554, 173, 250, 42);
+		txtDate.setBounds(944, 123, 210, 42);
                 txtDate.setBackground(Color.lightGray);
 		txtDate.setEditable(false);
 		bec.getContentPane().add(txtDate);
@@ -159,11 +160,11 @@ public class BExecComplaints {
                 // Subject
 		JLabel lblSubject = new JLabel("Subject:");
 		lblSubject.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblSubject.setBounds(44, 223, 315, 42);
+		lblSubject.setBounds(44, 173, 315, 42);
 		bec.getContentPane().add(lblSubject);
 
 		JTextField txtSubject = new JTextField();
-		txtSubject.setBounds(134, 223, 660, 42);
+		txtSubject.setBounds(134, 173, 400, 80);
                 txtSubject.setBackground(Color.lightGray);
 		txtSubject.setEditable(false);
 		bec.getContentPane().add(txtSubject);
@@ -171,11 +172,11 @@ public class BExecComplaints {
                 // Detail
 		JLabel lblDetail = new JLabel("Detail:");
 		lblDetail.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblDetail.setBounds(44, 273, 315, 42);
+		lblDetail.setBounds(556, 173, 315, 42);
 		bec.getContentPane().add(lblDetail);
 
 		JTextArea txtDetail = new JTextArea();
-		txtDetail.setBounds(134, 273, 660, 80);
+		txtDetail.setBounds(646, 174, 500, 80);
                 txtDetail.setLineWrap(true);
                 txtDetail.setWrapStyleWord(true);
                 txtDetail.setBackground(Color.lightGray);
@@ -197,7 +198,7 @@ public class BExecComplaints {
 		String column[] = { "No.", "User", "Name", "Email", "Contact", "Status", "Date", "Subject", "Detail"};
 
 		JTable jTable = new JTable();
-		jTable.setBounds(44, 425, 1100, 110);
+		jTable.setBounds(44, 560, 1100, 110);
 		DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 		tableModel.setColumnIdentifiers(column);
 		jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -239,7 +240,7 @@ public class BExecComplaints {
 		});
 		JScrollPane scroll = new JScrollPane(jTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scroll.setBounds(44, 425, 1100, 110);
+		scroll.setBounds(44, 560, 1100, 110);
 		bec.getContentPane().add(scroll);
                 
                 // Result Display 2 for vendor
@@ -248,7 +249,7 @@ public class BExecComplaints {
 		String column1[] = { "No.", "User", "Name", "Email", "Contact", "Status", "Date", "Subject", "Detail"};
 
 		JTable jTable1 = new JTable();
-		jTable1.setBounds(44, 650, 1100, 110);
+		jTable1.setBounds(44, 780, 1100, 110);
 		DefaultTableModel tableModel1 = (DefaultTableModel) jTable1.getModel();
 		tableModel1.setColumnIdentifiers(column1);
 		jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -290,8 +291,59 @@ public class BExecComplaints {
 		});
 		JScrollPane scroll1 = new JScrollPane(jTable1, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scroll1.setBounds(44, 650, 1100, 110);
+		scroll1.setBounds(44, 780, 1100, 110);
 		bec.getContentPane().add(scroll1);
+                
+                // Result Display 3 for admin exec
+		tblData3 = crud.read("AdminExComplaint.txt");
+		String row3[] = new String[9];
+		String column3[] = { "No.", "User", "Name", "Email", "Contact", "Status", "Date", "Subject", "Detail"};
+
+		JTable jTable3 = new JTable();
+		jTable3.setBounds(44, 320, 1100, 110);
+		DefaultTableModel tableModel3 = (DefaultTableModel) jTable3.getModel();
+		tableModel3.setColumnIdentifiers(column3);
+		jTable3.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		for (int i = 0; i < tblData3.size(); i++) {
+			row3[0] = tblData3.get(i).get(0);
+			row3[1] = tblData3.get(i).get(1);
+			row3[2] = tblData3.get(i).get(2);
+			row3[3] = tblData3.get(i).get(3);
+			row3[4] = tblData3.get(i).get(4);
+			row3[5] = tblData3.get(i).get(5);
+			row3[6] = tblData3.get(i).get(6);
+                        row3[7] = tblData3.get(i).get(7);
+                        row3[8] = tblData3.get(i).get(8);
+			tableModel3.addRow(row3);
+
+		}
+		jTable3.setModel(tableModel3);
+
+		ListSelectionModel select3 = jTable3.getSelectionModel();
+		select3.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		select3.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) {
+				int[] row3 = jTable3.getSelectedRows();
+				int columnNum3 = jTable3.getColumnCount();
+
+				if (row3.length > 0) {
+					txtUID.setText((String) jTable3.getValueAt(row3[0], 0));
+					txtUser.setText((String) jTable3.getValueAt(row3[0], 1));
+					txtName.setText((String) jTable3.getValueAt(row3[0], 2));
+					txtEmail.setText((String) jTable3.getValueAt(row3[0], 3));
+					txtContact.setText((String) jTable3.getValueAt(row3[0], 4));
+					txtStatus.setText((String) jTable3.getValueAt(row3[0], 5));
+					txtDate.setText((String) jTable3.getValueAt(row3[0], 6));
+                                        txtSubject.setText((String) jTable3.getValueAt(row3[0], 7));
+                                        txtDetail.setText((String) jTable3.getValueAt(row3[0], 8));
+				}
+
+			}
+		});
+		JScrollPane scroll3 = new JScrollPane(jTable3, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scroll3.setBounds(44, 320, 1100, 110);
+		bec.getContentPane().add(scroll3);
 
 		// Error text calculation
 		JLabel calErrorText = new JLabel();
@@ -300,65 +352,27 @@ public class BExecComplaints {
 		calErrorText.setBounds(204, 530, 330, 42);
 		calErrorText.setVisible(false);
 		bec.getContentPane().add(calErrorText);
-
-		
-		// Delete Btn
-		//JButton deleteBtn = new JButton("Delete");
-		//deleteBtn.setBounds(364, 450, 150, 42);
-		//deleteBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		//deleteBtn.addActionListener(new ActionListener() {
-			//@Override
-			//public void actionPerformed(ActionEvent e) {
-				
-				//String uid = txtUID.getText().trim();
-				
-				//crud.delete("ResidentComplaint.txt", uid, 0, "", 0);
-				
-				// Refresh the data in table
-				//tblData = crud.read("ResidentComplaint.txt");
-				//DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
-				//tableModel.setColumnIdentifiers(column);
-				//tableModel.getDataVector().removeAllElements();
-				//tableModel.fireTableDataChanged();
-				//jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-				//for (int i = 0; i < tblData.size(); i++) {
-					//row[0] = tblData.get(i).get(0);
-					//row[1] = tblData.get(i).get(1);
-					//row[2] = tblData.get(i).get(2);
-					//row[3] = tblData.get(i).get(3);
-					//row[4] = tblData.get(i).get(4);
-					//row[5] = tblData.get(i).get(5);
-					//row[6] = tblData.get(i).get(6);
-                                       // row[7] = tblData.get(i).get(7);
-                                       // row[8] = tblData.get(i).get(8);
-					//tableModel.addRow(row);
-				//}
-				//try {
-				//	Thread.sleep(100);
-				///} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-				//	e1.printStackTrace();
-				//}
-				//jTable.updateUI();
-
-			///}
-		///});
-		//bec.getContentPane().add(deleteBtn);
                 
                 //resident and vendor label
                 JLabel lblRes= new JLabel("Resident Complaints:");
 		lblRes.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblRes.setBounds(44,375, 315, 42);
+		lblRes.setBounds(44,510, 315, 42);
 		bec.getContentPane().add(lblRes);
                 
                 JLabel lblVen= new JLabel("Vendor Complaints:");
 		lblVen.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblVen.setBounds(44, 600, 315, 42);
+		lblVen.setBounds(44, 730, 315, 42);
 		bec.getContentPane().add(lblVen);
+                
+                JLabel lblAd= new JLabel("Admin Executive Complaints:");
+		lblAd.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblAd.setBounds(44, 270, 315, 42);
+		bec.getContentPane().add(lblAd);
+                
                 
 		// Clear Text field Btn for Resident
 		JButton clearBtn = new JButton("Clear All");
-		clearBtn.setBounds(204, 550, 150, 42);
+		clearBtn.setBounds(204, 680, 150, 42);
 		clearBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		clearBtn.addActionListener(new ActionListener() {
 			@Override
@@ -378,7 +392,7 @@ public class BExecComplaints {
 
 		// Save complaint Btn for Resident
 		JButton addUserBtn = new JButton("Save");
-		addUserBtn.setBounds(44, 550, 150, 42);
+		addUserBtn.setBounds(44, 680, 150, 42);
 		addUserBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		addUserBtn.addActionListener(new ActionListener() {
 
@@ -478,7 +492,7 @@ public class BExecComplaints {
                 
                 // Clear Text field Btn for Vendor
 		JButton clearBtn1 = new JButton("Clear All");
-		clearBtn1.setBounds(204, 775, 150, 42);
+		clearBtn1.setBounds(204, 900, 150, 42);
 		clearBtn1.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		clearBtn1.addActionListener(new ActionListener() {
 			@Override
@@ -498,7 +512,7 @@ public class BExecComplaints {
 
 		// Save complaint Btn for Vendor
 		JButton addUserBtn1 = new JButton("Save");
-		addUserBtn1.setBounds(44, 775, 150, 42);
+		addUserBtn1.setBounds(44, 900, 150, 42);
 		addUserBtn1.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		addUserBtn1.addActionListener(new ActionListener() {
 
@@ -595,6 +609,126 @@ public class BExecComplaints {
 			}
 		});
 		bec.getContentPane().add(addUserBtn1);
+                
+                // Clear Text field Btn for Admin Exec
+		JButton clearBtn3 = new JButton("Clear All");
+		clearBtn3.setBounds(204, 900, 150, 42);
+		clearBtn3.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		clearBtn3.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				txtUID.setText("");
+				txtUser.setText("");
+				txtName.setText("");
+				txtEmail.setText("");
+				txtContact.setText("");
+                                txtStatus.setText("");
+                                txtDate.setText("");
+				txtSubject.setText("");
+                                txtDetail.setText("");
+			}
+		});
+		bec.getContentPane().add(clearBtn3);
+
+		// Save complaint Btn for Vendor
+		JButton addUserBtn3 = new JButton("Save");
+		addUserBtn3.setBounds(44, 900, 150, 42);
+		addUserBtn3.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		addUserBtn3.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				User user = new User();
+				UUID uuid = UUID.randomUUID();
+
+				String userId = txtUID.getText().trim();
+                                String user1 = txtUser.getText().trim();
+				String name = txtName.getText().trim();
+				String email = txtEmail.getText().trim();
+				String contact = txtContact.getText().trim();
+                                String status = txtStatus.getText().trim();
+				String date = txtDate.getText().trim();
+                                String subject = txtSubject.getText().trim();
+                                String detail = txtDetail.getText().trim();
+
+				ArrayList<String> data = new ArrayList<>();
+
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+
+				if (userId.isEmpty()) { // this means new data is added
+					String uid = uuid.toString();
+					data.add(uid);
+                                        data.add(user1);
+					data.add(name);
+					data.add(email);
+                                        data.add(contact);
+                                        data.add(status);
+					data.add(date);
+					data.add(subject);
+					data.add(detail);
+
+					crud.create("AdminExComplaint.txt", data);
+
+				} else { // this means update data
+					data.add(userId);
+					data.add(user1);
+					data.add(name);
+					data.add(email);
+                                        data.add(contact);
+                                        data.add(status);
+					data.add(date);
+					data.add(subject);
+					data.add(detail);
+					crud.updateRow("AdminEx.txt", userId, 0, "", 0, data);
+				}
+
+				// Clear text after update or add
+				txtUID.setText("");
+				txtUser.setText("");
+				txtName.setText("");
+				txtEmail.setText("");
+				txtContact.setText("");
+                                txtStatus.setText("");
+                                txtDate.setText("");
+				txtSubject.setText("");
+                                txtDetail.setText("");
+
+				// Refresh the data in table
+				tblData3 = crud.read("AdminExComplaint.txt");
+				DefaultTableModel tableModel3 = (DefaultTableModel) jTable3.getModel();
+				tableModel3.setColumnIdentifiers(column3);
+				tableModel3.getDataVector().removeAllElements();
+				tableModel3.fireTableDataChanged();
+				jTable3.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+				for (int i = 0; i < tblData3.size(); i++) {
+					row3[0] = tblData3.get(i).get(0);
+					row3[1] = tblData3.get(i).get(1);
+					row3[2] = tblData3.get(i).get(2);
+					row3[3] = tblData3.get(i).get(3);
+					row3[4] = tblData3.get(i).get(4);
+					row3[5] = tblData3.get(i).get(5);
+					row3[6] = tblData3.get(i).get(6);
+                                        row3[7] = tblData3.get(i).get(7);
+                                        row3[8] = tblData3.get(i).get(8);
+					tableModel3.addRow(row3);
+				}
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				jTable3.updateUI();
+
+			}
+		});
+		bec.getContentPane().add(addUserBtn3);
 		
 		// back Button
 		JButton backBtn = new JButton("Back");
