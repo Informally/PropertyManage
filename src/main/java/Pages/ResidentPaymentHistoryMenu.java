@@ -64,7 +64,7 @@ public class ResidentPaymentHistoryMenu {
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		rphm.getContentPane().add(lblNewLabel);
 
-		// Invoice Button
+		// Pending Fee Button
 		JButton profileBtn = new JButton("Pending Fee");
 		profileBtn.setBounds(44, 93, 315, 42);
 		profileBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -80,7 +80,7 @@ public class ResidentPaymentHistoryMenu {
 		});
 		rphm.getContentPane().add(profileBtn);
 
-		// User Payment Button
+		// Invoice & Statement Button
 		JButton paymentBtn = new JButton("Invoice & Statement");
 		paymentBtn.setBounds(44, 153, 315, 42);
 		paymentBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -96,7 +96,7 @@ public class ResidentPaymentHistoryMenu {
 		});
 		rphm.getContentPane().add(paymentBtn);
 		
-		// Operation and budget planning Button
+		// Receipt Button
 		JButton complaintBtn = new JButton("Receipt");
 		complaintBtn.setBounds(44, 213, 315, 42);
 		complaintBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));

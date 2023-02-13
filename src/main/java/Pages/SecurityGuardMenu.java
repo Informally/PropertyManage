@@ -71,7 +71,7 @@ public class SecurityGuardMenu {
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		sg.getContentPane().add(lblNewLabel);
 
-		// Invoice Button
+		// Visitor Pass Button
 		JButton visitorPassBtn = new JButton("Visitor Pass");
 		visitorPassBtn.setBounds(44, 93, 315, 42);
 		visitorPassBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -79,14 +79,14 @@ public class SecurityGuardMenu {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VisitorPass visitorPass = new VisitorPass();
+				SecVisitorPass visitorPass = new SecVisitorPass();
 				visitorPass.vp.setVisible(true);
 				sg.setVisible(false);
 			}
 		});
 		sg.getContentPane().add(visitorPassBtn);
 
-		// User Payment Button
+		// Visitor Entry Button
 		JButton visitorEntryBtn = new JButton("Visitor Entry");
 		visitorEntryBtn.setBounds(44, 153, 315, 42);
 		visitorEntryBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -94,7 +94,7 @@ public class SecurityGuardMenu {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VisitorEntry visitorEntry = new VisitorEntry();
+				SecVisitorEntry visitorEntry = new SecVisitorEntry();
 				visitorEntry.ve.setVisible(true);
 				sg.setVisible(false);
 
@@ -102,7 +102,7 @@ public class SecurityGuardMenu {
 		});
 		sg.getContentPane().add(visitorEntryBtn);
 
-		// Operation and budget planning Button
+		// Checkpoint Check-in Button
 		JButton checkpointBtn = new JButton("Checkpoint Check-in");
 		checkpointBtn.setBounds(44, 213, 315, 42);
 		checkpointBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -111,7 +111,7 @@ public class SecurityGuardMenu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				Checkpoint checkpoint = new Checkpoint();
+				SecCheckpoint checkpoint = new SecCheckpoint();
 				checkpoint.c.setVisible(true);
 				sg.setVisible(false);
 
@@ -119,7 +119,7 @@ public class SecurityGuardMenu {
 		});
 		sg.getContentPane().add(checkpointBtn);
 		
-		// Operation and budget planning Button
+		// Incident Button
 		JButton incidentBtn = new JButton("Incident");
 		incidentBtn.setBounds(44, 273, 315, 42);
 		incidentBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -128,7 +128,7 @@ public class SecurityGuardMenu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				Incident incident = new Incident();
+				SecIncident incident = new SecIncident();
 				incident.inc.setVisible(true);
 				sg.setVisible(false);
 

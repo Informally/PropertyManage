@@ -105,12 +105,12 @@ public class VendorInvoice {
 		textArea.setEditable(false);
 		textArea.setBounds(44, 130, 770, 450);
 		
-		// Statement
+		// Invoice
 		JLabel lblStatement = new JLabel("INVOICE ");
 		lblStatement.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 23));
 		lblStatement.setBounds(564, 3, 315, 42);
 		
-		// Statement Date
+		// Date Issued
 		JLabel lblSDate = new JLabel("Date Issued:");
 		lblSDate.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12));
 		lblSDate.setBounds(564, 33, 315, 42);
@@ -602,7 +602,7 @@ public class VendorInvoice {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PaymentHistoryMenu payHis = new PaymentHistoryMenu();
+				VendorPaymentHistoryMenu payHis = new VendorPaymentHistoryMenu();
 				payHis.phm.setVisible(true);
 				vi.setVisible(false);
 

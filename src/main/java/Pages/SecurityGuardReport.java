@@ -32,7 +32,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class IncidentReport {
+public class SecurityGuardReport {
 
 	public JFrame incReport;
 	public CRUD crud = new CRUD();
@@ -44,7 +44,7 @@ public class IncidentReport {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					IncidentReport window = new IncidentReport();
+					SecurityGuardReport window = new SecurityGuardReport();
 					window.incReport.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -56,7 +56,7 @@ public class IncidentReport {
 	/**
 	 * Create the application.
 	 */
-	public IncidentReport() {
+	public SecurityGuardReport() {
 		initialize();
 	}
 
@@ -65,17 +65,17 @@ public class IncidentReport {
 	 */
 	private void initialize() {
 		incReport = new JFrame();
-		incReport.setTitle("Patrolling Report");
+		incReport.setTitle("View Report");
 		incReport.setBounds(100, 100, 871, 622);
 		incReport.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		incReport.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Patrolling Report");
+		JLabel lblNewLabel = new JLabel("View Report");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		incReport.getContentPane().add(lblNewLabel);
 
-		// Month
+		// Report
 		JLabel lblMonth = new JLabel("Report: ");
 		lblMonth.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblMonth.setBounds(44, 73, 315, 42);
@@ -142,7 +142,7 @@ public class IncidentReport {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Incident incident = new Incident();
+				SecIncident incident = new SecIncident();
 				incident.inc.setVisible(true);
 				incReport.setVisible(false);
 

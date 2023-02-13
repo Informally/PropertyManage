@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class FacilityPayment {
+public class ResFacilityPayment {
 
 	public JFrame fp;
 	JOptionPane contentPane;
@@ -45,7 +45,7 @@ public class FacilityPayment {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FacilityPayment window = new FacilityPayment();
+					ResFacilityPayment window = new ResFacilityPayment();
 					window.fp.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -57,7 +57,7 @@ public class FacilityPayment {
 	/**
 	 * Create the application.
 	 */
-	public FacilityPayment() {
+	public ResFacilityPayment() {
 		initialize();
 	}
 
@@ -76,7 +76,7 @@ public class FacilityPayment {
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		fp.getContentPane().add(lblNewLabel);
 
-		// UID
+		// Payment ID
 		JLabel lblUID = new JLabel("Payment ID: ");
 		lblUID.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblUID.setBounds(44, 73, 315, 42);
@@ -124,7 +124,7 @@ public class FacilityPayment {
 		txtTime.setEditable(false);
 		fp.getContentPane().add(txtTime);
 
-		// Utilities
+		// Price
 		JLabel lblPrice = new JLabel("Price: ");
 		lblPrice.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblPrice.setBounds(44, 173, 315, 42);
@@ -148,7 +148,7 @@ public class FacilityPayment {
 		txtOut.setEditable(false);
 		fp.getContentPane().add(txtOut);
 		
-		// Services
+		// Duration
 		JLabel lblDuration = new JLabel("Duration: ");
 		lblDuration.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblDuration.setBounds(44, 223, 315, 42);
@@ -210,8 +210,8 @@ public class FacilityPayment {
 
 		// Result Display
 		tblData = crud.read("C:\\Users\\Alan\\Documents\\FacilityBooking.txt");
-		String row[] = new String[8];
-		String column[] = { "Facility Id", "Facility No", "Facility Type", "Facility Price", "Duration", "Total","Date", "Time" };
+		String row[] = new String[9];
+		String column[] = { "Facility Id", "Facility No", "Facility Type", "Name", "Facility Price", "Duration", "Total","Date", "Time" };
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 323, 770, 100);
@@ -227,6 +227,7 @@ public class FacilityPayment {
 			row[5] = tblData.get(i).get(5);
 			row[6] = tblData.get(i).get(6);
                         row[7] = tblData.get(i).get(7);
+                        row[8] = tblData.get(i).get(8);
 			tableModel.addRow(row);
 
 		}
@@ -261,7 +262,7 @@ public class FacilityPayment {
 		CRUD newCrud = new CRUD();
 		tblDataHistory = newCrud.read("C:\\Users\\Alan\\Documents\\FacilityPaymentHistory.txt");
 		String rowPayment[] = new String[6];
-		String columnPayment[] = { "Id", "Facility Type","Outstanding", "Total Paid", "Payment ID", "Date" };
+		String columnPayment[] = { "Payment Id", "Facility Type","Outstanding", "Total Paid", "Payment ID", "Date" };
 
 		JTable jTablePayment = new JTable();
 		jTablePayment.setBounds(44, 423, 770, 100);
@@ -316,7 +317,7 @@ public class FacilityPayment {
 		calErrorText.setVisible(false);
 		fp.getContentPane().add(calErrorText);
 
-		// Add user Btn
+		// Make Payment Btn
 		JButton addUserBtn = new JButton("Make Payment");
 		addUserBtn.setBounds(44, 323, 200, 42);
 		addUserBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -386,7 +387,7 @@ public class FacilityPayment {
 				// Update the debt value
 				int totalDebt = Integer.parseInt(out) - Integer.parseInt(amount);
 				int total = Integer.parseInt(amount) - Integer.parseInt(out);
-				crud.update("C:\\Users\\Alan\\Documents\\FacilityBooking.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
+				crud.update("C:\\Users\\Alan\\Documents\\FacilityBooking.txt", userID, 0, "", 0, String.valueOf(totalDebt), 6, "", 0);
 				//crud.update("VendorStatement.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
 				//crud.update("VendorInvoice.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
 				crud.update("C:\\Users\\Alan\\Documents\\FacilityPaymentHistory.txt", uid, 0,"", 0, String.valueOf(total), 2, "", 0);
@@ -422,6 +423,7 @@ public class FacilityPayment {
 					row[5] = tblData.get(i).get(5);
 					row[6] = tblData.get(i).get(6);
                                         row[7] = tblData.get(i).get(7);
+                                        row[8] = tblData.get(i).get(8);
 					tableModel.addRow(row);
 				}
 				try {
@@ -480,11 +482,11 @@ public class FacilityPayment {
 				String uuid = tableModel.getValueAt(i, 0).toString();
 				String roomNo1 = tableModel.getValueAt(i, 1).toString();
 				String roomType1 = tableModel.getValueAt(i, 2).toString();
-				String roomPrice = tableModel.getValueAt(i, 3).toString();
-				String deposit = tableModel.getValueAt(i, 4).toString();
-				String total = tableModel.getValueAt(i, 5).toString();
-				String month1 = tableModel.getValueAt(i, 6).toString();
-				String year1 = tableModel.getValueAt(i, 7).toString();
+				String roomPrice = tableModel.getValueAt(i, 4).toString();
+				String deposit = tableModel.getValueAt(i, 5).toString();
+				String total = tableModel.getValueAt(i, 6).toString();
+				String month1 = tableModel.getValueAt(i, 7).toString();
+				String year1 = tableModel.getValueAt(i, 8).toString();
 				
 				// Receipt Display
 				JTextArea textArea = new JTextArea();
@@ -518,7 +520,7 @@ public class FacilityPayment {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PaymentMenu pm = new PaymentMenu();
+				ResPaymentMenu pm = new ResPaymentMenu();
 				pm.pm.setVisible(true);
 				fp.setVisible(false);
 

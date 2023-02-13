@@ -28,7 +28,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class BookingRoom {
+public class TenBookingRoom {
 
 	public JFrame br;
 	CRUD crud = new CRUD();
@@ -41,7 +41,7 @@ public class BookingRoom {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					BookingRoom window = new BookingRoom();
+					TenBookingRoom window = new TenBookingRoom();
 					window.br.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -53,7 +53,7 @@ public class BookingRoom {
 	/**
 	 * Create the application.
 	 */
-	public BookingRoom() {
+	public TenBookingRoom() {
 		initialize();
 	}
 
@@ -62,18 +62,18 @@ public class BookingRoom {
 	 */
 	private void initialize() {
 		br = new JFrame();
-		br.setTitle("Booking Room");
+		br.setTitle("Tenant Booking Room");
 		br.setBounds(100, 100, 900, 822);
 		br.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		br.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Booking Room");
+		JLabel lblNewLabel = new JLabel("Tenant Booking Room");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		br.getContentPane().add(lblNewLabel);
 
-		// UID
-		JLabel lblUID = new JLabel("UID: ");
+		// Room ID
+		JLabel lblUID = new JLabel("Room ID: ");
 		lblUID.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblUID.setBounds(44, 73, 315, 42);
 		br.getContentPane().add(lblUID);
@@ -354,7 +354,7 @@ public class BookingRoom {
 		});
 		br.getContentPane().add(clearBtn);
 
-		// Add user Btn
+		// Save Btn
 		JButton addUserBtn = new JButton("Save");
 		addUserBtn.setBounds(44, 273, 150, 42);
 		addUserBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));

@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class RoomPayment {
+public class TenRoomPayment {
 
 	public JFrame rp;
 	JOptionPane contentPane;
@@ -45,7 +45,7 @@ public class RoomPayment {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					RoomPayment window = new RoomPayment();
+					TenRoomPayment window = new TenRoomPayment();
 					window.rp.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -57,7 +57,7 @@ public class RoomPayment {
 	/**
 	 * Create the application.
 	 */
-	public RoomPayment() {
+	public TenRoomPayment() {
 		initialize();
 	}
 
@@ -76,7 +76,7 @@ public class RoomPayment {
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		rp.getContentPane().add(lblNewLabel);
 
-		// UID
+		// Payment ID
 		JLabel lblUID = new JLabel("Payment ID: ");
 		lblUID.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblUID.setBounds(44, 73, 315, 42);
@@ -100,7 +100,7 @@ public class RoomPayment {
 		txtMonth.setEditable(false);
 		rp.getContentPane().add(txtMonth);
 
-		// Rental
+		// Room Type
 		JLabel lblRoomType = new JLabel("Room Type: ");
 		lblRoomType.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblRoomType.setBounds(44, 123, 315, 42);
@@ -124,7 +124,7 @@ public class RoomPayment {
 		txtYear.setEditable(false);
 		rp.getContentPane().add(txtYear);
 
-		// Utilities
+		// Price
 		JLabel lblPrice = new JLabel("Price: ");
 		lblPrice.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblPrice.setBounds(44, 173, 315, 42);
@@ -148,7 +148,7 @@ public class RoomPayment {
 		txtOut.setEditable(false);
 		rp.getContentPane().add(txtOut);
 		
-		// Services
+		// Deposit
 		JLabel lblDeposit = new JLabel("Deposit: ");
 		lblDeposit.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblDeposit.setBounds(44, 223, 315, 42);
@@ -542,7 +542,7 @@ public class RoomPayment {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PaymentMenu pm = new PaymentMenu();
+				ResPaymentMenu pm = new ResPaymentMenu();
 				pm.pm.setVisible(true);
 				rp.setVisible(false);
 

@@ -76,7 +76,7 @@ public class VendorPayment {
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		vp.getContentPane().add(lblNewLabel);
 
-		// UID
+		// Payment ID
 		JLabel lblUID = new JLabel("Payment ID: ");
 		lblUID.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblUID.setBounds(44, 73, 315, 42);
@@ -316,7 +316,7 @@ public class VendorPayment {
 		calErrorText.setVisible(false);
 		vp.getContentPane().add(calErrorText);
 
-		// Add user Btn
+		// Make Payment Btn
 		JButton addUserBtn = new JButton("Make Payment");
 		addUserBtn.setBounds(44, 323, 200, 42);
 		addUserBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));

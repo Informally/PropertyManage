@@ -749,7 +749,7 @@ public class VendorStatement {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PaymentHistoryMenu payHis = new PaymentHistoryMenu();
+				VendorPaymentHistoryMenu payHis = new VendorPaymentHistoryMenu();
 				payHis.phm.setVisible(true);
 				vs.setVisible(false);
 

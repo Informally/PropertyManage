@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class MonthlyPayment {
+public class TenMonthlyPayment {
 
 	public JFrame mp;
 	JOptionPane contentPane;
@@ -45,7 +45,7 @@ public class MonthlyPayment {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MonthlyPayment window = new MonthlyPayment();
+					TenMonthlyPayment window = new TenMonthlyPayment();
 					window.mp.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -57,7 +57,7 @@ public class MonthlyPayment {
 	/**
 	 * Create the application.
 	 */
-	public MonthlyPayment() {
+	public TenMonthlyPayment() {
 		initialize();
 	}
 
@@ -66,17 +66,17 @@ public class MonthlyPayment {
 	 */
 	private void initialize() {
 		mp = new JFrame();
-		mp.setTitle("Monthly Room Payment");
+		mp.setTitle("Tenant Monthly Payment");
 		mp.setBounds(100, 100, 1471, 822);
 		mp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mp.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Monthly Room Payment");
+		JLabel lblNewLabel = new JLabel("Tenant Monthly Payment");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		mp.getContentPane().add(lblNewLabel);
 
-		// UID
+		// Payment ID
 		JLabel lblUID = new JLabel("Payment ID: ");
 		lblUID.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblUID.setBounds(44, 73, 315, 42);
@@ -100,7 +100,7 @@ public class MonthlyPayment {
 		txtMonth.setEditable(false);
 		mp.getContentPane().add(txtMonth);
 
-		// Rental
+		// Room Type
 		JLabel lblRoomType = new JLabel("Room Type: ");
 		lblRoomType.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblRoomType.setBounds(44, 123, 315, 42);
@@ -124,7 +124,7 @@ public class MonthlyPayment {
 		txtYear.setEditable(false);
 		mp.getContentPane().add(txtYear);
 
-		// Utilities
+		// Price
 		JLabel lblPrice = new JLabel("Price: ");
 		lblPrice.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblPrice.setBounds(44, 173, 315, 42);
@@ -148,7 +148,7 @@ public class MonthlyPayment {
 		txtOut.setEditable(false);
 		mp.getContentPane().add(txtOut);
 		
-		// Services
+		// Deposit
 		JLabel lblDeposit = new JLabel("Deposit: ");
 		lblDeposit.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblDeposit.setBounds(44, 223, 315, 42);
@@ -314,7 +314,7 @@ public class MonthlyPayment {
 		calErrorText.setVisible(false);
 		mp.getContentPane().add(calErrorText);
 
-		// Add user Btn
+		// Make Payment Btn
 		JButton addUserBtn = new JButton("Make Payment");
 		addUserBtn.setBounds(44, 323, 200, 42);
 		addUserBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -515,7 +515,7 @@ public class MonthlyPayment {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PaymentMenu pm = new PaymentMenu();
+				ResPaymentMenu pm = new ResPaymentMenu();
 				pm.pm.setVisible(true);
 				mp.setVisible(false);
 

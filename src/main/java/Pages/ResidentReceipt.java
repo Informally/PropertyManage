@@ -72,7 +72,7 @@ public class ResidentReceipt {
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		rr.getContentPane().add(lblNewLabel);
                 
-                // Month
+                // Receipt
 		JLabel lblReport = new JLabel("Report: ");
 		lblReport.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblReport.setBounds(44, 73, 315, 42);

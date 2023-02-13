@@ -29,7 +29,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class PendingFee {
+public class VendorPendingFee {
 
 	public JFrame pf;
 	public CRUD crud = new CRUD();
@@ -41,7 +41,7 @@ public class PendingFee {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PendingFee window = new PendingFee();
+					VendorPendingFee window = new VendorPendingFee();
 					window.pf.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -53,7 +53,7 @@ public class PendingFee {
 	/**
 	 * Create the application.
 	 */
-	public PendingFee() {
+	public VendorPendingFee() {
 		initialize();
 	}
 
@@ -105,7 +105,7 @@ public class PendingFee {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PaymentHistoryMenu payHis = new PaymentHistoryMenu();
+				VendorPaymentHistoryMenu payHis = new VendorPaymentHistoryMenu();
 				payHis.phm.setVisible(true);
 				pf.setVisible(false);
 

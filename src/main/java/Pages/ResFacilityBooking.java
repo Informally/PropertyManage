@@ -26,7 +26,7 @@ import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class FacilityBooking {
+public class ResFacilityBooking {
 
 	public JFrame fb;
 	CRUD crud = new CRUD();
@@ -39,7 +39,7 @@ public class FacilityBooking {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FacilityBooking window = new FacilityBooking();
+					ResFacilityBooking window = new ResFacilityBooking();
 					window.fb.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -51,7 +51,7 @@ public class FacilityBooking {
 	/**
 	 * Create the application.
 	 */
-	public FacilityBooking() {
+	public ResFacilityBooking() {
 		initialize();
 	}
 
@@ -70,8 +70,8 @@ public class FacilityBooking {
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		fb.getContentPane().add(lblNewLabel);
 
-		// UID
-		JLabel lblUID = new JLabel("UID: ");
+		// Facility ID
+		JLabel lblUID = new JLabel("Facility ID: ");
 		lblUID.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblUID.setBounds(44, 73, 315, 42);
 		fb.getContentPane().add(lblUID);
@@ -82,6 +82,16 @@ public class FacilityBooking {
 		txtUID.setEditable(false);
 		fb.getContentPane().add(txtUID);
 
+                // Name
+		JLabel lblName = new JLabel("Name: ");
+		lblName.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblName.setBounds(444, 123, 315, 42);
+		fb.getContentPane().add(lblName);
+
+		JTextField txtName = new JTextField();
+		txtName.setBounds(584,123, 250, 42);
+		fb.getContentPane().add(txtName);
+                
 		// Facility No
 		JLabel lblFacility = new JLabel("Facility No: ");
 		lblFacility.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -89,7 +99,7 @@ public class FacilityBooking {
 		fb.getContentPane().add(lblFacility);
 
 		JTextField txtFacility = new JTextField();
-		txtFacility.setBounds(584, 73, 250, 42);
+		txtFacility.setBounds(584,73, 250, 42);
 		fb.getContentPane().add(txtFacility);
 
 		// Facility Type
@@ -109,11 +119,11 @@ public class FacilityBooking {
 		// Facility Price
 		JLabel lblPrice = new JLabel("Facility Price: ");
 		lblPrice.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblPrice.setBounds(444, 123, 315, 42);
+		lblPrice.setBounds(444, 173, 315, 42);
 		fb.getContentPane().add(lblPrice);
 
 		JTextField txtPrice = new JTextField();
-		txtPrice.setBounds(584, 123, 250, 42);
+		txtPrice.setBounds(584, 173, 250, 42);
 		txtPrice.setBackground(Color.white);
 		txtPrice.setEditable(false);
 		fb.getContentPane().add(txtPrice);
@@ -131,11 +141,11 @@ public class FacilityBooking {
 		// Duration
 		JLabel lblDuration = new JLabel("Duration(hours):");
 		lblDuration.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblDuration.setBounds(444, 173, 315, 42);
+		lblDuration.setBounds(444, 223, 315, 42);
 		fb.getContentPane().add(lblDuration);
 
 		JComboBox<String> txtDuration = new JComboBox<>();
-		txtDuration.setBounds(584, 173, 250, 42);
+		txtDuration.setBounds(584, 223, 250, 42);
 		txtDuration.addItem("1");
 		txtDuration.addItem("2");
 		txtDuration.addItem("3");
@@ -219,8 +229,8 @@ public class FacilityBooking {
 
 		// Result Display
 		tblData = crud.read("C:\\Users\\Alan\\Documents\\FacilityBooking.txt");
-		String row[] = new String[8];
-		String column[] = { "Facility Id", "Facility No", "Facility Type", "Facility Price", "Duration", "Total", "Date", "Time" };
+		String row[] = new String[9];
+		String column[] = { "Facility Id", "Facility No", "Facility Type","Name", "Facility Price", "Duration", "Total", "Date", "Time" };
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 323, 770, 250);
@@ -236,6 +246,7 @@ public class FacilityBooking {
 			row[5] = tblData.get(i).get(5);
 			row[6] = tblData.get(i).get(6);
                         row[7] = tblData.get(i).get(7);
+                        row[8] = tblData.get(i).get(8);
 			tableModel.addRow(row);
 
 		}
@@ -252,10 +263,11 @@ public class FacilityBooking {
 					txtUID.setText((String) jTable.getValueAt(row[0], 0));
 					txtFacility.setText((String) jTable.getValueAt(row[0], 1));
 					txtFacilityType.setToolTipText((String) jTable.getValueAt(row[0], 2));
-					txtPrice.setText((String) jTable.getValueAt(row[0], 3));					
-					txtDuration.setToolTipText((String) jTable.getValueAt(row[0], 4));
-					txtDate.setText((String) jTable.getValueAt(row[0], 5));
-					txtTime.setText((String) jTable.getValueAt(row[0], 6));
+                                        txtName.setText((String) jTable.getValueAt(row[0], 3));
+					txtPrice.setText((String) jTable.getValueAt(row[0], 4));					
+					txtDuration.setToolTipText((String) jTable.getValueAt(row[0], 5));
+					txtDate.setText((String) jTable.getValueAt(row[0], 6));
+					txtTime.setText((String) jTable.getValueAt(row[0], 7));
 				}
 
 			}
@@ -302,6 +314,7 @@ public class FacilityBooking {
 					row[5] = tblData.get(i).get(5);
 					row[6] = tblData.get(i).get(6);
                                         row[7] = tblData.get(i).get(7);
+                                        row[8] = tblData.get(i).get(8);
 					tableModel.addRow(row);
 				}
 				try {
@@ -326,6 +339,7 @@ public class FacilityBooking {
 				txtUID.setText("");
 				txtFacility.setText("");
 				txtDate.setText("");
+                                txtName.setText("");
 				txtPrice.setText("");
 				txtFacilityType.setToolTipText(null);
 				txtDuration.setToolTipText(null);
@@ -351,6 +365,7 @@ public class FacilityBooking {
 				String userId = txtUID.getText().trim();
 				String facility = txtFacility.getText().trim();
 				String date = txtDate.getText().trim();
+                                String name = txtName.getText().trim();
 				String duration = txtDuration.getSelectedItem().toString().trim();
 				String price = txtPrice.getText().trim();
 				String facilityType = txtFacilityType.getSelectedItem().toString().trim();
@@ -372,6 +387,7 @@ public class FacilityBooking {
 					data.add(uid);
 					data.add(facility);
 					data.add(facilityType);
+                                        data.add(name);
 					data.add(price);
 					data.add(duration);
                                         data.add(String.valueOf(totalPrice));
@@ -391,6 +407,7 @@ public class FacilityBooking {
 					data.add(userId);
 					data.add(facility);
 					data.add(facilityType);
+                                        data.add(name);
 					data.add(price);
 					data.add(duration);
                                         data.add(String.valueOf(totalPrice));
@@ -412,6 +429,7 @@ public class FacilityBooking {
 				txtFacility.setText("");
 				txtDate.setText("");
 				txtPrice.setText("");
+                                txtName.setText("");
 				txtFacilityType.setToolTipText(null);
 				txtDuration.setToolTipText(null);
 				txtTime.setText("");
@@ -432,6 +450,7 @@ public class FacilityBooking {
 					row[5] = tblData.get(i).get(5);
 					row[6] = tblData.get(i).get(6);
                                         row[7] = tblData.get(i).get(7);
+                                        row[8] = tblData.get(i).get(8);
 					tableModel.addRow(row);
 				}
 				try {

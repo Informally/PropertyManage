@@ -22,7 +22,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class PaymentMenu {
+public class ResPaymentMenu {
 
 	public JFrame pm;
 
@@ -33,7 +33,7 @@ public class PaymentMenu {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PaymentMenu window = new PaymentMenu();
+					ResPaymentMenu window = new ResPaymentMenu();
 					window.pm.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,7 +45,7 @@ public class PaymentMenu {
 	/**
 	 * Create the application.
 	 */
-	public PaymentMenu() {
+	public ResPaymentMenu() {
 		initialize();
 	}
 
@@ -65,14 +65,14 @@ public class PaymentMenu {
 		pm.getContentPane().add(lblNewLabel);
 
 		// Booking Room Payment Button
-		JButton profileBtn = new JButton("Booking Room Payment");
+		JButton profileBtn = new JButton("Tenant Booking Payment");
 		profileBtn.setBounds(44, 93, 315, 42);
 		profileBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		profileBtn.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				RoomPayment roomPayment = new RoomPayment();
+				TenRoomPayment roomPayment = new TenRoomPayment();
 				roomPayment.rp.setVisible(true);
 				pm.setVisible(false);
 			}
@@ -87,7 +87,7 @@ public class PaymentMenu {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				MonthlyPayment monthlyPayment = new MonthlyPayment();
+				TenMonthlyPayment monthlyPayment = new TenMonthlyPayment();
 				monthlyPayment.mp.setVisible(true);
 				pm.setVisible(false);
 
@@ -95,7 +95,7 @@ public class PaymentMenu {
 		});
 		pm.getContentPane().add(paymentBtn);
                 
-                // Monthly Payment Button
+                // Facility Payment Button
 		JButton facilitytBtn = new JButton("Facility Payment");
 		facilitytBtn.setBounds(44, 213, 315, 42);
 		facilitytBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -103,7 +103,7 @@ public class PaymentMenu {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				FacilityPayment facilityPayment = new FacilityPayment();
+				ResFacilityPayment facilityPayment = new ResFacilityPayment();
 				facilityPayment.fp.setVisible(true);
 				pm.setVisible(false);
 

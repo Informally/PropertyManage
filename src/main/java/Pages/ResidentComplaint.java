@@ -71,8 +71,8 @@ public class ResidentComplaint {
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		rc.getContentPane().add(lblNewLabel);
 
-		// UID
-		JLabel lblUID = new JLabel("UID: ");
+		// Complaint ID
+		JLabel lblUID = new JLabel("Complaint ID: ");
 		lblUID.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblUID.setBounds(44, 73, 315, 42);
 		rc.getContentPane().add(lblUID);
@@ -266,7 +266,7 @@ public class ResidentComplaint {
 		});
 		rc.getContentPane().add(clearBtn);
 
-		// Add user Btn
+		// Save Btn
 		JButton addUserBtn = new JButton("Save");
 		addUserBtn.setBounds(44, 273, 150, 42);
 		addUserBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));

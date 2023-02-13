@@ -22,7 +22,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class PaymentHistoryMenu {
+public class VendorPaymentHistoryMenu {
 
 	public JFrame phm;
 
@@ -33,7 +33,7 @@ public class PaymentHistoryMenu {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					PaymentHistoryMenu window = new PaymentHistoryMenu();
+					VendorPaymentHistoryMenu window = new VendorPaymentHistoryMenu();
 					window.phm.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,7 +45,7 @@ public class PaymentHistoryMenu {
 	/**
 	 * Create the application.
 	 */
-	public PaymentHistoryMenu() {
+	public VendorPaymentHistoryMenu() {
 		initialize();
 	}
 
@@ -64,7 +64,7 @@ public class PaymentHistoryMenu {
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		phm.getContentPane().add(lblNewLabel);
 
-		// Invoice Button
+		// Pending Fee Button
 		JButton profileBtn = new JButton("Pending Fee");
 		profileBtn.setBounds(44, 93, 315, 42);
 		profileBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -72,7 +72,7 @@ public class PaymentHistoryMenu {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PendingFee pendingFee = new PendingFee();
+				VendorPendingFee pendingFee = new VendorPendingFee();
 				
 				pendingFee.pf.setVisible(true);
 				phm.setVisible(false);
@@ -80,7 +80,7 @@ public class PaymentHistoryMenu {
 		});
 		phm.getContentPane().add(profileBtn);
 
-		// User Payment Button
+		// Invoice Button
 		JButton paymentBtn = new JButton("Invoice");
 		paymentBtn.setBounds(44, 153, 315, 42);
 		paymentBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -96,7 +96,7 @@ public class PaymentHistoryMenu {
 		});
 		phm.getContentPane().add(paymentBtn);
 
-		// Operation and budget planning Button
+		// Statement Button
 		JButton payHisBtn = new JButton("Statement");
 		payHisBtn.setBounds(44, 213, 315, 42);
 		payHisBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -113,7 +113,7 @@ public class PaymentHistoryMenu {
 		});
 		phm.getContentPane().add(payHisBtn);
 		
-		// Operation and budget planning Button
+		// Receipt Button
 		JButton complaintBtn = new JButton("Receipt");
 		complaintBtn.setBounds(44, 273, 315, 42);
 		complaintBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));

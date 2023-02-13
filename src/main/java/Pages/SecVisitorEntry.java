@@ -17,18 +17,26 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
+import Data.User;
 import Handlers.CRUD;
 
 import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.UUID;
 
-public class Checkpoint {
+public class SecVisitorEntry {
 
-	public JFrame c;
+	public JFrame ve;
 	CRUD crud = new CRUD();
 	ArrayList<ArrayList<String>> tblData = new ArrayList<>();
 
@@ -39,8 +47,8 @@ public class Checkpoint {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Checkpoint window = new Checkpoint();
-					window.c.setVisible(true);
+					SecVisitorEntry window = new SecVisitorEntry();
+					window.ve.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -51,7 +59,7 @@ public class Checkpoint {
 	/**
 	 * Create the application.
 	 */
-	public Checkpoint() {
+	public SecVisitorEntry() {
 		initialize();
 	}
 
@@ -59,98 +67,98 @@ public class Checkpoint {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		c = new JFrame();
-		c.setTitle("Checkpoint Check-in");
-		c.setBounds(100, 100, 871, 722);
-		c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		c.getContentPane().setLayout(null);
+		ve = new JFrame();
+		ve.setTitle("Visitor Entry");
+		ve.setBounds(100, 100, 871, 722);
+		ve.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ve.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Checkpoint Check-in");
+		JLabel lblNewLabel = new JLabel("Visitor Entry");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
-		c.getContentPane().add(lblNewLabel);
+		ve.getContentPane().add(lblNewLabel);
 
-		// UID
-		JLabel lblUID = new JLabel("Checkpoint ID: ");
+		// Entry ID
+		JLabel lblUID = new JLabel("Entry ID: ");
 		lblUID.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblUID.setBounds(44, 73, 315, 42);
-		c.getContentPane().add(lblUID);
+		ve.getContentPane().add(lblUID);
 
 		JTextField txtUID = new JTextField("");
-		txtUID.setBounds(174, 73, 250, 42);
+		txtUID.setBounds(164, 73, 250, 42);
 		txtUID.setBackground(Color.gray);
 		txtUID.setEditable(false);
-		c.getContentPane().add(txtUID);
+		ve.getContentPane().add(txtUID);
 
 		// Name
 		JLabel lblName = new JLabel("Name: ");
 		lblName.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblName.setBounds(444, 73, 315, 42);
-		c.getContentPane().add(lblName);
+		lblName.setBounds(434, 73, 315, 42);
+		ve.getContentPane().add(lblName);
 
 		JTextField txtName = new JTextField();
-		txtName.setBounds(564, 73, 250, 42);
-		c.getContentPane().add(txtName);
+		txtName.setBounds(554, 73, 250, 42);
+		ve.getContentPane().add(txtName);
 
 		// Destination
 		JLabel lblDestination = new JLabel("Destination: ");
 		lblDestination.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblDestination.setBounds(44, 123, 315, 42);
-		c.getContentPane().add(lblDestination);
+		ve.getContentPane().add(lblDestination);
 
 		JTextField txtDestination = new JTextField();
-		txtDestination.setBounds(174, 123, 250, 42);
-		c.getContentPane().add(txtDestination);
+		txtDestination.setBounds(164, 123, 250, 42);
+		ve.getContentPane().add(txtDestination);
 
 		// Contact
 		JLabel lblContact = new JLabel("Contact: ");
 		lblContact.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblContact.setBounds(444, 123, 315, 42);
-		c.getContentPane().add(lblContact);
+		lblContact.setBounds(434, 123, 315, 42);
+		ve.getContentPane().add(lblContact);
 
 		JTextField txtContact = new JTextField();
-		txtContact.setBounds(564, 123, 250, 42);
-		c.getContentPane().add(txtContact);
+		txtContact.setBounds(554, 123, 250, 42);
+		ve.getContentPane().add(txtContact);
 		
-		// Status
-		JLabel lblStatus = new JLabel("Status: ");
-		lblStatus.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblStatus.setBounds(44, 173, 250, 42);
-		c.getContentPane().add(lblStatus);
+		// Identity Card
+		JLabel lblIc = new JLabel("Identity Card: ");
+		lblIc.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblIc.setBounds(44, 173, 250, 42);
+		ve.getContentPane().add(lblIc);
 
-		JTextField txtStatus = new JTextField();
-		txtStatus.setBounds(174, 173, 250, 42);
-		c.getContentPane().add(txtStatus);
+		JTextField txtIc = new JTextField();
+		txtIc.setBounds(164, 173, 250, 42);
+		ve.getContentPane().add(txtIc);
 
 		// Date
 		JLabel lblDate = new JLabel("Date: ");
 		lblDate.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblDate.setBounds(444, 173, 315, 42);
-		c.getContentPane().add(lblDate);
+		lblDate.setBounds(434, 173, 315, 42);
+		ve.getContentPane().add(lblDate);
 
 		JTextField txtDate = new JTextField();
-		txtDate.setBounds(564, 173, 250, 42);
-		c.getContentPane().add(txtDate);
+		txtDate.setBounds(554, 173, 250, 42);
+		ve.getContentPane().add(txtDate);
 
 		// Time in
 		JLabel lblTimeIn = new JLabel("Time in: ");
 		lblTimeIn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblTimeIn.setBounds(44, 223, 250, 42);
-		c.getContentPane().add(lblTimeIn);
+		ve.getContentPane().add(lblTimeIn);
 
 		JTextField txtTimeIn = new JTextField();
-		txtTimeIn.setBounds(174, 223, 250, 42);
-		c.getContentPane().add(txtTimeIn);
+		txtTimeIn.setBounds(164, 223, 250, 42);
+		ve.getContentPane().add(txtTimeIn);
 		
 		// Time out
 		JLabel lblTimeOut = new JLabel("Time out: ");
 		lblTimeOut.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblTimeOut.setBounds(444, 223, 315, 42);
-		c.getContentPane().add(lblTimeOut);
+		lblTimeOut.setBounds(434, 223, 315, 42);
+		ve.getContentPane().add(lblTimeOut);
 
 		JTextField txtTimeOut = new JTextField();
-		txtTimeOut.setBounds(564, 223, 250, 42);
-		c.getContentPane().add(txtTimeOut);
+		txtTimeOut.setBounds(554, 223, 250, 42);
+		ve.getContentPane().add(txtTimeOut);
 
 		// Error text
 		JLabel errorText = new JLabel();
@@ -158,12 +166,12 @@ public class Checkpoint {
 		errorText.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13));
 		errorText.setBounds(204, 223, 330, 42);
 		errorText.setVisible(false);
-		c.getContentPane().add(errorText);
+		ve.getContentPane().add(errorText);
 
 		// Result Display
-		tblData = crud.read("Checkpoint.txt");
+		tblData = crud.read("VisitorEntry.txt");
 		String row[] = new String[8];
-		String column[] = { "Checkpoint ID", "Name", "Destination", "Contact", "Status", "Date", "Time in", "Time out"};
+		String column[] = { "Entry ID", "Name", "Destination", "Contact", "Identity Card", "Date", "Time in", "Time out"};
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 323, 770, 250);
@@ -196,7 +204,7 @@ public class Checkpoint {
 					txtName.setText((String) jTable.getValueAt(row[0], 1));
 					txtDestination.setText((String) jTable.getValueAt(row[0], 2));
 					txtContact.setText((String) jTable.getValueAt(row[0], 3));
-					txtStatus.setText((String) jTable.getValueAt(row[0], 4));
+					txtIc.setText((String) jTable.getValueAt(row[0], 4));
 					txtDate.setText((String) jTable.getValueAt(row[0], 5));
 					txtTimeIn.setText((String) jTable.getValueAt(row[0], 6));
 					txtTimeOut.setText((String) jTable.getValueAt(row[0], 7));
@@ -207,7 +215,7 @@ public class Checkpoint {
 		JScrollPane scroll = new JScrollPane(jTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 		JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scroll.setBounds(44, 373, 770, 250);
-		c.getContentPane().add(scroll);
+		ve.getContentPane().add(scroll);
 
 		// Error text calculation
 		JLabel calErrorText = new JLabel();
@@ -215,7 +223,7 @@ public class Checkpoint {
 		calErrorText.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13));
 		calErrorText.setBounds(204, 530, 330, 42);
 		calErrorText.setVisible(false);
-		c.getContentPane().add(calErrorText);
+		ve.getContentPane().add(calErrorText);
 
 //		ListSelectionModel selectPayment = jTablePayment.getSelectionModel();
 //		selectPayment.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -248,10 +256,10 @@ public class Checkpoint {
 						
 				String uid = txtUID.getText().trim();
 						
-				crud.delete("Checkpoint.txt", uid, 0, "", 0);
+				crud.delete("VisitorEntry.txt", uid, 0, "", 0);
 						
 				// Refresh the data in table
-				tblData = crud.read("Checkpoint.txt");
+				tblData = crud.read("VisitorEntry.txt");
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 				tableModel.setColumnIdentifiers(column);
 				tableModel.getDataVector().removeAllElements();
@@ -278,7 +286,7 @@ public class Checkpoint {
 
 			}
 		});
-				c.getContentPane().add(deleteBtn);
+				ve.getContentPane().add(deleteBtn);
 		
 		// Clear Text field Btn
 		JButton clearBtn = new JButton("Clear All");
@@ -291,15 +299,15 @@ public class Checkpoint {
 				txtName.setText("");
 				txtDestination.setText("");
 				txtContact.setText("");
-				txtStatus.setText("");
+				txtIc.setText("");
 				txtDate.setText("");
 				txtTimeIn.setText("");
 				txtTimeOut.setText("");
 			}
 		});
-		c.getContentPane().add(clearBtn);
+		ve.getContentPane().add(clearBtn);
 
-		// Add user Btn
+		// Save Btn
 		JButton addUserBtn = new JButton("Save");
 		addUserBtn.setBounds(44, 323, 150, 42);
 		addUserBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -308,13 +316,14 @@ public class Checkpoint {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
+				User user = new User();
 				UUID uuid = UUID.randomUUID();
 
-				String checkPointId = txtUID.getText().trim();
+				String entryId = txtUID.getText().trim();
 				String name = txtName.getText().trim();
 				String destination = txtDestination.getText().trim();
 				String contact = txtContact.getText().trim();
-				String status = txtStatus.getText().trim();
+				String ic = txtIc.getText().trim();
 				String date = txtDate.getText().trim();
 				String timeIn = txtTimeIn.getText().trim();
 				String timeOut = txtTimeOut.getText().trim();
@@ -328,28 +337,28 @@ public class Checkpoint {
 					e1.printStackTrace();
 				}
 				
-				if (checkPointId.isEmpty()) { // this means new data is added
+				if (entryId.isEmpty()) { // this means new data is added
 				String uid = uuid.toString();
 				data.add(uid);
 				data.add(name);
 				data.add(destination);
 				data.add(contact);
-				data.add(status);
+				data.add(ic);
 				data.add(date);
 				data.add(timeIn);
 				data.add(timeOut);
 
-				crud.create("Checkpoint.txt", data);
+				crud.create("VisitorEntry.txt", data);
 				}else {// this means update data
-					data.add(checkPointId);
+					data.add(entryId);
 					data.add(name);
 					data.add(destination);		
 					data.add(contact);
-					data.add(status);
+					data.add(ic);
 					data.add(date);
 					data.add(timeIn);
 					data.add(timeOut);
-					crud.updateRow("Checkpoint.txt", checkPointId, 0, "", 0, data);
+					crud.updateRow("VisitorEntry.txt", entryId, 0, "", 0, data);
 				}
 
 				// Clear text after update or add
@@ -357,13 +366,13 @@ public class Checkpoint {
 				txtName.setText("");
 				txtDestination.setText("");
 				txtContact.setText("");
-				txtStatus.setText("");
+				txtIc.setText("");
 				txtDate.setText("");
 				txtTimeIn.setText("");
 				txtTimeOut.setText("");
 
 				// Refresh the data in table
-				tblData = crud.read("Checkpoint.txt");
+				tblData = crud.read("VisitorEntry.txt");
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 				tableModel.setColumnIdentifiers(column);
 				tableModel.getDataVector().removeAllElements();
@@ -389,11 +398,11 @@ public class Checkpoint {
 				jTable.updateUI();
 			}
 		});
-		c.getContentPane().add(addUserBtn);
+		ve.getContentPane().add(addUserBtn);
 		
 		// back Button
 		JButton backBtn = new JButton("Back");
-		backBtn.setBounds(670, 11, 150, 42);
+		backBtn.setBounds(700, 11, 150, 42);
 		backBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		backBtn.addActionListener(new ActionListener() {
 
@@ -401,11 +410,11 @@ public class Checkpoint {
 			public void actionPerformed(ActionEvent e) {
 				SecurityGuardMenu sg = new SecurityGuardMenu();
 				sg.sg.setVisible(true);
-				c.setVisible(false);
+				ve.setVisible(false);
 
 			}
 		});
-		c.getContentPane().add(backBtn);
+		ve.getContentPane().add(backBtn);
 
 	}
 

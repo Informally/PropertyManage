@@ -82,7 +82,7 @@ public class VendorMenu {
 		vm.getContentPane().add(profileBtn);
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-		// User Payment Button
+		//Payment Button
 		JButton paymentBtn = new JButton("Payment");
 		paymentBtn.setBounds(44, 153, 315, 42);
 		paymentBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -98,7 +98,7 @@ public class VendorMenu {
 		});
 		vm.getContentPane().add(paymentBtn);
 
-		// Operation and budget planning Button
+		// Payment History Button
 		JButton payHisBtn = new JButton("Payment History");
 		payHisBtn.setBounds(44, 213, 315, 42);
 		payHisBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -107,7 +107,7 @@ public class VendorMenu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				PaymentHistoryMenu paymentHistoryMenu = new PaymentHistoryMenu();
+				VendorPaymentHistoryMenu paymentHistoryMenu = new VendorPaymentHistoryMenu();
 				paymentHistoryMenu.phm.setVisible(true);
 				vm.setVisible(false);
 
@@ -115,7 +115,7 @@ public class VendorMenu {
 		});
 		vm.getContentPane().add(payHisBtn);
 		
-		// Operation and budget planning Button
+		// Complaint Button
 		JButton complaintBtn = new JButton("Complaint");
 		complaintBtn.setBounds(44, 273, 315, 42);
 		complaintBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));

@@ -82,15 +82,15 @@ public class ResidentMenu {
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
-		// User Booking Room Button
-		JButton bookingBtn = new JButton("Booking Room");
+		// Tenant Booking Room Button
+		JButton bookingBtn = new JButton("Tenant Booking");
 		bookingBtn.setBounds(44, 153, 315, 42);
 		bookingBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		bookingBtn.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				BookingRoom bookingRoom = new BookingRoom();
+				TenBookingRoom bookingRoom = new TenBookingRoom();
 				bookingRoom.br.setVisible(true);
 				rm.setVisible(false);
 
@@ -106,7 +106,7 @@ public class ResidentMenu {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PaymentMenu paymentMenu = new PaymentMenu();
+				ResPaymentMenu paymentMenu = new ResPaymentMenu();
 				paymentMenu.pm.setVisible(true);
 				rm.setVisible(false);
 
@@ -114,8 +114,8 @@ public class ResidentMenu {
 		});
 		rm.getContentPane().add(paymentBtn);
 
-		// Operation and budget planning Button
-		JButton payHisBtn = new JButton("Payment History");
+		// View Payment Button
+		JButton payHisBtn = new JButton("View Payment");
 		payHisBtn.setBounds(44, 273, 315, 42);
 		payHisBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		payHisBtn.addActionListener(new ActionListener() {
@@ -131,7 +131,7 @@ public class ResidentMenu {
 		});
 		rm.getContentPane().add(payHisBtn);
 		
-		// Operation and budget planning Button
+		// Facility Booking Button
 		JButton facilityBtn = new JButton("Facility Booking");
 		facilityBtn.setBounds(44, 333, 315, 42);
 		facilityBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -140,7 +140,7 @@ public class ResidentMenu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				FacilityBooking facilityBooking = new FacilityBooking();
+				ResFacilityBooking facilityBooking = new ResFacilityBooking();
 				facilityBooking.fb.setVisible(true);
 				rm.setVisible(false);
 
@@ -148,7 +148,7 @@ public class ResidentMenu {
 		});
 		rm.getContentPane().add(facilityBtn);
 		
-		// Operation and budget planning Button
+		// Visitor Pass Button
 		JButton visitorPassBtn = new JButton("Visitor Pass");
 		visitorPassBtn.setBounds(44, 393, 315, 42);
 		visitorPassBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -165,7 +165,7 @@ public class ResidentMenu {
 		});
 		rm.getContentPane().add(visitorPassBtn);
 		
-		// Operation and budget planning Button
+		// Resident / Tenant Complaint Button
 		JButton complaintBtn = new JButton("Complaint");
 		complaintBtn.setBounds(44, 453, 315, 42);
 		complaintBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
