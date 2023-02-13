@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
@@ -62,7 +63,7 @@ public class ResidentComplaint {
 	private void initialize() {
 		rc = new JFrame();
 		rc.setTitle("Resident Complaint");
-		rc.setBounds(100, 100, 871, 722);
+		rc.setBounds(100, 100, 1200, 722);
 		rc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		rc.getContentPane().setLayout(null);
 
@@ -71,77 +72,104 @@ public class ResidentComplaint {
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		rc.getContentPane().add(lblNewLabel);
 
-		// UID
-		JLabel lblUID = new JLabel("UID: ");
+		// Ticket Number
+		JLabel lblUID = new JLabel("No: ");
 		lblUID.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblUID.setBounds(44, 73, 315, 42);
 		rc.getContentPane().add(lblUID);
 
 		JTextField txtUID = new JTextField("");
-		txtUID.setBounds(164, 73, 250, 42);
-		txtUID.setBackground(Color.gray);
+		txtUID.setBounds(134, 73, 250, 42);
+		txtUID.setBackground(Color.lightGray);
 		txtUID.setEditable(false);
 		rc.getContentPane().add(txtUID);
+                
+                // User
+		JLabel lblUser = new JLabel("User: ");
+		lblUser.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblUser.setBounds(434, 73, 315, 42);
+		rc.getContentPane().add(lblUser);
+
+		JTextField txtUser = new JTextField("Resident/Tenant");
+		txtUser.setBounds(554, 73, 250, 42);
+                txtUser.setBackground(Color.lightGray);
+		txtUser.setEditable(false);
+		rc.getContentPane().add(txtUser);
 
 		// Name
 		JLabel lblName = new JLabel("Name: ");
 		lblName.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblName.setBounds(434, 73, 315, 42);
+		lblName.setBounds(44, 123, 220, 42);
 		rc.getContentPane().add(lblName);
 
 		JTextField txtName = new JTextField();
-		txtName.setBounds(554, 73, 250, 42);
+		txtName.setBounds(134, 123, 150, 42);
 		rc.getContentPane().add(txtName);
 
 		// Email
 		JLabel lblEmail = new JLabel("Email: ");
 		lblEmail.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblEmail.setBounds(44, 123, 315, 42);
+		lblEmail.setBounds(300, 123, 220, 42);
 		rc.getContentPane().add(lblEmail);
 
 		JTextField txtEmail = new JTextField();
-		txtEmail.setBounds(164, 123, 250, 42);
+		txtEmail.setBounds(390, 123, 150, 42);
 		rc.getContentPane().add(txtEmail);
 
 		// Contact
 		JLabel lblContact = new JLabel("Contact:");
 		lblContact.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblContact.setBounds(434, 123, 315, 42);
+		lblContact.setBounds(556, 123, 220, 42);
 		rc.getContentPane().add(lblContact);
 
 		JTextField txtContact = new JTextField();
-		txtContact.setBounds(554, 123, 250, 42);
+		txtContact.setBounds(646, 123, 150, 42);
 		rc.getContentPane().add(txtContact);
+                
+                // Status
+		JLabel lblStatus = new JLabel("Status:");
+		lblStatus.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblStatus.setBounds(44, 173, 315, 42);
+		rc.getContentPane().add(lblStatus);
 
-		// Title
-		JLabel lblTitle = new JLabel("Title:");
-		lblTitle.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblTitle.setBounds(44, 173, 315, 42);
-		rc.getContentPane().add(lblTitle);
-
-		JTextField txtTitle = new JTextField();
-		txtTitle.setBounds(164, 173, 250, 42);
-		rc.getContentPane().add(txtTitle);
-
-		// Detail
-		JLabel lblDetail = new JLabel("Detail:");
-		lblDetail.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblDetail.setBounds(434, 173, 315, 42);
-		rc.getContentPane().add(lblDetail);
-
-		JTextField txtDetail = new JTextField();
-		txtDetail.setBounds(554, 173, 250, 42);
-		rc.getContentPane().add(txtDetail);
+		JTextField txtStatus = new JTextField("Processing");
+		txtStatus.setBounds(134, 173, 250, 42);
+                txtStatus.setBackground(Color.lightGray);
+		txtStatus.setEditable(false);
+		rc.getContentPane().add(txtStatus);
 		
 		// Date
 		JLabel lblDate = new JLabel("Date:");
 		lblDate.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblDate.setBounds(44, 223, 315, 42);
+		lblDate.setBounds(434, 173, 315, 42);
 		rc.getContentPane().add(lblDate);
 
 		JTextField txtDate = new JTextField();
-		txtDate.setBounds(164, 223, 250, 42);
+		txtDate.setBounds(554, 173, 250, 42);
 		rc.getContentPane().add(txtDate);
+                
+                // Subject
+		JLabel lblSubject = new JLabel("Subject:");
+		lblSubject.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblSubject.setBounds(44, 223, 315, 42);
+		rc.getContentPane().add(lblSubject);
+
+		JTextField txtSubject = new JTextField();
+		txtSubject.setBounds(134, 223, 660, 42);
+		rc.getContentPane().add(txtSubject);
+                
+                // Detail
+		JLabel lblDetail = new JLabel("Detail:");
+		lblDetail.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblDetail.setBounds(44, 273, 315, 42);
+		rc.getContentPane().add(lblDetail);
+
+		JTextArea txtDetail = new JTextArea();
+		txtDetail.setBounds(134, 273, 660, 150);
+                txtDetail.setLineWrap(true);
+                txtDetail.setWrapStyleWord(true);
+		rc.getContentPane().add(txtDetail);
+
 
 		// Error text
 		JLabel errorText = new JLabel();
@@ -153,11 +181,11 @@ public class ResidentComplaint {
 
 		// Result Display
 		tblData = crud.read("ResidentComplaint.txt");
-		String row[] = new String[7];
-		String column[] = { "User Id", "Name", "Email", "Contact", "Title", "Detail", "Date" };
+		String row[] = new String[9];
+		String column[] = { "No.", "User", "Name", "Email", "Contact", "Status", "Date", "Subject", "Detail"};
 
 		JTable jTable = new JTable();
-		jTable.setBounds(44, 323, 770, 250);
+		jTable.setBounds(44, 500, 1100, 150);
 		DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 		tableModel.setColumnIdentifiers(column);
 		jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -169,6 +197,8 @@ public class ResidentComplaint {
 			row[4] = tblData.get(i).get(4);
 			row[5] = tblData.get(i).get(5);
 			row[6] = tblData.get(i).get(6);
+                        row[7] = tblData.get(i).get(7);
+                        row[8] = tblData.get(i).get(8);
 			tableModel.addRow(row);
 
 		}
@@ -183,19 +213,21 @@ public class ResidentComplaint {
 
 				if (row.length > 0) {
 					txtUID.setText((String) jTable.getValueAt(row[0], 0));
-					txtName.setText((String) jTable.getValueAt(row[0], 1));
-					txtEmail.setText((String) jTable.getValueAt(row[0], 2));
-					txtContact.setText((String) jTable.getValueAt(row[0], 3));
-					txtTitle.setText((String) jTable.getValueAt(row[0], 4));
-					txtDetail.setText((String) jTable.getValueAt(row[0], 5));
+					txtUser.setText((String) jTable.getValueAt(row[0], 1));
+					txtName.setText((String) jTable.getValueAt(row[0], 2));
+					txtEmail.setText((String) jTable.getValueAt(row[0], 3));
+					txtContact.setText((String) jTable.getValueAt(row[0], 4));
+					txtStatus.setText((String) jTable.getValueAt(row[0], 5));
 					txtDate.setText((String) jTable.getValueAt(row[0], 6));
+                                        txtSubject.setText((String) jTable.getValueAt(row[0], 7));
+                                        txtDetail.setText((String) jTable.getValueAt(row[0], 8));
 				}
 
 			}
 		});
 		JScrollPane scroll = new JScrollPane(jTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scroll.setBounds(44, 323, 770, 250);
+		scroll.setBounds(44, 500, 1100, 150);
 		rc.getContentPane().add(scroll);
 
 		// Error text calculation
@@ -209,7 +241,7 @@ public class ResidentComplaint {
 		
 		// Delete Btn
 		JButton deleteBtn = new JButton("Delete");
-		deleteBtn.setBounds(364, 273, 150, 42);
+		deleteBtn.setBounds(364, 450, 150, 42);
 		deleteBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		deleteBtn.addActionListener(new ActionListener() {
 			@Override
@@ -234,6 +266,8 @@ public class ResidentComplaint {
 					row[4] = tblData.get(i).get(4);
 					row[5] = tblData.get(i).get(5);
 					row[6] = tblData.get(i).get(6);
+                                        row[7] = tblData.get(i).get(7);
+                                        row[8] = tblData.get(i).get(8);
 					tableModel.addRow(row);
 				}
 				try {
@@ -250,25 +284,27 @@ public class ResidentComplaint {
 
 		// Clear Text field Btn
 		JButton clearBtn = new JButton("Clear All");
-		clearBtn.setBounds(204, 273, 150, 42);
+		clearBtn.setBounds(204, 450, 150, 42);
 		clearBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		clearBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				txtUID.setText("");
+				txtUser.setText("");
 				txtName.setText("");
-				txtTitle.setText("");
 				txtEmail.setText("");
 				txtContact.setText("");
-				txtDetail.setText("");
-				txtDate.setText("");
+                                txtStatus.setText("");
+                                txtDate.setText("");
+				txtSubject.setText("");
+                                txtDetail.setText("");
 			}
 		});
 		rc.getContentPane().add(clearBtn);
 
-		// Add user Btn
+		// Add complaint Btn
 		JButton addUserBtn = new JButton("Save");
-		addUserBtn.setBounds(44, 273, 150, 42);
+		addUserBtn.setBounds(44, 450, 150, 42);
 		addUserBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		addUserBtn.addActionListener(new ActionListener() {
 
@@ -279,12 +315,14 @@ public class ResidentComplaint {
 				UUID uuid = UUID.randomUUID();
 
 				String userId = txtUID.getText().trim();
+                                String user1 = txtUser.getText().trim();
 				String name = txtName.getText().trim();
-				String title = txtTitle.getText().trim();
-				String detail = txtDetail.getText().trim();
 				String email = txtEmail.getText().trim();
 				String contact = txtContact.getText().trim();
+                                String status = txtStatus.getText().trim();
 				String date = txtDate.getText().trim();
+                                String subject = txtSubject.getText().trim();
+                                String detail = txtDetail.getText().trim();
 
 				ArrayList<String> data = new ArrayList<>();
 
@@ -298,34 +336,40 @@ public class ResidentComplaint {
 				if (userId.isEmpty()) { // this means new data is added
 					String uid = uuid.toString();
 					data.add(uid);
+                                        data.add(user1);
 					data.add(name);
 					data.add(email);
-					data.add(contact);
-					data.add(title);
-					data.add(detail);
+                                        data.add(contact);
+                                        data.add(status);
 					data.add(date);
+					data.add(subject);
+					data.add(detail);
 
 					crud.create("ResidentComplaint.txt", data);
 
 				} else { // this means update data
 					data.add(userId);
+					data.add(user1);
 					data.add(name);
 					data.add(email);
-					data.add(contact);
-					data.add(title);
-					data.add(detail);
+                                        data.add(contact);
+                                        data.add(status);
 					data.add(date);
+					data.add(subject);
+					data.add(detail);
 					crud.updateRow("ResidentComplaint.txt", userId, 0, "", 0, data);
 				}
 
 				// Clear text after update or add
 				txtUID.setText("");
+				txtUser.setText("");
 				txtName.setText("");
-				txtTitle.setText("");
 				txtEmail.setText("");
 				txtContact.setText("");
-				txtDetail.setText("");
-				txtDate.setText("");
+                                txtStatus.setText("");
+                                txtDate.setText("");
+				txtSubject.setText("");
+                                txtDetail.setText("");
 
 				// Refresh the data in table
 				tblData = crud.read("ResidentComplaint.txt");
@@ -342,6 +386,8 @@ public class ResidentComplaint {
 					row[4] = tblData.get(i).get(4);
 					row[5] = tblData.get(i).get(5);
 					row[6] = tblData.get(i).get(6);
+                                        row[7] = tblData.get(i).get(7);
+                                        row[8] = tblData.get(i).get(8);
 					tableModel.addRow(row);
 				}
 				try {

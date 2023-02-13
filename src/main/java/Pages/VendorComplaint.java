@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -163,8 +164,10 @@ public class VendorComplaint {
 		lblDetail.setBounds(44, 273, 315, 42);
 		vc.getContentPane().add(lblDetail);
 
-		JTextField txtDetail = new JTextField();
+		JTextArea txtDetail = new JTextArea();
 		txtDetail.setBounds(134, 273, 660, 150);
+                txtDetail.setLineWrap(true);
+                txtDetail.setWrapStyleWord(true);
 		vc.getContentPane().add(txtDetail);
 
 		// Error text
@@ -298,7 +301,7 @@ public class VendorComplaint {
 		});
 		vc.getContentPane().add(clearBtn);
 
-		// Add user Btn
+		// Add Complaint Btn
 		JButton addUserBtn = new JButton("Save");
 		addUserBtn.setBounds(44, 450, 150, 42);
 		addUserBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
