@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTable;
@@ -33,6 +34,7 @@ public class BExecComplaints {
 	public JFrame bec;
 	CRUD crud = new CRUD();
 	ArrayList<ArrayList<String>> tblData = new ArrayList<>();
+        ArrayList<ArrayList<String>> tb2Data = new ArrayList<>();
 
 	/**
 	 * Launch the application.
@@ -63,7 +65,7 @@ public class BExecComplaints {
 	private void initialize() {
 		bec = new JFrame();
 		bec.setTitle("View & Update Complaint");
-		bec.setBounds(100, 100, 1200, 722);
+		bec.setBounds(100, 100, 1280, 900);
 		bec.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		bec.getContentPane().setLayout(null);
 
@@ -189,7 +191,7 @@ public class BExecComplaints {
 		errorText.setVisible(false);
 		bec.getContentPane().add(errorText);
 
-		// Result Display
+		// Result Display 1
 		tblData = crud.read("ResidentComplaint.txt");
 		String row[] = new String[9];
 		String column[] = { "No.", "User", "Name", "Email", "Contact", "Status", "Date", "Subject", "Detail"};
@@ -250,47 +252,47 @@ public class BExecComplaints {
 
 		
 		// Delete Btn
-		JButton deleteBtn = new JButton("Delete");
-		deleteBtn.setBounds(364, 450, 150, 42);
-		deleteBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		deleteBtn.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		//JButton deleteBtn = new JButton("Delete");
+		//deleteBtn.setBounds(364, 450, 150, 42);
+		//deleteBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		//deleteBtn.addActionListener(new ActionListener() {
+			//@Override
+			//public void actionPerformed(ActionEvent e) {
 				
-				String uid = txtUID.getText().trim();
+				//String uid = txtUID.getText().trim();
 				
-				crud.delete("ResidentComplaint.txt", uid, 0, "", 0);
+				//crud.delete("ResidentComplaint.txt", uid, 0, "", 0);
 				
 				// Refresh the data in table
-				tblData = crud.read("ResidentComplaint.txt");
-				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
-				tableModel.setColumnIdentifiers(column);
-				tableModel.getDataVector().removeAllElements();
-				tableModel.fireTableDataChanged();
-				jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-				for (int i = 0; i < tblData.size(); i++) {
-					row[0] = tblData.get(i).get(0);
-					row[1] = tblData.get(i).get(1);
-					row[2] = tblData.get(i).get(2);
-					row[3] = tblData.get(i).get(3);
-					row[4] = tblData.get(i).get(4);
-					row[5] = tblData.get(i).get(5);
-					row[6] = tblData.get(i).get(6);
-                                        row[7] = tblData.get(i).get(7);
-                                        row[8] = tblData.get(i).get(8);
-					tableModel.addRow(row);
-				}
-				try {
-					Thread.sleep(100);
-				} catch (InterruptedException e1) {
+				//tblData = crud.read("ResidentComplaint.txt");
+				//DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
+				//tableModel.setColumnIdentifiers(column);
+				//tableModel.getDataVector().removeAllElements();
+				//tableModel.fireTableDataChanged();
+				//jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+				//for (int i = 0; i < tblData.size(); i++) {
+					//row[0] = tblData.get(i).get(0);
+					//row[1] = tblData.get(i).get(1);
+					//row[2] = tblData.get(i).get(2);
+					//row[3] = tblData.get(i).get(3);
+					//row[4] = tblData.get(i).get(4);
+					//row[5] = tblData.get(i).get(5);
+					//row[6] = tblData.get(i).get(6);
+                                       // row[7] = tblData.get(i).get(7);
+                                       // row[8] = tblData.get(i).get(8);
+					//tableModel.addRow(row);
+				//}
+				//try {
+				//	Thread.sleep(100);
+				///} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				jTable.updateUI();
+				//	e1.printStackTrace();
+				//}
+				//jTable.updateUI();
 
-			}
-		});
-		bec.getContentPane().add(deleteBtn);
+			///}
+		///});
+		//bec.getContentPane().add(deleteBtn);
 
 		// Clear Text field Btn
 		JButton clearBtn = new JButton("Clear All");
