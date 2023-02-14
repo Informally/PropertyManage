@@ -8,6 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.JOptionPane;
 
 import Data.User;
 import Handlers.CRUD;
@@ -90,9 +91,8 @@ public class ResidentMenu {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				TenBookingRoom bookingRoom = new TenBookingRoom();
-				bookingRoom.br.setVisible(true);
-				rm.setVisible(false);
+				String username = JOptionPane.showInputDialog(null, "Enter your username:", "Login", JOptionPane.QUESTION_MESSAGE);
+				rm.setVisible(true);
 
 			}
 		});
