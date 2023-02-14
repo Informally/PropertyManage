@@ -22,6 +22,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.UUID;
+import javax.swing.JComboBox;
 
 public class ResTenMgt {
 
@@ -135,9 +136,13 @@ public class ResTenMgt {
 		lblRT.setBounds(434, 223, 315, 42);
 		ResTenMgtPage.getContentPane().add(lblRT);
 
-		JTextField txtRT = new JTextField();
-		txtRT.setBounds(554, 223, 250, 42);
-		ResTenMgtPage.getContentPane().add(txtRT);
+		JComboBox<String> rt = new JComboBox<>();
+		rt.setBounds(554, 223, 250, 42);
+		rt.setSelectedIndex(-1);
+		rt.addItem("Resident");
+                rt.addItem("Tenant");
+
+		ResTenMgtPage.getContentPane().add(rt);
 
 		// Error text
 		JLabel errorText = new JLabel();
@@ -184,7 +189,7 @@ public class ResTenMgt {
                                         txtPwd.setText((String) jTable.getValueAt(row[0], 3));
 					txtContact.setText((String) jTable.getValueAt(row[0], 4));
 					txtUnit.setText((String) jTable.getValueAt(row[0], 5));
-					txtRT.setText((String) jTable.getValueAt(row[0], 6));
+					rt.setSelectedItem((String) jTable.getValueAt(row[0], 6));
 				}
 
 			}
@@ -257,7 +262,7 @@ public class ResTenMgt {
                                 txtPwd.setText("123abc");
 				txtContact.setText("");
 				txtUnit.setText("");
-				txtRT.setText("");
+				rt.setSelectedIndex(-1);
 			}
 		});
 		ResTenMgtPage.getContentPane().add(clearBtn);
@@ -280,7 +285,7 @@ public class ResTenMgt {
                                 String pwd = txtPwd.getText().trim();
 				String contact = txtContact.getText().trim();
 				String unit = txtUnit.getText().trim();
-				String rt = txtRT.getText().trim();
+				String RT = (String) rt.getSelectedItem();
 
 				ArrayList<String> data = new ArrayList<>();
 
@@ -299,7 +304,7 @@ public class ResTenMgt {
                                         data.add(pwd);
 					data.add(contact);
 					data.add(unit);
-					data.add(rt);
+					data.add(RT);
 
 					crud.create("ResTen.txt", data);
 
@@ -310,7 +315,7 @@ public class ResTenMgt {
                                         data.add(pwd);
 					data.add(contact);
 					data.add(unit);
-					data.add(rt);
+					data.add(RT);
 					crud.updateRow("ResTen.txt", rtid, 0, "", 0, data);
 				}
 
@@ -321,7 +326,7 @@ public class ResTenMgt {
                                 txtPwd.setText("123abc");
 				txtContact.setText("");
 				txtUnit.setText("");
-				txtRT.setText("");
+				rt.setSelectedIndex(-1);
 
 				// Refresh the data in table
 				tblData = crud.read("ResTen.txt");
