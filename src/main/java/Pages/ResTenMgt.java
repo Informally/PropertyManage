@@ -98,15 +98,25 @@ public class ResTenMgt {
 		JTextField txtEmail = new JTextField();
 		txtEmail.setBounds(164, 123, 250, 42);
 		ResTenMgtPage.getContentPane().add(txtEmail);
+                
+                // Password
+                JLabel lblPwd = new JLabel("Password: ");
+		lblPwd.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblPwd.setBounds(434, 123, 315, 42);
+		ResTenMgtPage.getContentPane().add(lblPwd);
+
+		JTextField txtPwd = new JTextField("123abc");
+		txtPwd.setBounds(554, 123, 250, 42);
+		ResTenMgtPage.getContentPane().add(txtPwd);
 
 		// Contact
 		JLabel lblContact = new JLabel("Contact: ");
 		lblContact.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblContact.setBounds(434, 123, 315, 42);
+		lblContact.setBounds(434, 173, 315, 42);
 		ResTenMgtPage.getContentPane().add(lblContact);
 
 		JTextField txtContact = new JTextField();
-		txtContact.setBounds(554, 123, 250, 42);
+		txtContact.setBounds(554, 173, 250, 42);
 		ResTenMgtPage.getContentPane().add(txtContact);
 
 		// Unit
@@ -122,11 +132,11 @@ public class ResTenMgt {
 		// Resident or Tenant
 		JLabel lblRT = new JLabel("R/T: ");
 		lblRT.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblRT.setBounds(434, 173, 315, 42);
+		lblRT.setBounds(434, 223, 315, 42);
 		ResTenMgtPage.getContentPane().add(lblRT);
 
 		JTextField txtRT = new JTextField();
-		txtRT.setBounds(554, 173, 250, 42);
+		txtRT.setBounds(554, 223, 250, 42);
 		ResTenMgtPage.getContentPane().add(txtRT);
 
 		// Error text
@@ -139,8 +149,8 @@ public class ResTenMgt {
 
 		// Result Display
 		tblData = crud.read("ResTen.txt");
-		String row[] = new String[6];
-		String column[] = { "R/T Id", "Name", "Email", "Contact", "Unit", "R/T" };
+		String row[] = new String[7];
+		String column[] = { "R/T Id", "Name", "Email", "Password","Contact", "Unit", "R/T" };
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 273, 770, 250);
@@ -154,6 +164,7 @@ public class ResTenMgt {
 			row[3] = tblData.get(i).get(3);
 			row[4] = tblData.get(i).get(4);
 			row[5] = tblData.get(i).get(5);
+                        row[6] = tblData.get(i).get(6);
 			tableModel.addRow(row);
 
 		}
@@ -170,9 +181,10 @@ public class ResTenMgt {
 					txtRTID.setText((String) jTable.getValueAt(row[0], 0));
 					txtName.setText((String) jTable.getValueAt(row[0], 1));
 					txtEmail.setText((String) jTable.getValueAt(row[0], 2));
-					txtContact.setText((String) jTable.getValueAt(row[0], 3));
-					txtUnit.setText((String) jTable.getValueAt(row[0], 4));
-					txtRT.setText((String) jTable.getValueAt(row[0], 5));
+                                        txtPwd.setText((String) jTable.getValueAt(row[0], 3));
+					txtContact.setText((String) jTable.getValueAt(row[0], 4));
+					txtUnit.setText((String) jTable.getValueAt(row[0], 5));
+					txtRT.setText((String) jTable.getValueAt(row[0], 6));
 				}
 
 			}
@@ -217,6 +229,7 @@ public class ResTenMgt {
 					row[3] = tblData.get(i).get(3);
 					row[4] = tblData.get(i).get(4);
 					row[5] = tblData.get(i).get(5);
+                                        row[6] = tblData.get(i).get(6);
 					tableModel.addRow(row);
 				}
 				try {
@@ -241,6 +254,7 @@ public class ResTenMgt {
 				txtRTID.setText("");
 				txtName.setText("");
 				txtEmail.setText("");
+                                txtPwd.setText("123abc");
 				txtContact.setText("");
 				txtUnit.setText("");
 				txtRT.setText("");
@@ -263,6 +277,7 @@ public class ResTenMgt {
 				String rtid = txtRTID.getText().trim();
 				String name = txtName.getText().trim();
 				String email = txtEmail.getText().trim();
+                                String pwd = txtPwd.getText().trim();
 				String contact = txtContact.getText().trim();
 				String unit = txtUnit.getText().trim();
 				String rt = txtRT.getText().trim();
@@ -281,6 +296,7 @@ public class ResTenMgt {
 					data.add(id);
 					data.add(name);
 					data.add(email);
+                                        data.add(pwd);
 					data.add(contact);
 					data.add(unit);
 					data.add(rt);
@@ -291,6 +307,7 @@ public class ResTenMgt {
 					data.add(rtid);
 					data.add(name);
 					data.add(email);
+                                        data.add(pwd);
 					data.add(contact);
 					data.add(unit);
 					data.add(rt);
@@ -301,6 +318,7 @@ public class ResTenMgt {
 				txtRTID.setText("");
 				txtName.setText("");
 				txtEmail.setText("");
+                                txtPwd.setText("123abc");
 				txtContact.setText("");
 				txtUnit.setText("");
 				txtRT.setText("");
@@ -319,6 +337,7 @@ public class ResTenMgt {
 					row[3] = tblData.get(i).get(3);
 					row[4] = tblData.get(i).get(4);
 					row[5] = tblData.get(i).get(5);
+                                        row[6] = tblData.get(i).get(6);
 					tableModel.addRow(row);
 				}
 				try {
