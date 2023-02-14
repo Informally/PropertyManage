@@ -55,7 +55,7 @@ public class ResidentMenu {
 	private void initialize() {
 		rm = new JFrame();
 		rm.setTitle("Resident Menu");
-		rm.setBounds(100, 100, 871, 622);
+		rm.setBounds(100, 100, 500, 622);
 		rm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		rm.getContentPane().setLayout(null);
 
@@ -81,6 +81,22 @@ public class ResidentMenu {
 		rm.getContentPane().add(profileBtn);
 
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+                // View Profile Button
+		JButton profileBtn = new JButton("Edit Profile");
+		profileBtn.setBounds(44, 93, 315, 42);
+		profileBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		profileBtn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				TenBookingRoom bookingRoom = new TenBookingRoom();
+				bookingRoom.br.setVisible(true);
+				rm.setVisible(false);
+
+			}
+		});
+		rm.getContentPane().add(profileBtn);
 
 		// Tenant Booking Room Button
 		JButton bookingBtn = new JButton("Tenant Booking");
