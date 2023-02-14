@@ -74,8 +74,9 @@ public class ResidentMenu {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//String username = JOptionPane.showInputDialog(null, "Enter your username:", "Login", JOptionPane.QUESTION_MESSAGE);
-				rm.setVisible(true);
+				ResViewProfile rvp = new ResViewProfile();
+				rvp.resview.setVisible(true);
+				rm.setVisible(false);
 
 			}
 		});
