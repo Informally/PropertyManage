@@ -135,7 +135,15 @@ public class Login {
 					Bem.buildExec.setVisible(true);
 					loginPage.setVisible(false);
 
+				}else if(role.equals("Security Guard"))
+				{
+					SecurityGuardMenu sgm = new SecurityGuardMenu();
+
+					sgm.sg.setVisible(true);
+					loginPage.setVisible(false);
+
 				}
+                               
 			}
 		});
 		loginPage.getContentPane().add(loginBtn);
