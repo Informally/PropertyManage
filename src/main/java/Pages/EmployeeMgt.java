@@ -101,13 +101,24 @@ public class EmployeeMgt {
 		EmMgtPage.getContentPane().add(txtEmail);
 
 		// Password
+                JLabel lblPwd = new JLabel("Password: ");
+		lblPwd.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblPwd.setBounds(434, 123, 315, 42);
+		EmMgtPage.getContentPane().add(lblPwd);
+
+		JTextField txtPwd = new JTextField("123abc");
+		txtPwd.setBounds(554, 123, 250, 42);
+		EmMgtPage.getContentPane().add(txtPwd);
+
+                
+                //Contact
 		JLabel lblContact = new JLabel("Contact: ");
 		lblContact.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblContact.setBounds(434, 123, 315, 42);
+		lblContact.setBounds(434, 173, 315, 42);
 		EmMgtPage.getContentPane().add(lblContact);
 
 		JTextField txtContact = new JTextField();
-		txtContact.setBounds(554, 123, 250, 42);
+		txtContact.setBounds(554, 173, 250, 42);
 		EmMgtPage.getContentPane().add(txtContact);
 
 		// Age
@@ -123,11 +134,11 @@ public class EmployeeMgt {
 		// Job Role
 		JLabel lblJob = new JLabel("Job Role: ");
 		lblJob.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblJob.setBounds(434, 173, 315, 42);
+		lblJob.setBounds(434, 223, 315, 42);
 		EmMgtPage.getContentPane().add(lblJob);
 
 		JTextField txtJob = new JTextField("none");
-		txtJob.setBounds(554, 173, 250, 42);
+		txtJob.setBounds(554, 223, 250, 42);
 		EmMgtPage.getContentPane().add(txtJob);
 
 		// Error text
@@ -140,8 +151,8 @@ public class EmployeeMgt {
 
 		// Result Display
 		tblData = crud.read("Employee.txt");
-		String row[] = new String[6];
-		String column[] = { "Employee Id", "Name", "Email", "Contact", "Age", "Job Role" };
+		String row[] = new String[7];
+		String column[] = { "Employee Id", "Name", "Email", "Password", "Contact", "Age", "Job Role" };
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 273, 770, 250);
@@ -155,6 +166,7 @@ public class EmployeeMgt {
 			row[3] = tblData.get(i).get(3);
 			row[4] = tblData.get(i).get(4);
 			row[5] = tblData.get(i).get(5);
+                        row[5] = tblData.get(i).get(6);
 			tableModel.addRow(row);
 
 		}
@@ -174,6 +186,7 @@ public class EmployeeMgt {
 					txtContact.setText((String) jTable.getValueAt(row[0], 3));
 					txtAge.setText((String) jTable.getValueAt(row[0], 4));
 					txtJob.setText((String) jTable.getValueAt(row[0], 5));
+                                        txtPwd.setText((String) jTable.getValueAt(row[0], 6));
 				}
 
 			}
@@ -218,6 +231,7 @@ public class EmployeeMgt {
 					row[3] = tblData.get(i).get(3);
 					row[4] = tblData.get(i).get(4);
 					row[5] = tblData.get(i).get(5);
+                                        row[6] = tblData.get(i).get(6);
 					tableModel.addRow(row);
 				}
 				try {
@@ -244,7 +258,8 @@ public class EmployeeMgt {
 				txtEmail.setText("");
 				txtContact.setText("");
 				txtAge.setText("");
-				txtAge.setText("");
+				txtJob.setText("");
+                                txtPwd.setText("");
 			}
 		});
 		EmMgtPage.getContentPane().add(clearBtn);
@@ -264,9 +279,11 @@ public class EmployeeMgt {
 				String emid = txtEMID.getText().trim();
 				String name = txtName.getText().trim();
 				String email = txtEmail.getText().trim();
+                                String pwd = txtPwd.getText().trim();
 				String contact = txtContact.getText().trim();
 				String age = txtAge.getText().trim();
 				String job = txtJob.getText().trim();
+                                
 
 				ArrayList<String> data = new ArrayList<>();
 
@@ -282,6 +299,7 @@ public class EmployeeMgt {
 					data.add(id);
 					data.add(name);
 					data.add(email);
+                                        data.add(pwd);
 					data.add(contact);
 					data.add(age);
 					data.add(job);
@@ -293,6 +311,7 @@ public class EmployeeMgt {
 					data.add(emid);
 					data.add(name);
 					data.add(email);
+                                        data.add(pwd);
 					data.add(contact);
 					data.add(age);
 					data.add(job);
@@ -304,6 +323,7 @@ public class EmployeeMgt {
 				txtEMID.setText("");
 				txtName.setText("");
 				txtEmail.setText("");
+                                txtPwd.setText("");
 				txtContact.setText("");
 				txtAge.setText("");
 				txtJob.setText("");
@@ -322,6 +342,7 @@ public class EmployeeMgt {
 					row[3] = tblData.get(i).get(3);
 					row[4] = tblData.get(i).get(4);
 					row[5] = tblData.get(i).get(5);
+                                        row[6] = tblData.get(i).get(6);
 					tableModel.addRow(row);
 				}
 				try {
