@@ -166,7 +166,7 @@ public class EmployeeMgt {
 			row[3] = tblData.get(i).get(3);
 			row[4] = tblData.get(i).get(4);
 			row[5] = tblData.get(i).get(5);
-                        row[5] = tblData.get(i).get(6);
+                        row[6] = tblData.get(i).get(6);
 			tableModel.addRow(row);
 
 		}
@@ -183,10 +183,11 @@ public class EmployeeMgt {
 					txtEMID.setText((String) jTable.getValueAt(row[0], 0));
 					txtName.setText((String) jTable.getValueAt(row[0], 1));
 					txtEmail.setText((String) jTable.getValueAt(row[0], 2));
-					txtContact.setText((String) jTable.getValueAt(row[0], 3));
-					txtAge.setText((String) jTable.getValueAt(row[0], 4));
-					txtJob.setText((String) jTable.getValueAt(row[0], 5));
-                                        txtPwd.setText((String) jTable.getValueAt(row[0], 6));
+                                        txtPwd.setText((String) jTable.getValueAt(row[0], 3));
+					txtContact.setText((String) jTable.getValueAt(row[0], 4));
+					txtAge.setText((String) jTable.getValueAt(row[0], 5));
+					txtJob.setText((String) jTable.getValueAt(row[0], 6));
+                                        
 				}
 
 			}
@@ -256,10 +257,11 @@ public class EmployeeMgt {
 				txtEMID.setText("");
 				txtName.setText("");
 				txtEmail.setText("");
+                                txtPwd.setText("123abc");
 				txtContact.setText("");
 				txtAge.setText("");
-				txtJob.setText("");
-                                txtPwd.setText("");
+				txtJob.setText("none");
+                                
 			}
 		});
 		EmMgtPage.getContentPane().add(clearBtn);
@@ -323,10 +325,10 @@ public class EmployeeMgt {
 				txtEMID.setText("");
 				txtName.setText("");
 				txtEmail.setText("");
-                                txtPwd.setText("");
+                                txtPwd.setText("123abc");
 				txtContact.setText("");
 				txtAge.setText("");
-				txtJob.setText("");
+				txtJob.setText("none");
 
 				// Refresh the data in table
 				tblData = crud.read("Employee.txt");
