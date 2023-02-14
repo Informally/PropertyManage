@@ -135,11 +135,11 @@ public class Login {
 					Bem.buildExec.setVisible(true);
 					loginPage.setVisible(false);
 
-				}else if(role.equals("Security Guard"))
+				}else if(role.equals("Vendor"))
 				{
-					SecurityGuardMenu sgm = new SecurityGuardMenu();
+					VendorMenu vm = new VendorMenu();
 
-					sgm.sg.setVisible(true);
+					vm.vm.setVisible(true);
 					loginPage.setVisible(false);
 
 				}
