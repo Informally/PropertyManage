@@ -123,8 +123,8 @@ public class Login {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				BuildingExecMenu Bem = new BuildingExecMenu();
-				Bem.buildExec.setVisible(true);
+				SecLogin sl = new SecLogin();
+				sl.seclog.setVisible(true);
 				loginPage.setVisible(false);
                                 //change pages to verification page
 
