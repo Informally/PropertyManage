@@ -224,7 +224,7 @@ public class ResViewProfile {
 
 
 		// Add Resident.Tenant Btn
-		JButton addResTenBtn = new JButton("Save Res/Ten");
+		JButton addResTenBtn = new JButton("Save/Update");
 		addResTenBtn.setBounds(44, 223, 150, 42);
 		addResTenBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		addResTenBtn.addActionListener(new ActionListener() {

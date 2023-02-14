@@ -71,8 +71,8 @@ public class VendorProfile {
 		lblNewLabel.setBounds(34, 5, 665, 81);
 		vp.getContentPane().add(lblNewLabel);
 
-		// R/TID
-		JLabel lblRTID = new JLabel("RTID: ");
+		// UID
+		JLabel lblRTID = new JLabel("UID: ");
 		lblRTID.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblRTID.setBounds(44, 73, 315, 42);
 		vp.getContentPane().add(lblRTID);
@@ -109,41 +109,32 @@ public class VendorProfile {
 		lblPwd.setBounds(434, 123, 315, 42);
 		vp.getContentPane().add(lblPwd);
 
-		JTextField txtPwd = new JTextField("123abc");
+		JTextField txtPwd = new JTextField();
 		txtPwd.setBounds(554, 123, 250, 42);
 		vp.getContentPane().add(txtPwd);
+                
+                // Age
+		JLabel lblAge = new JLabel("Age: ");
+		lblAge.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblAge.setBounds(44, 173, 315, 42);
+		vp.getContentPane().add(lblAge);
 
-		// Contact
-		JLabel lblContact = new JLabel("Contact: ");
-		lblContact.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblContact.setBounds(434, 173, 315, 42);
-		vp.getContentPane().add(lblContact);
+		JTextField txtAge = new JTextField();
+		txtAge.setBounds(164, 173, 250, 42);
+		vp.getContentPane().add(txtAge);
 
-		JTextField txtContact = new JTextField();
-		txtContact.setBounds(554, 173, 250, 42);
-		vp.getContentPane().add(txtContact);
+		// Role
+		JLabel lblRole = new JLabel("Contact: ");
+		lblRole.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblRole.setBounds(434, 173, 315, 42);
+		vp.getContentPane().add(lblRole);
 
-		// Unit
-		JLabel lblUnit = new JLabel("Unit: ");
-		lblUnit.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblUnit.setBounds(44, 173, 315, 42);
-		vp.getContentPane().add(lblUnit);
+		JTextField txtRole = new JTextField();
+		txtRole.setBounds(554, 173, 250, 42);
+                txtRole.setBackground(Color.lightGray);
+		txtRole.setEditable(false);
+		vp.getContentPane().add(txtRole);
 
-		JTextField txtUnit = new JTextField();
-		txtUnit.setBounds(164, 173, 250, 42);
-		vp.getContentPane().add(txtUnit);
-
-		// Resident or Tenant
-		JLabel lblRT = new JLabel("R/T: ");
-		lblRT.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblRT.setBounds(434, 223, 315, 42);
-		vp.getContentPane().add(lblRT);
-
-		JTextField txtRT = new JTextField();
-		txtRT.setBounds(554, 223, 250, 42);
-                txtRT.setBackground(Color.lightGray);
-		txtRT.setEditable(false);
-		vp.getContentPane().add(txtRT);
 
 		// Error text
 		JLabel errorText = new JLabel();
@@ -154,9 +145,9 @@ public class VendorProfile {
 		vp.getContentPane().add(errorText);
 
 		// Result Display
-		tblData = crud.read("ResTen.txt");
-		String row[] = new String[7];
-		String column[] = { "R/T Id", "Name", "Email", "Password","Contact", "Unit", "R/T" };
+		tblData = crud.read("User.txt");
+		String row[] = new String[6];
+		String column[] = { "User ID", "Name", "Email", "Password","Age", "Role" };
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 273, 770, 75);
@@ -170,7 +161,7 @@ public class VendorProfile {
                         row[3] = tblData.get(i).get(3);
                         row[4] = tblData.get(i).get(4);
                         row[5] = tblData.get(i).get(5);
-                        row[6] = tblData.get(i).get(6);
+   
     
                         // Check if the row contains the search string
                         boolean match = false;
@@ -201,9 +192,9 @@ public class VendorProfile {
 					txtName.setText((String) jTable.getValueAt(row[0], 1));
 					txtEmail.setText((String) jTable.getValueAt(row[0], 2));
                                         txtPwd.setText((String) jTable.getValueAt(row[0], 3));
-					txtContact.setText((String) jTable.getValueAt(row[0], 4));
-					txtUnit.setText((String) jTable.getValueAt(row[0], 5));
-					txtRT.setText((String) jTable.getValueAt(row[0], 6));
+					txtAge.setText((String) jTable.getValueAt(row[0], 4));
+					txtRole.setText((String) jTable.getValueAt(row[0], 5));
+					
 				}
 
 			}
@@ -224,7 +215,7 @@ public class VendorProfile {
 
 
 		// Add Resident.Tenant Btn
-		JButton addResTenBtn = new JButton("Save Res/Ten");
+		JButton addResTenBtn = new JButton("Save/Update");
 		addResTenBtn.setBounds(44, 223, 150, 42);
 		addResTenBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		addResTenBtn.addActionListener(new ActionListener() {
@@ -239,9 +230,9 @@ public class VendorProfile {
 				String name = txtName.getText().trim();
 				String email = txtEmail.getText().trim();
                                 String pwd = txtPwd.getText().trim();
-				String contact = txtContact.getText().trim();
-				String unit = txtUnit.getText().trim();
-                                String RT = txtRT.getText().trim();
+				String age = txtAge.getText().trim();
+				String role = txtRole.getText().trim();
+                          
 				
 
 				ArrayList<String> data = new ArrayList<>();
@@ -259,21 +250,21 @@ public class VendorProfile {
 					data.add(name);
 					data.add(email);
                                         data.add(pwd);
-					data.add(contact);
-					data.add(unit);
-					data.add(RT);
+					data.add(age);
+					data.add(role);
+					
 
-					crud.create("ResTen.txt", data);
+					crud.create("User.txt", data);
 
 				} else { // this means update data
 					data.add(rtid);
 					data.add(name);
 					data.add(email);
                                         data.add(pwd);
-					data.add(contact);
-					data.add(unit);
-					data.add(RT);
-					crud.updateRow("ResTen.txt", rtid, 0, "", 0, data);
+					data.add(age);
+					data.add(role);
+				
+					crud.updateRow("User.txt", rtid, 0, "", 0, data);
 				}
 
 				// Clear text after update or add
@@ -281,13 +272,13 @@ public class VendorProfile {
 				txtName.setText("");
 				txtEmail.setText("");
                                 txtPwd.setText("");
-				txtContact.setText("");
-				txtUnit.setText("");
-                                txtRT.setText("");
+				txtAge.setText("");
+				txtRole.setText("");
+                                
 				
 
 				// Refresh the data in table
-				tblData = crud.read("ResTen.txt");
+				tblData = crud.read("User.txt");
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 				tableModel.setColumnIdentifiers(column);
 				tableModel.getDataVector().removeAllElements();
@@ -300,7 +291,7 @@ public class VendorProfile {
                                     row[3] = tblData.get(i).get(3);
                                     row[4] = tblData.get(i).get(4);
                                     row[5] = tblData.get(i).get(5);
-                                    row[6] = tblData.get(i).get(6);
+                                
     
                                     // Check if the row contains the search string
                                     boolean match = false;
