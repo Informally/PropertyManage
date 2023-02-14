@@ -58,13 +58,13 @@ public class Login {
 		loginPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		loginPage.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Login");
-		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
+		JLabel lblNewLabel = new JLabel("Property Management System (PMS) Login");
+		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 27));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		loginPage.getContentPane().add(lblNewLabel);
                 
                 JLabel lblNewLabel1 = new JLabel("(Building Manager, Account/Admin/Building Executive, Vendor)");
-		lblNewLabel1.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 20));
+		lblNewLabel1.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblNewLabel1.setBounds(34, 50, 665, 81);
 		loginPage.getContentPane().add(lblNewLabel1);
 
@@ -87,6 +87,48 @@ public class Login {
 		JTextField txtPassword = new JTextField();
 		txtPassword.setBounds(304, 183, 250, 42);
 		loginPage.getContentPane().add(txtPassword);
+                
+                //Resident/tenant login button
+                JLabel lblResTen = new JLabel("Resident/Tenant Login: ");
+		lblResTen.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblResTen.setBounds(475, 350, 315, 42);
+		loginPage.getContentPane().add(lblResTen);
+                
+		JButton resBtn = new JButton("Resident/Tenant Login");
+		resBtn.setBounds(450, 400, 250, 42);
+		resBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		resBtn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				BuildingExecMenu Bem = new BuildingExecMenu();
+				Bem.buildExec.setVisible(true);
+				loginPage.setVisible(false);
+
+			}
+		});
+		loginPage.getContentPane().add(resBtn);
+                
+                //Security Guard Login Button
+                JLabel lblSec = new JLabel("Security Guard Login: ");
+		lblSec.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblSec.setBounds(200, 350, 315, 42);
+		loginPage.getContentPane().add(lblSec);
+                
+		JButton secBtn = new JButton("Security Guard Login");
+		secBtn.setBounds(175, 400, 250, 42);
+		secBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		secBtn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				BuildingExecMenu Bem = new BuildingExecMenu();
+				Bem.buildExec.setVisible(true);
+				loginPage.setVisible(false);
+
+			}
+		});
+		loginPage.getContentPane().add(secBtn);
 
 		// Error text
 		JLabel errorText = new JLabel();
