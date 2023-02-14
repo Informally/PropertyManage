@@ -64,24 +64,7 @@ public class ResidentMenu {
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		rm.getContentPane().add(lblNewLabel);
-/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		// User Profile Button
-		JButton profileBtn = new JButton("User Profile");
-		profileBtn.setBounds(44, 93, 315, 42);
-		profileBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		profileBtn.addActionListener(new ActionListener() {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				ResidentProfile residentProfile = new ResidentProfile();
-				
-				residentProfile.rp.setVisible(true);
-				rm.setVisible(false);
-			}
-		});
-		rm.getContentPane().add(profileBtn);
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
                 // View Profile Button
 		JButton profileBtn = new JButton("Edit Profile");
@@ -91,7 +74,7 @@ public class ResidentMenu {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String username = JOptionPane.showInputDialog(null, "Enter your username:", "Login", JOptionPane.QUESTION_MESSAGE);
+				//String username = JOptionPane.showInputDialog(null, "Enter your username:", "Login", JOptionPane.QUESTION_MESSAGE);
 				rm.setVisible(true);
 
 			}
