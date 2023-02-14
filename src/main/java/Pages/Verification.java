@@ -65,13 +65,13 @@ public class Verification {
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		verify.getContentPane().add(lblNewLabel);
                 
-                JLabel lblNewLabel1 = new JLabel("Please enter your email and password to verify");
+                JLabel lblNewLabel1 = new JLabel("Please enter your name and password to verify");
 		lblNewLabel1.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblNewLabel1.setBounds(34, 50, 665, 81);
 		verify.getContentPane().add(lblNewLabel1);
 
-		// Email
-		JLabel lblEmail = new JLabel("Email: ");
+		// Name
+		JLabel lblEmail = new JLabel("Name: ");
 		lblEmail.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblEmail.setBounds(204, 133, 315, 42);
 		verify.getContentPane().add(lblEmail);
@@ -108,7 +108,28 @@ public class Verification {
 				CRUD crud = new CRUD();
 				HashMap<Integer, String> data = crud.read("User.txt", txtEmail.getText().trim(), 2, txtPassword.getText().trim(), 3);
 
-			
+				if (data.size() == 0) {
+					errorText.setText("Login Fail");
+					errorText.setVisible(true);
+					return;
+				}
+				
+				String role = data.get(5);
+				if(role.equals("Building Manager"))
+				{
+					BuildingManagerMenu bmm = new BuildingManagerMenu();
+
+					bmm.bmm.setVisible(true);
+					verify.setVisible(false);
+
+				} else if(role.equals("Account Executive"))
+				{
+					AccountExecMenu aem = new AccountExecMenu();
+
+					aem.aem.setVisible(true);
+					verify.setVisible(false);
+
+				}
                                
 			}
 		});
