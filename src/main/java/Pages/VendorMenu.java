@@ -55,7 +55,7 @@ public class VendorMenu {
 	private void initialize() {
 		vm = new JFrame();
 		vm.setTitle("Vendor Menu");
-		vm.setBounds(100, 100, 871, 622);
+		vm.setBounds(100, 100, 500, 500);
 		vm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		vm.getContentPane().setLayout(null);
 
@@ -64,8 +64,8 @@ public class VendorMenu {
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		vm.getContentPane().add(lblNewLabel);
 
-/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		// User Profile Button
+
+		//User Profile Button
 		JButton profileBtn = new JButton("User Profile");
 		profileBtn.setBounds(44, 93, 315, 42);
 		profileBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -81,7 +81,7 @@ public class VendorMenu {
 		});
 		vm.getContentPane().add(profileBtn);
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
 		//Payment Button
 		JButton paymentBtn = new JButton("Payment");
 		paymentBtn.setBounds(44, 153, 315, 42);
