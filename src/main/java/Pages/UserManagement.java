@@ -22,6 +22,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.UUID;
+import javax.swing.JComboBox;
 
 public class UserManagement {
 
@@ -124,10 +125,20 @@ public class UserManagement {
 		lblRole.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblRole.setBounds(434, 173, 315, 42);
 		userMgtPage.getContentPane().add(lblRole);
+                
+                JComboBox<String> role = new JComboBox<>();
+		role.setBounds(554, 173, 250, 42);
+                role.setSelectedIndex(-1);
+		role.addItem("Building Manager");
+		role.addItem("Account Executive");
+		role.addItem("Admin Executive");
+                role.addItem("Building Executive");
+                role.addItem("Vendor");
+		userMgtPage.getContentPane().add(role);
 
-		JTextField txtRole = new JTextField();
-		txtRole.setBounds(554, 173, 250, 42);
-		userMgtPage.getContentPane().add(txtRole);
+		//JTextField txtRole = new JTextField();
+		//txtRole.setBounds(554, 173, 250, 42);
+		//userMgtPage.getContentPane().add(txtRole);
 
 		// Error text
 		JLabel errorText = new JLabel();
@@ -172,7 +183,7 @@ public class UserManagement {
 					txtEmail.setText((String) jTable.getValueAt(row[0], 2));
 					txtPassword.setText((String) jTable.getValueAt(row[0], 3));
 					txtAge.setText((String) jTable.getValueAt(row[0], 4));
-					txtRole.setText((String) jTable.getValueAt(row[0], 5));
+                                        role.setSelectedItem((String) jTable.getValueAt(row[0], 5));
 				}
 
 			}
@@ -243,7 +254,7 @@ public class UserManagement {
 				txtAge.setText("");
 				txtEmail.setText("");
 				txtPassword.setText("");
-				txtRole.setText("");
+				role.setSelectedIndex(-1);
 			}
 		});
 		userMgtPage.getContentPane().add(clearBtn);
@@ -263,7 +274,7 @@ public class UserManagement {
 				String userId = txtUID.getText().trim();
 				String name = txtName.getText().trim();
 				String age = txtAge.getText().trim();
-				String role = txtRole.getText().trim();
+				String Role = (String) role.getSelectedItem();
 				String email = txtEmail.getText().trim();
 				String password = txtPassword.getText().trim();
 
@@ -283,7 +294,7 @@ public class UserManagement {
 					data.add(email);
 					data.add(password);
 					data.add(age);
-					data.add(role);
+					data.add(Role);
 
 					crud.create("User.txt", data);
 
@@ -293,7 +304,7 @@ public class UserManagement {
 					data.add(email);
 					data.add(password);
 					data.add(age);
-					data.add(role);
+					data.add(Role);
 					crud.updateRow("User.txt", userId, 0, "", 0, data);
 				}
 
@@ -303,7 +314,7 @@ public class UserManagement {
 				txtAge.setText("");
 				txtEmail.setText("");
 				txtPassword.setText("");
-				txtRole.setText("");
+				role.setSelectedIndex(-1);
 
 				// Refresh the data in table
 				tblData = crud.read("User.txt");
