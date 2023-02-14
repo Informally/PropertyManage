@@ -140,8 +140,20 @@ public class ViewPCJReport {
                                                                 + row2.get(7) + "\n"+ "Detail: " + row2.get(8) +"\n----------------------\n";
 
 					}
+                                                
+                                        ArrayList<ArrayList<String>> adminExdata = crud.read("AdminExComplaint.txt");
+                                                String complaintreport3 = "\n<---------- Admin Executive Complaint Report ---------->\n";
+                                        
 
-					textArea.setText(complaintreport + complaintreport2);
+                                                for (ArrayList<String> row3 : adminExdata) {
+						complaintreport3 += "\nNo.: " + row3.get(0) + "\n" + "User: " + row3.get(1) + "\n" + "Name: "
+								+ row3.get(2) + "\n" + "Email: " + row3.get(3) + "\n" + "Contact: " + row3.get(4) 
+                                                                + "\n" + "Status: " + row3.get(5) + "\n"+ "Date: " + row3.get(6) + "\n" + "Subject: " 
+                                                                + row3.get(7) + "\n"+ "Detail: " + row3.get(8) +"\n----------------------\n";
+
+					}
+
+					textArea.setText(complaintreport + complaintreport2 + complaintreport3);
 					break;
                                         
 				case "Job Report":
