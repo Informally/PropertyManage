@@ -336,8 +336,8 @@ public class ResViewProfile {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				AdminExecMenu Aem = new AdminExecMenu();
-				Aem.Aem.setVisible(true);
+				ResidentMenu rm = new ResidentMenu();
+				rm.rm.setVisible(true);
 				resview.setVisible(false);
 
 			}
