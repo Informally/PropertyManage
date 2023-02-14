@@ -293,11 +293,11 @@ public class ResidentComplaint {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				txtUID.setText("");
-				txtUser.setText("");
+				txtUser.setText("Resident/Tenant");
 				txtName.setText("");
 				txtEmail.setText("");
 				txtContact.setText("");
-                                txtStatus.setText("");
+                                txtStatus.setText("Processing");
                                 txtDate.setText("");
 				txtSubject.setText("");
                                 txtDetail.setText("");
@@ -368,11 +368,11 @@ public class ResidentComplaint {
 
 				// Clear text after update or add
 				txtUID.setText("");
-				txtUser.setText("");
+				txtUser.setText("Resident/Tenant");
 				txtName.setText("");
 				txtEmail.setText("");
 				txtContact.setText("");
-                                txtStatus.setText("");
+                                txtStatus.setText("Processing");
                                 txtDate.setText("");
 				txtSubject.setText("");
                                 txtDetail.setText("");

@@ -291,11 +291,11 @@ public class VendorComplaint {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				txtUID.setText("");
-				txtUser.setText("");
+				txtUser.setText("Vendor");
 				txtName.setText("");
 				txtEmail.setText("");
 				txtContact.setText("");
-                                txtStatus.setText("");
+                                txtStatus.setText("Processing");
                                 txtDate.setText("");
 				txtSubject.setText("");
                                 txtDetail.setText("");
@@ -365,11 +365,11 @@ public class VendorComplaint {
 
 				// Clear text after update or add
                                 txtUID.setText("");
-				txtUser.setText("");
+				txtUser.setText("Vendor");
 				txtName.setText("");
 				txtEmail.setText("");
 				txtContact.setText("");
-                                txtStatus.setText("");
+                                txtStatus.setText("Processing");
                                 txtDate.setText("");
 				txtSubject.setText("");
                                 txtDetail.setText("");
