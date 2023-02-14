@@ -1,12 +1,12 @@
 package Main;
 
-import Pages.BuildingManagerMenu;
+
 import Pages.Login;
 
 public class MainRun {
 
 private static Login loginPage;
-private static BuildingManagerMenu bmm;
+
 	
 
     public static void main(String[] args) {
@@ -17,10 +17,7 @@ private static BuildingManagerMenu bmm;
 		loginPage = new Login();
 		loginPage.loginPage.setVisible(true);
 		
-		bmm = new BuildingManagerMenu();
 		
-		
-
     }
 	
 	
