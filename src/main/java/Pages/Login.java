@@ -104,6 +104,7 @@ public class Login {
 				BuildingExecMenu Bem = new BuildingExecMenu();
 				Bem.buildExec.setVisible(true);
 				loginPage.setVisible(false);
+                                //change page function to verification login page
 
 			}
 		});
@@ -125,6 +126,7 @@ public class Login {
 				BuildingExecMenu Bem = new BuildingExecMenu();
 				Bem.buildExec.setVisible(true);
 				loginPage.setVisible(false);
+                                //change pages to verification page
 
 			}
 		});
