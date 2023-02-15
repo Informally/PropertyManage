@@ -118,7 +118,7 @@ public class ResTenLogin {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				CRUD crud = new CRUD();
-				HashMap<Integer, String> data = crud.read("RenTen.txt", txtEmail.getText().trim(), 2, txtPassword.getText().trim(), 3);
+				HashMap<Integer, String> data = crud.read("ResTen.txt", txtEmail.getText().trim(), 2, txtPassword.getText().trim(), 3);
 
 				if (data.size() == 0) {
 					errorText.setText("Login Fail");
