@@ -166,7 +166,7 @@ public class ResTenVisitorPass {
 		errorText.setBounds(204, 273, 330, 42);
 		errorText.setVisible(false);
 		rtvp.getContentPane().add(errorText);
-		
+		///////////
 		txtFacilityType.addItemListener(new ItemListener() {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
