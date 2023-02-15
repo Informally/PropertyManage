@@ -220,69 +220,8 @@ public class SecIncident {
 		
 		JScrollPane scroll = new JScrollPane(jTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scroll.setBounds(44, 373, 770, 100);
+		scroll.setBounds(44, 373, 770, 250);
 		inc.getContentPane().add(scroll);
-//		
-
-		// Checkpoint Display
-		CRUD newCrud = new CRUD();
-		tblData.clear();
-		tblData = newCrud.read("Checkpoint.txt");
-		String rowCheckpoint[] = new String[8];
-		String columnCheckPoint[] = { "Checkpoint ID", "Name", "Destination", "Contact", "Status", "Date", "Time in", "Time out" };
-
-		JTable jTableCheckpoint = new JTable();
-		jTableCheckpoint.setBounds(44, 423, 770, 100);
-		DefaultTableModel tableModelCheckpoint = (DefaultTableModel) jTableCheckpoint.getModel();
-		tableModelCheckpoint.setColumnIdentifiers(columnCheckPoint);
-		jTableCheckpoint.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		jTable.setRowSelectionAllowed(false);
-		System.out.print(tblData);
-
-		for (int i = 0; i < tblData.size(); i++) {
-			rowCheckpoint[0] = tblData.get(i).get(0);
-			rowCheckpoint[1] = tblData.get(i).get(1);
-			rowCheckpoint[2] = tblData.get(i).get(2);
-			rowCheckpoint[3] = tblData.get(i).get(3);
-			rowCheckpoint[4] = tblData.get(i).get(4);
-			rowCheckpoint[5] = tblData.get(i).get(5);
-			rowCheckpoint[6] = tblData.get(i).get(6);
-			rowCheckpoint[7] = tblData.get(i).get(7);
-			tableModelCheckpoint.addRow(rowCheckpoint);
-
-		}
-		jTableCheckpoint.setModel(tableModelCheckpoint);
-
-//		ListSelectionModel selectPayment = jTableCheckpoint.getSelectionModel();
-//		selectPayment.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-//		selectPayment.addListSelectionListener(new ListSelectionListener() {
-//			public void valueChanged(ListSelectionEvent e) {
-//				int[] row = jTableCheckpoint.getSelectedRows();
-//				int columnNum = jTableCheckpoint.getColumnCount();
-//
-//				if (row.length > 0) {
-//					HashMap<Integer, String> debtDt = crud.read("Payment.txt",
-//							(String) jTableCheckpoint.getValueAt(row[0], 5), 5, "", 0);
-//					txtUID.setText((String) jTableCheckpoint.getValueAt(row[0], 0));
-//					txtName.setText((String) jTableCheckpoint.getValueAt(row[0], 1));
-//					txtDetail.setText((String) jTableCheckpoint.getValueAt(row[0], 2));
-//					txtPayment.setText((String) jTableCheckpoint.getValueAt(row[0], 3));
-//					txtRole.setText((String) jTableCheckpoint.getValueAt(row[0], 4));
-//					txtDebt.setText(debtDt.get(3));
-//				}
-//
-//			}
-//		});
-		
-		JLabel lblCheckpoint = new JLabel("Checkpoint Check-in Table");
-		lblCheckpoint.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 20));
-		lblCheckpoint.setBounds(44, 453, 770, 100);
-		inc.getContentPane().add(lblCheckpoint);
-		
-		JScrollPane scrollPayment = new JScrollPane(jTableCheckpoint, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
-				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scrollPayment.setBounds(44, 523, 770, 100);
-		inc.getContentPane().add(scrollPayment);
 
 		// Error text calculation
 		JLabel calErrorText = new JLabel();
@@ -301,51 +240,9 @@ public class SecIncident {
 				inc.setVisible(false);
 			}
 		});
-		viewBtn.setBounds(524, 273, 150, 42);
+		viewBtn.setBounds(364, 273, 150, 42);
 		viewBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		inc.getContentPane().add(viewBtn);
-		
-		// Delete Btn
-		JButton deleteBtn = new JButton("Delete");
-		deleteBtn.setBounds(364, 273, 150, 42);
-		deleteBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		deleteBtn.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-								
-				String uid = txtUID.getText().trim();
-								
-				crud.delete("Checkpoint.txt", uid, 0, "", 0);
-								
-				// Refresh the data in table
-				tblData = crud.read("Checkpoint.txt");
-				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
-				tableModel.setColumnIdentifiers(column);
-				tableModel.getDataVector().removeAllElements();
-				tableModel.fireTableDataChanged();
-				jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-				for (int i = 0; i < tblData.size(); i++) {
-					row[0] = tblData.get(i).get(0);
-					row[1] = tblData.get(i).get(1);
-					row[2] = tblData.get(i).get(2);
-					row[3] = tblData.get(i).get(3);
-					row[4] = tblData.get(i).get(4);
-					row[5] = tblData.get(i).get(5);
-					row[6] = tblData.get(i).get(6);
-					row[7] = tblData.get(i).get(7);
-					tableModel.addRow(row);
-				}
-				try {
-					Thread.sleep(100);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				jTable.updateUI();
-
-			}
-		});
-				inc.getContentPane().add(deleteBtn);
 		
 		// Clear Text field Btn
 		JButton clearBtn = new JButton("Clear All");
