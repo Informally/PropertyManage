@@ -60,18 +60,18 @@ public class ResTenVisitorPass {
 	 */
 	private void initialize() {
 		rtvp = new JFrame();
-		rtvp.setTitle("Facility Booking");
+		rtvp.setTitle("Resident/Tenant Visitor Pass");
 		rtvp.setBounds(100, 100, 900, 822);
 		rtvp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		rtvp.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Facility Booking");
-		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
+		JLabel lblNewLabel = new JLabel("Visitor Pass Management");
+		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 32));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		rtvp.getContentPane().add(lblNewLabel);
 
-		// Facility ID
-		JLabel lblUID = new JLabel("Facility ID: ");
+		// pass ID
+		JLabel lblUID = new JLabel("Pass ID: ");
 		lblUID.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblUID.setBounds(44, 73, 315, 42);
 		rtvp.getContentPane().add(lblUID);
@@ -82,39 +82,36 @@ public class ResTenVisitorPass {
 		txtUID.setEditable(false);
 		rtvp.getContentPane().add(txtUID);
 
-                // Name
-		JLabel lblName = new JLabel("Name: ");
-		lblName.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblName.setBounds(444, 123, 315, 42);
-		rtvp.getContentPane().add(lblName);
+                // OwnerName
+		JLabel lbloname = new JLabel("Owner Name: ");
+		lbloname.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lbloname.setBounds(444, 123, 315, 42);
+		rtvp.getContentPane().add(lbloname);
 
-		JTextField txtName = new JTextField();
-		txtName.setBounds(584,123, 250, 42);
-		rtvp.getContentPane().add(txtName);
+		JTextField txtoname = new JTextField();
+		txtoname.setBounds(584,123, 250, 42);
+		rtvp.getContentPane().add(txtoname);
                 
-		// Facility No
-		JLabel lblFacility = new JLabel("Facility No: ");
-		lblFacility.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblFacility.setBounds(444, 73, 315, 42);
-		rtvp.getContentPane().add(lblFacility);
+		// Visitor Name
+		JLabel vname = new JLabel("Visitor Name: ");
+		vname.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		vname.setBounds(444, 73, 315, 42);
+		rtvp.getContentPane().add(vname);
 
-		JTextField txtFacility = new JTextField();
-		txtFacility.setBounds(584,73, 250, 42);
-		rtvp.getContentPane().add(txtFacility);
+		JTextField txtvname = new JTextField();
+		txtvname.setBounds(584,73, 250, 42);
+		rtvp.getContentPane().add(txtvname);
 
-		// Facility Type
-		JLabel lblFacilityType = new JLabel("Facility Type:");
-		lblFacilityType.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblFacilityType.setBounds(44, 123, 315, 42);
-		rtvp.getContentPane().add(lblFacilityType);
+		// Destination Unit
+		JLabel lblDes = new JLabel("Destination:");
+		lblDes.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblDes.setBounds(44, 123, 315, 42);
+		rtvp.getContentPane().add(lblDes);
+                
+                JTextField txtDes = new JTextField();
+		txtDes.setBounds(174,123, 250, 42);
+		rtvp.getContentPane().add(txtDes);
 
-		JComboBox<String> txtFacilityType = new JComboBox<>();
-		txtFacilityType.setBounds(174, 123, 250, 42);
-		txtFacilityType.addItem("Swimming Pool");
-		txtFacilityType.addItem("Barbeque Pit");
-		txtFacilityType.addItem("Gym Room");
-		txtFacilityType.addItem("Meeting Room");
-		rtvp.getContentPane().add(txtFacilityType);
 		
 		// Facility Price
 		JLabel lblPrice = new JLabel("Facility Price: ");
