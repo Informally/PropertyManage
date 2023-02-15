@@ -101,8 +101,8 @@ public class Login {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				BuildingExecMenu Bem = new BuildingExecMenu();
-				Bem.buildExec.setVisible(true);
+				ResTenLogin rtl = new ResTenLogin();
+				rtl.restenlog.setVisible(true);
 				loginPage.setVisible(false);
                                 //change page function to verification login page
 
