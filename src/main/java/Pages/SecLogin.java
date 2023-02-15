@@ -126,7 +126,7 @@ public class SecLogin {
 					return;
 				}
 				
-				String role = data.get(5);
+				String role = data.get(6);
 				if(role.equals("Security Guard"))
 				{
 					SecurityGuardMenu sgm = new SecurityGuardMenu();
