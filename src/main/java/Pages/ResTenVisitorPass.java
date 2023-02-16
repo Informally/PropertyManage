@@ -237,7 +237,7 @@ public class ResTenVisitorPass {
 				
 				String uid = txtUID.getText().trim();
 				
-				crud.delete("C:\\Users\\Alan\\Documents\\FacilityBooking.txt", uid, 0, "", 0);
+				crud.delete("VisitorPass.txt", uid, 0, "", 0);
 				
 				// Refresh the data in table
 				tblData = crud.read("C:\\Users\\Alan\\Documents\\FacilityBooking.txt");
@@ -341,8 +341,8 @@ public class ResTenVisitorPass {
                                         dataIs.add(String.valueOf(totalPrice));
                                         dataIs.add(date);
 
-					crud.create("C:\\Users\\Alan\\Documents\\FacilityBooking.txt", data);
-                                        crud.create("C:\\Users\\Alan\\Documents\\ResidentInvoiceStatement.txt", dataIs);
+					//crud.create("C:\\Users\\Alan\\Documents\\FacilityBooking.txt", data);
+                                        //crud.create("C:\\Users\\Alan\\Documents\\ResidentInvoiceStatement.txt", dataIs);
 
 				} else { // this means update data
 					data.add(userId);
@@ -361,8 +361,8 @@ public class ResTenVisitorPass {
                                         dataIs.add(String.valueOf(totalPrice));
                                         dataIs.add(date);
                                         
-					crud.updateRow("C:\\Users\\Alan\\Documents\\FacilityBooking.txt", userId, 0, "", 0, data);
-                                        crud.updateRow("C:\\Users\\Alan\\Documents\\ResidentInvoiceStatement.txt", userId, 0, "", 0, dataIs);
+					//crud.updateRow("C:\\Users\\Alan\\Documents\\FacilityBooking.txt", userId, 0, "", 0, data);
+                                        //crud.updateRow("C:\\Users\\Alan\\Documents\\ResidentInvoiceStatement.txt", userId, 0, "", 0, dataIs);
 				}
 
 				// Clear text after update or add
