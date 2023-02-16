@@ -169,7 +169,7 @@ public class ResTenVisitorPass {
 		
 
 		// Result Display
-		tblData = crud.read("C:\\Users\\Alan\\Documents\\FacilityBooking.txt");
+		tblData = crud.read("VisitorPass.txt");
 		String row[] = new String[9];
 		String column[] = { "Facility Id", "Facility No", "Facility Type","Name", "Facility Price", "Duration", "Total", "Date", "Time" };
 
