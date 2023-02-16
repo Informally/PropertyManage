@@ -138,17 +138,17 @@ public class SecVisitorPass {
 		vp.getContentPane().add(lblOwnerName);
 
 		JTextField txtOwnerName = new JTextField();
-		txtOwnerName.setBounds(164, 173, 250, 42);
+		txtOwnerName.setBounds(164, 223, 250, 42);
 		vp.getContentPane().add(txtOwnerName);
 
 		// Owner Contact
-		JLabel lblOwnerContact = new JLabel("Date: ");
-		lblOwnerContact.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblOwnerContact.setBounds(44, 173, 315, 42);
+		JLabel lblOwnerContact = new JLabel("Owner Contact: ");
+		lblOwnerContact.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 15));
+		lblOwnerContact.setBounds(434, 173, 315, 42);
 		vp.getContentPane().add(lblOwnerContact);
 
 		JTextField txtOwnerContact = new JTextField();
-		txtOwnerContact.setBounds(164, 223, 250, 42);
+		txtOwnerContact.setBounds(554, 173, 250, 42);
 		vp.getContentPane().add(txtOwnerContact);
 
 		// Time in
