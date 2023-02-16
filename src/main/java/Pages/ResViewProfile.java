@@ -311,11 +311,11 @@ public class ResViewProfile {
                                         }
                                    }
     
-                        // Add the row if it matches the search string
-                        if (match) {
-                            tableModel.addRow(row);
-                            }
-                    }
+                                     // Add the row if it matches the search string
+                                    if (match) {
+                                        tableModel.addRow(row);
+                                        }
+                                }
 				try {
 					Thread.sleep(100);
 				} catch (InterruptedException e1) {

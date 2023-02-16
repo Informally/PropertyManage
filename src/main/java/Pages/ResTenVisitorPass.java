@@ -34,6 +34,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.UUID;
+import javax.swing.JOptionPane;
 
 public class ResTenVisitorPass {
 
@@ -68,6 +69,7 @@ public class ResTenVisitorPass {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+                String search = JOptionPane.showInputDialog(null, "Enter your name:");
 		rtvp = new JFrame();
 		rtvp.setTitle("Resident/Tenant Visitor Pass");
 		rtvp.setBounds(100, 100, 871, 722);
@@ -181,16 +183,27 @@ public class ResTenVisitorPass {
 		jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		for (int i = 0; i < tblData.size(); i++) {
 			row[0] = tblData.get(i).get(0);
-			row[1] = tblData.get(i).get(1);
-			row[2] = tblData.get(i).get(2);
-			row[3] = tblData.get(i).get(3);
-			row[4] = tblData.get(i).get(4);
-			row[5] = tblData.get(i).get(5);
+                        row[1] = tblData.get(i).get(1);
+                        row[2] = tblData.get(i).get(2);
+                        row[3] = tblData.get(i).get(3);
+                        row[4] = tblData.get(i).get(4);
+                        row[5] = tblData.get(i).get(5);
                         row[6] = tblData.get(i).get(6);
-			row[7] = tblData.get(i).get(7);
-			tableModel.addRow(row);
-
-		}
+    
+                        // Check if the row contains the search string
+                        boolean match = false;
+                        for (int j = 0; j < row.length; j++) {
+                            if (row[j].toLowerCase().contains(search.toLowerCase())) {
+                            match = true;
+                            break;
+                    }
+                }
+    
+                        // Add the row if it matches the search string
+                        if (match) {
+                            tableModel.addRow(row);
+                            }
+                    }
 		jTable.setModel(tableModel);
 
 		ListSelectionModel select = jTable.getSelectionModel();
@@ -317,16 +330,28 @@ public class ResTenVisitorPass {
 				tableModel.fireTableDataChanged();
 				jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 				for (int i = 0; i < tblData.size(); i++) {
-					row[0] = tblData.get(i).get(0);
-					row[1] = tblData.get(i).get(1);
-					row[2] = tblData.get(i).get(2);
-					row[3] = tblData.get(i).get(3);
-					row[4] = tblData.get(i).get(4);
-					row[5] = tblData.get(i).get(5);
-                                        row[6] = tblData.get(i).get(6);
-					row[7] = tblData.get(i).get(7);
-					tableModel.addRow(row);
-				}
+                                    row[0] = tblData.get(i).get(0);
+                                    row[1] = tblData.get(i).get(1);
+                                    row[2] = tblData.get(i).get(2);
+                                    row[3] = tblData.get(i).get(3);
+                                    row[4] = tblData.get(i).get(4);
+                                    row[5] = tblData.get(i).get(5);
+                                    row[6] = tblData.get(i).get(6);
+    
+                                    // Check if the row contains the search string
+                                    boolean match = false;
+                                    for (int j = 0; j < row.length; j++) {
+                                        if (row[j].toLowerCase().contains(search.toLowerCase())) {
+                                        match = true;
+                                        break;
+                                        }
+                                   }
+    
+                                     // Add the row if it matches the search string
+                                    if (match) {
+                                        tableModel.addRow(row);
+                                        }
+                                }
 				try {
 					Thread.sleep(100);
 				} catch (InterruptedException e1) {
