@@ -131,7 +131,29 @@ public class Login {
 			}
 		});
 		loginPage.getContentPane().add(secBtn);
+                
+                //Visitor  Button
+                JLabel lblVisitor = new JLabel("If you are a visitor, click here to view your visitor pass");
+		lblVisitor.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblVisitor.setBounds(200, 450, 450, 42);
+		loginPage.getContentPane().add(lblVisitor);
+                
+		JButton visitorBtn = new JButton("View Visitor Pass");
+		visitorBtn.setBounds(175, 500, 250, 42);
+		visitorBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		visitorBtn.addActionListener(new ActionListener() {
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VisitorViewPass viewpass = new VisitorViewPass();
+				viewpass.vvp.setVisible(true);
+				loginPage.setVisible(false);
+                                //change pages to verification page
+
+			}
+		});
+		loginPage.getContentPane().add(visitorBtn);
+                
 		// Error text
 		JLabel errorText = new JLabel();
 		errorText.setForeground(Color.RED);
