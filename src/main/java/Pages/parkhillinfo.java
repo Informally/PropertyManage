@@ -65,6 +65,34 @@ public class parkhillinfo {
                 parkhillimage.setBounds(0, 0, 800, 546);
                 info.getContentPane().add(parkhillimage);
                 
+                JLabel lblTitle = new JLabel("Parkhill Residences - Bukit Jalil");
+		lblTitle.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 25));
+		lblTitle.setBounds(900, 80, 400, 42);
+		info.getContentPane().add(lblTitle);
+                
+                JLabel lblEmail = new JLabel("Number of Floors: ");
+		lblEmail.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblEmail.setBounds(900, 130, 315, 42);
+		info.getContentPane().add(lblEmail);
+                
+                JLabel lblUnits = new JLabel("Number of Units: ");
+		lblUnits.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblUnits.setBounds(900, 180, 315, 42);
+		info.getContentPane().add(lblUnits);
+                
+                JLabel lblFac= new JLabel("Facilities: ");
+		lblFac.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblFac.setBounds(900, 230, 315, 42);
+		info.getContentPane().add(lblFac);
+                
+           
+                JLabel lblLocation = new JLabel("""
+                                                Location: Jln Jalil Perkasa 19,
+                                                Bukit Jalil, 57000 Kuala Lumpur""");
+		lblLocation.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblLocation.setBounds(900, 280, 315, 100);
+		info.getContentPane().add(lblLocation);
+                
         }
 }
                 
