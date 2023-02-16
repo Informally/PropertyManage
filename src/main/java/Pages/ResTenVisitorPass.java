@@ -69,97 +69,97 @@ public class ResTenVisitorPass {
 	 */
 	private void initialize() {
 		rtvp = new JFrame();
-		rtvp.setTitle("Visitor Pass");
+		rtvp.setTitle("Resident/Tenant Visitor Pass");
 		rtvp.setBounds(100, 100, 871, 722);
-		vp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		vp.getContentPane().setLayout(null);
+		rtvp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		rtvp.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Visitor Pass");
-		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
+		JLabel lblNewLabel = new JLabel("Residnet/Tenant Visitor Pass");
+		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		lblNewLabel.setBounds(34, 11, 665, 81);
-		vp.getContentPane().add(lblNewLabel);
+		rtvp.getContentPane().add(lblNewLabel);
 
 		// Pass ID
 		JLabel lblUID = new JLabel("Pass ID: ");
 		lblUID.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblUID.setBounds(44, 73, 315, 42);
-		vp.getContentPane().add(lblUID);
+		rtvp.getContentPane().add(lblUID);
 
 		JTextField txtUID = new JTextField("");
 		txtUID.setBounds(164, 73, 250, 42);
 		txtUID.setBackground(Color.gray);
 		txtUID.setEditable(false);
-		vp.getContentPane().add(txtUID);
+		rtvp.getContentPane().add(txtUID);
 
 		// Name
 		JLabel lblName = new JLabel("Name: ");
 		lblName.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblName.setBounds(434, 73, 315, 42);
-		vp.getContentPane().add(lblName);
+		rtvp.getContentPane().add(lblName);
 
 		JTextField txtName = new JTextField();
 		txtName.setBounds(554, 73, 250, 42);
-		vp.getContentPane().add(txtName);
+		rtvp.getContentPane().add(txtName);
 
 		// Destination
 		JLabel lblDestination = new JLabel("Destination: ");
 		lblDestination.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblDestination.setBounds(44, 123, 315, 42);
-		vp.getContentPane().add(lblDestination);
+		rtvp.getContentPane().add(lblDestination);
 
 		JTextField txtDestination = new JTextField();
 		txtDestination.setBounds(164, 123, 250, 42);
-		vp.getContentPane().add(txtDestination);
+		rtvp.getContentPane().add(txtDestination);
 
 		// Contact
 		JLabel lblContact = new JLabel("Contact: ");
 		lblContact.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblContact.setBounds(434, 123, 315, 42);
-		vp.getContentPane().add(lblContact);
+		rtvp.getContentPane().add(lblContact);
 
 		JTextField txtContact = new JTextField();
 		txtContact.setBounds(554, 123, 250, 42);
-		vp.getContentPane().add(txtContact);
+		rtvp.getContentPane().add(txtContact);
                 
                 // Date
 		JLabel lblDate = new JLabel("Date: ");
 		lblDate.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblDate.setBounds(44, 223, 315, 42);
-		vp.getContentPane().add(lblDate);
+		rtvp.getContentPane().add(lblDate);
 
 		JTextField txtDate = new JTextField();
 		txtDate.setBounds(164, 173, 250, 42);
-		vp.getContentPane().add(txtDate);
+		rtvp.getContentPane().add(txtDate);
                 
                 // Owner Name
 		JLabel lblOwnerName = new JLabel("Owner Name: ");
 		lblOwnerName.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblOwnerName.setBounds(44, 173, 315, 42);
-		vp.getContentPane().add(lblOwnerName);
+		rtvp.getContentPane().add(lblOwnerName);
 
 		JTextField txtOwnerName = new JTextField();
 		txtOwnerName.setBounds(164, 223, 250, 42);
-		vp.getContentPane().add(txtOwnerName);
+		rtvp.getContentPane().add(txtOwnerName);
 
 		// Owner Contact
 		JLabel lblOwnerContact = new JLabel("Owner Contact: ");
 		lblOwnerContact.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 15));
 		lblOwnerContact.setBounds(434, 173, 315, 42);
-		vp.getContentPane().add(lblOwnerContact);
+		rtvp.getContentPane().add(lblOwnerContact);
 
 		JTextField txtOwnerContact = new JTextField();
 		txtOwnerContact.setBounds(554, 173, 250, 42);
-		vp.getContentPane().add(txtOwnerContact);
+		rtvp.getContentPane().add(txtOwnerContact);
 
 		// Time in
 		JLabel lblTime = new JLabel("Time in: ");
 		lblTime.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblTime.setBounds(434, 223, 315, 42);
-		vp.getContentPane().add(lblTime);
+		rtvp.getContentPane().add(lblTime);
 
 		JTextField txtTime = new JTextField();
 		txtTime.setBounds(554, 223, 250, 42);
-		vp.getContentPane().add(txtTime);
+		rtvp.getContentPane().add(txtTime);
 
 		// Error text
 		JLabel errorText = new JLabel();
@@ -167,7 +167,7 @@ public class ResTenVisitorPass {
 		errorText.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13));
 		errorText.setBounds(204, 223, 330, 42);
 		errorText.setVisible(false);
-		vp.getContentPane().add(errorText);
+		rtvp.getContentPane().add(errorText);
 
 		// Result Display
 		tblData = crud.read("VisitorPass.txt");
@@ -216,7 +216,7 @@ public class ResTenVisitorPass {
 		JScrollPane scroll = new JScrollPane(jTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 		JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scroll.setBounds(44, 323, 770, 250);
-		vp.getContentPane().add(scroll);
+		rtvp.getContentPane().add(scroll);
 
 		// Error text calculation
 		JLabel calErrorText = new JLabel();
@@ -224,7 +224,7 @@ public class ResTenVisitorPass {
 		calErrorText.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13));
 		calErrorText.setBounds(204, 530, 330, 42);
 		calErrorText.setVisible(false);
-		vp.getContentPane().add(calErrorText);
+		rtvp.getContentPane().add(calErrorText);
 		
 		// Clear Text field Btn
 		JButton clearBtn = new JButton("Clear All");
@@ -243,7 +243,7 @@ public class ResTenVisitorPass {
 				txtTime.setText("");
 			}
 		});
-		vp.getContentPane().add(clearBtn);
+		rtvp.getContentPane().add(clearBtn);
 
 		// Save Btn
 		JButton addUserBtn = new JButton("Save");
@@ -336,7 +336,7 @@ public class ResTenVisitorPass {
 				jTable.updateUI();
 			}
 		});
-		vp.getContentPane().add(addUserBtn);
+		rtvp.getContentPane().add(addUserBtn);
 		
 		// back Button
 		JButton backBtn = new JButton("Back");
@@ -346,13 +346,13 @@ public class ResTenVisitorPass {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				SecurityGuardMenu sg = new SecurityGuardMenu();
-				sg.sg.setVisible(true);
-				vp.setVisible(false);
+				ResidentMenu rm = new ResidentMenu();
+				rm.rm.setVisible(true);
+				rtvp.setVisible(false);
 
 			}
 		});
-		vp.getContentPane().add(backBtn);
+		rtvp.getContentPane().add(backBtn);
 
 	}
 
