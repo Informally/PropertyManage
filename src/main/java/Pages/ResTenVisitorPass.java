@@ -171,7 +171,7 @@ public class ResTenVisitorPass {
 		// Result Display
 		tblData = crud.read("VisitorPass.txt");
 		String row[] = new String[9];
-		String column[] = { "Facility Id", "Facility No", "Facility Type","Name", "Facility Price", "Duration", "Total", "Date", "Time" };
+		String column[] = { "Pass ID", "Visitor Name", "Destination", "Owner Name", "Facility Price", "Duration", "Total", "Date", "Time" };
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 323, 770, 250);
