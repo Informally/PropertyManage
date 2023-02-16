@@ -101,7 +101,7 @@ public class ResidentPendingFee {
 			public void itemStateChanged(ItemEvent e) {
 				switch ((String) reportOptions.getSelectedItem()) {
 				case "Room Payment":
-					ArrayList<ArrayList<String>> pendingData = crud.read("C:\\Users\\Alan\\Documents\\BookingRoom.txt");
+					ArrayList<ArrayList<String>> pendingData = crud.read("BookingRoom.txt");
 
 		                        String pendingReport = "\t\t<----- Room Pending Fee ----->\n";
 		
@@ -114,7 +114,7 @@ public class ResidentPendingFee {
 		                        textArea.setText(pendingReport);
 					break;
 				case "Monthly Payment":
-					ArrayList<ArrayList<String>> monthlyData = crud.read("C:\\Users\\Alan\\Documents\\MonthlyPayment.txt");
+					ArrayList<ArrayList<String>> monthlyData = crud.read("MonthlyPayment.txt");
 
 		                        String monthlyReport = "\t\t<----- Monthly Pending Fee ----->\n";
 		
@@ -128,7 +128,7 @@ public class ResidentPendingFee {
 					break;
                                  
                                 case "Facility Payment":
-					ArrayList<ArrayList<String>> facilityData = crud.read("C:\\Users\\Alan\\Documents\\FacilityBooking.txt");
+					ArrayList<ArrayList<String>> facilityData = crud.read("FacilityBooking.txt");
 
 		                        String facilityReport = "\t\t<----- Facility Pending Fee ----->\n";
 		
