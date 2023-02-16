@@ -167,62 +167,6 @@ public class ResTenVisitorPass {
 		errorText.setVisible(false);
 		rtvp.getContentPane().add(errorText);
 		
-		txtFacilityType.addItemListener(new ItemListener() {
-			@Override
-			public void itemStateChanged(ItemEvent e) {
-				switch ((String) txtFacilityType.getSelectedItem()) {
-				
-                    case "Swimming Pool":
-					
-					ArrayList<ArrayList<String>> statementData = crud.read("C:\\Users\\Alan\\Documents\\FacilityPrice.txt");
-					
-					for (ArrayList<String> row : statementData) {
-						if(row.get(0).equals("Swimming Pool")) {                                                 
-                                                txtPrice.setText(row.get(1));
-                                                }
-                                                
-					}
-                            
-					break;
-					
-                    case "Barbeque Pit":
-    					
-    					statementData = crud.read("C:\\Users\\Alan\\Documents\\FacilityPrice.txt");
-    					
-    					for (ArrayList<String> row : statementData) {
-    						if(row.get(0).equals("Barbeque Pit")) {
-    						txtPrice.setText(row.get(1));
-    						}
-    					}
-    					break;
-                        
-                        case "Gym Room":
-    					
-    					statementData = crud.read("C:\\Users\\Alan\\Documents\\FacilityPrice.txt");
-    					
-    					for (ArrayList<String> row : statementData) {
-    						if(row.get(0).equals("Gym Room")) {
-    						txtPrice.setText(row.get(1));
-    						}
-    					}
-    					break;	
-    					
-                        case "Meeting Room":
-        					
-        					statementData = crud.read("C:\\Users\\Alan\\Documents\\FacilityPrice.txt");
-        					
-        					for (ArrayList<String> row : statementData) {
-        						if(row.get(0).equals("Meeting Room")) {
-        						txtPrice.setText(row.get(1));
-        						}
-        					}
-        					break;
-				
-				
-				}
-
-			}
-		});
 
 		// Result Display
 		tblData = crud.read("C:\\Users\\Alan\\Documents\\FacilityBooking.txt");
