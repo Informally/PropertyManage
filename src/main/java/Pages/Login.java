@@ -155,6 +155,24 @@ public class Login {
 		});
 		loginPage.getContentPane().add(visitorBtn);
                 
+                //Parkhill Info  Button
+                
+		JButton infoBtn = new JButton("View Parkhill Residence Information");
+		infoBtn.setBounds(175, 570, 350, 42);
+		infoBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		infoBtn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				parkhillinfo pi = new parkhillinfo();
+				pi.info.setVisible(true);
+				loginPage.setVisible(false);
+                                //change pages to verification page
+
+			}
+		});
+		loginPage.getContentPane().add(infoBtn);
+                
 		// Error text
 		JLabel errorText = new JLabel();
 		errorText.setForeground(Color.RED);
