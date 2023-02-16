@@ -61,7 +61,7 @@ public class ResFacilityBooking {
 	private void initialize() {
 		fb = new JFrame();
 		fb.setTitle("Facility Booking");
-		fb.setBounds(100, 100, 900, 822);
+		fb.setBounds(100, 100, 900, 700);
 		fb.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		fb.getContentPane().setLayout(null);
 
