@@ -179,7 +179,7 @@ public class TenBookingRoom {
 				
                     case "Single":
 					
-					ArrayList<ArrayList<String>> statementData = crud.read("C:\\Users\\Alan\\Documents\\RoomPrice.txt");
+					ArrayList<ArrayList<String>> statementData = crud.read("RoomPrice.txt");
 					
 					for (ArrayList<String> row : statementData) {
 						if(row.get(0).equals("Single")) {
@@ -192,7 +192,7 @@ public class TenBookingRoom {
 					
                     case "Double":
     					
-    					statementData = crud.read("C:\\Users\\Alan\\Documents\\RoomPrice.txt");
+    					statementData = crud.read("RoomPrice.txt");
     					
     					for (ArrayList<String> row : statementData) {
     						if(row.get(0).equals("Double")) {
@@ -205,7 +205,7 @@ public class TenBookingRoom {
                         
                         case "Suite":
     					
-    					statementData = crud.read("C:\\Users\\Alan\\Documents\\RoomPrice.txt");
+    					statementData = crud.read("RoomPrice.txt");
     					
     					for (ArrayList<String> row : statementData) {
     						if(row.get(0).equals("Suite")) {
@@ -218,7 +218,7 @@ public class TenBookingRoom {
     					
                         case "Deluxe":
         					
-        					statementData = crud.read("C:\\Users\\Alan\\Documents\\RoomPrice.txt");
+        					statementData = crud.read("RoomPrice.txt");
         					
         					for (ArrayList<String> row : statementData) {
         						if(row.get(0).equals("Deluxe")) {
@@ -236,7 +236,7 @@ public class TenBookingRoom {
 		});
 
 		// Result Display
-		tblData = crud.read("C:\\Users\\Alan\\Documents\\BookingRoom.txt");
+		tblData = crud.read("BookingRoom.txt");
 		String row[] = new String[8];
 		String column[] = { "Room Id", "Room No", "Room Type", "Room Price", "Deposit", "Total", "Month", "Year" };
 
@@ -303,7 +303,7 @@ public class TenBookingRoom {
 				
 				String uid = txtUID.getText().trim();
 				
-				crud.delete("C:\\Users\\Alan\\Documents\\BookingRoom.txt", uid, 0, "", 0);
+				crud.delete("BookingRoom.txt", uid, 0, "", 0);
 				
 				// Refresh the data in table
 				tblData = crud.read("BookingRoom.txt");
@@ -406,8 +406,8 @@ public class TenBookingRoom {
                                         dataIs.add(total);
                                         dataIs.add(dtf.format(now));
 
-					crud.create("C:\\Users\\Alan\\Documents\\BookingRoom.txt", data);
-                                        crud.create("C:\\Users\\Alan\\Documents\\ResidentInvoiceStatement.txt", dataIs);
+					crud.create("BookingRoom.txt", data);
+                                        crud.create("ResidentInvoiceStatement.txt", dataIs);
 
 				} else { // this means update data
 					data.add(userId);
@@ -425,8 +425,8 @@ public class TenBookingRoom {
                                         dataIs.add(total);
                                         dataIs.add(dtf.format(now));
                                         
-					crud.updateRow("C:\\Users\\Alan\\Documents\\BookingRoom.txt", userId, 0, "", 0, data);
-                                        crud.updateRow("C:\\Users\\Alan\\Documents\\ResidentInvoiceStatement.txt", userId, 0, "", 0, dataIs);
+					crud.updateRow("BookingRoom.txt", userId, 0, "", 0, data);
+                                        crud.updateRow("ResidentInvoiceStatement.txt", userId, 0, "", 0, dataIs);
 				}
 
 				// Clear text after update or add
@@ -440,7 +440,7 @@ public class TenBookingRoom {
 				txtTotal.setText("");
 
 				// Refresh the data in table
-				tblData = crud.read("C:\\Users\\Alan\\Documents\\BookingRoom.txt");
+				tblData = crud.read("BookingRoom.txt");
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 				tableModel.setColumnIdentifiers(column);
 				tableModel.getDataVector().removeAllElements();
