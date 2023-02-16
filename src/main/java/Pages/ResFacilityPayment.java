@@ -243,11 +243,11 @@ public class ResFacilityPayment {
 				if (row.length > 0) {
 					txtUID.setText((String) jTable.getValueAt(row[0], 0));
 					txtFacilityType.setText((String) jTable.getValueAt(row[0], 2));
-					txtPrice.setText((String) jTable.getValueAt(row[0], 3));
-					txtDuration.setText((String) jTable.getValueAt(row[0], 4));
-					txtOut.setText((String) jTable.getValueAt(row[0], 5));
-					txtDateBook.setText((String) jTable.getValueAt(row[0], 6));
-					txtTime.setText((String) jTable.getValueAt(row[0], 7));
+					txtPrice.setText((String) jTable.getValueAt(row[0], 4));
+					txtDuration.setText((String) jTable.getValueAt(row[0], 5));
+					txtOut.setText((String) jTable.getValueAt(row[0], 6));
+					txtDateBook.setText((String) jTable.getValueAt(row[0], 7));
+					txtTime.setText((String) jTable.getValueAt(row[0], 8));
 				}
 
 			}
