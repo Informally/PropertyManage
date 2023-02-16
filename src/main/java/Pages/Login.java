@@ -54,7 +54,7 @@ public class Login {
 	private void initialize() {
 		loginPage = new JFrame();
 		loginPage.setTitle("Login");
-		loginPage.setBounds(100, 100, 871, 622);
+		loginPage.setBounds(100, 100, 871, 700);
 		loginPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		loginPage.getContentPane().setLayout(null);
 
@@ -88,6 +88,7 @@ public class Login {
 		txtPassword.setBounds(304, 183, 250, 42);
 		loginPage.getContentPane().add(txtPassword);
                 
+                        
                 //Resident/tenant login button
                 JLabel lblResTen = new JLabel("Resident/Tenant Login: ");
 		lblResTen.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -163,7 +164,7 @@ public class Login {
 		loginPage.getContentPane().add(errorText);
 
 		JButton loginBtn = new JButton("Login");
-		loginBtn.setBounds(304, 253, 150, 42);
+		loginBtn.setBounds(304, 253, 250, 42);
 		loginBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		loginBtn.addActionListener(new ActionListener() {
 			@Override
