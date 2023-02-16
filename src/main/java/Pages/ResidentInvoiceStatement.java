@@ -79,7 +79,7 @@ public class ResidentInvoiceStatement {
 
 		CRUD newCrud = new CRUD();
 		tblData.clear();
-		tblData = newCrud.read("C:\\Users\\Alan\\Documents\\ResidentInvoiceStatement.txt");
+		tblData = newCrud.read("ResidentInvoiceStatement.txt");
 		String rowPayment[] = new String[5];
 		String columnPayment[] = { "Id", "Type", "Type", "Outstanding", "Date" };
 

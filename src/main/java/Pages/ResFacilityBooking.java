@@ -177,7 +177,7 @@ public class ResFacilityBooking {
 				
                     case "Swimming Pool":
 					
-					ArrayList<ArrayList<String>> statementData = crud.read("C:\\Users\\Alan\\Documents\\FacilityPrice.txt");
+					ArrayList<ArrayList<String>> statementData = crud.read("FacilityPrice.txt");
 					
 					for (ArrayList<String> row : statementData) {
 						if(row.get(0).equals("Swimming Pool")) {                                                 
@@ -190,7 +190,7 @@ public class ResFacilityBooking {
 					
                     case "Barbeque Pit":
     					
-    					statementData = crud.read("C:\\Users\\Alan\\Documents\\FacilityPrice.txt");
+    					statementData = crud.read("FacilityPrice.txt");
     					
     					for (ArrayList<String> row : statementData) {
     						if(row.get(0).equals("Barbeque Pit")) {
@@ -201,7 +201,7 @@ public class ResFacilityBooking {
                         
                         case "Gym Room":
     					
-    					statementData = crud.read("C:\\Users\\Alan\\Documents\\FacilityPrice.txt");
+    					statementData = crud.read("FacilityPrice.txt");
     					
     					for (ArrayList<String> row : statementData) {
     						if(row.get(0).equals("Gym Room")) {
@@ -212,7 +212,7 @@ public class ResFacilityBooking {
     					
                         case "Meeting Room":
         					
-        					statementData = crud.read("C:\\Users\\Alan\\Documents\\FacilityPrice.txt");
+        					statementData = crud.read("FacilityPrice.txt");
         					
         					for (ArrayList<String> row : statementData) {
         						if(row.get(0).equals("Meeting Room")) {
@@ -228,7 +228,7 @@ public class ResFacilityBooking {
 		});
 
 		// Result Display
-		tblData = crud.read("C:\\Users\\Alan\\Documents\\FacilityBooking.txt");
+		tblData = crud.read("FacilityBooking.txt");
 		String row[] = new String[9];
 		String column[] = { "Facility Id", "Facility No", "Facility Type","Name", "Facility Price", "Duration", "Total", "Date", "Time" };
 
@@ -296,10 +296,10 @@ public class ResFacilityBooking {
 				
 				String uid = txtUID.getText().trim();
 				
-				crud.delete("C:\\Users\\Alan\\Documents\\FacilityBooking.txt", uid, 0, "", 0);
+				crud.delete("FacilityBooking.txt", uid, 0, "", 0);
 				
 				// Refresh the data in table
-				tblData = crud.read("C:\\Users\\Alan\\Documents\\FacilityBooking.txt");
+				tblData = crud.read("FacilityBooking.txt");
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 				tableModel.setColumnIdentifiers(column);
 				tableModel.getDataVector().removeAllElements();
@@ -400,8 +400,8 @@ public class ResFacilityBooking {
                                         dataIs.add(String.valueOf(totalPrice));
                                         dataIs.add(date);
 
-					crud.create("C:\\Users\\Alan\\Documents\\FacilityBooking.txt", data);
-                                        crud.create("C:\\Users\\Alan\\Documents\\ResidentInvoiceStatement.txt", dataIs);
+					crud.create("FacilityBooking.txt", data);
+                                        crud.create("ResidentInvoiceStatement.txt", dataIs);
 
 				} else { // this means update data
 					data.add(userId);
@@ -420,8 +420,8 @@ public class ResFacilityBooking {
                                         dataIs.add(String.valueOf(totalPrice));
                                         dataIs.add(date);
                                         
-					crud.updateRow("C:\\Users\\Alan\\Documents\\FacilityBooking.txt", userId, 0, "", 0, data);
-                                        crud.updateRow("C:\\Users\\Alan\\Documents\\ResidentInvoiceStatement.txt", userId, 0, "", 0, dataIs);
+					crud.updateRow("FacilityBooking.txt", userId, 0, "", 0, data);
+                                        crud.updateRow("ResidentInvoiceStatement.txt", userId, 0, "", 0, dataIs);
 				}
 
 				// Clear text after update or add
@@ -435,7 +435,7 @@ public class ResFacilityBooking {
 				txtTime.setText("");
 
 				// Refresh the data in table
-				tblData = crud.read("C:\\Users\\Alan\\Documents\\FacilityBooking.txt");
+				tblData = crud.read("FacilityBooking.txt");
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 				tableModel.setColumnIdentifiers(column);
 				tableModel.getDataVector().removeAllElements();
