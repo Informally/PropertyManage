@@ -90,7 +90,7 @@ public class parkhillinfo {
                                                 Location: Jln Jalil Perkasa 19,
                                                 Bukit Jalil, 57000 Kuala Lumpur""");
 		lblLocation.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblLocation.setBounds(900, 280, 315, 100);
+		lblLocation.setBounds(900, 280, 500, 100);
 		info.getContentPane().add(lblLocation);
                 
         }
