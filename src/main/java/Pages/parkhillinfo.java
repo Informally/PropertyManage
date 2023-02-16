@@ -106,6 +106,22 @@ public class parkhillinfo {
                 lblAdd.setEditable(false);
 		info.getContentPane().add(lblAdd);
                 
+                // back Button
+		JButton backBtn = new JButton("Back");
+		backBtn.setBounds(950, 480, 150, 42);
+		backBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		backBtn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Login lg = new Login();
+				lg.loginPage.setVisible(true);
+				info.setVisible(false);
+
+			}
+		});
+		info.getContentPane().add(backBtn);
+                
         }
 }
                 
