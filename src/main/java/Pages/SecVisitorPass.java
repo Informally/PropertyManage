@@ -120,25 +120,45 @@ public class SecVisitorPass {
 		JTextField txtContact = new JTextField();
 		txtContact.setBounds(554, 123, 250, 42);
 		vp.getContentPane().add(txtContact);
-
-		// Date
+                
+                // Date
 		JLabel lblDate = new JLabel("Date: ");
 		lblDate.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblDate.setBounds(44, 173, 315, 42);
+		lblDate.setBounds(44, 223, 315, 42);
 		vp.getContentPane().add(lblDate);
 
 		JTextField txtDate = new JTextField();
 		txtDate.setBounds(164, 173, 250, 42);
 		vp.getContentPane().add(txtDate);
+                
+                // Owner Name
+		JLabel lblOwnerName = new JLabel("Owner Name: ");
+		lblOwnerName.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblOwnerName.setBounds(44, 173, 315, 42);
+		vp.getContentPane().add(lblOwnerName);
+
+		JTextField txtOwnerName = new JTextField();
+		txtOwnerName.setBounds(164, 173, 250, 42);
+		vp.getContentPane().add(txtOwnerName);
+
+		// Owner Contact
+		JLabel lblOwnerContact = new JLabel("Date: ");
+		lblOwnerContact.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblOwnerContact.setBounds(44, 173, 315, 42);
+		vp.getContentPane().add(lblOwnerContact);
+
+		JTextField txtOwnerContact = new JTextField();
+		txtOwnerContact.setBounds(164, 223, 250, 42);
+		vp.getContentPane().add(txtOwnerContact);
 
 		// Time in
 		JLabel lblTime = new JLabel("Time in: ");
 		lblTime.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblTime.setBounds(434, 173, 315, 42);
+		lblTime.setBounds(434, 223, 315, 42);
 		vp.getContentPane().add(lblTime);
 
 		JTextField txtTime = new JTextField();
-		txtTime.setBounds(554, 173, 250, 42);
+		txtTime.setBounds(554, 223, 250, 42);
 		vp.getContentPane().add(txtTime);
 
 		// Error text
@@ -151,8 +171,8 @@ public class SecVisitorPass {
 
 		// Result Display
 		tblData = crud.read("VisitorPass.txt");
-		String row[] = new String[6];
-		String column[] = { "Pass ID", "Name", "Destination", "Contact", "Date", "Time in"};
+		String row[] = new String[8];
+		String column[] = { "Pass ID", "Name", "Destination", "Contact","Owner Name","Owner Contact", "Date", "Time in"};
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 323, 770, 250);
@@ -166,6 +186,8 @@ public class SecVisitorPass {
 			row[3] = tblData.get(i).get(3);
 			row[4] = tblData.get(i).get(4);
 			row[5] = tblData.get(i).get(5);
+                        row[6] = tblData.get(i).get(6);
+			row[7] = tblData.get(i).get(7);
 			tableModel.addRow(row);
 
 		}
@@ -183,8 +205,10 @@ public class SecVisitorPass {
 					txtName.setText((String) jTable.getValueAt(row[0], 1));
 					txtDestination.setText((String) jTable.getValueAt(row[0], 2));
 					txtContact.setText((String) jTable.getValueAt(row[0], 3));
-					txtDate.setText((String) jTable.getValueAt(row[0], 4));
-					txtTime.setText((String) jTable.getValueAt(row[0], 5));
+                                        txtOwnerName.setText((String) jTable.getValueAt(row[0], 4));
+					txtOwnerContact.setText((String) jTable.getValueAt(row[0], 5));
+					txtDate.setText((String) jTable.getValueAt(row[0], 6));
+					txtTime.setText((String) jTable.getValueAt(row[0], 7));
 				}
 
 			}
@@ -213,6 +237,8 @@ public class SecVisitorPass {
 				txtName.setText("");
 				txtDestination.setText("");
 				txtContact.setText("");
+                                txtOwnerName.setText("");
+				txtOwnerContact.setText("");
 				txtDate.setText("");
 				txtTime.setText("");
 			}
@@ -235,6 +261,8 @@ public class SecVisitorPass {
 				String name = txtName.getText().trim();
 				String destination = txtDestination.getText().trim();
 				String contact = txtContact.getText().trim();
+                                String ownerName = txtOwnerName.getText().trim();
+				String ownerContact = txtOwnerContact.getText().trim();
 				String date = txtDate.getText().trim();
 				String time = txtTime.getText().trim();
 
@@ -253,6 +281,8 @@ public class SecVisitorPass {
 				data.add(name);
 				data.add(destination);
 				data.add(contact);
+                                data.add(ownerName);
+				data.add(ownerContact);
 				data.add(date);
 				data.add(time);
 
@@ -262,6 +292,8 @@ public class SecVisitorPass {
 					data.add(name);
 					data.add(destination);
 					data.add(contact);
+                                        data.add(ownerName);
+				        data.add(ownerContact);
 					data.add(date);
 					data.add(time);
 					crud.updateRow("VisitorPass.txt", passId, 0, "", 0, data);
@@ -272,6 +304,8 @@ public class SecVisitorPass {
 				txtName.setText("");
 				txtDestination.setText("");
 				txtContact.setText("");
+                                txtOwnerName.setText("");
+				txtOwnerContact.setText("");
 				txtDate.setText("");
 				txtTime.setText("");
 
@@ -289,6 +323,8 @@ public class SecVisitorPass {
 					row[3] = tblData.get(i).get(3);
 					row[4] = tblData.get(i).get(4);
 					row[5] = tblData.get(i).get(5);
+                                        row[6] = tblData.get(i).get(6);
+					row[7] = tblData.get(i).get(7);
 					tableModel.addRow(row);
 				}
 				try {
