@@ -202,9 +202,9 @@ public class ResTenVisitorPass {
 
 				if (row.length > 0) {
 					txtUID.setText((String) jTable.getValueAt(row[0], 0));
-					txtFacility.setText((String) jTable.getValueAt(row[0], 1));
-					txtFacilityType.setToolTipText((String) jTable.getValueAt(row[0], 2));
-                                        txtName.setText((String) jTable.getValueAt(row[0], 3));
+					//txtFacility.setText((String) jTable.getValueAt(row[0], 1));
+					//txtFacilityType.setToolTipText((String) jTable.getValueAt(row[0], 2));
+                                        //txtName.setText((String) jTable.getValueAt(row[0], 3));
 					txtPrice.setText((String) jTable.getValueAt(row[0], 4));					
 					txtDuration.setToolTipText((String) jTable.getValueAt(row[0], 5));
 					txtDate.setText((String) jTable.getValueAt(row[0], 6));
@@ -278,11 +278,11 @@ public class ResTenVisitorPass {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				txtUID.setText("");
-				txtFacility.setText("");
+				//txtFacility.setText("");
 				txtDate.setText("");
-                                txtName.setText("");
+                                //txtName.setText("");
 				txtPrice.setText("");
-				txtFacilityType.setToolTipText(null);
+				//txtFacilityType.setToolTipText(null);
 				txtDuration.setToolTipText(null);
 				txtTime.setText("");
 			}
@@ -304,12 +304,12 @@ public class ResTenVisitorPass {
 				//DateTimeFormatter yearFormatter = DateTimeFormatter.ofPattern("yyyy");
 				
 				String userId = txtUID.getText().trim();
-				String facility = txtFacility.getText().trim();
+				//String facility = txtFacility.getText().trim();
 				String date = txtDate.getText().trim();
-                                String name = txtName.getText().trim();
+                                //String name = txtName.getText().trim();
 				String duration = txtDuration.getSelectedItem().toString().trim();
 				String price = txtPrice.getText().trim();
-				String facilityType = txtFacilityType.getSelectedItem().toString().trim();
+				//String facilityType = txtFacilityType.getSelectedItem().toString().trim();
 				String time = txtTime.getText().trim();
                                 int totalPrice = Integer.parseInt(price) * Integer.parseInt(duration);
 				
@@ -326,9 +326,9 @@ public class ResTenVisitorPass {
 				if (userId.isEmpty()) { // this means new data is added
 					String uid = uuid.toString();
 					data.add(uid);
-					data.add(facility);
-					data.add(facilityType);
-                                        data.add(name);
+					//data.add(facility);
+					//data.add(facilityType);
+                                        //data.add(name);
 					data.add(price);
 					data.add(duration);
                                         data.add(String.valueOf(totalPrice));
@@ -337,7 +337,7 @@ public class ResTenVisitorPass {
                                         
                                         dataIs.add(uid);
                                         dataIs.add("Facility");
-                                        dataIs.add(facilityType);
+                                        //dataIs.add(facilityType);
                                         dataIs.add(String.valueOf(totalPrice));
                                         dataIs.add(date);
 
@@ -346,9 +346,9 @@ public class ResTenVisitorPass {
 
 				} else { // this means update data
 					data.add(userId);
-					data.add(facility);
-					data.add(facilityType);
-                                        data.add(name);
+					//data.add(facility);
+					//data.add(facilityType);
+                                        //data.add(name);
 					data.add(price);
 					data.add(duration);
                                         data.add(String.valueOf(totalPrice));
@@ -357,7 +357,7 @@ public class ResTenVisitorPass {
                                         
                                         dataIs.add(userId);
                                         dataIs.add("Facility");
-                                        dataIs.add(facilityType);
+                                       // dataIs.add(facilityType);
                                         dataIs.add(String.valueOf(totalPrice));
                                         dataIs.add(date);
                                         
@@ -367,11 +367,11 @@ public class ResTenVisitorPass {
 
 				// Clear text after update or add
 				txtUID.setText("");
-				txtFacility.setText("");
+				//txtFacility.setText("");
 				txtDate.setText("");
 				txtPrice.setText("");
-                                txtName.setText("");
-				txtFacilityType.setToolTipText(null);
+                                //txtName.setText("");
+				//txtFacilityType.setToolTipText(null);
 				txtDuration.setToolTipText(null);
 				txtTime.setText("");
 
