@@ -69,15 +69,15 @@ public class VisitorViewPass {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-                String search = JOptionPane.showInputDialog(null, "Enter your name:");
+                String search = JOptionPane.showInputDialog(null, "Enter the name of your visitor pass.\nThe name should be give to you by the owner:");
 		vvp = new JFrame();
-		vvp.setTitle("Resident/Tenant Visitor Pass");
+		vvp.setTitle("View Visitor Pass");
 		vvp.setBounds(100, 100, 871, 722);
 		vvp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		vvp.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Residnet/Tenant Visitor Pass");
-		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
+		JLabel lblNewLabel = new JLabel("Visitor Pass");
+		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		vvp.getContentPane().add(lblNewLabel);
 
