@@ -266,8 +266,8 @@ public class ResFacilityBooking {
                                         txtName.setText((String) jTable.getValueAt(row[0], 3));
 					txtPrice.setText((String) jTable.getValueAt(row[0], 4));					
 					txtDuration.setToolTipText((String) jTable.getValueAt(row[0], 5));
-					txtDate.setText((String) jTable.getValueAt(row[0], 6));
-					txtTime.setText((String) jTable.getValueAt(row[0], 7));
+					txtDate.setText((String) jTable.getValueAt(row[0], 7));
+					txtTime.setText((String) jTable.getValueAt(row[0], 8));
 				}
 
 			}

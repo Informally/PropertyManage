@@ -133,8 +133,8 @@ public class ResidentPendingFee {
 		                        String facilityReport = "\t\t<----- Facility Pending Fee ----->\n";
 		
 		                        for (ArrayList<String> row : facilityData) {
-			                if(Integer.parseInt(row.get(5)) > 0) {
-			                facilityReport += "\tPending ID:" + row.get(0) + "\n\n\tDescription\t\t\tPrice\n\t---------------\t\t\t-------\n" + "\tFacility" + "\t\t\t" + row.get(3) + "\n" + "\tDuration" + "\t\t\t" + row.get(4) + "\n" + "\t---------------------------------------------------------------\n\tOutstanding" + "\t\t\t" + row.get(5) + "\n"+ "\tPending fee for " + row.get(6) + " " + row.get(7) + "\n\t---------------------------------------------------------------" + "\n\n" + "\t\t<----- Facility Pending Fee ----->\n";
+			                if(Integer.parseInt(row.get(6)) > 0) {
+			                facilityReport += "\tPending ID:" + row.get(0) + "\n\n\tDescription\t\t\tPrice\n\t---------------\t\t\t-------\n" + "\tFacility" + "\t\t\t" + row.get(4) + "\n" + "\tDuration" + "\t\t\t" + row.get(5) + "\n" + "\t---------------------------------------------------------------\n\tOutstanding" + "\t\t\t" + row.get(6) + "\n"+ "\tPending fee for " + row.get(7) + " " + row.get(7) + "\n\t---------------------------------------------------------------" + "\n\n" + "\t\t<----- Facility Pending Fee ----->\n";
 			                }
 		                        }
 
