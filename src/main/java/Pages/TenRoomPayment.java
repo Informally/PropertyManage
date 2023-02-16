@@ -209,7 +209,7 @@ public class TenRoomPayment {
 		rp.getContentPane().add(errorText);
 
 		// Result Display
-		tblData = crud.read("C:\\Users\\Alan\\Documents\\BookingRoom.txt");
+		tblData = crud.read("BookingRoom.txt");
 		String row[] = new String[8];
 		String column[] = { "Room Id", "Room No", "Room Type", "Room Price", "Deposit", "Total", "Month", "Year" };
 
@@ -259,7 +259,7 @@ public class TenRoomPayment {
 
 		// Payment Display
 		CRUD newCrud = new CRUD();
-		tblDataHistory = newCrud.read("C:\\Users\\Alan\\Documents\\ResidentPaymentHistory.txt");
+		tblDataHistory = newCrud.read("ResidentPaymentHistory.txt");
 		String rowPayment[] = new String[8];
 		String columnPayment[] = { "Id", "Room Type","Outstanding", "Total Paid", "Month", "Year", "Payment ID", "Date" };
 
@@ -398,19 +398,19 @@ public class TenRoomPayment {
                                 dataIs.add(price);
                                 dataIs.add(dtf.format(now));
 
-				crud.create("C:\\Users\\Alan\\Documents\\ResidentPaymentHistory.txt", data);
-				crud.create("C:\\Users\\Alan\\Documents\\RoomReceipt.txt", dataReceipt);
-				crud.create("C:\\Users\\Alan\\Documents\\MonthlyPayment.txt", dataMonthly);
-                                crud.create("C:\\Users\\Alan\\Documents\\ResidentInvoiceStatement.txt", dataIs);
+				crud.create("ResidentPaymentHistory.txt", data);
+				crud.create("RoomReceipt.txt", dataReceipt);
+				crud.create("MonthlyPayment.txt", dataMonthly);
+                                crud.create("ResidentInvoiceStatement.txt", dataIs);
 				// Update the debt value
 				int totalDebt = Integer.parseInt(out) - Integer.parseInt(amount);
 				int total = Integer.parseInt(amount) - Integer.parseInt(out);
-				crud.update("C:\\Users\\Alan\\Documents\\BookingRoom.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
+				crud.update("BookingRoom.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
 				//crud.update("VendorStatement.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
 				//crud.update("VendorInvoice.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
-				crud.update("C:\\Users\\Alan\\Documents\\ResidentPaymentHistory.txt", uid, 0,"", 0, String.valueOf(total), 2, "", 0);
-				crud.update("C:\\Users\\Alan\\Documents\\ResidentPaymentHistory.txt", uid, 0,"", 0, String.valueOf(amount), 3, "", 0);
-                                crud.update("C:\\Users\\Alan\\Documents\\ResidentInvoiceStatement.txt", userID, 0,"", 0, String.valueOf(total), 3, "", 0);
+				crud.update("ResidentPaymentHistory.txt", uid, 0,"", 0, String.valueOf(total), 2, "", 0);
+				crud.update("ResidentPaymentHistory.txt", uid, 0,"", 0, String.valueOf(amount), 3, "", 0);
+                                crud.update("ResidentInvoiceStatement.txt", userID, 0,"", 0, String.valueOf(total), 3, "", 0);
 
 				// Clear text after update or add
 				txtUID.setText("");
@@ -426,7 +426,7 @@ public class TenRoomPayment {
 				txtAmount.setText("");
 
 				// Refresh the data in table
-				tblData = crud.read("C:\\Users\\Alan\\Documents\\BookingRoom.txt");
+				tblData = crud.read("BookingRoom.txt");
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 				tableModel.setColumnIdentifiers(column);
 				tableModel.getDataVector().removeAllElements();
@@ -451,7 +451,7 @@ public class TenRoomPayment {
 				}
 				jTable.updateUI();
 
-				tblDataHistory = crud.read("C:\\Users\\Alan\\Documents\\ResidentPaymentHistory.txt");
+				tblDataHistory = crud.read("ResidentPaymentHistory.txt");
 				DefaultTableModel tableModelPayment = (DefaultTableModel) jTablePayment.getModel();
 				tableModelPayment.setColumnIdentifiers(columnPayment);
 				tableModelPayment.getDataVector().removeAllElements();
