@@ -56,13 +56,14 @@ public class parkhillinfo {
 	private void initialize() {
 		info = new JFrame();
 		info.setTitle("Parkhill Residences Info");
-		info.setBounds(100, 100, 871, 700);
+		info.setBounds(100, 100, 1400, 580);
 		info.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		info.getContentPane().setLayout(null);
                 
                 ImageIcon imageIcon = new ImageIcon("parkhill.jpg");
                 JLabel parkhillimage = new JLabel(imageIcon);
-                parkhillimage.setBounds(200, 200, 871, 350);
+                parkhillimage.setBounds(0, 0, 800, 546);
+                info.getContentPane().add(parkhillimage);
                 
         }
 }
