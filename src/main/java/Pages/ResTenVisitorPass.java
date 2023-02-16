@@ -189,6 +189,7 @@ public class ResTenVisitorPass {
                         row[4] = tblData.get(i).get(4);
                         row[5] = tblData.get(i).get(5);
                         row[6] = tblData.get(i).get(6);
+                        row[7] = tblData.get(i).get(7);
     
                         // Check if the row contains the search string
                         boolean match = false;
@@ -337,6 +338,7 @@ public class ResTenVisitorPass {
                                     row[4] = tblData.get(i).get(4);
                                     row[5] = tblData.get(i).get(5);
                                     row[6] = tblData.get(i).get(6);
+                                    row[7] = tblData.get(i).get(7);
     
                                     // Check if the row contains the search string
                                     boolean match = false;
