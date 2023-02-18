@@ -66,12 +66,12 @@ public class TenRoomPayment {
 	 */
 	private void initialize() {
 		rp = new JFrame();
-		rp.setTitle("Resident Room Payment");
+		rp.setTitle("Tenant Room Payment");
 		rp.setBounds(100, 100, 1471, 822);
 		rp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		rp.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Resident Room Payment");
+		JLabel lblNewLabel = new JLabel("Tenant Room Payment");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		rp.getContentPane().add(lblNewLabel);
