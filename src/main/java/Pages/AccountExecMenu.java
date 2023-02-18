@@ -53,7 +53,7 @@ public class AccountExecMenu {
 	 */
 	private void initialize() {
 		aem = new JFrame();
-		aem.setTitle("Building Manager Menu");
+		aem.setTitle("Account Executive Menu");
 		aem.setBounds(100, 100, 871, 622);
 		aem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		aem.getContentPane().setLayout(null);
