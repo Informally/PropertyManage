@@ -163,13 +163,12 @@ public class Login {
 		infoBtn.addActionListener(new ActionListener() {
 
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				parkhillinfo pi = new parkhillinfo();
-				pi.info.setVisible(true);
-				loginPage.setVisible(false);
-                                //change pages to verification page
-
-			}
+                            
+                public void actionPerformed(ActionEvent e) {
+                    parkhillinfo1 infoPage = new parkhillinfo1();
+                    infoPage.setVisible(true);
+                    loginPage.setVisible(false); // Hide the current JFrame
+                }
 		});
 		loginPage.getContentPane().add(infoBtn);
                 
