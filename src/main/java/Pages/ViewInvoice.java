@@ -29,7 +29,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class ViewInvoice {
+public class ViewInvoice extends PageUtils {
 
 	public JFrame viewInvoice;
 	public CRUD crud = new CRUD();
@@ -161,8 +161,9 @@ public class ViewInvoice {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				AccountExecMenu acctmenu = new AccountExecMenu();
-				acctmenu.aem.setVisible(true);
-				viewInvoice.setVisible(false);
+				setOriginalFrame(viewInvoice);
+				setTargetedFrame(acctmenu.aem);
+				navigatePage();
 
 			}
 		});

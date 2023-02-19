@@ -23,7 +23,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class ViewStruct {
+public class ViewStruct extends PageUtils {
 
 	public JFrame viewStruct;
 	public CRUD crud = new CRUD();
@@ -118,8 +118,9 @@ public class ViewStruct {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				TeamStructMgt struct = new TeamStructMgt();
-				struct.teamStructMgt.setVisible(true);
-				viewStruct.setVisible(false);
+				setOriginalFrame(viewStruct);
+				setTargetedFrame(struct.teamStructMgt);
+				navigatePage();
 
 			}
 		});

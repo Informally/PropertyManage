@@ -21,7 +21,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class AccountExecMenu {
+public class AccountExecMenu extends PageUtils {
 
 	public JFrame aem;
 
@@ -72,8 +72,9 @@ public class AccountExecMenu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ViewInvoice viewInvoice = new ViewInvoice();
-				viewInvoice.viewInvoice.setVisible(true);
-				aem.setVisible(false);
+				setOriginalFrame(aem);
+				setTargetedFrame(viewInvoice.viewInvoice);
+				navigatePage();
 			}
 		});
 		aem.getContentPane().add(invoiceBtn);
@@ -87,8 +88,9 @@ public class AccountExecMenu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ManageUserPayment mngPayment = new ManageUserPayment();
-				mngPayment.mngPayment.setVisible(true);
-				aem.setVisible(false);
+				setOriginalFrame(aem);
+				setTargetedFrame(mngPayment.mngPayment);
+				navigatePage();
 
 			}
 		});
@@ -104,8 +106,9 @@ public class AccountExecMenu {
 			public void actionPerformed(ActionEvent e) {
 
 				ViewOutStanding viewOutStanding = new ViewOutStanding();
-				viewOutStanding.viewOutStanding.setVisible(true);
-				aem.setVisible(false);
+				setOriginalFrame(aem);
+				setTargetedFrame(viewOutStanding.viewOutStanding);
+				navigatePage();
 
 			}
 		});
@@ -121,8 +124,9 @@ public class AccountExecMenu {
 			public void actionPerformed(ActionEvent e) {
 
 				Login loginpage = new Login();
-				loginpage.loginPage.setVisible(true);
-				aem.setVisible(false);
+				setOriginalFrame(aem);
+				setTargetedFrame(loginpage.loginPage);
+				navigatePage();
 
 			}
 		});

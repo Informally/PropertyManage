@@ -21,7 +21,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class BuildingManagerMenu {
+public class BuildingManagerMenu extends PageUtils {
 
 	public JFrame bmm;
 
@@ -72,8 +72,9 @@ public class BuildingManagerMenu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				UserManagement userMgt = new UserManagement();
-				userMgt.userMgtPage.setVisible(true);
-				bmm.setVisible(false);
+				setOriginalFrame(bmm);
+				setTargetedFrame(userMgt.userMgtPage);
+				navigatePage();
 			}
 		});
 		bmm.getContentPane().add(userManagementBtn);
@@ -87,8 +88,9 @@ public class BuildingManagerMenu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				GenReport genReport = new GenReport();
-				genReport.genReport.setVisible(true);
-				bmm.setVisible(false);
+				setOriginalFrame(bmm);
+				setTargetedFrame(genReport.genReport);
+				navigatePage();
 
 			}
 		});
@@ -104,8 +106,9 @@ public class BuildingManagerMenu {
 			public void actionPerformed(ActionEvent e) {
 				
 				OperationBudgetPlanning optBgtPlan = new OperationBudgetPlanning();
-				optBgtPlan.optBgtPlan.setVisible(true);
-				bmm.setVisible(false);
+				setOriginalFrame(bmm);
+				setTargetedFrame(optBgtPlan.optBgtPlan);
+				navigatePage();
 
 			}
 		});
@@ -120,8 +123,9 @@ public class BuildingManagerMenu {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				TeamStructMgt teamStruct = new TeamStructMgt();
-				teamStruct.teamStructMgt.setVisible(true);
-				bmm.setVisible(false);
+				setOriginalFrame(bmm);
+				setTargetedFrame(teamStruct.teamStructMgt);
+				navigatePage();
 
 			}
 		});
@@ -138,8 +142,9 @@ public class BuildingManagerMenu {
 			public void actionPerformed(ActionEvent e) {
 
 				Login loginpage = new Login();
-				loginpage.loginPage.setVisible(true);
-				bmm.setVisible(false);
+				setOriginalFrame(bmm);
+				setTargetedFrame(loginpage.loginPage);
+				navigatePage();
 
 			}
 		});

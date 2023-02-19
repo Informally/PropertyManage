@@ -25,7 +25,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class TeamStructMgt {
+public class TeamStructMgt extends PageUtils {
 
 	public JFrame teamStructMgt;
 	CRUD crud = new CRUD();
@@ -319,8 +319,9 @@ public class TeamStructMgt {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				BuildingManagerMenu bmm = new BuildingManagerMenu();
-				bmm.bmm.setVisible(true);
-				teamStructMgt.setVisible(false);
+				setOriginalFrame(teamStructMgt);
+				setTargetedFrame(bmm.bmm);
+				navigatePage();
 
 			}
 		});

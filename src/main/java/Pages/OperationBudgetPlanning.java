@@ -23,7 +23,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class OperationBudgetPlanning {
+public class OperationBudgetPlanning extends PageUtils {
 
 	public JFrame optBgtPlan;
 	CRUD crud = new CRUD();
@@ -343,8 +343,9 @@ public class OperationBudgetPlanning {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				BuildingManagerMenu bmm = new BuildingManagerMenu();
-				bmm.bmm.setVisible(true);
-				optBgtPlan.setVisible(false);
+				setOriginalFrame(optBgtPlan);
+				setTargetedFrame(bmm.bmm);
+				navigatePage();
 
 			}
 		});

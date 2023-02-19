@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 import javax.swing.JComboBox;
 
-public class UserManagement {
+public class UserManagement extends PageUtils {
 
 	public JFrame userMgtPage;
 	CRUD crud = new CRUD();
@@ -135,10 +135,6 @@ public class UserManagement {
                 role.addItem("Building Executive");
                 role.addItem("Vendor");
 		userMgtPage.getContentPane().add(role);
-
-		//JTextField txtRole = new JTextField();
-		//txtRole.setBounds(554, 173, 250, 42);
-		//userMgtPage.getContentPane().add(txtRole);
 
 		// Error text
 		JLabel errorText = new JLabel();
@@ -353,8 +349,9 @@ public class UserManagement {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				BuildingManagerMenu bmm = new BuildingManagerMenu();
-				bmm.bmm.setVisible(true);
-				userMgtPage.setVisible(false);
+				setOriginalFrame(userMgtPage);
+				setTargetedFrame(bmm.bmm);
+				navigatePage();
 
 			}
 		});

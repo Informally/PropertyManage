@@ -26,7 +26,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class GenReport {
+public class GenReport extends PageUtils {
 
 	public JFrame genReport;
 	public CRUD crud = new CRUD();
@@ -150,8 +150,9 @@ public class GenReport {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				BuildingManagerMenu bmm = new BuildingManagerMenu();
-				bmm.bmm.setVisible(true);
-				genReport.setVisible(false);
+				setOriginalFrame(genReport);
+				setTargetedFrame(bmm.bmm);
+				navigatePage();
 
 			}
 		});

@@ -29,7 +29,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class ViewOutStanding {
+public class ViewOutStanding extends PageUtils {
 
 	public JFrame viewOutStanding;
 	public CRUD crud = new CRUD();
@@ -158,8 +158,9 @@ public class ViewOutStanding {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				AccountExecMenu acctmenu = new AccountExecMenu();
-				acctmenu.aem.setVisible(true);
-				viewOutStanding.setVisible(false);
+				setOriginalFrame(viewOutStanding);
+				setTargetedFrame(acctmenu.aem);
+				navigatePage();
 
 			}
 		});

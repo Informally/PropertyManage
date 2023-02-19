@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class ManageUserPayment {
+public class ManageUserPayment extends PageUtils {
 
 	public JFrame mngPayment;
 	CRUD crud = new CRUD();
@@ -375,8 +375,9 @@ public class ManageUserPayment {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				AccountExecMenu acctmenu = new AccountExecMenu();
-				acctmenu.aem.setVisible(true);
-				mngPayment.setVisible(false);
+				setOriginalFrame(mngPayment);
+				setTargetedFrame(acctmenu.aem);
+				navigatePage();
 
 			}
 		});

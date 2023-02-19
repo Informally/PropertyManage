@@ -21,7 +21,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class Login {
+public class Login extends PageUtils {
 
 	public JFrame loginPage;
 
@@ -195,41 +195,48 @@ public class Login {
 					return;
 				}
 				
+                                System.out.println(data);
+                                
 				String role = data.get(5);
 				if(role.equals("Building Manager"))
 				{
 					BuildingManagerMenu bmm = new BuildingManagerMenu();
 
-					bmm.bmm.setVisible(true);
-					loginPage.setVisible(false);
+					setOriginalFrame(loginPage);
+					setTargetedFrame(bmm.bmm);
+					navigatePage();
 
 				} else if(role.equals("Account Executive"))
 				{
 					AccountExecMenu aem = new AccountExecMenu();
 
-					aem.aem.setVisible(true);
-					loginPage.setVisible(false);
+					setOriginalFrame(loginPage);
+					setTargetedFrame(aem.aem);
+					navigatePage();
 
 				}else if(role.equals("Admin Executive"))
 				{
 					AdminExecMenu Aem = new AdminExecMenu();
 
-					Aem.Aem.setVisible(true);
-					loginPage.setVisible(false);
+					setOriginalFrame(loginPage);
+					setTargetedFrame(Aem.Aem);
+					navigatePage();
 
 				} else if(role.equals("Building Executive"))
 				{
 					BuildingExecMenu Bem = new BuildingExecMenu();
 
-					Bem.buildExec.setVisible(true);
-					loginPage.setVisible(false);
+                                        setOriginalFrame(loginPage);
+					setTargetedFrame(Bem.buildExec);
+					navigatePage();
 
 				}else if(role.equals("Vendor"))
 				{
 					VendorMenu vm = new VendorMenu();
 
-					vm.vm.setVisible(true);
-					loginPage.setVisible(false);
+					setOriginalFrame(loginPage);
+					setTargetedFrame(vm.vm);
+					navigatePage();
 
 				}
                                
