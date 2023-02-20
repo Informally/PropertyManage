@@ -24,9 +24,9 @@ import java.util.ArrayList;
 import java.util.UUID;
 import javax.swing.JComboBox;
 
-public class ResTenMgt {
+public class ResTenMgt extends PageUtils{
 
-	public JFrame ResTenMgtPage;
+	public JFrame ResTenMgtPage ;
 	CRUD crud = new CRUD();
 	ArrayList<ArrayList<String>> tblData = new ArrayList<>();
 
@@ -366,8 +366,11 @@ public class ResTenMgt {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				AdminExecMenu Aem = new AdminExecMenu();
-				Aem.Aem.setVisible(true);
-				ResTenMgtPage.setVisible(false);
+                                setOriginalFrame(ResTenMgtPage);
+				setTargetedFrame(Aem.Aem);
+				navigatePage();
+				//Aem.Aem.setVisible(true);
+				//ResTenMgtPage.setVisible(false);
 
 			}
 		});
