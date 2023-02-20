@@ -21,7 +21,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class BuildingExecMenu {
+public class BuildingExecMenu extends PageUtils{
 
 	public JFrame buildExec;
 
@@ -153,8 +153,9 @@ public class BuildingExecMenu {
 			public void actionPerformed(ActionEvent e) {
 
 				Login loginpage = new Login();
-				loginpage.loginPage.setVisible(true);
-				buildExec.setVisible(false);
+				setOriginalFrame(buildExec);
+				setTargetedFrame(loginpage.loginPage);
+				navigatePage();
 
 			}
 		});
