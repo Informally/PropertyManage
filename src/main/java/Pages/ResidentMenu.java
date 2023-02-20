@@ -23,7 +23,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class ResidentMenu {
+public class ResidentMenu extends PageUtils{
 
 	public JFrame rm;
 
@@ -192,8 +192,10 @@ public class ResidentMenu {
 			public void actionPerformed(ActionEvent e) {
 
 				Login loginpage = new Login();
-				loginpage.loginPage.setVisible(true);
-				rm.setVisible(false);
+                                setOriginalFrame(rm);
+				setTargetedFrame(loginpage.loginPage);
+				navigatePage();
+				
 
 			}
 		});
