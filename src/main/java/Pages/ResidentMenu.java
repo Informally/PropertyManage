@@ -75,8 +75,9 @@ public class ResidentMenu extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ResViewProfile rvp = new ResViewProfile();
-				rvp.resview.setVisible(true);
-				rm.setVisible(false);
+                                setOriginalFrame(rm);
+				setTargetedFrame(rvp.resview);
+				navigatePage();
 
 			}
 		});
@@ -91,8 +92,9 @@ public class ResidentMenu extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				TenBookingRoom bookingRoom = new TenBookingRoom();
-				bookingRoom.br.setVisible(true);
-				rm.setVisible(false);
+                                setOriginalFrame(rm);
+				setTargetedFrame(bookingRoom.br);
+				navigatePage();
 
 			}
 		});
@@ -107,8 +109,9 @@ public class ResidentMenu extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ResPaymentMenu paymentMenu = new ResPaymentMenu();
-				paymentMenu.pm.setVisible(true);
-				rm.setVisible(false);
+                                setOriginalFrame(rm);
+				setTargetedFrame(paymentMenu.pm);
+				navigatePage();
 
 			}
 		});
@@ -124,8 +127,9 @@ public class ResidentMenu extends PageUtils{
 			public void actionPerformed(ActionEvent e) {
 
 				ResidentPaymentHistoryMenu residentPaymentHistoryMenu = new ResidentPaymentHistoryMenu();
-				residentPaymentHistoryMenu.rphm.setVisible(true);
-				rm.setVisible(false);
+                                setOriginalFrame(rm);
+				setTargetedFrame(residentPaymentHistoryMenu.rphm);
+				navigatePage();
 
 			}
 		});
@@ -141,8 +145,9 @@ public class ResidentMenu extends PageUtils{
 			public void actionPerformed(ActionEvent e) {
 
 				ResFacilityBooking facilityBooking = new ResFacilityBooking();
-				facilityBooking.fb.setVisible(true);
-				rm.setVisible(false);
+                                setOriginalFrame(rm);
+				setTargetedFrame(facilityBooking.fb);
+				navigatePage();
 
 			}
 		});
@@ -158,8 +163,9 @@ public class ResidentMenu extends PageUtils{
 			public void actionPerformed(ActionEvent e) {
 
 				ResTenVisitorPass rtvp = new ResTenVisitorPass();
-				rtvp.rtvp.setVisible(true);
-				rm.setVisible(false);
+                                setOriginalFrame(rm);
+				setTargetedFrame(rtvp.rtvp);
+				navigatePage();
 
 			}
 		});
@@ -175,8 +181,9 @@ public class ResidentMenu extends PageUtils{
 			public void actionPerformed(ActionEvent e) {
 
 				ResidentComplaint residentComplaint = new ResidentComplaint();
-				residentComplaint.rc.setVisible(true);
-				rm.setVisible(false);
+                                setOriginalFrame(rm);
+				setTargetedFrame(residentComplaint.rc);
+				navigatePage();
 
 			}
 		});
