@@ -22,7 +22,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class ResPaymentMenu {
+public class ResPaymentMenu extends PageUtils {
 
 	public JFrame pm;
 
@@ -121,8 +121,9 @@ public class ResPaymentMenu {
 			public void actionPerformed(ActionEvent e) {
 
 				ResidentMenu rm = new ResidentMenu();
-				rm.rm.setVisible(true);
-				pm.setVisible(false);
+				setOriginalFrame(pm);
+				setTargetedFrame(rm.rm);
+				navigatePage();
 
 			}
 		});
