@@ -22,7 +22,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class VendorMenu {
+public class VendorMenu extends PageUtils {
 
 	public JFrame vm;
 
@@ -108,8 +108,9 @@ public class VendorMenu {
 			public void actionPerformed(ActionEvent e) {
 
 				VendorPaymentHistoryMenu paymentHistoryMenu = new VendorPaymentHistoryMenu();
-				paymentHistoryMenu.phm.setVisible(true);
-				vm.setVisible(false);
+                                setOriginalFrame(vm);
+				setTargetedFrame(paymentHistoryMenu.phm);
+				navigatePage();
 
 			}
 		});
@@ -125,8 +126,9 @@ public class VendorMenu {
 			public void actionPerformed(ActionEvent e) {
 
 				VendorComplaint vendorComplaint = new VendorComplaint();
-				vendorComplaint.vc.setVisible(true);
-				vm.setVisible(false);
+                                setOriginalFrame(vm);
+				setTargetedFrame(vendorComplaint.vc);
+				navigatePage();
 
 			}
 		});
@@ -142,8 +144,9 @@ public class VendorMenu {
 			public void actionPerformed(ActionEvent e) {
 
 				Login loginpage = new Login();
-				loginpage.loginPage.setVisible(true);
-				vm.setVisible(false);
+                                setOriginalFrame(vm);
+				setTargetedFrame(loginpage.loginPage);
+				navigatePage();
 
 			}
 		});
