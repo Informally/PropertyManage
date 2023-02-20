@@ -26,7 +26,7 @@ import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class ResFacilityBooking {
+public class ResFacilityBooking extends PageUtils{
 
 	public JFrame fb;
 	CRUD crud = new CRUD();
@@ -474,8 +474,9 @@ public class ResFacilityBooking {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ResidentMenu rm = new ResidentMenu();
-				rm.rm.setVisible(true);
-				fb.setVisible(false);
+				setOriginalFrame(fb);
+				setTargetedFrame(rm.rm);
+				navigatePage();
 
 			}
 		});
