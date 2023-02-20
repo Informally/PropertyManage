@@ -36,7 +36,7 @@ import java.util.HashMap;
 import java.util.UUID;
 import javax.swing.JOptionPane;
 
-public class ResTenVisitorPass {
+public class ResTenVisitorPass extends PageUtils{
 
 	public JFrame rtvp;
 	CRUD crud = new CRUD();
@@ -374,8 +374,9 @@ public class ResTenVisitorPass {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ResidentMenu rm = new ResidentMenu();
-				rm.rm.setVisible(true);
-				rtvp.setVisible(false);
+				setOriginalFrame(rtvp);
+				setTargetedFrame(rm.rm);
+				navigatePage();
 
 			}
 		});
