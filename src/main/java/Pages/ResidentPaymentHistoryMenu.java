@@ -22,7 +22,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class ResidentPaymentHistoryMenu {
+public class ResidentPaymentHistoryMenu extends PageUtils {
 
 	public JFrame rphm;
 
@@ -123,8 +123,9 @@ public class ResidentPaymentHistoryMenu {
 			public void actionPerformed(ActionEvent e) {
 
 				ResidentMenu rm = new ResidentMenu();
-				rm.rm.setVisible(true);
-				rphm.setVisible(false);
+				setOriginalFrame(rphm);
+				setTargetedFrame(rm.rm);
+				navigatePage();
 
 			}
 		});

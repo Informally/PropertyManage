@@ -29,7 +29,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class ResidentReceipt {
+public class ResidentReceipt extends PageUtils{
 
 	public JFrame rr;
 	public CRUD crud = new CRUD();
@@ -152,8 +152,9 @@ public class ResidentReceipt {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ResidentPaymentHistoryMenu resPayHis = new ResidentPaymentHistoryMenu();
-				resPayHis.rphm.setVisible(true);
-				rr.setVisible(false);
+				setOriginalFrame(rr);
+				setTargetedFrame(resPayHis.rphm);
+				navigatePage();
 
 			}
 		});
