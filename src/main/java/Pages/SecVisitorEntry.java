@@ -34,7 +34,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class SecVisitorEntry {
+public class SecVisitorEntry extends PageUtils {
 
 	public JFrame ve;
 	CRUD crud = new CRUD();
@@ -346,6 +346,9 @@ public class SecVisitorEntry {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				SecurityGuardMenu sg = new SecurityGuardMenu();
+                                setOriginalFrame(ve);
+				setTargetedFrame(sg.sg);
+				navigatePage();
 				sg.sg.setVisible(true);
 				ve.setVisible(false);
 
