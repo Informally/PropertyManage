@@ -73,8 +73,9 @@ public class ResPaymentMenu extends PageUtils {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				TenRoomPayment roomPayment = new TenRoomPayment();
-				roomPayment.rp.setVisible(true);
-				pm.setVisible(false);
+                                setOriginalFrame(pm);
+				setTargetedFrame(roomPayment.rp);
+				navigatePage();
 			}
 		});
 		pm.getContentPane().add(profileBtn);
@@ -88,8 +89,9 @@ public class ResPaymentMenu extends PageUtils {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				TenMonthlyPayment monthlyPayment = new TenMonthlyPayment();
-				monthlyPayment.mp.setVisible(true);
-				pm.setVisible(false);
+                                setOriginalFrame(pm);
+				setTargetedFrame(monthlyPayment.mp);
+				navigatePage();
 
 			}
 		});
@@ -104,8 +106,9 @@ public class ResPaymentMenu extends PageUtils {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ResFacilityPayment facilityPayment = new ResFacilityPayment();
-				facilityPayment.fp.setVisible(true);
-				pm.setVisible(false);
+                                setOriginalFrame(pm);
+				setTargetedFrame(facilityPayment.fp);
+				navigatePage();
 
 			}
 		});
