@@ -26,7 +26,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class ViewPCJReport {
+public class ViewPCJReport extends PageUtils {
 
 	public JFrame Report;
 	public CRUD crud = new CRUD();
@@ -182,8 +182,9 @@ public class ViewPCJReport {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				BuildingExecMenu Bem = new BuildingExecMenu();
-				Bem.buildExec.setVisible(true);
-				Report.setVisible(false);
+				setOriginalFrame(Report);
+				setTargetedFrame(Bem.buildExec);
+				navigatePage();
 
 			}
 		});
