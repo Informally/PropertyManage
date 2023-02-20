@@ -32,7 +32,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class SecurityGuardReport {
+public class SecurityGuardReport extends PageUtils{
 
 	public JFrame incReport;
 	public CRUD crud = new CRUD();
@@ -143,9 +143,9 @@ public class SecurityGuardReport {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				SecIncident incident = new SecIncident();
-				incident.inc.setVisible(true);
-				incReport.setVisible(false);
-
+                                setOriginalFrame(incReport);
+				setTargetedFrame(incident.inc);
+				navigatePage();
 			}
 		});
 		incReport.getContentPane().add(backBtn);
