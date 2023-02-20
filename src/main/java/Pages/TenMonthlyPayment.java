@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class TenMonthlyPayment {
+public class TenMonthlyPayment extends PageUtils{
 
 	public JFrame mp;
 	JOptionPane contentPane;
@@ -516,6 +516,9 @@ public class TenMonthlyPayment {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ResPaymentMenu pm = new ResPaymentMenu();
+                                setOriginalFrame(mp);
+				setTargetedFrame(pm.pm);
+				navigatePage();
 				pm.pm.setVisible(true);
 				mp.setVisible(false);
 
