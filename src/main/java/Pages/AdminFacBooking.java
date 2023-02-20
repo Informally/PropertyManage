@@ -26,7 +26,7 @@ import java.awt.event.ItemListener;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class AdminFacBooking {
+public class AdminFacBooking extends PageUtils{
 
 	public JFrame afb;
 	CRUD crud = new CRUD();
@@ -455,8 +455,9 @@ public class AdminFacBooking {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				AdminExecMenu Aem = new AdminExecMenu();
-				Aem.Aem.setVisible(true);
-				afb.setVisible(false);
+				setOriginalFrame(afb);
+				setTargetedFrame(Aem.Aem);
+				navigatePage();
 
 			}
 		});
