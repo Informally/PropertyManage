@@ -74,9 +74,9 @@ public class VendorMenu extends PageUtils {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				VendorProfile vendorProfile = new VendorProfile();
-				
-				vendorProfile.vp.setVisible(true);
-				vm.setVisible(false);
+                                setOriginalFrame(vm);
+				setTargetedFrame(vendorProfile.vp);
+				navigatePage();
 			}
 		});
 		vm.getContentPane().add(profileBtn);
@@ -91,9 +91,9 @@ public class VendorMenu extends PageUtils {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				VendorPayment vendorPayment = new VendorPayment();
-				vendorPayment.vp.setVisible(true);
-				vm.setVisible(false);
-
+                                setOriginalFrame(vm);
+				setTargetedFrame(vendorPayment.vp);
+				navigatePage();
 			}
 		});
 		vm.getContentPane().add(paymentBtn);
