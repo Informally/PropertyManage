@@ -72,8 +72,9 @@ public class AdminExecMenu extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				UnitManagement unitMgt = new UnitManagement();
-				unitMgt.unitMgtPage.setVisible(true);
-				Aem.setVisible(false);
+                                setOriginalFrame(Aem);
+				setTargetedFrame(unitMgt.unitMgtPage);
+				navigatePage();
 			}
 		});
 		Aem.getContentPane().add(unitManagementBtn);
@@ -87,8 +88,9 @@ public class AdminExecMenu extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ResTenMgt restenmgt = new ResTenMgt();
-				restenmgt.ResTenMgtPage.setVisible(true);
-				Aem.setVisible(false);
+                                setOriginalFrame(Aem);
+				setTargetedFrame(restenmgt.ResTenMgtPage);
+				navigatePage();
 
 			}
 		});
@@ -104,8 +106,9 @@ public class AdminExecMenu extends PageUtils{
 			public void actionPerformed(ActionEvent e) {
 				
 				AdminExComplain AdCom = new AdminExComplain();
-				AdCom.aec.setVisible(true);
-				Aem.setVisible(false);
+                                setOriginalFrame(Aem);
+				setTargetedFrame(AdCom.aec);
+				navigatePage();
 
 			}
 		});
@@ -120,8 +123,9 @@ public class AdminExecMenu extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				EmployeeMgt emMgt = new EmployeeMgt();
-				emMgt.EmMgtPage.setVisible(true);
-				Aem.setVisible(false);
+                                setOriginalFrame(Aem);
+				setTargetedFrame(emMgt.EmMgtPage);
+				navigatePage();
 
 			}
 		});
@@ -136,8 +140,9 @@ public class AdminExecMenu extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				FacilityMgt facMgt = new FacilityMgt();
-				facMgt.FacMgtPage.setVisible(true);
-				Aem.setVisible(false);
+                                setOriginalFrame(Aem);
+				setTargetedFrame(facMgt.FacMgtPage);
+				navigatePage();
 
 			}
 		});
@@ -152,9 +157,9 @@ public class AdminExecMenu extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				AdminFacBooking adfacbook = new AdminFacBooking();
-				adfacbook.afb.setVisible(true);
-				Aem.setVisible(false);
-
+                                setOriginalFrame(Aem);
+				setTargetedFrame(adfacbook.afb);
+				navigatePage();
 			}
 		});
 		Aem.getContentPane().add(facBookMgtBtn);
