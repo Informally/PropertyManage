@@ -36,7 +36,7 @@ import java.util.HashMap;
 import java.util.UUID;
 import javax.swing.JOptionPane;
 
-public class VisitorViewPass {
+public class VisitorViewPass extends PageUtils{
 
 	public JFrame vvp;
 	CRUD crud = new CRUD();
@@ -374,8 +374,10 @@ public class VisitorViewPass {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Login lg = new Login();
-				lg.loginPage.setVisible(true);
-				vvp.setVisible(false);
+                                setOriginalFrame(vvp);
+				setTargetedFrame(lg.loginPage);
+				navigatePage();
+				
 
 			}
 		});
