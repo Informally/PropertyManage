@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 import javax.swing.JComboBox;
 
-public class VendorProfile {
+public class VendorProfile extends PageUtils {
 
 	public JFrame vp;
 	CRUD crud = new CRUD();
@@ -328,9 +328,9 @@ public class VendorProfile {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				VendorMenu vm = new VendorMenu();
-				vm.vm.setVisible(true);
-				vp.setVisible(false);
-
+                                setOriginalFrame(vp);
+				setTargetedFrame(vm.vm);
+				navigatePage();
 			}
 		});
 		vp.getContentPane().add(backBtn);
