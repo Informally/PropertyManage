@@ -25,7 +25,7 @@ import java.util.UUID;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
-public class FacilityMgt {
+public class FacilityMgt extends PageUtils{
 
 	public JFrame FacMgtPage;
 	CRUD crud = new CRUD();
@@ -347,8 +347,9 @@ public class FacilityMgt {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				AdminExecMenu Aem = new AdminExecMenu();
-				Aem.Aem.setVisible(true);
-				FacMgtPage.setVisible(false);
+				setOriginalFrame(FacMgtPage);
+				setTargetedFrame(Aem.Aem);
+				navigatePage();
 
 			}
 		});
