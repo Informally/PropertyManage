@@ -22,7 +22,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class VendorPaymentHistoryMenu {
+public class VendorPaymentHistoryMenu extends PageUtils {
 
 	public JFrame phm;
 
@@ -140,8 +140,9 @@ public class VendorPaymentHistoryMenu {
 			public void actionPerformed(ActionEvent e) {
 
 				VendorMenu vm = new VendorMenu();
-				vm.vm.setVisible(true);
-				phm.setVisible(false);
+                                setOriginalFrame(phm);
+				setTargetedFrame(vm.vm);
+				navigatePage();
 
 			}
 		});
