@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 import javax.swing.JComboBox;
 
-public class ResViewProfile {
+public class ResViewProfile extends PageUtils {
 
 	public JFrame resview;
 	CRUD crud = new CRUD();
@@ -337,8 +337,10 @@ public class ResViewProfile {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ResidentMenu rm = new ResidentMenu();
-				rm.rm.setVisible(true);
-				resview.setVisible(false);
+                                setOriginalFrame(resview);
+				setTargetedFrame(rm.rm);
+				navigatePage();
+				
 
 			}
 		});
