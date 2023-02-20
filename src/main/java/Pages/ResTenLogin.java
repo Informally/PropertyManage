@@ -21,7 +21,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class ResTenLogin {
+public class ResTenLogin extends PageUtils{
 
 	public JFrame restenlog;
 
@@ -95,8 +95,9 @@ public class ResTenLogin {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Login lp = new Login();
-				lp.loginPage.setVisible(true);
-				restenlog.setVisible(false);
+				setOriginalFrame(restenlog);
+				setTargetedFrame(lp.loginPage);
+				navigatePage();
                                 
 
 			}
