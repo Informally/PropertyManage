@@ -34,7 +34,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class SecIncident {
+public class SecIncident extends PageUtils {
 
 	public JFrame inc;
 	CRUD crud = new CRUD();
@@ -365,8 +365,9 @@ public class SecIncident {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				SecurityGuardMenu sg = new SecurityGuardMenu();
-				sg.sg.setVisible(true);
-				inc.setVisible(false);
+                                setOriginalFrame(inc);
+				setTargetedFrame(sg.sg);
+				navigatePage();
 
 			}
 		});
