@@ -29,7 +29,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class VendorReceipt {
+public class VendorReceipt extends PageUtils{
 
 	public JFrame vr;
 	public CRUD crud = new CRUD();
@@ -106,8 +106,9 @@ public class VendorReceipt {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				VendorPaymentHistoryMenu payHis = new VendorPaymentHistoryMenu();
-				payHis.phm.setVisible(true);
-				vr.setVisible(false);
+                                setOriginalFrame(vr);
+				setTargetedFrame(payHis.phm);
+				navigatePage();
 
 			}
 		});
