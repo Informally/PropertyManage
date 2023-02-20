@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class ResFacilityPayment {
+public class ResFacilityPayment extends PageUtils{
 
 	public JFrame fp;
 	JOptionPane contentPane;
@@ -521,9 +521,10 @@ public class ResFacilityPayment {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ResPaymentMenu pm = new ResPaymentMenu();
-				pm.pm.setVisible(true);
-				fp.setVisible(false);
-
+                                setOriginalFrame(fp);
+				setTargetedFrame(pm.pm);
+				navigatePage();
+				
 			}
 		});
 		fp.getContentPane().add(backBtn);
