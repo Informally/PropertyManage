@@ -417,8 +417,11 @@ public class AdminExComplain extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				AdminExecMenu Aem = new AdminExecMenu();
-				Aem.Aem.setVisible(true);
-				aec.setVisible(false);
+                                setOriginalFrame(aec);
+				setTargetedFrame(Aem.Aem);
+				navigatePage();
+				//Aem.Aem.setVisible(true);
+				//aec.setVisible(false);
 
 			}
 		});
