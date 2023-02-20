@@ -23,7 +23,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class UnitManagement {
+public class UnitManagement extends PageUtils{
 
 	public JFrame unitMgtPage;
 	CRUD crud = new CRUD();
@@ -361,8 +361,11 @@ public class UnitManagement {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				AdminExecMenu Aem = new AdminExecMenu();
-				Aem.Aem.setVisible(true);
-				unitMgtPage.setVisible(false);
+                                setOriginalFrame(unitMgtPage);
+				setTargetedFrame(Aem.Aem);
+				navigatePage();
+				//Aem.Aem.setVisible(true);
+				//unitMgtPage.setVisible(false);
 
 			}
 		});
