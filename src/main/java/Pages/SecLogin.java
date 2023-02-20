@@ -21,7 +21,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class SecLogin {
+public class SecLogin extends PageUtils{
 
 	public JFrame seclog;
 
@@ -95,9 +95,9 @@ public class SecLogin {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Login lp = new Login();
-				lp.loginPage.setVisible(true);
-				seclog.setVisible(false);
-                                
+                                setOriginalFrame(seclog);
+				setTargetedFrame(lp.loginPage);
+				navigatePage();
 
 			}
 		});
@@ -130,10 +130,9 @@ public class SecLogin {
 				if(role.equals("Security Guard"))
 				{
 					SecurityGuardMenu sgm = new SecurityGuardMenu();
-
-					sgm.sg.setVisible(true);
-					seclog.setVisible(false);
-
+                                        setOriginalFrame(seclog);
+                                        setTargetedFrame(sgm.sg);
+                                        navigatePage();
 				}
                                
 			}
