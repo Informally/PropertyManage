@@ -29,7 +29,7 @@ import java.util.Map.Entry;
  *
  * @author Alan
  */
-public class SecurityGuardMenu {
+public class SecurityGuardMenu extends PageUtils{
 
 	public JFrame sg;
 
@@ -146,8 +146,9 @@ public class SecurityGuardMenu {
 			public void actionPerformed(ActionEvent e) {
 
 				Login loginpage = new Login();
-				loginpage.loginPage.setVisible(true);
-				sg.setVisible(false);
+                                setOriginalFrame(sg);
+				setTargetedFrame(loginpage.loginPage);
+				navigatePage();
 
 			}
 		});
