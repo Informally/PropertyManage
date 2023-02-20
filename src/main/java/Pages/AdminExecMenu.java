@@ -173,9 +173,7 @@ public class AdminExecMenu extends PageUtils{
                                 setOriginalFrame(Aem);
 				setTargetedFrame(loginpage.loginPage);
 				navigatePage();
-				//Login loginpage = new Login();
-				//loginpage.loginPage.setVisible(true);
-				//Aem.setVisible(false);
+				
 
 			}
 		});
