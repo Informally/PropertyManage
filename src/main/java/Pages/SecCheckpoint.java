@@ -26,7 +26,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class SecCheckpoint {
+public class SecCheckpoint extends PageUtils{
 
 	public JFrame c;
 	CRUD crud = new CRUD();
@@ -337,8 +337,9 @@ public class SecCheckpoint {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				SecurityGuardMenu sg = new SecurityGuardMenu();
-				sg.sg.setVisible(true);
-				c.setVisible(false);
+                                setOriginalFrame(c);
+				setTargetedFrame(sg.sg);
+				navigatePage();
 
 			}
 		});
