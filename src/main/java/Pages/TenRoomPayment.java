@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class TenRoomPayment {
+public class TenRoomPayment extends PageUtils{
 
 	public JFrame rp;
 	JOptionPane contentPane;
@@ -543,8 +543,9 @@ public class TenRoomPayment {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ResPaymentMenu pm = new ResPaymentMenu();
-				pm.pm.setVisible(true);
-				rp.setVisible(false);
+                                setOriginalFrame(rp);
+				setTargetedFrame(pm.pm);
+				navigatePage();
 
 			}
 		});
