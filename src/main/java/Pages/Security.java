@@ -25,7 +25,7 @@ import java.util.UUID;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 
-public class Security {
+public class Security extends PageUtils{
 
 	public JFrame SecPage;
 	CRUD crud = new CRUD();
@@ -441,8 +441,9 @@ public class Security {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				BuildingExecMenu Bem = new BuildingExecMenu();
-				Bem.buildExec.setVisible(true);
-				SecPage.setVisible(false);
+				setOriginalFrame(SecPage);
+				setTargetedFrame(Bem.buildExec);
+				navigatePage();
 
 			}
 		});
