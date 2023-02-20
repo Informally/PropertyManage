@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
-public class AdminExComplain {
+public class AdminExComplain extends PageUtils{
 
 	public JFrame aec;
 	CRUD crud = new CRUD();

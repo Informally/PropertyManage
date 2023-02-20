@@ -21,7 +21,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class AdminExecMenu {
+public class AdminExecMenu extends PageUtils{
 
 	public JFrame Aem;
 
@@ -168,10 +168,14 @@ public class AdminExecMenu {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				Login loginpage = new Login();
-				loginpage.loginPage.setVisible(true);
-				Aem.setVisible(false);
+                                
+                                Login loginpage = new Login();
+                                setOriginalFrame(Aem);
+				setTargetedFrame(loginpage.loginPage);
+				navigatePage();
+				//Login loginpage = new Login();
+				//loginpage.loginPage.setVisible(true);
+				//Aem.setVisible(false);
 
 			}
 		});
