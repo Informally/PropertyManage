@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
-public class ResidentComplaint {
+public class ResidentComplaint extends PageUtils {
 
 	public JFrame rc;
 	CRUD crud = new CRUD();
@@ -417,8 +417,9 @@ public class ResidentComplaint {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ResidentMenu rm = new ResidentMenu();
-				rm.rm.setVisible(true);
-				rc.setVisible(false);
+				setOriginalFrame(rc);
+				setTargetedFrame(rm.rm);
+				navigatePage();
 
 			}
 		});
