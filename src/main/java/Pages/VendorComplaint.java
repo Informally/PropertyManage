@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
-public class VendorComplaint {
+public class VendorComplaint extends PageUtils{
 
 	public JFrame vc;
 	CRUD crud = new CRUD();
@@ -414,8 +414,10 @@ public class VendorComplaint {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				VendorMenu vm = new VendorMenu();
-				vm.vm.setVisible(true);
-				vc.setVisible(false);
+                                setOriginalFrame(vc);
+				setTargetedFrame(vm.vm);
+				navigatePage();
+
 
 			}
 		});
