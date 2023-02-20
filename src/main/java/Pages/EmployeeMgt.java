@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 import javax.swing.JOptionPane;
 
-public class EmployeeMgt {
+public class EmployeeMgt extends PageUtils {
 
 	public JFrame EmMgtPage;
 	CRUD crud = new CRUD();
@@ -368,8 +368,10 @@ public class EmployeeMgt {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				AdminExecMenu Aem = new AdminExecMenu();
-				Aem.Aem.setVisible(true);
-				EmMgtPage.setVisible(false);
+                                setOriginalFrame(EmMgtPage);
+				setTargetedFrame(Aem.Aem);
+				navigatePage();
+				
 
 			}
 		});
