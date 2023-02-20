@@ -29,7 +29,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class ResidentPendingFee {
+public class ResidentPendingFee extends PageUtils{
 
 	public JFrame rpf;
 	public CRUD crud = new CRUD();
@@ -155,8 +155,9 @@ public class ResidentPendingFee {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ResidentPaymentHistoryMenu resPayHis = new ResidentPaymentHistoryMenu();
-				resPayHis.rphm.setVisible(true);
-				rpf.setVisible(false);
+				setOriginalFrame(rpf);
+				setTargetedFrame(resPayHis.rphm);
+				navigatePage();
 
 			}
 		});
