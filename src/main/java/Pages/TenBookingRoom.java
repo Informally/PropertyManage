@@ -28,7 +28,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.UUID;
 
-public class TenBookingRoom {
+public class TenBookingRoom extends PageUtils{
 
 	public JFrame br;
 	CRUD crud = new CRUD();
@@ -478,8 +478,9 @@ public class TenBookingRoom {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ResidentMenu rm = new ResidentMenu();
-				rm.rm.setVisible(true);
-				br.setVisible(false);
+                                setOriginalFrame(br);
+				setTargetedFrame(rm.rm);
+				navigatePage();
 
 			}
 		});
