@@ -72,8 +72,9 @@ public class BuildingExecMenu extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				AssignJob asgnMGT = new AssignJob();
-				asgnMGT.AsgnJobPage.setVisible(true);
-				buildExec.setVisible(false);
+                                setOriginalFrame(buildExec);
+				setTargetedFrame(asgnMGT.AsgnJobPage);
+				navigatePage();
 			}
 		});
 		buildExec.getContentPane().add(asgnJobBtn);
@@ -87,9 +88,9 @@ public class BuildingExecMenu extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				AssignJob asgnMGT = new AssignJob();
-				asgnMGT.AsgnJobPage.setVisible(true);
-				buildExec.setVisible(false);
-
+                                setOriginalFrame(buildExec);
+				setTargetedFrame(asgnMGT.AsgnJobPage);
+				navigatePage();
 			}
 		});
 		buildExec.getContentPane().add(jobBtn);
@@ -104,8 +105,9 @@ public class BuildingExecMenu extends PageUtils{
 			public void actionPerformed(ActionEvent e) {
 				
 				BExecComplaints viewupcom = new BExecComplaints();
-				viewupcom.bec.setVisible(true);
-				buildExec.setVisible(false);
+                                setOriginalFrame(buildExec);
+				setTargetedFrame(viewupcom.bec);
+				navigatePage();
 
 			}
 		});
@@ -120,8 +122,10 @@ public class BuildingExecMenu extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				Security sec = new Security();
-				sec.SecPage.setVisible(true);
-				buildExec.setVisible(false);
+                                setOriginalFrame(buildExec);
+				setTargetedFrame(sec.SecPage);
+				navigatePage();
+				
 
 			}
 		});
@@ -136,8 +140,9 @@ public class BuildingExecMenu extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ViewPCJReport viewRep = new ViewPCJReport();
-				viewRep.Report.setVisible(true);
-				buildExec.setVisible(false);
+                                setOriginalFrame(buildExec);
+				setTargetedFrame(viewRep.Report);
+				navigatePage();
 
 			}
 		});
