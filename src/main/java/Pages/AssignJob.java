@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.UUID;
 import javax.swing.JOptionPane;
 
-public class AssignJob {
+public class AssignJob extends PageUtils {
 
 	public JFrame AsgnJobPage;
 	CRUD crud = new CRUD();
@@ -354,8 +354,9 @@ public class AssignJob {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				BuildingExecMenu Bem = new BuildingExecMenu();
-				Bem.buildExec.setVisible(true);
-				AsgnJobPage.setVisible(false);
+				setOriginalFrame(AsgnJobPage);
+				setTargetedFrame(Bem.buildExec);
+				navigatePage();
 
 			}
 		});

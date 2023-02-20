@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
-public class BExecComplaints {
+public class BExecComplaints extends PageUtils {
 
 	public JFrame bec;
 	CRUD crud = new CRUD();
@@ -739,8 +739,9 @@ public class BExecComplaints {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				BuildingExecMenu Bem = new BuildingExecMenu();
-				Bem.buildExec.setVisible(true);
-				bec.setVisible(false);
+				setOriginalFrame(bec);
+				setTargetedFrame(Bem.buildExec);
+				navigatePage();
 
 			}
 		});
