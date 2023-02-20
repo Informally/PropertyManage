@@ -29,7 +29,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class VendorPayment {
+public class VendorPayment extends PageUtils{
 
 	public JFrame vp;
 	JOptionPane contentPane;
@@ -283,26 +283,7 @@ public class VendorPayment {
 		}
 		jTablePayment.setModel(tableModelPayment);
 
-//		ListSelectionModel selectPayment = jTablePayment.getSelectionModel();
-//		selectPayment.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-//		selectPayment.addListSelectionListener(new ListSelectionListener() {
-//			public void valueChanged(ListSelectionEvent e) {
-//				int[] row = jTablePayment.getSelectedRows();
-//				int columnNum = jTablePayment.getColumnCount();
-//
-//				if (row.length > 0) {
-//					HashMap<Integer, String> debtDt = crud.read("Payment.txt",
-//							(String) jTablePayment.getValueAt(row[0], 5), 5, "", 0);
-//					txtUID.setText((String) jTablePayment.getValueAt(row[0], 0));
-//					txtMonth.setText((String) jTablePayment.getValueAt(row[0], 1));
-//					txtUtilities.setText((String) jTablePayment.getValueAt(row[0], 2));
-//					txtYear.setText((String) jTablePayment.getValueAt(row[0], 3));
-//					txtOut.setText((String) jTablePayment.getValueAt(row[0], 4));
-//					txtRental.setText(debtDt.get(3));
-//				}
-//
-//			}
-//		});
+
 		JScrollPane scrollPayment = new JScrollPane(jTablePayment, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollPayment.setBounds(44, 503, 770, 100);
@@ -517,8 +498,9 @@ public class VendorPayment {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				VendorMenu vm = new VendorMenu();
-				vm.vm.setVisible(true);
-				vp.setVisible(false);
+                                setOriginalFrame(vp);
+				setTargetedFrame(vm.vm);
+				navigatePage();
 
 			}
 		});
