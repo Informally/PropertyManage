@@ -61,12 +61,12 @@ public class ManageUserPayment extends PageUtils {
 	 */
 	private void initialize() {
 		mngPayment = new JFrame();
-		mngPayment.setTitle("User Management");
+		mngPayment.setTitle("User Payment Management");
 		mngPayment.setBounds(100, 100, 871, 622);
 		mngPayment.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mngPayment.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("User Management");
+		JLabel lblNewLabel = new JLabel("User Payment Management");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		mngPayment.getContentPane().add(lblNewLabel);
