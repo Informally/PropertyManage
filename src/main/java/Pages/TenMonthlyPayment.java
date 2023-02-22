@@ -383,14 +383,13 @@ public class TenMonthlyPayment extends PageUtils{
 				//crud.create("MonthlyPayment.txt", dataMonthly);
 				// Update the debt value
 				int totalDebt = Integer.parseInt(out) - Integer.parseInt(amount);
-				int total = Integer.parseInt(amount) - Integer.parseInt(out);
 				crud.update("MonthlyPayment.txt", userID, 0, "", 0, String.valueOf(totalDebt), 3, "", 0);
                                 crud.update("ResidentInvoiceStatement.txt", userID, 0, "", 0, String.valueOf(totalDebt), 3, "", 0);
 				//crud.update("VendorStatement.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
 				//crud.update("VendorInvoice.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
-				crud.update("MonthlyPaymentHistory.txt", uid, 0,"", 0, String.valueOf(total), 1, "", 0);
+				crud.update("MonthlyPaymentHistory.txt", uid, 0,"", 0, String.valueOf(totalDebt), 1, "", 0);
 				crud.update("MonthlyPaymentHistory.txt", uid, 0,"", 0, String.valueOf(amount), 2, "", 0);
-                                crud.update("ResidentInvoiceStatement.txt", userID, 0,"", 0, String.valueOf(total), 3, "", 0);
+                                crud.update("ResidentInvoiceStatement.txt", userID, 0,"", 0, String.valueOf(totalDebt), 3, "", 0);
 
 				// Clear text after update or add
 				txtUID.setText("");

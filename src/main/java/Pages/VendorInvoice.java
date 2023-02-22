@@ -184,7 +184,7 @@ public class VendorInvoice extends PageUtils{
 				
 		JScrollPane scroll = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scroll.setBounds(44, 130, 770, 530);
+		scroll.setBounds(0, 130, 1000, 530);
 		vi.getContentPane().add(scroll);
 
 		reportOptions.addItemListener(new ItemListener() {

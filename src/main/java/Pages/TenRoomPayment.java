@@ -404,13 +404,12 @@ public class TenRoomPayment extends PageUtils{
                                 crud.create("ResidentInvoiceStatement.txt", dataIs);
 				// Update the debt value
 				int totalDebt = Integer.parseInt(out) - Integer.parseInt(amount);
-				int total = Integer.parseInt(amount) - Integer.parseInt(out);
 				crud.update("BookingRoom.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
 				//crud.update("VendorStatement.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
 				//crud.update("VendorInvoice.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
-				crud.update("ResidentPaymentHistory.txt", uid, 0,"", 0, String.valueOf(total), 2, "", 0);
+				crud.update("ResidentPaymentHistory.txt", uid, 0,"", 0, String.valueOf(totalDebt), 2, "", 0);
 				crud.update("ResidentPaymentHistory.txt", uid, 0,"", 0, String.valueOf(amount), 3, "", 0);
-                                crud.update("ResidentInvoiceStatement.txt", userID, 0,"", 0, String.valueOf(total), 3, "", 0);
+                                crud.update("ResidentInvoiceStatement.txt", userID, 0,"", 0, String.valueOf(totalDebt), 3, "", 0);
 
 				// Clear text after update or add
 				txtUID.setText("");

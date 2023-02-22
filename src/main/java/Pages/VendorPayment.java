@@ -364,11 +364,10 @@ public class VendorPayment extends PageUtils{
 				crud.create("VendorReceipt.txt", dataReceipt);
 				// Update the debt value
 				int totalDebt = Integer.parseInt(out) - Integer.parseInt(amount);
-				int total = Integer.parseInt(amount) - Integer.parseInt(out);
 				crud.update("PendingFee.txt", userID, 0, "", 0, String.valueOf(totalDebt), 4, "", 0);
 				crud.update("VendorStatement.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
 				crud.update("VendorInvoice.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
-				crud.update("PaymentHistory.txt", uid, 0,"", 0, String.valueOf(total), 1, "", 0);
+				crud.update("PaymentHistory.txt", uid, 0,"", 0, String.valueOf(totalDebt), 1, "", 0);
 				crud.update("PaymentHistory.txt", uid, 0,"", 0, String.valueOf(amount), 2, "", 0);
 
 				// Clear text after update or add
