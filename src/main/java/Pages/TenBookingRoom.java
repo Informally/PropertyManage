@@ -85,20 +85,20 @@ public class TenBookingRoom extends PageUtils{
 		br.getContentPane().add(txtUID);
 
 		// Room No
-		JLabel lblRoom = new JLabel("Room No: ");
-		lblRoom.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblRoom.setBounds(444, 73, 315, 42);
-		br.getContentPane().add(lblRoom);
+		JLabel lblName = new JLabel("Name: ");
+		lblName.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblName.setBounds(444, 73, 315, 42);
+		br.getContentPane().add(lblName);
 
-		JTextField txtRoom = new JTextField();
-		txtRoom.setBounds(584, 73, 250, 42);
-		br.getContentPane().add(txtRoom);
+		JTextField txtName = new JTextField();
+		txtName.setBounds(584, 73, 250, 42);
+		br.getContentPane().add(txtName);
 
 		// Room Type
-		JLabel lblRoomType = new JLabel("Room Type:");
-		lblRoomType.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblRoomType.setBounds(44, 123, 315, 42);
-		br.getContentPane().add(lblRoomType);
+		JLabel lblNameType = new JLabel("Room Type:");
+		lblNameType.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblNameType.setBounds(44, 123, 315, 42);
+		br.getContentPane().add(lblNameType);
 
 		JComboBox<String> txtRoomType = new JComboBox<>();
 		txtRoomType.setBounds(174, 123, 250, 42);
@@ -238,7 +238,7 @@ public class TenBookingRoom extends PageUtils{
 		// Result Display
 		tblData = crud.read("BookingRoom.txt");
 		String row[] = new String[8];
-		String column[] = { "Room Id", "Room No", "Room Type", "Room Price", "Deposit", "Total", "Month", "Year" };
+		String column[] = { "Room Id", "Name", "Room Type", "Room Price", "Deposit", "Total", "Month", "Year" };
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 323, 770, 250);
@@ -268,7 +268,7 @@ public class TenBookingRoom extends PageUtils{
 
 				if (row.length > 0) {
 					txtUID.setText((String) jTable.getValueAt(row[0], 0));
-					txtRoom.setText((String) jTable.getValueAt(row[0], 1));
+					txtName.setText((String) jTable.getValueAt(row[0], 1));
 					txtRoomType.setToolTipText((String) jTable.getValueAt(row[0], 2));
 					txtPrice.setText((String) jTable.getValueAt(row[0], 3));					
 					txtDeposit.setText((String) jTable.getValueAt(row[0], 4));
@@ -343,7 +343,7 @@ public class TenBookingRoom extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				txtUID.setText("");
-				txtRoom.setText("");
+				txtName.setText("");
 				txtMonth.setText("");
 				txtPrice.setText("");
 				txtRoomType.setToolTipText(null);
@@ -369,7 +369,7 @@ public class TenBookingRoom extends PageUtils{
 				//DateTimeFormatter yearFormatter = DateTimeFormatter.ofPattern("yyyy");
 				
 				String userId = txtUID.getText().trim();
-				String room = txtRoom.getText().trim();
+				String name = txtName.getText().trim();
 				String month = txtMonth.getText().trim();
 				String deposit = txtDeposit.getText().trim();
 				String price = txtPrice.getText().trim();
@@ -392,7 +392,7 @@ public class TenBookingRoom extends PageUtils{
 				if (userId.isEmpty()) { // this means new data is added
 					String uid = uuid.toString();
 					data.add(uid);
-					data.add(room);
+					data.add(name);
 					data.add(roomType);
 					data.add(price);
 					data.add(deposit);
@@ -411,7 +411,7 @@ public class TenBookingRoom extends PageUtils{
 
 				} else { // this means update data
 					data.add(userId);
-					data.add(room);
+					data.add(name);
 					data.add(roomType);
 					data.add(price);
 					data.add(deposit);
@@ -431,7 +431,7 @@ public class TenBookingRoom extends PageUtils{
 
 				// Clear text after update or add
 				txtUID.setText("");
-				txtRoom.setText("");
+				txtName.setText("");
 				txtMonth.setText("");
 				txtPrice.setText("");
 				txtRoomType.setToolTipText(null);
