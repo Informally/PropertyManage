@@ -23,6 +23,7 @@ import java.util.Map.Entry;
 
 public class Login extends PageUtils {
 
+	public static String vendorName;
 	public JFrame loginPage;
 
 	/**
@@ -30,6 +31,7 @@ public class Login extends PageUtils {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+
 			public void run() {
 				try {
 					Login window = new Login();
@@ -236,6 +238,8 @@ public class Login extends PageUtils {
 
 					setOriginalFrame(loginPage);
 					setTargetedFrame(vm.vm);
+					//get vendor name
+					String vendorName = data.get(1);
 					navigatePage();
 
 				}
