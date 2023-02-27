@@ -80,7 +80,7 @@ public class AccountExecMenu extends PageUtils {
 		aem.getContentPane().add(invoiceBtn);
 
 		// User Payment Button
-		JButton userPaymentBtn = new JButton("Manage user payment");
+		JButton userPaymentBtn = new JButton("Manage Resident/Tenant Payment");
 		userPaymentBtn.setBounds(44, 153, 315, 42);
 		userPaymentBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		userPaymentBtn.addActionListener(new ActionListener() {
@@ -94,11 +94,28 @@ public class AccountExecMenu extends PageUtils {
 
 			}
 		});
-		aem.getContentPane().add(userPaymentBtn);
+                aem.getContentPane().add(userPaymentBtn);
+                
+                // User Payment Button2
+		JButton userPaymentBtn2 = new JButton("Manage Vendor Payment");
+		userPaymentBtn2.setBounds(44, 213, 315, 42);
+		userPaymentBtn2.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		userPaymentBtn2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ManageUserPayment2 mngPayment2 = new ManageUserPayment2();
+				setOriginalFrame(aem);
+				setTargetedFrame(mngPayment2.mngPayment2);
+				navigatePage();
+
+			}
+		});
+		aem.getContentPane().add(userPaymentBtn2);
 
 		// Operation and budget planning Button
 		JButton viewOutStandingBtn = new JButton("View outstanding fee");
-		viewOutStandingBtn.setBounds(44, 213, 315, 42);
+		viewOutStandingBtn.setBounds(44, 273, 315, 42);
 		viewOutStandingBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		viewOutStandingBtn.addActionListener(new ActionListener() {
 
@@ -116,7 +133,7 @@ public class AccountExecMenu extends PageUtils {
 
 		// Log Out Btn
 		JButton logOutBtn = new JButton("Log Out");
-		logOutBtn.setBounds(44, 273, 315, 42);
+		logOutBtn.setBounds(44, 333, 315, 42);
 		logOutBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		logOutBtn.addActionListener(new ActionListener() {
 

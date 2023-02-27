@@ -29,14 +29,13 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class VendorPayment extends PageUtils{
+public class ManageUserPayment2 extends PageUtils{
 
-	public JFrame vp;
+	public JFrame mngPayment2;
 	JOptionPane contentPane;
 	CRUD crud = new CRUD();
 	ArrayList<ArrayList<String>> tblData = new ArrayList<>();
 	ArrayList<ArrayList<String>> tblDataHistory = new ArrayList<>();
-	ArrayList<ArrayList<String>> tblCard = new ArrayList<>();
 
 	/**
 	 * Launch the application.
@@ -45,8 +44,8 @@ public class VendorPayment extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VendorPayment window = new VendorPayment();
-					window.vp.setVisible(true);
+					ManageUserPayment2 window = new ManageUserPayment2();
+					window.mngPayment2.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -57,7 +56,7 @@ public class VendorPayment extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public VendorPayment() {
+	public ManageUserPayment2() {
 		initialize();
 	}
 
@@ -65,140 +64,110 @@ public class VendorPayment extends PageUtils{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		vp = new JFrame();
-		vp.setTitle("Vendor Payment");
-		vp.setBounds(100, 100, 900, 700);
-		vp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		vp.getContentPane().setLayout(null);
+		mngPayment2 = new JFrame();
+		mngPayment2.setTitle("Vendor Payment");
+		mngPayment2.setBounds(100, 100, 900, 700);
+		mngPayment2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mngPayment2.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Vendor Payment");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
-		vp.getContentPane().add(lblNewLabel);
+		mngPayment2.getContentPane().add(lblNewLabel);
 
 		// Payment ID
 		JLabel lblUID = new JLabel("Payment ID: ");
 		lblUID.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblUID.setBounds(44, 73, 315, 42);
-		vp.getContentPane().add(lblUID);
+		mngPayment2.getContentPane().add(lblUID);
 
 		JTextField txtUID = new JTextField("");
 		txtUID.setBounds(164, 73, 250, 42);
 		txtUID.setBackground(Color.gray);
 		txtUID.setEditable(false);
-		vp.getContentPane().add(txtUID);
+		mngPayment2.getContentPane().add(txtUID);
 
 		// Month
 		JLabel lblMonth = new JLabel("Month: ");
 		lblMonth.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblMonth.setBounds(434, 73, 315, 42);
-		vp.getContentPane().add(lblMonth);
+		mngPayment2.getContentPane().add(lblMonth);
 
 		JTextField txtMonth = new JTextField();
 		txtMonth.setBounds(554, 73, 250, 42);
 		txtMonth.setBackground(Color.white);
 		txtMonth.setEditable(false);
-		vp.getContentPane().add(txtMonth);
+		mngPayment2.getContentPane().add(txtMonth);
 
 		// Rental
 		JLabel lblRental = new JLabel("Rental: ");
 		lblRental.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblRental.setBounds(44, 123, 315, 42);
-		vp.getContentPane().add(lblRental);
+		mngPayment2.getContentPane().add(lblRental);
 
 		JTextField txtRental = new JTextField();
 		txtRental.setBounds(164, 123, 250, 42);
 		txtRental.setBackground(Color.white);
 		txtRental.setEditable(false);
-		vp.getContentPane().add(txtRental);
+		mngPayment2.getContentPane().add(txtRental);
 
 		// Year
 		JLabel lblYear = new JLabel("Year: ");
 		lblYear.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblYear.setBounds(434, 123, 315, 42);
-		vp.getContentPane().add(lblYear);
+		mngPayment2.getContentPane().add(lblYear);
 
 		JTextField txtYear = new JTextField();
 		txtYear.setBounds(554, 123, 250, 42);
 		txtYear.setBackground(Color.white);
 		txtYear.setEditable(false);
-		vp.getContentPane().add(txtYear);
+		mngPayment2.getContentPane().add(txtYear);
 
 		// Utilities
 		JLabel lblUtilities = new JLabel("Utilities: ");
 		lblUtilities.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblUtilities.setBounds(44, 173, 315, 42);
-		vp.getContentPane().add(lblUtilities);
+		mngPayment2.getContentPane().add(lblUtilities);
 
 		JTextField txtUtilities = new JTextField();
 		txtUtilities.setBounds(164, 173, 250, 42);
 		txtUtilities.setBackground(Color.white);
 		txtUtilities.setEditable(false);
-		vp.getContentPane().add(txtUtilities);
+		mngPayment2.getContentPane().add(txtUtilities);
 
 		// Outstanding
 		JLabel lblOut = new JLabel("Outstanding: ");
 		lblOut.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblOut.setBounds(44, 273, 315, 42);
-		vp.getContentPane().add(lblOut);
+		mngPayment2.getContentPane().add(lblOut);
 
 		JTextField txtOut = new JTextField();
 		txtOut.setBounds(164, 273, 250, 42);
 		txtOut.setBackground(Color.white);
 		txtOut.setEditable(false);
-		vp.getContentPane().add(txtOut);
+		mngPayment2.getContentPane().add(txtOut);
 		
 		// Services
 		JLabel lblServices = new JLabel("Services: ");
 		lblServices.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblServices.setBounds(44, 223, 315, 42);
-		vp.getContentPane().add(lblServices);
+		mngPayment2.getContentPane().add(lblServices);
 
 		JTextField txtServices = new JTextField();
 		txtServices.setBounds(164, 223, 250, 42);
 		txtServices.setBackground(Color.white);
 		txtServices.setEditable(false);
-		vp.getContentPane().add(txtServices);
-		
-		// Card Number
-		JLabel lblCard = new JLabel("Card No: ");
-		lblCard.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblCard.setBounds(434, 173, 315, 42);
-		vp.getContentPane().add(lblCard);
-
-		JTextField txtCard = new JTextField();
-		txtCard.setBounds(554, 173, 250, 42);
-		vp.getContentPane().add(txtCard);
-		
-		// Expiration Date
-		JLabel lblDate = new JLabel("Expiry Date: ");
-		lblDate.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblDate.setBounds(434, 223, 315, 42);
-		vp.getContentPane().add(lblDate);
-
-		JTextField txtDate = new JTextField();
-		txtDate.setBounds(554, 223, 100, 42);
-		vp.getContentPane().add(txtDate);
-		
-		// CCV
-		JLabel lblCcv = new JLabel("CCV: ");
-		lblCcv.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblCcv.setBounds(654, 223, 315, 42);
-		vp.getContentPane().add(lblCcv);
-
-		JTextField txtCcv = new JTextField();
-		txtCcv.setBounds(704, 223, 100, 42);
-		vp.getContentPane().add(txtCcv);
+		mngPayment2.getContentPane().add(txtServices);
 		
 		// Amount
 		JLabel lblAmount = new JLabel("Amount:   RM ");
 		lblAmount.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblAmount.setBounds(434, 273, 315, 42);
-		vp.getContentPane().add(lblAmount);
+		mngPayment2.getContentPane().add(lblAmount);
 
 		JTextField txtAmount = new JTextField();
 		txtAmount.setBounds(554, 273, 250, 42);
-		vp.getContentPane().add(txtAmount);
+		mngPayment2.getContentPane().add(txtAmount);
 
 		// Error text
 		JLabel errorText = new JLabel();
@@ -206,7 +175,7 @@ public class VendorPayment extends PageUtils{
 		errorText.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13));
 		errorText.setBounds(204, 223, 330, 42);
 		errorText.setVisible(false);
-		vp.getContentPane().add(errorText);
+		mngPayment2.getContentPane().add(errorText);
 
 		// Result Display
 		tblData = crud.read("PendingFee.txt");
@@ -253,7 +222,7 @@ public class VendorPayment extends PageUtils{
 		JScrollPane scroll = new JScrollPane(jTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scroll.setBounds(44, 373, 770, 100);
-		vp.getContentPane().add(scroll);
+		mngPayment2.getContentPane().add(scroll);
 //		
 
 		// Payment Display
@@ -287,7 +256,7 @@ public class VendorPayment extends PageUtils{
 		JScrollPane scrollPayment = new JScrollPane(jTablePayment, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollPayment.setBounds(44, 503, 770, 100);
-		vp.getContentPane().add(scrollPayment);
+		mngPayment2.getContentPane().add(scrollPayment);
 
 		// Error text calculation
 		JLabel calErrorText = new JLabel();
@@ -295,7 +264,7 @@ public class VendorPayment extends PageUtils{
 		calErrorText.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 13));
 		calErrorText.setBounds(204, 530, 330, 42);
 		calErrorText.setVisible(false);
-		vp.getContentPane().add(calErrorText);
+		mngPayment2.getContentPane().add(calErrorText);
 
 		// Make Payment Btn
 		JButton addUserBtn = new JButton("Make Payment");
@@ -304,19 +273,7 @@ public class VendorPayment extends PageUtils{
 		addUserBtn.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				CRUD crudCard = new CRUD();
-				tblCard = crudCard.read("Card.txt");
-				String rowCard[] = new String[3];
-				for (int a = 0; a < tblCard.size(); a++) {
-					rowCard[0] = tblCard.get(a).get(0);
-					rowCard[1] = tblCard.get(a).get(1);
-					rowCard[2] = tblCard.get(a).get(2);
-				
-				if(!txtCard.getText().equals(rowCard[0]) || !txtDate.getText().equals(rowCard[1]) || !txtCcv.getText().equals(rowCard[2])) {
-					JOptionPane.showMessageDialog(contentPane, "Invalid Card Number Or Expiration Date!");
-					return;
-				}else {
-					
+		
 				User user = new User();
 				UUID uuid = UUID.randomUUID();
 
@@ -378,9 +335,6 @@ public class VendorPayment extends PageUtils{
 				txtServices.setText("");
 				txtYear.setText("");
 				txtOut.setText("");
-				txtCard.setText("");
-				txtDate.setText("");
-				txtCcv.setText("");
 				txtAmount.setText("");
 
 				// Refresh the data in table
@@ -433,11 +387,10 @@ public class VendorPayment extends PageUtils{
 				}
 				jTablePayment.updateUI();
 
-			}
-				}
+	
 			}
 		});
-		vp.getContentPane().add(addUserBtn);
+		mngPayment2.getContentPane().add(addUserBtn);
 		
 		// View Receipt Button
 		JButton viewReceiptBtn = new JButton("View Receipt");
@@ -452,7 +405,7 @@ public class VendorPayment extends PageUtils{
 				String year = tableModelPayment.getValueAt(i, 4).toString();
 				String userID = tableModelPayment.getValueAt(i, 5).toString();
 				String dtf = tableModelPayment.getValueAt(i, 6).toString();
-				
+	
 				int a = jTable.getSelectedRow();
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 				String uuid = tableModel.getValueAt(0, 0).toString();
@@ -463,7 +416,6 @@ public class VendorPayment extends PageUtils{
 				String month1 = tableModel.getValueAt(0, 5).toString();
 				String year1 = tableModel.getValueAt(0, 6).toString();
 				
-
 				String receipt = "\t\t<------------- Receipt ------------->\n";
 				String lblpaymentId = "\tPayment ID: ";
 				String paymentId = uid + "\n\n\tDescription           Price\n\t---------------\t\t\t---------------------\n";
@@ -480,7 +432,7 @@ public class VendorPayment extends PageUtils{
 		});
 		viewReceiptBtn.setBounds(264, 323, 200, 42);
 		viewReceiptBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		vp.getContentPane().add(viewReceiptBtn);
+		mngPayment2.getContentPane().add(viewReceiptBtn);
 		
 		// back Button
 		JButton backBtn = new JButton("Back");
@@ -490,14 +442,15 @@ public class VendorPayment extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VendorMenu vm = new VendorMenu();
-                                setOriginalFrame(vp);
-				setTargetedFrame(vm.vm);
+				AccountExecMenu acctmenu = new AccountExecMenu();
+                                setOriginalFrame(mngPayment2);
+				setTargetedFrame(acctmenu.aem);
 				navigatePage();
-
+                                acctmenu.aem.setVisible(true);
+				mngPayment2.setVisible(false);
 			}
 		});
-		vp.getContentPane().add(backBtn);
+		mngPayment2.getContentPane().add(backBtn);
 
 	}
 

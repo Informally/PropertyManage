@@ -326,17 +326,17 @@ public class TenRoomPayment extends PageUtils{
 
 			public void actionPerformed(ActionEvent e) {
 				CRUD crudCard = new CRUD();
-				tblCard = crudCard.read("Card.txt");
-				String rowCard[] = new String[3];
-				for (int a = 0; a < tblCard.size(); a++) {
-					rowCard[0] = tblCard.get(a).get(0);
-					rowCard[1] = tblCard.get(a).get(1);
-					rowCard[2] = tblCard.get(a).get(2);
-				
-				if(!txtCard.getText().equals(rowCard[0]) || !txtDate.getText().equals(rowCard[1]) || !txtCcv.getText().equals(rowCard[2])) {
-					JOptionPane.showMessageDialog(contentPane, "Invalid Card Number Or Expiration Date!");
-					return;
-				}else {
+
+                tblCard = crudCard.readBulk("Card.txt", txtCard.getText().trim(), 0, "",0);
+                
+                if(tblCard.size() == 0){
+                    ArrayList<String> cardDetails = new ArrayList<>();
+                    cardDetails.add(txtCard.getText().trim());
+                    cardDetails.add(txtDate.getText().trim());
+                    cardDetails.add(txtCcv.getText().trim());
+                    
+                    crud.create("Card.txt", cardDetails);
+                }
 					
 				User user = new User();
 				UUID uuid = UUID.randomUUID();
@@ -477,8 +477,6 @@ public class TenRoomPayment extends PageUtils{
 				jTablePayment.updateUI();
 
 			}
-				}
-			}
 		});
 		rp.getContentPane().add(addUserBtn);
 		
@@ -499,14 +497,14 @@ public class TenRoomPayment extends PageUtils{
 				
 				int a = jTable.getSelectedRow();
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
-				String uuid = tableModel.getValueAt(i, 0).toString();
-				String roomNo1 = tableModel.getValueAt(i, 1).toString();
-				String roomType1 = tableModel.getValueAt(i, 2).toString();
-				String roomPrice = tableModel.getValueAt(i, 3).toString();
-				String deposit = tableModel.getValueAt(i, 4).toString();
-				String total = tableModel.getValueAt(i, 5).toString();
-				String month1 = tableModel.getValueAt(i, 6).toString();
-				String year1 = tableModel.getValueAt(i, 7).toString();
+				String uuid = tableModel.getValueAt(0, 0).toString();
+				String roomNo1 = tableModel.getValueAt(0, 1).toString();
+				String roomType1 = tableModel.getValueAt(0, 2).toString();
+				String roomPrice = tableModel.getValueAt(0, 3).toString();
+				String deposit = tableModel.getValueAt(0, 4).toString();
+				String total = tableModel.getValueAt(0, 5).toString();
+				String month1 = tableModel.getValueAt(0, 6).toString();
+				String year1 = tableModel.getValueAt(0, 7).toString();
 				
 				// Receipt Display
 				JTextArea textArea = new JTextArea();
@@ -551,5 +549,4 @@ public class TenRoomPayment extends PageUtils{
 		rp.getContentPane().add(backBtn);
 
 	}
-
 }

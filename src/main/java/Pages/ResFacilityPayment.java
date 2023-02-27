@@ -324,18 +324,18 @@ public class ResFacilityPayment extends PageUtils{
 		addUserBtn.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
-				CRUD crudCard = new CRUD();
-				tblCard = crudCard.read("Card.txt");
-				String rowCard[] = new String[3];
-				for (int a = 0; a < tblCard.size(); a++) {
-					rowCard[0] = tblCard.get(a).get(0);
-					rowCard[1] = tblCard.get(a).get(1);
-					rowCard[2] = tblCard.get(a).get(2);
-				
-				if(!txtCard.getText().equals(rowCard[0]) || !txtDate.getText().equals(rowCard[1]) || !txtCcv.getText().equals(rowCard[2])) {
-					JOptionPane.showMessageDialog(contentPane, "Invalid Card Number Or Expiration Date!");
-					return;
-				}else {
+				 CRUD crudCard = new CRUD();
+
+                tblCard = crudCard.readBulk("Card.txt", txtCard.getText().trim(), 0, "",0);
+                
+                if(tblCard.size() == 0){
+                    ArrayList<String> cardDetails = new ArrayList<>();
+                    cardDetails.add(txtCard.getText().trim());
+                    cardDetails.add(txtDate.getText().trim());
+                    cardDetails.add(txtCcv.getText().trim());
+                    
+                    crud.create("Card.txt", cardDetails);
+                }
 					
 				User user = new User();
 				UUID uuid = UUID.randomUUID();
@@ -457,8 +457,6 @@ public class ResFacilityPayment extends PageUtils{
 				}
 				jTablePayment.updateUI();
 
-			}
-				}
 			}
 		});
 		fp.getContentPane().add(addUserBtn);

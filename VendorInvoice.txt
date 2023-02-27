@@ -9,4 +9,4 @@
 5e1b624e-29fd-4388d8-b779-28066fc10b87~2023-09-01~Rentals,Utilities,Services~September~2023~600
 5e1b624e-29fd-4388d9-b779-28066fc10b87~2023-10-01~Rentals,Utilities,Services~October~2023~600
 5e1b624e-29fd-4388e0-b779-28066fc10b87~2023-11-01~Rentals,Utilities,Services~November~2023~600
-5e1b624e-29fd-4388e1-b779-28066fc10b87~2023-12-01~Rentals,Utilities,Services~December~2023~600
+5e1b624e-29fd-4388e1-b779-28066fc10b87~2023-12-01~Rentals,Utilities,Services~December~2023~0

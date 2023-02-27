@@ -75,13 +75,12 @@ public class ViewOutStanding extends PageUtils {
 		viewOutStanding.getContentPane().add(lblNewLabel);
 
 		
-		
-
+	
 		CRUD newCrud = new CRUD();
 		tblData.clear();
-		tblData = newCrud.read("Debt.txt");
-		String rowPayment[] = new String[5];
-		String columnPayment[] = { "Id", "Name", "Detail", "Debt", "Role"};
+		tblData = newCrud.read("MonthlyPaymentHistory.txt");
+		String rowPayment[] = new String[7];
+		String columnPayment[] = { "Id","Outstanding", "Total Paid", "Month", "Year", "Payment ID", "Date"};
 
 		JTable jTablePayment = new JTable();
 		jTablePayment.setBounds(44, 73, 770, 100);
@@ -96,6 +95,8 @@ public class ViewOutStanding extends PageUtils {
 			rowPayment[2] = tblData.get(i).get(2);
 			rowPayment[3] = tblData.get(i).get(3);
 			rowPayment[4] = tblData.get(i).get(4);
+			rowPayment[5] = tblData.get(i).get(5);
+			rowPayment[6] = tblData.get(i).get(6);
 			tableModelPayment.addRow(rowPayment);
 
 		}
@@ -127,20 +128,21 @@ public class ViewOutStanding extends PageUtils {
 			public void valueChanged(ListSelectionEvent e) {
 				int[] row = jTablePayment.getSelectedRows();
 				int columnNum = jTablePayment.getColumnCount();
-
+                                
 				if (row.length > 0) {
-
-				String debtId = (String) jTablePayment.getValueAt(row[0], 0);
-				String name = (String) jTablePayment.getValueAt(row[0], 1);
-				String detail = (String) jTablePayment.getValueAt(row[0], 2);
-				String debt = (String) jTablePayment.getValueAt(row[0], 3);
-				String role = (String) jTablePayment.getValueAt(row[0], 4);
-
+                                
+				String uid = jTablePayment.getValueAt(row[0], 0).toString();
+				String out = jTablePayment.getValueAt(row[0], 1).toString();
+				String amount = jTablePayment.getValueAt(row[0], 2).toString();
+				String month = jTablePayment.getValueAt(row[0], 3).toString();
+				String year = jTablePayment.getValueAt(row[0], 4).toString();
+				String userID = jTablePayment.getValueAt(row[0], 5).toString();
+				String dtf = jTablePayment.getValueAt(row[0], 6).toString();
 
 				String report = "<-------- Invoice for Outstanding payment -------->\n";
 					
-				report += "\n Debt Id: " + debtId + "\n" + "Name: " + name + "\n" + "Detail: " + detail + "\n" + "Debt: RM" + debt + "\n" + "Role: " + role + "\n----------------------\n";
-				textArea.setText(report);
+				report += "\n Payment ID: " + uid + "\n" + "Outstanding: " + out + "\n" + "Total Paid: " + amount + "\n" + "Month: " + month + "\n" + "Year: " + year + "\n" + "User ID: " + userID + "\n" + "Date: " + dtf + "\n----------------------\n";
+                                textArea.setText(report);
 
 				}
 				
