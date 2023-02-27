@@ -15,6 +15,8 @@ import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -22,9 +24,11 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 public class Login extends PageUtils {
+	
 
-	public static String vendorName;
+
 	public JFrame loginPage;
+	static CRUD crud = new CRUD();
 
 	/**
 	 * Launch the application.
@@ -238,10 +242,7 @@ public class Login extends PageUtils {
 
 					setOriginalFrame(loginPage);
 					setTargetedFrame(vm.vm);
-					//get vendor name
-					String vendorName = data.get(1);
 					navigatePage();
-
 				}
                                
 			}

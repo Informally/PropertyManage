@@ -463,13 +463,7 @@ public class VendorPayment extends PageUtils{
 				String month1 = tableModel.getValueAt(i, 5).toString();
 				String year1 = tableModel.getValueAt(i, 6).toString();
 				
-				// Receipt Display
-				//JTextArea textArea = new JTextArea();
-				//textArea.setLineWrap(true);
-				//textArea.setEditable(false);
-				//textArea.setBounds(844, 70, 420, 500);
-				//vp.getContentPane().add(textArea);
-				
+
 				String receipt = "\t\t<------------- Receipt ------------->\n";
 				String lblpaymentId = "\tPayment ID: ";
 				String paymentId = uid + "\n\n\tDescription           Price\n\t---------------\t\t\t---------------------\n";

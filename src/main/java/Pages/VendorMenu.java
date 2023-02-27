@@ -1,4 +1,5 @@
 package Pages;
+import Pages.Login;
 
 import java.awt.EventQueue;
 
@@ -25,6 +26,7 @@ import java.util.Map.Entry;
 public class VendorMenu extends PageUtils {
 
 	public JFrame vm;
+
 
 	/**
 	 * Launch the application.
@@ -59,10 +61,7 @@ public class VendorMenu extends PageUtils {
 		vm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		vm.getContentPane().setLayout(null);
 		
-		//get vendor name from Login.java
-		String vendorName = Login.vendorName;
-		//put vendor name into lblNewLabel
-		JLabel lblNewLabel = new JLabel("Welcome, " + vendorName + "!");
+		JLabel lblNewLabel = new JLabel("Welcome !");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		vm.getContentPane().add(lblNewLabel);
