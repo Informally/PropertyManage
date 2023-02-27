@@ -62,7 +62,7 @@ public class VendorMenu extends PageUtils {
 		vm.getContentPane().setLayout(null);
 		
 
-		JLabel lblNewLabel = new JLabel("Welcome" +vendorName+ "!");
+		JLabel lblNewLabel = new JLabel("Welcome, " + vendorName + " !");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		vm.getContentPane().add(lblNewLabel);
