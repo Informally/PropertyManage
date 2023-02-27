@@ -274,8 +274,8 @@ public class TenRoomPayment extends PageUtils{
 		// Payment Display
 		CRUD newCrud = new CRUD();
 		tblDataHistory = newCrud.read("ResidentPaymentHistory.txt");
-		String rowPayment[] = new String[8];
-		String columnPayment[] = { "Id", "Room Type","Outstanding", "Total Paid", "Month", "Year", "Payment ID", "Date" };
+		String rowPayment[] = new String[9];
+		String columnPayment[] = { "Id", "Name", "Room Type","Outstanding", "Total Paid", "Month", "Year", "Payment ID", "Date" };
 
 		JTable jTablePayment = new JTable();
 		jTablePayment.setBounds(44, 423, 770, 100);
@@ -294,6 +294,7 @@ public class TenRoomPayment extends PageUtils{
 			rowPayment[5] = tblDataHistory.get(i).get(5);
 			rowPayment[6] = tblDataHistory.get(i).get(6);
 			rowPayment[7] = tblDataHistory.get(i).get(7);
+			rowPayment[8] = tblDataHistory.get(i).get(8);
 			tableModelPayment.addRow(rowPayment);
 
 		}
@@ -312,7 +313,7 @@ public class TenRoomPayment extends PageUtils{
 		calErrorText.setVisible(false);
 		rp.getContentPane().add(calErrorText);
 
-		// Add user Btn
+		// Make Payment Button
 		JButton makepaymentBtn = new JButton("Make Payment");
 		makepaymentBtn.setBounds(44, 323, 200, 42);
 		makepaymentBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -386,11 +387,11 @@ public class TenRoomPayment extends PageUtils{
 				dataMonthly.add(year);
 				dataMonthly.add(dtf.format(now));
                                 
-                                dataIs.add(uid);
-                                dataIs.add("Monthly");
-                                dataIs.add(roomType);
-                                dataIs.add(price);
-                                dataIs.add(dtf.format(now));
+                dataIs.add(uid);
+                dataIs.add("Monthly");
+                dataIs.add(roomType);
+                dataIs.add(price);
+                dataIs.add(dtf.format(now));
 
 				crud.create("ResidentPaymentHistory.txt", data);
 				crud.create("RoomReceipt.txt", dataReceipt);
@@ -399,11 +400,10 @@ public class TenRoomPayment extends PageUtils{
 				// Update the debt value
 				int totalDebt = Integer.parseInt(out) - Integer.parseInt(amount);
 				crud.update("BookingRoom.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
-				//crud.update("VendorStatement.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
-				//crud.update("VendorInvoice.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
+
 				crud.update("ResidentPaymentHistory.txt", uid, 0,"", 0, String.valueOf(totalDebt), 2, "", 0);
 				crud.update("ResidentPaymentHistory.txt", uid, 0,"", 0, String.valueOf(amount), 3, "", 0);
-                                crud.update("ResidentInvoiceStatement.txt", userID, 0,"", 0, String.valueOf(totalDebt), 3, "", 0);
+                crud.update("ResidentInvoiceStatement.txt", userID, 0,"", 0, String.valueOf(totalDebt), 3, "", 0);
 
 				// Clear text after update or add
 				txtUID.setText("");
