@@ -37,7 +37,7 @@ public class AssignJob extends PageUtils {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AssignJob window = new AssignJob();
+					AssignJob window = new AssignJob(null);
 					window.AsgnJobPage.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -49,14 +49,14 @@ public class AssignJob extends PageUtils {
 	/**
 	 * Create the application.
 	 */
-	public AssignJob() {
-		initialize();
+	public AssignJob(String buildingName) {
+		initialize(buildingName);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String buildingName) {
 		AsgnJobPage = new JFrame();
 		AsgnJobPage.setTitle("Assign Job/Task to Employee");
 		AsgnJobPage.setBounds(100, 100, 871, 622);
@@ -353,7 +353,7 @@ public class AssignJob extends PageUtils {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				BuildingExecMenu Bem = new BuildingExecMenu();
+				BuildingExecMenu Bem = new BuildingExecMenu(buildingName);
 				setOriginalFrame(AsgnJobPage);
 				setTargetedFrame(Bem.buildExec);
 				navigatePage();

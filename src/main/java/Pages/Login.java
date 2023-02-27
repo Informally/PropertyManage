@@ -217,14 +217,16 @@ public class Login extends PageUtils {
 
 				}else if(role.equals("Admin Executive"))
 				{
-					AdminExecMenu Aem = new AdminExecMenu();
+					String adminName = data.get(1);
+					AdminExecMenu Aem = new AdminExecMenu(adminName);
 					setOriginalFrame(loginPage);
 					setTargetedFrame(Aem.Aem);
 					navigatePage();
 
 				} else if(role.equals("Building Executive"))
 				{
-					BuildingExecMenu Bem = new BuildingExecMenu();
+					String buildingName = data.get(1);
+					BuildingExecMenu Bem = new BuildingExecMenu(buildingName);
                     setOriginalFrame(loginPage);
 					setTargetedFrame(Bem.buildExec);
 					navigatePage();

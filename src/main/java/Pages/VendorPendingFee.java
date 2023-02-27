@@ -41,7 +41,7 @@ public class VendorPendingFee extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VendorPendingFee window = new VendorPendingFee();
+					VendorPendingFee window = new VendorPendingFee(null);
 					window.pf.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -53,14 +53,14 @@ public class VendorPendingFee extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public VendorPendingFee() {
-		initialize();
+	public VendorPendingFee(String vendorName) {
+		initialize(vendorName);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String vendorName) {
 		pf = new JFrame();
 		pf.setTitle("Pending Fee");
 		pf.setBounds(100, 100, 871, 622);
@@ -105,7 +105,7 @@ public class VendorPendingFee extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VendorPaymentHistoryMenu payHis = new VendorPaymentHistoryMenu();
+				VendorPaymentHistoryMenu payHis = new VendorPaymentHistoryMenu(vendorName);
                                 setOriginalFrame(pf);
 				setTargetedFrame(payHis.phm);
 				navigatePage();

@@ -41,7 +41,7 @@ public class AdminExComplain extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AdminExComplain window = new AdminExComplain();
+					AdminExComplain window = new AdminExComplain(null);
 					window.aec.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -53,21 +53,21 @@ public class AdminExComplain extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public AdminExComplain() {
-		initialize();
+	public AdminExComplain(String adminName) {
+		initialize(adminName);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String adminName) {
 		aec = new JFrame();
 		aec.setTitle("Admin Complaint Management");
 		aec.setBounds(100, 100, 1200, 722);
 		aec.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		aec.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Admin Complaint Management");
+		JLabel lblNewLabel = new JLabel(adminName + "- Complaint Management");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		aec.getContentPane().add(lblNewLabel);
@@ -416,7 +416,7 @@ public class AdminExComplain extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				AdminExecMenu Aem = new AdminExecMenu();
+				AdminExecMenu Aem = new AdminExecMenu(adminName);
                                 setOriginalFrame(aec);
 				setTargetedFrame(Aem.Aem);
 				navigatePage();

@@ -46,7 +46,7 @@ public class VendorInvoice extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VendorInvoice window = new VendorInvoice();
+					VendorInvoice window = new VendorInvoice(null);
 					window.vi.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -58,14 +58,14 @@ public class VendorInvoice extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public VendorInvoice() {
-		initialize();
+	public VendorInvoice(String vendorName) {
+		initialize(vendorName);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String vendorName) {
 		vi = new JFrame();
 		vi.setTitle("Vendor Invoice");
 		vi.setBounds(100, 100, 871, 822);
@@ -602,7 +602,7 @@ public class VendorInvoice extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VendorPaymentHistoryMenu payHis = new VendorPaymentHistoryMenu();
+				VendorPaymentHistoryMenu payHis = new VendorPaymentHistoryMenu(vendorName);
                                 setOriginalFrame(vi);
 				setTargetedFrame(payHis.phm);
 				navigatePage();

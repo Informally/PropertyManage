@@ -38,7 +38,7 @@ public class FacilityMgt extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FacilityMgt window = new FacilityMgt();
+					FacilityMgt window = new FacilityMgt(null);
 					window.FacMgtPage.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -50,21 +50,21 @@ public class FacilityMgt extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public FacilityMgt() {
-		initialize();
+	public FacilityMgt(String adminName) {
+		initialize(adminName);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String adminName) {
 		FacMgtPage = new JFrame();
 		FacMgtPage.setTitle("Facility Management");
 		FacMgtPage.setBounds(100, 100, 871, 622);
 		FacMgtPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		FacMgtPage.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Facility Management");
+		JLabel lblNewLabel = new JLabel(adminName + "- Facility Management");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		lblNewLabel.setBounds(34, 5, 665, 81);
 		FacMgtPage.getContentPane().add(lblNewLabel);
@@ -346,7 +346,7 @@ public class FacilityMgt extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				AdminExecMenu Aem = new AdminExecMenu();
+				AdminExecMenu Aem = new AdminExecMenu(adminName);
 				setOriginalFrame(FacMgtPage);
 				setTargetedFrame(Aem.Aem);
 				navigatePage();

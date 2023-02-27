@@ -33,7 +33,7 @@ public class VendorPaymentHistoryMenu extends PageUtils {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VendorPaymentHistoryMenu window = new VendorPaymentHistoryMenu();
+					VendorPaymentHistoryMenu window = new VendorPaymentHistoryMenu(null);
 					window.phm.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,14 +45,14 @@ public class VendorPaymentHistoryMenu extends PageUtils {
 	/**
 	 * Create the application.
 	 */
-	public VendorPaymentHistoryMenu() {
-		initialize();
+	public VendorPaymentHistoryMenu(String vendorName) {
+		initialize(vendorName);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String vendorName) {
 		phm = new JFrame();
 		phm.setTitle("Payment History Menu");
 		phm.setBounds(100, 100, 871, 622);
@@ -72,7 +72,7 @@ public class VendorPaymentHistoryMenu extends PageUtils {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VendorPendingFee pendingFee = new VendorPendingFee();
+				VendorPendingFee pendingFee = new VendorPendingFee(vendorName);
 				
 				pendingFee.pf.setVisible(true);
 				phm.setVisible(false);
@@ -88,7 +88,7 @@ public class VendorPaymentHistoryMenu extends PageUtils {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VendorInvoice vendorInvoice = new VendorInvoice();
+				VendorInvoice vendorInvoice = new VendorInvoice(vendorName);
 				vendorInvoice.vi.setVisible(true);
 				phm.setVisible(false);
 
@@ -105,7 +105,7 @@ public class VendorPaymentHistoryMenu extends PageUtils {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-                VendorStatement vendorStatement = new VendorStatement();
+                VendorStatement vendorStatement = new VendorStatement(vendorName);
 				vendorStatement.vs.setVisible(true);
 				phm.setVisible(false);
 
@@ -122,7 +122,7 @@ public class VendorPaymentHistoryMenu extends PageUtils {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				VendorReceipt vendorReceipt = new VendorReceipt();
+				VendorReceipt vendorReceipt = new VendorReceipt(vendorName);
 				vendorReceipt.vr.setVisible(true);
 				phm.setVisible(false);
 
@@ -139,7 +139,7 @@ public class VendorPaymentHistoryMenu extends PageUtils {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				VendorMenu vm = new VendorMenu();
+				VendorMenu vm = new VendorMenu(vendorName);
                                 setOriginalFrame(phm);
 				setTargetedFrame(vm.vm);
 				navigatePage();

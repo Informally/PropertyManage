@@ -93,7 +93,7 @@ public class VendorMenu extends PageUtils {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VendorPayment vendorPayment = new VendorPayment();
+				VendorPayment vendorPayment = new VendorPayment(vendorName);
                                 setOriginalFrame(vm);
 				setTargetedFrame(vendorPayment.vp);
 				navigatePage();
@@ -110,7 +110,7 @@ public class VendorMenu extends PageUtils {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				VendorPaymentHistoryMenu paymentHistoryMenu = new VendorPaymentHistoryMenu();
+				VendorPaymentHistoryMenu paymentHistoryMenu = new VendorPaymentHistoryMenu(vendorName);
                                 setOriginalFrame(vm);
 				setTargetedFrame(paymentHistoryMenu.phm);
 				navigatePage();

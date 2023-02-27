@@ -41,7 +41,7 @@ public class VendorReceipt extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VendorReceipt window = new VendorReceipt();
+					VendorReceipt window = new VendorReceipt(null);
 					window.vr.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -53,14 +53,14 @@ public class VendorReceipt extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public VendorReceipt() {
-		initialize();
+	public VendorReceipt(String vendorName) {
+		initialize(vendorName);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String vendorName) {
 		vr = new JFrame();
 		vr.setTitle("Vendor Receipt");
 		vr.setBounds(100, 100, 871, 622);
@@ -105,7 +105,7 @@ public class VendorReceipt extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VendorPaymentHistoryMenu payHis = new VendorPaymentHistoryMenu();
+				VendorPaymentHistoryMenu payHis = new VendorPaymentHistoryMenu(vendorName);
                                 setOriginalFrame(vr);
 				setTargetedFrame(payHis.phm);
 				navigatePage();

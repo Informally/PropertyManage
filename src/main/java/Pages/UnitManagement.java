@@ -36,7 +36,7 @@ public class UnitManagement extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					UnitManagement window = new UnitManagement();
+					UnitManagement window = new UnitManagement(null);
 					window.unitMgtPage.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -48,21 +48,21 @@ public class UnitManagement extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public UnitManagement() {
-		initialize();
+	public UnitManagement(String adminName) {
+		initialize(adminName);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String adminName) {
 		unitMgtPage = new JFrame();
 		unitMgtPage.setTitle("Unit Management");
 		unitMgtPage.setBounds(300, 250, 1000, 650);
 		unitMgtPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		unitMgtPage.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Unit Management");
+		JLabel lblNewLabel = new JLabel(adminName + "- Unit Management");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 25));
 		lblNewLabel.setBounds(34, 8, 665, 81);
 		unitMgtPage.getContentPane().add(lblNewLabel);
@@ -360,7 +360,7 @@ public class UnitManagement extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				AdminExecMenu Aem = new AdminExecMenu();
+				AdminExecMenu Aem = new AdminExecMenu(adminName);
                                 setOriginalFrame(unitMgtPage);
 				setTargetedFrame(Aem.Aem);
 				navigatePage();
