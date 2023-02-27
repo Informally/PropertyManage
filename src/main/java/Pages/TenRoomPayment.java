@@ -77,7 +77,7 @@ public class TenRoomPayment extends PageUtils{
 		rp.getContentPane().add(lblNewLabel);
 
 		// Payment ID
-		JLabel lblUID = new JLabel("Payment ID: ");
+		JLabel lblUID = new JLabel("Room ID: ");
 		lblUID.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblUID.setBounds(44, 73, 315, 42);
 		rp.getContentPane().add(lblUID);
@@ -285,26 +285,6 @@ public class TenRoomPayment extends PageUtils{
 		}
 		jTablePayment.setModel(tableModelPayment);
 
-//		ListSelectionModel selectPayment = jTablePayment.getSelectionModel();
-//		selectPayment.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-//		selectPayment.addListSelectionListener(new ListSelectionListener() {
-//			public void valueChanged(ListSelectionEvent e) {
-//				int[] row = jTablePayment.getSelectedRows();
-//				int columnNum = jTablePayment.getColumnCount();
-//
-//				if (row.length > 0) {
-//					HashMap<Integer, String> debtDt = crud.read("Payment.txt",
-//							(String) jTablePayment.getValueAt(row[0], 5), 5, "", 0);
-//					txtUID.setText((String) jTablePayment.getValueAt(row[0], 0));
-//					txtMonth.setText((String) jTablePayment.getValueAt(row[0], 1));
-//					txtPrice.setText((String) jTablePayment.getValueAt(row[0], 2));
-//					txtYear.setText((String) jTablePayment.getValueAt(row[0], 3));
-//					txtOut.setText((String) jTablePayment.getValueAt(row[0], 4));
-//					txtRoomType.setText(debtDt.get(3));
-//				}
-//
-//			}
-//		});
 		JScrollPane scrollPayment = new JScrollPane(jTablePayment, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollPayment.setBounds(44, 503, 770, 100);
@@ -506,13 +486,7 @@ public class TenRoomPayment extends PageUtils{
 				String month1 = tableModel.getValueAt(0, 6).toString();
 				String year1 = tableModel.getValueAt(0, 7).toString();
 				
-				// Receipt Display
-				JTextArea textArea = new JTextArea();
-				textArea.setLineWrap(true);
-				textArea.setEditable(false);
-				textArea.setBounds(844, 70, 420, 500);
-				rp.getContentPane().add(textArea);
-				
+
 				String receipt = "\t\t<----- Receipt ----->\n";
 				String lblpaymentId = "\tPayment ID:";
 				String paymentId = uid + "\n\n\tDescription\t\t\tPrice\n\t---------------\t\t\t-------\n";
@@ -523,8 +497,7 @@ public class TenRoomPayment extends PageUtils{
 				String lblPaymentDate = "\tPayment for " + month + " " + year + "\n";
 				String lblDate = "\tDate Paid " + dtf + "\n\t---------------------------------------------------------------" + "\n";
 				String lblThank = "\t                  Thank you for your payment\n";
-				textArea.setText(receipt + lblpaymentId + paymentId + lblRoomType + lblPrice + lblDeposit + lblTotal + lblPaymentDate + lblDate + lblThank);
-				
+				JOptionPane.showMessageDialog(null, receipt + lblpaymentId + paymentId + lblRoomType + lblPrice + lblDeposit + lblTotal + lblPaymentDate + lblDate + lblThank, "Receipt", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		viewReceiptBtn.setBounds(264, 323, 200, 42);
