@@ -299,10 +299,10 @@ public class TenRoomPayment extends PageUtils{
 		rp.getContentPane().add(calErrorText);
 
 		// Add user Btn
-		JButton addUserBtn = new JButton("Make Payment");
-		addUserBtn.setBounds(44, 323, 200, 42);
-		addUserBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		addUserBtn.addActionListener(new ActionListener() {
+		JButton makepaymentBtn = new JButton("Make Payment");
+		makepaymentBtn.setBounds(44, 323, 200, 42);
+		makepaymentBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		makepaymentBtn.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent e) {
 				CRUD crudCard = new CRUD();
@@ -458,7 +458,7 @@ public class TenRoomPayment extends PageUtils{
 
 			}
 		});
-		rp.getContentPane().add(addUserBtn);
+		rp.getContentPane().add(makepaymentBtn);
 		
 		// View Receipt Button
 		JButton viewReceiptBtn = new JButton("View Receipt");
