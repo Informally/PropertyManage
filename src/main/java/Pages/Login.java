@@ -25,7 +25,7 @@ import java.util.Map.Entry;
 
 public class Login extends PageUtils {
 	
-
+	public static String vendorName;
 	public JFrame loginPage;
 	CRUD crud = new CRUD();
 
@@ -236,10 +236,12 @@ public class Login extends PageUtils {
 
 				}else if(role.equals("Vendor"))
 				{
-					VendorMenu vm = new VendorMenu();
+					String vendorName = data.get(1);
+					VendorMenu vm = new VendorMenu(vendorName);
 
 					setOriginalFrame(loginPage);
 					setTargetedFrame(vm.vm);
+					
 					navigatePage();
 				}
                                
