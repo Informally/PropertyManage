@@ -76,7 +76,7 @@ public class VendorMenu extends PageUtils {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VendorProfile vendorProfile = new VendorProfile();
+				VendorProfile vendorProfile = new VendorProfile(vendorName);
                                 setOriginalFrame(vm);
 				setTargetedFrame(vendorProfile.vp);
 				navigatePage();
@@ -128,8 +128,8 @@ public class VendorMenu extends PageUtils {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				VendorComplaint vendorComplaint = new VendorComplaint();
-                                setOriginalFrame(vm);
+				VendorComplaint vendorComplaint = new VendorComplaint(vendorName);
+                setOriginalFrame(vm);
 				setTargetedFrame(vendorComplaint.vc);
 				navigatePage();
 

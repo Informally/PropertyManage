@@ -204,7 +204,6 @@ public class Login extends PageUtils {
 				if(role.equals("Building Manager"))
 				{
 					BuildingManagerMenu bmm = new BuildingManagerMenu();
-
 					setOriginalFrame(loginPage);
 					setTargetedFrame(bmm.bmm);
 					navigatePage();
@@ -212,7 +211,6 @@ public class Login extends PageUtils {
 				} else if(role.equals("Account Executive"))
 				{
 					AccountExecMenu aem = new AccountExecMenu();
-
 					setOriginalFrame(loginPage);
 					setTargetedFrame(aem.aem);
 					navigatePage();
@@ -220,7 +218,6 @@ public class Login extends PageUtils {
 				}else if(role.equals("Admin Executive"))
 				{
 					AdminExecMenu Aem = new AdminExecMenu();
-
 					setOriginalFrame(loginPage);
 					setTargetedFrame(Aem.Aem);
 					navigatePage();
@@ -228,8 +225,7 @@ public class Login extends PageUtils {
 				} else if(role.equals("Building Executive"))
 				{
 					BuildingExecMenu Bem = new BuildingExecMenu();
-
-                                        setOriginalFrame(loginPage);
+                    setOriginalFrame(loginPage);
 					setTargetedFrame(Bem.buildExec);
 					navigatePage();
 

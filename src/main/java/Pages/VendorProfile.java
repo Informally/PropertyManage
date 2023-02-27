@@ -38,7 +38,7 @@ public class VendorProfile extends PageUtils {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VendorProfile window = new VendorProfile();
+					VendorProfile window = new VendorProfile(null);
 					window.vp.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -50,16 +50,16 @@ public class VendorProfile extends PageUtils {
 	/**
 	 * Create the application.
 	 */
-	public VendorProfile() {
+	public VendorProfile(String vendorName) {
             
-		initialize();
+		initialize(vendorName);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
-            String search = JOptionPane.showInputDialog(null, "Enter your name:");
+	private void initialize(String vendorName) {
+            //String search = JOptionPane.showInputDialog(null, "Enter your name:");
 		vp = new JFrame();
 		vp.setTitle("View & Update Profile");
 		vp.setBounds(100, 100, 871, 622);
@@ -166,7 +166,7 @@ public class VendorProfile extends PageUtils {
                         // Check if the row contains the search string
                         boolean match = false;
                         for (int j = 0; j < row.length; j++) {
-                            if (row[j].toLowerCase().contains(search.toLowerCase())) {
+                            if (row[j].toLowerCase().contains(vendorName.toLowerCase())) {
                             match = true;
                             break;
                     }
@@ -296,7 +296,7 @@ public class VendorProfile extends PageUtils {
                                     // Check if the row contains the search string
                                     boolean match = false;
                                     for (int j = 0; j < row.length; j++) {
-                                        if (row[j].toLowerCase().contains(search.toLowerCase())) {
+                                        if (row[j].toLowerCase().contains(vendorName.toLowerCase())) {
                                         match = true;
                                         break;
                                         }
@@ -327,7 +327,7 @@ public class VendorProfile extends PageUtils {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VendorMenu vm = new VendorMenu();
+				VendorMenu vm = new VendorMenu(vendorName);
                                 setOriginalFrame(vp);
 				setTargetedFrame(vm.vm);
 				navigatePage();
