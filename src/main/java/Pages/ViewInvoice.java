@@ -6,6 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextArea;
@@ -186,6 +187,8 @@ public class ViewInvoice extends PageUtils {
 		String rowPayment[] = new String[5];
 		String columnPayment[] = { "Id", "Type", "Type", "Outstanding", "Date" };
 
+
+
 		JTable jTablePayment = new JTable();
 		jTablePayment.setBounds(44, 73, 770, 100);
 		DefaultTableModel tableModelPayment = (DefaultTableModel) jTablePayment.getModel();
@@ -234,15 +237,14 @@ public class ViewInvoice extends PageUtils {
 				String report = "<-------- Invoice/Statement -------->\n\n";
 					
 				report += "\nPayment Id: " + paymentID + "\n" + "Type: " + type + "\n" + "Type: " + type1 + "\n" + "Outstanding: RM" + outstanding + "\n" + "Date: " + date + "\n----------------------\n";
-				textArea.setText(report);
+				JOptionPane.showMessageDialog(scroll, report);
 
 				}
 				
 
 			}
 		});
-                
-                      
+   
 		viewInvoice.getContentPane().add(scroll);
 		reportTypeOptions.addItemListener(new ItemListener() {
 			@Override
@@ -315,6 +317,7 @@ public class ViewInvoice extends PageUtils {
 					textArea.add(lblRemittance);
 					textArea.add(lblToDate);
 					textArea.add(lblInvNo);
+
 					break;
 					
                                 case "March":
