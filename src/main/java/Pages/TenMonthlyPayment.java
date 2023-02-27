@@ -67,7 +67,7 @@ public class TenMonthlyPayment extends PageUtils{
 	private void initialize() {
 		mp = new JFrame();
 		mp.setTitle("Tenant Monthly Payment");
-		mp.setBounds(100, 100, 900, 700);
+		mp.setBounds(100, 100, 1500, 700);
 		mp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mp.getContentPane().setLayout(null);
 
@@ -462,7 +462,12 @@ public class TenMonthlyPayment extends PageUtils{
 				String deposit = tableModel.getValueAt(i, 3).toString();
 				String total = tableModel.getValueAt(i, 4).toString();
 				
-
+				// Receipt Display
+                JTextArea textArea = new JTextArea();
+                textArea.setLineWrap(true);
+                textArea.setEditable(false);
+                textArea.setBounds(844, 70, 420, 500);
+                mp.getContentPane().add(textArea);
 				
 				String receipt = "\t\t<------------- Receipt ------------->\n";
 				String lblpaymentId = "\tPayment ID:";
@@ -474,8 +479,8 @@ public class TenMonthlyPayment extends PageUtils{
 				String lblPaymentDate = "\tPayment for " + month + " " + year + "\n";
 				String lblDate = "\tDate Paid " + dtf + "\n\t---------------------------------------------------------------" + "\n";
 				String lblThank = "\t                  Thank you for your payment\n";
-				//textArea.setText(receipt + lblpaymentId + paymentId + lblRoomType + lblPrice + lblDeposit + lblTotal + lblPaymentDate + lblDate + lblThank);
-				JOptionPane.showMessageDialog(null, receipt + lblpaymentId + paymentId + lblRoomType + lblPrice + lblDeposit + lblTotal + lblPaymentDate + lblDate + lblThank, "Receipt", JOptionPane.INFORMATION_MESSAGE);
+				textArea.setText(receipt + lblpaymentId + paymentId + lblRoomType + lblPrice + lblDeposit + lblTotal + lblPaymentDate + lblDate + lblThank);
+				//JOptionPane.showMessageDialog(null, receipt + lblpaymentId + paymentId + lblRoomType + lblPrice + lblDeposit + lblTotal + lblPaymentDate + lblDate + lblThank, "Receipt", JOptionPane.INFORMATION_MESSAGE);
 				
 			}
 		});

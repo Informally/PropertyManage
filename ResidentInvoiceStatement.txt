@@ -1,4 +1,4 @@
 f0fb9efa-19e2-4b89-8dc7-35a95cc0cd3c~Room~Deluxe~1700~2023-02-23
-64fdd08c-49a7-43c5-a32c-26ee3c16fdba~Monthly~Suite~0~2023-02-16 14:12:16
+64fdd08c-49a7-43c5-a32c-26ee3c16fdba~Monthly~Suite~-200~2023-02-16 14:12:16
 44c12e15-f78a-4eb7-8558-27256ca46776~Facility~Barbeque Pit~0~11/12/2023
 ae405ab0-3026-4221-a8ec-e0bbbc7ea63f~Facility~Swimming Pool~100~12/12/2023
