@@ -237,7 +237,9 @@ public class ViewInvoice extends PageUtils {
 				String report = "<-------- Invoice/Statement -------->\n\n";
 					
 				report += "\nPayment Id: " + paymentID + "\n" + "Type: " + type + "\n" + "Type: " + type1 + "\n" + "Outstanding: RM" + outstanding + "\n" + "Date: " + date + "\n----------------------\n";
-				JOptionPane.showMessageDialog(null, report);
+				
+				//JOPtionPane showing report with the title "Invoice/Statement"
+				JOptionPane.showMessageDialog(null, report, "Invoice/Statement", JOptionPane.INFORMATION_MESSAGE);
 
 				}
 				
