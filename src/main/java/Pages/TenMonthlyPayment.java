@@ -315,19 +315,7 @@ public class TenMonthlyPayment extends PageUtils {
                     
                     crud.create("Card.txt", cardDetails);
                 }
-//                String rowCard[] = new String[3];
-//                for (int a = 0; a < tblCard.size(); a++) {
-//                    rowCard[0] = tblCard.get(a).get(0);
-//                    rowCard[1] = tblCard.get(a).get(1);
-//                    rowCard[2] = tblCard.get(a).get(2);
-//
-//                    if (!txtCard.getText().equals(rowCard[0]) || !txtDate.getText().equals(rowCard[1]) || !txtCcv.getText().equals(rowCard[2])) {
-//                        JOptionPane.showMessageDialog(contentPane, "Invalid Card Number Or Expiration Date!");
-//                        return;
-//                    } else {
-//
-//                    }
-//                }
+
                 
 
                 User user = new User();
@@ -375,14 +363,12 @@ public class TenMonthlyPayment extends PageUtils {
 
                 crud.create("MonthlyPaymentHistory.txt", data);
                 crud.create("MonthlyReceipt.txt", dataReceipt);
-                //crud.create("RoomReceipt.txt", dataReceipt);
-                //crud.create("MonthlyPayment.txt", dataMonthly);
+
                 // Update the debt value
                 int totalDebt = Integer.parseInt(out) - Integer.parseInt(amount);
                 crud.update("MonthlyPayment.txt", userID, 0, "", 0, String.valueOf(totalDebt), 3, "", 0);
                 crud.update("ResidentInvoiceStatement.txt", userID, 0, "", 0, String.valueOf(totalDebt), 3, "", 0);
-                //crud.update("VendorStatement.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
-                //crud.update("VendorInvoice.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
+
                 crud.update("MonthlyPaymentHistory.txt", uid, 0, "", 0, String.valueOf(totalDebt), 1, "", 0);
                 crud.update("MonthlyPaymentHistory.txt", uid, 0, "", 0, String.valueOf(amount), 2, "", 0);
                 crud.update("ResidentInvoiceStatement.txt", userID, 0, "", 0, String.valueOf(totalDebt), 3, "", 0);
@@ -491,7 +477,6 @@ public class TenMonthlyPayment extends PageUtils {
                 String lblPaymentDate = "\tPayment for " + month + " " + year + "\n";
                 String lblDate = "\tDate Paid " + dtf + "\n\t---------------------------------------------------------------" + "\n";
                 String lblThank = "\t                  Thank you for your payment\n";
-                //textArea.setText(receipt + lblpaymentId + paymentId + lblRoomType + lblPrice + lblDeposit + lblTotal + lblPaymentDate + lblDate + lblThank);
                 JOptionPane.showMessageDialog(null, receipt + lblpaymentId + paymentId + lblRoomType + lblPrice + lblDeposit + lblTotal + lblPaymentDate + lblDate + lblThank, "Receipt", JOptionPane.INFORMATION_MESSAGE);
 
             }
