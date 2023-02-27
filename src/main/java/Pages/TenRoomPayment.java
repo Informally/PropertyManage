@@ -67,7 +67,7 @@ public class TenRoomPayment extends PageUtils{
 	private void initialize() {
 		rp = new JFrame();
 		rp.setTitle("Tenant Room Payment");
-		rp.setBounds(100, 100, 1471, 822);
+		rp.setBounds(100, 100, 900, 700);
 		rp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		rp.getContentPane().setLayout(null);
 
@@ -506,7 +506,7 @@ public class TenRoomPayment extends PageUtils{
 		
 		// back Button
 		JButton backBtn = new JButton("Back");
-		backBtn.setBounds(700, 11, 150, 42);
+		backBtn.setBounds(650, 11, 150, 42);
 		backBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		backBtn.addActionListener(new ActionListener() {
 
