@@ -67,7 +67,7 @@ public class TenRoomPayment extends PageUtils{
 	private void initialize() {
 		rp = new JFrame();
 		rp.setTitle("Tenant Room Payment");
-		rp.setBounds(100, 100, 900, 700);
+		rp.setBounds(100, 100, 1000, 700);
 		rp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		rp.getContentPane().setLayout(null);
 
@@ -84,7 +84,7 @@ public class TenRoomPayment extends PageUtils{
 
 		JTextField txtUID = new JTextField("");
 		txtUID.setBounds(164, 73, 250, 42);
-		txtUID.setBackground(Color.gray);
+		txtUID.setBackground(Color.lightGray);
 		txtUID.setEditable(false);
 		rp.getContentPane().add(txtUID);
 
@@ -96,7 +96,7 @@ public class TenRoomPayment extends PageUtils{
 
 		JTextField txtMonth = new JTextField();
 		txtMonth.setBounds(554, 73, 250, 42);
-		txtMonth.setBackground(Color.white);
+		txtMonth.setBackground(Color.lightGray);
 		txtMonth.setEditable(false);
 		rp.getContentPane().add(txtMonth);
 
@@ -108,7 +108,7 @@ public class TenRoomPayment extends PageUtils{
 
 		JTextField txtRoomType = new JTextField();
 		txtRoomType.setBounds(164, 123, 250, 42);
-		txtRoomType.setBackground(Color.white);
+		txtRoomType.setBackground(Color.lightGray);
 		txtRoomType.setEditable(false);
 		rp.getContentPane().add(txtRoomType);
 
@@ -120,7 +120,7 @@ public class TenRoomPayment extends PageUtils{
 
 		JTextField txtYear = new JTextField();
 		txtYear.setBounds(554, 123, 250, 42);
-		txtYear.setBackground(Color.white);
+		txtYear.setBackground(Color.lightGray);
 		txtYear.setEditable(false);
 		rp.getContentPane().add(txtYear);
 
@@ -132,7 +132,7 @@ public class TenRoomPayment extends PageUtils{
 
 		JTextField txtPrice = new JTextField();
 		txtPrice.setBounds(164, 173, 250, 42);
-		txtPrice.setBackground(Color.white);
+		txtPrice.setBackground(Color.lightGray);
 		txtPrice.setEditable(false);
 		rp.getContentPane().add(txtPrice);
 
@@ -144,7 +144,7 @@ public class TenRoomPayment extends PageUtils{
 
 		JTextField txtOut = new JTextField();
 		txtOut.setBounds(164, 273, 250, 42);
-		txtOut.setBackground(Color.white);
+		txtOut.setBackground(Color.lightGray);
 		txtOut.setEditable(false);
 		rp.getContentPane().add(txtOut);
 		
@@ -156,7 +156,7 @@ public class TenRoomPayment extends PageUtils{
 
 		JTextField txtDeposit = new JTextField();
 		txtDeposit.setBounds(164, 223, 250, 42);
-		txtDeposit.setBackground(Color.white);
+		txtDeposit.setBackground(Color.lightGray);
 		txtDeposit.setEditable(false);
 		rp.getContentPane().add(txtDeposit);
 		
@@ -179,6 +179,19 @@ public class TenRoomPayment extends PageUtils{
 		JTextField txtDate = new JTextField();
 		txtDate.setBounds(554, 223, 100, 42);
 		rp.getContentPane().add(txtDate);
+
+		//Name
+		JLabel lblname = new JLabel("Name: ");
+		lblname.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblname.setBounds(470, 323, 315, 42);
+		rp.getContentPane().add(lblname);
+
+		JTextField txtName = new JTextField();
+		txtName.setBounds(554, 323, 250, 42);
+		txtName.setBackground(Color.lightGray);
+		txtName.setEditable(false);
+		rp.getContentPane().add(txtName);
+		
 		
 		// CCV
 		JLabel lblCcv = new JLabel("CCV: ");
@@ -241,6 +254,7 @@ public class TenRoomPayment extends PageUtils{
 
 				if (row.length > 0) {
 					txtUID.setText((String) jTable.getValueAt(row[0], 0));
+					txtName.setText((String) jTable.getValueAt(row[0], 1));
 					txtRoomType.setText((String) jTable.getValueAt(row[0], 2));
 					txtPrice.setText((String) jTable.getValueAt(row[0], 3));
 					txtDeposit.setText((String) jTable.getValueAt(row[0], 4));
