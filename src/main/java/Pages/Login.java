@@ -67,7 +67,7 @@ public class Login extends PageUtils {
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		loginPage.getContentPane().add(lblNewLabel);
                 
-                JLabel lblNewLabel1 = new JLabel("(Building Manager, Account/Admin/Building Executive, Vendor)");
+        JLabel lblNewLabel1 = new JLabel("(Building Manager, Account/Admin/Building Executive, Vendor)");
 		lblNewLabel1.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblNewLabel1.setBounds(34, 50, 665, 81);
 		loginPage.getContentPane().add(lblNewLabel1);
