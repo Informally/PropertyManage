@@ -9,3 +9,4 @@ b25c4a98-e52a-4750-929f-88a6f0b3fdcc~Room~Double~130~2023-02-27
 a9623910-7616-46c8-94db-19aea22fc9bd~Room~Deluxe~700~2023-02-27
 b9f669ff-e1fd-4e01-88b0-3bcc80dd96c8~Monthly~Deluxe~200~2023-02-27 21:39:48
 43ddcdb4-9b9e-45d5-a8d0-047f3cc93da7~Monthly~Double~850~2023-02-27 23:56:33
+538edaa8-8540-4be7-9d24-cb9ee0c7cf3d~Room~Double~1130~2023-02-28
