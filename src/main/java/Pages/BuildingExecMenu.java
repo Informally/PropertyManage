@@ -32,7 +32,7 @@ public class BuildingExecMenu extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					BuildingExecMenu window = new BuildingExecMenu();
+					BuildingExecMenu window = new BuildingExecMenu(null);
 					window.buildExec.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,14 +44,14 @@ public class BuildingExecMenu extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public BuildingExecMenu() {
-		initialize();
+	public BuildingExecMenu(String buildingName) {
+		initialize(buildingName);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String buildingName) {
 		buildExec = new JFrame();
 		buildExec.setTitle("Building Executive Menu");
 		buildExec.setBounds(100, 100, 871, 622);
@@ -71,7 +71,7 @@ public class BuildingExecMenu extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				AssignJob asgnMGT = new AssignJob();
+				AssignJob asgnMGT = new AssignJob(buildingName);
                                 setOriginalFrame(buildExec);
 				setTargetedFrame(asgnMGT.AsgnJobPage);
 				navigatePage();
@@ -87,7 +87,7 @@ public class BuildingExecMenu extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				AssignJob asgnMGT = new AssignJob();
+				AssignJob asgnMGT = new AssignJob(buildingName);
                                 setOriginalFrame(buildExec);
 				setTargetedFrame(asgnMGT.AsgnJobPage);
 				navigatePage();
@@ -104,7 +104,7 @@ public class BuildingExecMenu extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				BExecComplaints viewupcom = new BExecComplaints();
+				BExecComplaints viewupcom = new BExecComplaints(buildingName);
                                 setOriginalFrame(buildExec);
 				setTargetedFrame(viewupcom.bec);
 				navigatePage();
@@ -121,7 +121,7 @@ public class BuildingExecMenu extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				Security sec = new Security();
+				Security sec = new Security(buildingName);
                                 setOriginalFrame(buildExec);
 				setTargetedFrame(sec.SecPage);
 				navigatePage();
@@ -139,7 +139,7 @@ public class BuildingExecMenu extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ViewPCJReport viewRep = new ViewPCJReport();
+				ViewPCJReport viewRep = new ViewPCJReport(buildingName);
                                 setOriginalFrame(buildExec);
 				setTargetedFrame(viewRep.Report);
 				navigatePage();

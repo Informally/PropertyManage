@@ -44,7 +44,7 @@ public class BExecComplaints extends PageUtils {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					BExecComplaints window = new BExecComplaints();
+					BExecComplaints window = new BExecComplaints(null);
 					window.bec.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -56,21 +56,21 @@ public class BExecComplaints extends PageUtils {
 	/**
 	 * Create the application.
 	 */
-	public BExecComplaints() {
-		initialize();
+	public BExecComplaints(String buildingName) {
+		initialize(buildingName);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String buildingName) {
 		bec = new JFrame();
 		bec.setTitle("View & Update Complaint");
 		bec.setBounds(100, 100, 1200, 1000);
 		bec.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		bec.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("View & Update Complaint");
+		JLabel lblNewLabel = new JLabel(buildingName + ", View & Update Complaint");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		bec.getContentPane().add(lblNewLabel);
@@ -738,7 +738,7 @@ public class BExecComplaints extends PageUtils {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				BuildingExecMenu Bem = new BuildingExecMenu();
+				BuildingExecMenu Bem = new BuildingExecMenu(buildingName);
 				setOriginalFrame(bec);
 				setTargetedFrame(Bem.buildExec);
 				navigatePage();

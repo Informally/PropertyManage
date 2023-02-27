@@ -37,7 +37,7 @@ public class EmployeeMgt extends PageUtils {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					EmployeeMgt window = new EmployeeMgt();
+					EmployeeMgt window = new EmployeeMgt(null);
 					window.EmMgtPage.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -49,21 +49,21 @@ public class EmployeeMgt extends PageUtils {
 	/**
 	 * Create the application.
 	 */
-	public EmployeeMgt() {
-		initialize();
+	public EmployeeMgt(String adminName) {
+		initialize(adminName);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String adminName) {
 		EmMgtPage = new JFrame();
 		EmMgtPage.setTitle("Employee Management");
 		EmMgtPage.setBounds(100, 100, 871, 622);
 		EmMgtPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		EmMgtPage.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Employee Management");
+		JLabel lblNewLabel = new JLabel(adminName + "- Employee Management");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		lblNewLabel.setBounds(34, 5, 665, 81);
 		EmMgtPage.getContentPane().add(lblNewLabel);
@@ -367,7 +367,7 @@ public class EmployeeMgt extends PageUtils {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				AdminExecMenu Aem = new AdminExecMenu();
+				AdminExecMenu Aem = new AdminExecMenu(adminName);
                                 setOriginalFrame(EmMgtPage);
 				setTargetedFrame(Aem.Aem);
 				navigatePage();

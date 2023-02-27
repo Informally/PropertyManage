@@ -45,7 +45,7 @@ public class VendorPayment extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VendorPayment window = new VendorPayment();
+					VendorPayment window = new VendorPayment(null);
 					window.vp.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -57,14 +57,14 @@ public class VendorPayment extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public VendorPayment() {
-		initialize();
+	public VendorPayment(String vendorName) {
+		initialize(vendorName);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String vendorName) {
 		vp = new JFrame();
 		vp.setTitle("Vendor Payment");
 		vp.setBounds(100, 100, 900, 700);
@@ -490,7 +490,7 @@ public class VendorPayment extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VendorMenu vm = new VendorMenu();
+				VendorMenu vm = new VendorMenu(vendorName);
                                 setOriginalFrame(vp);
 				setTargetedFrame(vm.vm);
 				navigatePage();

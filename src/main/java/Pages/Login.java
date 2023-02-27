@@ -24,11 +24,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 public class Login extends PageUtils {
-	
-
 
 	public JFrame loginPage;
-	static CRUD crud = new CRUD();
+	CRUD crud = new CRUD();
 
 	/**
 	 * Launch the application.
@@ -69,7 +67,7 @@ public class Login extends PageUtils {
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		loginPage.getContentPane().add(lblNewLabel);
                 
-                JLabel lblNewLabel1 = new JLabel("(Building Manager, Account/Admin/Building Executive, Vendor)");
+        JLabel lblNewLabel1 = new JLabel("(Building Manager, Account/Admin/Building Executive, Vendor)");
 		lblNewLabel1.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblNewLabel1.setBounds(34, 50, 665, 81);
 		loginPage.getContentPane().add(lblNewLabel1);
@@ -194,7 +192,6 @@ public class Login extends PageUtils {
 			public void actionPerformed(ActionEvent e) {
 				CRUD crud = new CRUD();
 				HashMap<Integer, String> data = crud.read("User.txt", txtEmail.getText().trim(), 2, txtPassword.getText().trim(), 3);
-
 				if (data.size() == 0) {
 					errorText.setText("Login Fail");
 					errorText.setVisible(true);
@@ -207,7 +204,6 @@ public class Login extends PageUtils {
 				if(role.equals("Building Manager"))
 				{
 					BuildingManagerMenu bmm = new BuildingManagerMenu();
-
 					setOriginalFrame(loginPage);
 					setTargetedFrame(bmm.bmm);
 					navigatePage();
@@ -215,31 +211,30 @@ public class Login extends PageUtils {
 				} else if(role.equals("Account Executive"))
 				{
 					AccountExecMenu aem = new AccountExecMenu();
-
 					setOriginalFrame(loginPage);
 					setTargetedFrame(aem.aem);
 					navigatePage();
 
 				}else if(role.equals("Admin Executive"))
 				{
-					AdminExecMenu Aem = new AdminExecMenu();
-
+					String adminName = data.get(1);
+					AdminExecMenu Aem = new AdminExecMenu(adminName);
 					setOriginalFrame(loginPage);
 					setTargetedFrame(Aem.Aem);
 					navigatePage();
 
 				} else if(role.equals("Building Executive"))
 				{
-					BuildingExecMenu Bem = new BuildingExecMenu();
-
-                                        setOriginalFrame(loginPage);
+					String buildingName = data.get(1);
+					BuildingExecMenu Bem = new BuildingExecMenu(buildingName);
+                    setOriginalFrame(loginPage);
 					setTargetedFrame(Bem.buildExec);
 					navigatePage();
 
 				}else if(role.equals("Vendor"))
 				{
-					VendorMenu vm = new VendorMenu();
-
+					String vendorName = data.get(1);
+					VendorMenu vm = new VendorMenu(vendorName);
 					setOriginalFrame(loginPage);
 					setTargetedFrame(vm.vm);
 					navigatePage();

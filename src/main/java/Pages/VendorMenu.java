@@ -35,7 +35,7 @@ public class VendorMenu extends PageUtils {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VendorMenu window = new VendorMenu();
+					VendorMenu window = new VendorMenu(null);
 					window.vm.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,21 +47,22 @@ public class VendorMenu extends PageUtils {
 	/**
 	 * Create the application.
 	 */
-	public VendorMenu() {
-		initialize();
+	public VendorMenu(String vendorName) {
+		initialize(vendorName);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String vendorName) {
 		vm = new JFrame();
 		vm.setTitle("Vendor Menu");
 		vm.setBounds(100, 100, 500, 500);
 		vm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		vm.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Welcome !");
+
+		JLabel lblNewLabel = new JLabel("Welcome, " + vendorName + " !");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		vm.getContentPane().add(lblNewLabel);
@@ -75,7 +76,7 @@ public class VendorMenu extends PageUtils {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VendorProfile vendorProfile = new VendorProfile();
+				VendorProfile vendorProfile = new VendorProfile(vendorName);
                                 setOriginalFrame(vm);
 				setTargetedFrame(vendorProfile.vp);
 				navigatePage();
@@ -92,7 +93,7 @@ public class VendorMenu extends PageUtils {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VendorPayment vendorPayment = new VendorPayment();
+				VendorPayment vendorPayment = new VendorPayment(vendorName);
                                 setOriginalFrame(vm);
 				setTargetedFrame(vendorPayment.vp);
 				navigatePage();
@@ -109,7 +110,7 @@ public class VendorMenu extends PageUtils {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				VendorPaymentHistoryMenu paymentHistoryMenu = new VendorPaymentHistoryMenu();
+				VendorPaymentHistoryMenu paymentHistoryMenu = new VendorPaymentHistoryMenu(vendorName);
                                 setOriginalFrame(vm);
 				setTargetedFrame(paymentHistoryMenu.phm);
 				navigatePage();
@@ -127,8 +128,8 @@ public class VendorMenu extends PageUtils {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				VendorComplaint vendorComplaint = new VendorComplaint();
-                                setOriginalFrame(vm);
+				VendorComplaint vendorComplaint = new VendorComplaint(vendorName);
+                setOriginalFrame(vm);
 				setTargetedFrame(vendorComplaint.vc);
 				navigatePage();
 

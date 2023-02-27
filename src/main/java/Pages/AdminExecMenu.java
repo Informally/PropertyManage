@@ -32,7 +32,7 @@ public class AdminExecMenu extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AdminExecMenu window = new AdminExecMenu();
+					AdminExecMenu window = new AdminExecMenu(null);
 					window.Aem.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,14 +44,14 @@ public class AdminExecMenu extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public AdminExecMenu() {
-		initialize();
+	public AdminExecMenu(String adminName) {
+		initialize(adminName);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String adminName) {
 		Aem = new JFrame();
 		Aem.setTitle("Admin Executive Menu");
 		Aem.setBounds(100, 100, 871, 622);
@@ -71,7 +71,7 @@ public class AdminExecMenu extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				UnitManagement unitMgt = new UnitManagement();
+				UnitManagement unitMgt = new UnitManagement(adminName);
                                 setOriginalFrame(Aem);
 				setTargetedFrame(unitMgt.unitMgtPage);
 				navigatePage();
@@ -87,7 +87,7 @@ public class AdminExecMenu extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ResTenMgt restenmgt = new ResTenMgt();
+				ResTenMgt restenmgt = new ResTenMgt(adminName);
                                 setOriginalFrame(Aem);
 				setTargetedFrame(restenmgt.ResTenMgtPage);
 				navigatePage();
@@ -105,7 +105,7 @@ public class AdminExecMenu extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				AdminExComplain AdCom = new AdminExComplain();
+				AdminExComplain AdCom = new AdminExComplain(adminName);
                                 setOriginalFrame(Aem);
 				setTargetedFrame(AdCom.aec);
 				navigatePage();
@@ -122,7 +122,7 @@ public class AdminExecMenu extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				EmployeeMgt emMgt = new EmployeeMgt();
+				EmployeeMgt emMgt = new EmployeeMgt(adminName);
                                 setOriginalFrame(Aem);
 				setTargetedFrame(emMgt.EmMgtPage);
 				navigatePage();
@@ -139,7 +139,7 @@ public class AdminExecMenu extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				FacilityMgt facMgt = new FacilityMgt();
+				FacilityMgt facMgt = new FacilityMgt(adminName);
                                 setOriginalFrame(Aem);
 				setTargetedFrame(facMgt.FacMgtPage);
 				navigatePage();
@@ -156,7 +156,7 @@ public class AdminExecMenu extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				AdminFacBooking adfacbook = new AdminFacBooking();
+				AdminFacBooking adfacbook = new AdminFacBooking(adminName);
                                 setOriginalFrame(Aem);
 				setTargetedFrame(adfacbook.afb);
 				navigatePage();

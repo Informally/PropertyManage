@@ -41,7 +41,7 @@ public class VendorComplaint extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VendorComplaint window = new VendorComplaint();
+					VendorComplaint window = new VendorComplaint(null);
 					window.vc.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -53,26 +53,24 @@ public class VendorComplaint extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public VendorComplaint() {
-		initialize();
+	public VendorComplaint(String vendorName) {
+		initialize(vendorName);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String vendorName) {
 		vc = new JFrame();
 		vc.setTitle("Vendor Complaint");
 		vc.setBounds(100, 100, 1200, 722);
 		vc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		vc.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Vendor Complaint");
+		JLabel lblNewLabel = new JLabel(vendorName + "'s Complaint");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		vc.getContentPane().add(lblNewLabel);
-
-
 
 		// Ticket Number
 		JLabel lblUID = new JLabel("No: ");
@@ -413,7 +411,7 @@ public class VendorComplaint extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VendorMenu vm = new VendorMenu();
+				VendorMenu vm = new VendorMenu(vendorName);
                                 setOriginalFrame(vc);
 				setTargetedFrame(vm.vm);
 				navigatePage();

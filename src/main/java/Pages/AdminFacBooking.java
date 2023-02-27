@@ -39,7 +39,7 @@ public class AdminFacBooking extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					AdminFacBooking window = new AdminFacBooking();
+					AdminFacBooking window = new AdminFacBooking(null);
 					window.afb.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -51,21 +51,21 @@ public class AdminFacBooking extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public AdminFacBooking() {
-		initialize();
+	public AdminFacBooking(String adminName) {
+		initialize(adminName);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String adminName) {
 		afb = new JFrame();
 		afb.setTitle("Facility Booking");
 		afb.setBounds(100, 100, 900, 822);
 		afb.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		afb.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Facility Booking");
+		JLabel lblNewLabel = new JLabel(adminName + "- Facility Booking");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		afb.getContentPane().add(lblNewLabel);
@@ -167,7 +167,7 @@ public class AdminFacBooking extends PageUtils{
 				
                     case "Swimming Pool":
 					
-					ArrayList<ArrayList<String>> statementData = crud.read("C:\\Users\\Alan\\Documents\\FacilityPrice.txt");
+					ArrayList<ArrayList<String>> statementData = crud.read("FacilityPrice.txt");
 					
 					for (ArrayList<String> row : statementData) {
 						if(row.get(0).equals("Swimming Pool")) {                                                 
@@ -180,7 +180,7 @@ public class AdminFacBooking extends PageUtils{
 					
                     case "Barbeque Pit":
     					
-    					statementData = crud.read("C:\\Users\\Alan\\Documents\\FacilityPrice.txt");
+    					statementData = crud.read("FacilityPrice.txt");
     					
     					for (ArrayList<String> row : statementData) {
     						if(row.get(0).equals("Barbeque Pit")) {
@@ -191,7 +191,7 @@ public class AdminFacBooking extends PageUtils{
                         
                         case "Gym Room":
     					
-    					statementData = crud.read("C:\\Users\\Alan\\Documents\\FacilityPrice.txt");
+    					statementData = crud.read("FacilityPrice.txt");
     					
     					for (ArrayList<String> row : statementData) {
     						if(row.get(0).equals("Gym Room")) {
@@ -202,7 +202,7 @@ public class AdminFacBooking extends PageUtils{
     					
                         case "Meeting Room":
         					
-        					statementData = crud.read("C:\\Users\\Alan\\Documents\\FacilityPrice.txt");
+        					statementData = crud.read("FacilityPrice.txt");
         					
         					for (ArrayList<String> row : statementData) {
         						if(row.get(0).equals("Meeting Room")) {
@@ -218,7 +218,7 @@ public class AdminFacBooking extends PageUtils{
 		});
 
 		// Result Display
-		tblData = crud.read("C:\\Users\\Alan\\Documents\\FacilityBooking.txt");
+		tblData = crud.read("FacilityBooking.txt");
 		String row[] = new String[8];
 		String column[] = { "Facility Id", "Facility No", "Facility Type", "Facility Price", "Duration", "Total", "Date", "Time" };
 
@@ -284,10 +284,10 @@ public class AdminFacBooking extends PageUtils{
 				
 				String uid = txtUID.getText().trim();
 				
-				crud.delete("C:\\Users\\Alan\\Documents\\FacilityBooking.txt", uid, 0, "", 0);
+				crud.delete("FacilityBooking.txt", uid, 0, "", 0);
 				
 				// Refresh the data in table
-				tblData = crud.read("C:\\Users\\Alan\\Documents\\FacilityBooking.txt");
+				tblData = crud.read("FacilityBooking.txt");
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 				tableModel.setColumnIdentifiers(column);
 				tableModel.getDataVector().removeAllElements();
@@ -384,8 +384,8 @@ public class AdminFacBooking extends PageUtils{
                                         dataIs.add(String.valueOf(totalPrice));
                                         dataIs.add(date);
 
-					crud.create("C:\\Users\\Alan\\Documents\\FacilityBooking.txt", data);
-                                        crud.create("C:\\Users\\Alan\\Documents\\ResidentInvoiceStatement.txt", dataIs);
+					crud.create("FacilityBooking.txt", data);
+                                        crud.create("ResidentInvoiceStatement.txt", dataIs);
 
 				} else { // this means update data
 					data.add(userId);
@@ -403,8 +403,8 @@ public class AdminFacBooking extends PageUtils{
                                         dataIs.add(String.valueOf(totalPrice));
                                         dataIs.add(date);
                                         
-					crud.updateRow("C:\\Users\\Alan\\Documents\\FacilityBooking.txt", userId, 0, "", 0, data);
-                                        crud.updateRow("C:\\Users\\Alan\\Documents\\ResidentInvoiceStatement.txt", userId, 0, "", 0, dataIs);
+					crud.updateRow("FacilityBooking.txt", userId, 0, "", 0, data);
+                                        crud.updateRow("ResidentInvoiceStatement.txt", userId, 0, "", 0, dataIs);
 				}
 
 				// Clear text after update or add
@@ -417,7 +417,7 @@ public class AdminFacBooking extends PageUtils{
 				txtTime.setText("");
 
 				// Refresh the data in table
-				tblData = crud.read("C:\\Users\\Alan\\Documents\\FacilityBooking.txt");
+				tblData = crud.read("FacilityBooking.txt");
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 				tableModel.setColumnIdentifiers(column);
 				tableModel.getDataVector().removeAllElements();
@@ -454,7 +454,7 @@ public class AdminFacBooking extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				AdminExecMenu Aem = new AdminExecMenu();
+				AdminExecMenu Aem = new AdminExecMenu(adminName);
 				setOriginalFrame(afb);
 				setTargetedFrame(Aem.Aem);
 				navigatePage();

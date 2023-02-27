@@ -37,7 +37,7 @@ public class ResTenMgt extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ResTenMgt window = new ResTenMgt();
+					ResTenMgt window = new ResTenMgt(null);
 					window.ResTenMgtPage.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -49,21 +49,21 @@ public class ResTenMgt extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public ResTenMgt() {
-		initialize();
+	public ResTenMgt(String adminName) {
+		initialize(adminName);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String adminName) {
 		ResTenMgtPage = new JFrame();
 		ResTenMgtPage.setTitle("Resident/Tenant Management");
 		ResTenMgtPage.setBounds(100, 100, 871, 622);
 		ResTenMgtPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ResTenMgtPage.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Resident/Tenant Management");
+		JLabel lblNewLabel = new JLabel(adminName + "- Resident/Tenant Management");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		lblNewLabel.setBounds(34, 5, 665, 81);
 		ResTenMgtPage.getContentPane().add(lblNewLabel);
@@ -365,7 +365,7 @@ public class ResTenMgt extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				AdminExecMenu Aem = new AdminExecMenu();
+				AdminExecMenu Aem = new AdminExecMenu(adminName);
                                 setOriginalFrame(ResTenMgtPage);
 				setTargetedFrame(Aem.Aem);
 				navigatePage();

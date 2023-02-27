@@ -38,7 +38,7 @@ public class ViewPCJReport extends PageUtils {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ViewPCJReport window = new ViewPCJReport();
+					ViewPCJReport window = new ViewPCJReport(null);
 					window.Report.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -50,14 +50,14 @@ public class ViewPCJReport extends PageUtils {
 	/**
 	 * Create the application.
 	 */
-	public ViewPCJReport() {
-		initialize();
+	public ViewPCJReport(String buildingName) {
+		initialize(buildingName);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String buildingName) {
 		Report = new JFrame();
 		Report.setTitle("View Report");
 		Report.setBounds(100, 100, 871, 650);
@@ -181,7 +181,7 @@ public class ViewPCJReport extends PageUtils {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				BuildingExecMenu Bem = new BuildingExecMenu();
+				BuildingExecMenu Bem = new BuildingExecMenu(buildingName);
 				setOriginalFrame(Report);
 				setTargetedFrame(Bem.buildExec);
 				navigatePage();

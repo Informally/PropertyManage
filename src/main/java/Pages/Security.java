@@ -39,7 +39,7 @@ public class Security extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Security window = new Security();
+					Security window = new Security(null);
 					window.SecPage.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -51,14 +51,14 @@ public class Security extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public Security() {
-		initialize();
+	public Security(String buildingName) {
+		initialize(buildingName);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String buildingName) {
 		SecPage = new JFrame();
 		SecPage.setTitle("Setup, View, Modify, Delete Patrolling Schedule");
 		SecPage.setBounds(100, 100, 1000, 800);
@@ -440,7 +440,7 @@ public class Security extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				BuildingExecMenu Bem = new BuildingExecMenu();
+				BuildingExecMenu Bem = new BuildingExecMenu(buildingName);
 				setOriginalFrame(SecPage);
 				setTargetedFrame(Bem.buildExec);
 				navigatePage();
