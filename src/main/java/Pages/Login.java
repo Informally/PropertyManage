@@ -26,9 +26,8 @@ import java.util.Map.Entry;
 public class Login extends PageUtils {
 	
 
-
 	public JFrame loginPage;
-	static CRUD crud = new CRUD();
+	CRUD crud = new CRUD();
 
 	/**
 	 * Launch the application.
@@ -194,7 +193,6 @@ public class Login extends PageUtils {
 			public void actionPerformed(ActionEvent e) {
 				CRUD crud = new CRUD();
 				HashMap<Integer, String> data = crud.read("User.txt", txtEmail.getText().trim(), 2, txtPassword.getText().trim(), 3);
-
 				if (data.size() == 0) {
 					errorText.setText("Login Fail");
 					errorText.setVisible(true);
