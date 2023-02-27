@@ -500,9 +500,6 @@ public class TenMonthlyPayment extends PageUtils {
 				
 			}
 		});
-		viewReceiptBtn.setBounds(264, 323, 200, 42);
-		viewReceiptBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		mp.getContentPane().add(viewReceiptBtn);
 
 
         // View Receipt Button
