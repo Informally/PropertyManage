@@ -301,7 +301,7 @@ public class EmployeeMgt extends PageUtils {
 					data.add(id);
 					data.add(name);
 					data.add(email);
-                                        data.add(pwd);
+                    data.add(pwd);
 					data.add(contact);
 					data.add(age);
 					data.add(job);
@@ -313,7 +313,7 @@ public class EmployeeMgt extends PageUtils {
 					data.add(emid);
 					data.add(name);
 					data.add(email);
-                                        data.add(pwd);
+                    data.add(pwd);
 					data.add(contact);
 					data.add(age);
 					data.add(job);
