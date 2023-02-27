@@ -224,8 +224,7 @@ public class ViewInvoice extends PageUtils {
 				int columnNum = jTablePayment.getColumnCount();
 
 				if (row.length > 0) {
-				//clear text area
-				textArea.setText("");
+
 				String paymentID = (String) jTablePayment.getValueAt(row[0], 0);
 				String type = (String) jTablePayment.getValueAt(row[0], 1);
 				String type1 = (String) jTablePayment.getValueAt(row[0], 2);
@@ -257,8 +256,7 @@ public class ViewInvoice extends PageUtils {
 					String receiptReport = "";
 					
 					for (ArrayList<String> row : statementData) {
-						//clear text area
-						textArea.setText("");
+
 						if(row.get(3).equals("January")) {
 						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(1) + "\t" + row.get(2) + "\t" + row.get(3) + "\t " + row.get(4) + "\t           " + row.get(5);
 						lblSDate.setText("Date Issued:     2023-01-01");
