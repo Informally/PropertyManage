@@ -333,7 +333,7 @@ public class TenRoomPayment extends PageUtils{
 				ArrayList<String> data = new ArrayList<>();
 				ArrayList<String> dataReceipt = new ArrayList<>();
 				ArrayList<String> dataMonthly = new ArrayList<>();
-                                ArrayList<String> dataIs = new ArrayList<>();
+                ArrayList<String> dataIs = new ArrayList<>();
 
 				try {
 					Thread.sleep(500);
