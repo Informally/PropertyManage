@@ -456,50 +456,7 @@ public class TenMonthlyPayment extends PageUtils {
 
 		mp.getContentPane().add(addUserBtn);
 		
-		// View Receipt Button
-		JButton viewReceiptBtn = new JButton("View Receipt");
-		viewReceiptBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				int i = jTablePayment.getSelectedRow();
-				DefaultTableModel tableModelPayment = (DefaultTableModel) jTablePayment.getModel();
-				String uid = tableModelPayment.getValueAt(i, 0).toString();
-				String out = tableModelPayment.getValueAt(i, 1).toString();
-				String amount = tableModelPayment.getValueAt(i, 2).toString();
-				String month = tableModelPayment.getValueAt(i, 3).toString();
-				String year = tableModelPayment.getValueAt(i, 4).toString();
-				String userID = tableModelPayment.getValueAt(i, 5).toString();
-				String dtf = tableModelPayment.getValueAt(i, 6).toString();
-				
-				int a = jTable.getSelectedRow();
-				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
-				String uuid = tableModel.getValueAt(i, 0).toString();
-				String roomType = tableModel.getValueAt(i, 1).toString();
-				String roomPrice = tableModel.getValueAt(i, 2).toString();
-				String deposit = tableModel.getValueAt(i, 3).toString();
-				String total = tableModel.getValueAt(i, 4).toString();
-				
-				// Receipt Display
-                JTextArea textArea = new JTextArea();
-                textArea.setLineWrap(true);
-                textArea.setEditable(false);
-                textArea.setBounds(844, 70, 420, 500);
-                mp.getContentPane().add(textArea);
-				
-				String receipt = "\t\t<------------- Receipt ------------->\n";
-				String lblpaymentId = "\tPayment ID:";
-				String paymentId = uid + "\n\n\tDescription               Price\n\t---------------\t\t\t-----------------\n";
-				String lblRoomType = "\tRoom Type ("+ roomType + ")\n";
-				String lblPrice = "\tRoom Price                    " + "\t\t\t" + roomPrice + "\n";
-				String lblDeposit = "\tRoom Deposit                    " + "\t\t" + deposit + "\n";
-				String lblTotal = "\t---------------------------------------------------------------\n\tTotal Paid" + "\t\t\t" + amount + "\n";
-				String lblPaymentDate = "\tPayment for " + month + " " + year + "\n";
-				String lblDate = "\tDate Paid " + dtf + "\n\t---------------------------------------------------------------" + "\n";
-				String lblThank = "\t                  Thank you for your payment\n";
-				textArea.setText(receipt + lblpaymentId + paymentId + lblRoomType + lblPrice + lblDeposit + lblTotal + lblPaymentDate + lblDate + lblThank);
-				//JOptionPane.showMessageDialog(null, receipt + lblpaymentId + paymentId + lblRoomType + lblPrice + lblDeposit + lblTotal + lblPaymentDate + lblDate + lblThank, "Receipt", JOptionPane.INFORMATION_MESSAGE);
-				
-			}
-		});
+
 
 
         // View Receipt Button
