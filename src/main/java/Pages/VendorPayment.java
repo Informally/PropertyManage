@@ -67,7 +67,7 @@ public class VendorPayment extends PageUtils{
 	private void initialize() {
 		vp = new JFrame();
 		vp.setTitle("Vendor Payment");
-		vp.setBounds(100, 100, 1471, 822);
+		vp.setBounds(100, 100, 900, 700);
 		vp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		vp.getContentPane().setLayout(null);
 
@@ -464,24 +464,24 @@ public class VendorPayment extends PageUtils{
 				String year1 = tableModel.getValueAt(i, 6).toString();
 				
 				// Receipt Display
-				JTextArea textArea = new JTextArea();
-				textArea.setLineWrap(true);
-				textArea.setEditable(false);
-				textArea.setBounds(844, 70, 420, 500);
-				vp.getContentPane().add(textArea);
+				//JTextArea textArea = new JTextArea();
+				//textArea.setLineWrap(true);
+				//textArea.setEditable(false);
+				//textArea.setBounds(844, 70, 420, 500);
+				//vp.getContentPane().add(textArea);
 				
-				String receipt = "\t\t<----- Receipt ----->\n";
-				String lblpaymentId = "\tPayment ID:";
-				String paymentId = uid + "\n\n\tDescription\t\t\tPrice\n\t---------------\t\t\t-------\n";
-				String lblRental = "\tRental" + "\t\t\t" + rental + "\n";
-				String lblUtilities = "\tUtilities" + "\t\t\t" + utilities + "\n";
-				String lblServices = "\tServices" + "\t\t\t" + services + "\n";
-				String lblTotal = "\t---------------------------------------------------------------\n\tTotal Paid" + "\t\t\t" + amount + "\n";
-				String lblPaymentDate = "\tPayment for " + month + " " + year + "\n";
-				String lblDate = "\tDate Paid " + dtf + "\n\t---------------------------------------------------------------" + "\n";
+				String receipt = "\t\t<------------- Receipt ------------->\n";
+				String lblpaymentId = "\tPayment ID: ";
+				String paymentId = uid + "\n\n\tDescription           Price\n\t---------------\t\t\t---------------------\n";
+				String lblRental = "\tRental                    " + "\t\t\t" + rental + "\n";
+				String lblUtilities = "\tUtilities                    " + "\t\t\t" + utilities + "\n";
+				String lblServices = "\tServices                    " + "\t\t\t" + services + "\n";
+				String lblTotal = "\t---------------------------------------------------------------\n\tTotal Paid:                    " + "\t\t\t" + amount + "\n";
+				String lblPaymentDate = "\tPayment for: " + month + " " + year + "\n";
+				String lblDate = "\tDate Paid: " + dtf + "\n\t---------------------------------------------------------------" + "\n";
 				String lblThank = "\t                  Thank you for your payment\n";
-				textArea.setText(receipt + lblpaymentId + paymentId + lblRental + lblUtilities + lblServices + lblTotal + lblPaymentDate + lblDate + lblThank);
-				
+				//textArea.setText(receipt + lblpaymentId + paymentId + lblRental + lblUtilities + lblServices + lblTotal + lblPaymentDate + lblDate + lblThank);
+				JOptionPane.showMessageDialog(null, receipt + lblpaymentId + paymentId + lblRental + lblUtilities + lblServices + lblTotal + lblPaymentDate + lblDate + lblThank, "Receipt", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		viewReceiptBtn.setBounds(264, 323, 200, 42);
@@ -490,7 +490,7 @@ public class VendorPayment extends PageUtils{
 		
 		// back Button
 		JButton backBtn = new JButton("Back");
-		backBtn.setBounds(700, 11, 150, 42);
+		backBtn.setBounds(650, 11, 150, 42);
 		backBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		backBtn.addActionListener(new ActionListener() {
 
