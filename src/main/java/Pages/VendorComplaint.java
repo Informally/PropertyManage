@@ -72,8 +72,6 @@ public class VendorComplaint extends PageUtils{
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		vc.getContentPane().add(lblNewLabel);
 
-
-
 		// Ticket Number
 		JLabel lblUID = new JLabel("No: ");
 		lblUID.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
