@@ -396,7 +396,7 @@ public class TenRoomPayment extends PageUtils{
 				crud.create("ResidentPaymentHistory.txt", data);
 				crud.create("RoomReceipt.txt", dataReceipt);
 				crud.create("MonthlyPayment.txt", dataMonthly);
-                                crud.create("ResidentInvoiceStatement.txt", dataIs);
+                crud.create("ResidentInvoiceStatement.txt", dataIs);
 				// Update the debt value
 				int totalDebt = Integer.parseInt(out) - Integer.parseInt(amount);
 				crud.update("BookingRoom.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
