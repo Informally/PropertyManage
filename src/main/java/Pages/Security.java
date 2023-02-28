@@ -183,14 +183,6 @@ public class Security extends PageUtils{
 
 		// Table 1: show all security guards only
 		tblData = crud.read("Employee.txt");
-		//find what is the maximum amount of columns in tblData
-		int maxCol = 0;
-		for (int i = 0; i < tblData.size(); i++) {
-			if (tblData.get(i).size() > maxCol) {
-				maxCol = tblData.get(i).size();
-			}
-		}
-		System.out.println("Max Column: " + maxCol);
 		String row[] = new String[6];
 		String column[] = { "Employee Id", "Name", "Email", "Contact", "Age", "Job Role" };
 
@@ -200,7 +192,7 @@ public class Security extends PageUtils{
 		tableModel.setColumnIdentifiers(column);
 		jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
                 for (int i = 0; i < tblData.size(); i++) {
-                    if (tblData.get(i).get(5).equals("Security Guard")) {
+                    if (tblData.get(i).get(6).equals("Security Guard")) {
                         row[0] = tblData.get(i).get(0);
                         row[1] = tblData.get(i).get(1);
                         row[2] = tblData.get(i).get(2);
