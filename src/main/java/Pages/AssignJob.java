@@ -174,16 +174,10 @@ public class AssignJob extends PageUtils {
 			public void valueChanged(ListSelectionEvent e) {
 				int[] row = jTable.getSelectedRows();
 				int columnNum = jTable.getColumnCount();
-				//System.out.println(columnNum);
-				//System.out.println(row.length);
+
 
 				if (row.length > 0) {
-					//System.out.println(jTable.getValueAt(row[0], 0));
-					//System.out.println(jTable.getValueAt(row[0], 1));
-					//System.out.println(jTable.getValueAt(row[0], 2));
-					//System.out.println(jTable.getValueAt(row[0], 3));
-					//System.out.println(jTable.getValueAt(row[0], 4));
-					//System.out.println(jTable.getValueAt(row[0], 5));
+
 
 					txtEMID.setText((String) jTable.getValueAt(row[0], 0));
 					txtName.setText((String) jTable.getValueAt(row[0], 1));
