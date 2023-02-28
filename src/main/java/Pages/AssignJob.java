@@ -104,7 +104,7 @@ public class AssignJob extends PageUtils {
 		txtEmail.setEditable(false);
 		AsgnJobPage.getContentPane().add(txtEmail);
 
-		// Password
+		// Contact
 		JLabel lblContact = new JLabel("Contact: ");
 		lblContact.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblContact.setBounds(434, 123, 315, 42);
@@ -112,9 +112,11 @@ public class AssignJob extends PageUtils {
 
 		JTextField txtContact = new JTextField();
 		txtContact.setBounds(554, 123, 250, 42);
-                txtContact.setBackground(Color.lightGray);
+        txtContact.setBackground(Color.lightGray);
 		txtContact.setEditable(false);
 		AsgnJobPage.getContentPane().add(txtContact);
+
+
 
 		// Age
 		JLabel lblAge = new JLabel("Age: ");
@@ -290,21 +292,14 @@ public class AssignJob extends PageUtils {
 
 				if (job.isEmpty()) { // this means to prompt user to select an employee
                                     JOptionPane.showMessageDialog(null,"Please select an employee");
-					//String id = uuid.toString();
-					//data.add(id);
-					//data.add(name);
-					//data.add(email);
-					//data.add(contact);
-					//data.add(age);
-					//data.add(job);
-
-					//crud.create("Employee.txt", data);
 
 				} 
-                                else { // this means update data
+                    else { // this means update data
 					data.add(emid);
 					data.add(name);
 					data.add(email);
+					//we will call the read function in CRUD to get the password value, then assign to a local variablem then add to data
+					data.add(crud.read("Employee.txt").get(0).get(3));
 					data.add(contact);
 					data.add(age);
 					data.add(job);
