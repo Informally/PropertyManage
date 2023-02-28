@@ -68,34 +68,34 @@ public class ViewStruct extends PageUtils {
 
 
 		ArrayList<ArrayList<String>> tblData = crud.read("User.txt");
-		DefaultMutableTreeNode bm = new DefaultMutableTreeNode("Building Manager");
-		DefaultMutableTreeNode acctExe = new DefaultMutableTreeNode("Account Executive");
-		DefaultMutableTreeNode admin = new DefaultMutableTreeNode("Admin Executive");
+		DefaultMutableTreeNode bmm = new DefaultMutableTreeNode("Building Manager");
+		DefaultMutableTreeNode aem = new DefaultMutableTreeNode("Account Executive");
+		DefaultMutableTreeNode Aem = new DefaultMutableTreeNode("Admin Executive");
 		DefaultMutableTreeNode be = new DefaultMutableTreeNode("Building Executive");
 		DefaultMutableTreeNode oth = new DefaultMutableTreeNode("Others");
-		bm.add(be);
-		be.add(acctExe);
-		acctExe.add(admin);
-		admin.add(oth);
+		bmm.add(be);
+		be.add(aem);
+		aem.add(Aem);
+		Aem.add(oth);
 
 		for (ArrayList<String> row : tblData) {
 			DefaultMutableTreeNode node = new DefaultMutableTreeNode(row.get(1));
 
 			switch (row.get(5)) {
 			case "Building Manager":
-
-				bm.add(node);
+				bmm.add(node);
+                                
 				break;
 			case "Building Executive":
 				be.add(node);
 
 				break;
 			case "Account Executive":
-				acctExe.add(node);
+				aem.add(node);
 
 				break;
 			case "Admin Executive":
-				admin.add(node);
+				Aem.add(node);
 				break;
 			default:
 				oth.add(node);
@@ -105,7 +105,7 @@ public class ViewStruct extends PageUtils {
 
 		}
 		
-		JTree jt = new JTree(bm);
+		JTree jt = new JTree(bmm);
 		jt.setBounds(44, 130, 770, 450);
 		viewStruct.getContentPane().add(jt);
 		

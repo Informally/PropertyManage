@@ -227,7 +227,7 @@ public class Login extends PageUtils {
 				{
 					String buildingName = data.get(1);
 					BuildingExecMenu Bem = new BuildingExecMenu(buildingName);
-                    setOriginalFrame(loginPage);
+                                        setOriginalFrame(loginPage);
 					setTargetedFrame(Bem.buildExec);
 					navigatePage();
 

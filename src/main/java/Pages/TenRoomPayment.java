@@ -224,7 +224,7 @@ public class TenRoomPayment extends PageUtils{
 		// Result Display
 		tblData = crud.read("BookingRoom.txt");
 		String row[] = new String[8];
-		String column[] = { "Room Id", "Room No", "Room Type", "Room Price", "Deposit", "Total", "Month", "Year" };
+		String column[] = { "Room Id", "Name", "Room Type", "Room Price", "Deposit", "Outstanding", "Month", "Year" };
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 323, 770, 100);
@@ -275,7 +275,7 @@ public class TenRoomPayment extends PageUtils{
 		CRUD newCrud = new CRUD();
 		tblDataHistory = newCrud.read("ResidentPaymentHistory.txt");
 		String rowPayment[] = new String[9];
-		String columnPayment[] = { "Id", "Name", "Room Type","Outstanding", "Total Paid", "Month", "Year", "Payment ID", "Date" };
+		String columnPayment[] = { "Room Id", "Name", "Room Type", "Outstanding", "Total Paid", "Month", "Year", "Payment ID", "Date" };
 
 		JTable jTablePayment = new JTable();
 		jTablePayment.setBounds(44, 423, 770, 100);
@@ -337,10 +337,11 @@ public class TenRoomPayment extends PageUtils{
 				UUID uuid = UUID.randomUUID();
 
 				String userID = txtUID.getText().trim();
+                                String name = txtName.getText().trim();
+                                String roomType = txtRoomType.getText().trim();
 				String month = txtMonth.getText().trim();
 				String price = txtPrice.getText().trim();
 				String out = txtOut.getText().trim();
-				String roomType = txtRoomType.getText().trim();
 				String deposit = txtDeposit.getText().trim();
 				String year = txtYear.getText().trim();
 				String amount = txtAmount.getText().trim();
@@ -362,8 +363,9 @@ public class TenRoomPayment extends PageUtils{
 				DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 				LocalDateTime now = LocalDateTime.now();
 				data.add(uid);
+                                data.add(name);
 				data.add(roomType);
-				data.add(out);
+                                data.add(out);
 				data.add(amount);
 				data.add(month);
 				data.add(year);
@@ -371,6 +373,7 @@ public class TenRoomPayment extends PageUtils{
 				data.add(dtf.format(now));
 				
 				dataReceipt.add(uid);
+                                dataReceipt.add(name);
 				dataReceipt.add(roomType);
 				dataReceipt.add(price);
 				dataReceipt.add(deposit);
@@ -380,6 +383,7 @@ public class TenRoomPayment extends PageUtils{
 				dataReceipt.add(dtf.format(now));
 				
 				dataMonthly.add(uid);
+                                dataMonthly.add(name);
 				dataMonthly.add(roomType);
 				dataMonthly.add(price);
 				dataMonthly.add(price);
@@ -459,6 +463,7 @@ public class TenRoomPayment extends PageUtils{
 					rowPayment[5] = tblDataHistory.get(i).get(5);
 					rowPayment[6] = tblDataHistory.get(i).get(6);
 					rowPayment[7] = tblDataHistory.get(i).get(7);
+                                        rowPayment[8] = tblDataHistory.get(i).get(8);
 					tableModelPayment.addRow(rowPayment);
 
 				}
