@@ -89,7 +89,7 @@ public class VendorReceipt extends PageUtils{
 		
 		for (ArrayList<String> row : receiptData) {
 			
-			receiptReport += "\tPayment ID:" + row.get(0) + "\n\n\tDescription\t\t\tPrice\n\t---------------\t\t\t-------\n" + "\tRental" + "\t\t\t" + row.get(1) + "\n" + "\tUtilities" + "\t\t\t" + row.get(2) + "\n" + "\tServices" + "\t\t\t" + row.get(3) + "\n" + "\t---------------------------------------------------------------\n\tTotal Paid" + "\t\t\t" + row.get(4) + "\n"+ "\tPayment for " + row.get(5) + " " + row.get(6) + "\n" + "\tDate Paid " + row.get(7) + "\n\t---------------------------------------------------------------" + "\n" + "\t                  Thank you for your payment\n\n" + "\t\t<----- Receipt ----->\n";
+			receiptReport += "\tPayment ID:" + row.get(0) + "\n\n\tDescription\t\t\tPrice\n\t---------------\t\t\t-------\n" + "\tName" + "\t\t\t" + row.get(1) + "\n"+ "\tRental" + "\t\t\t" + row.get(2) + "\n" + "\tUtilities" + "\t\t\t" + row.get(3) + "\n" + "\tServices" + "\t\t\t" + row.get(4) + "\n" + "\t---------------------------------------------------------------\n\tTotal Paid" + "\t\t\t" + row.get(5) + "\n"+ "\tPayment for " + row.get(6) + " " + row.get(7) + "\n" + "\tDate Paid " + row.get(8) + "\n\t---------------------------------------------------------------" + "\n" + "\t                  Thank you for your payment\n\n" + "\t\t<----- Receipt ----->\n";
 
 		}
 

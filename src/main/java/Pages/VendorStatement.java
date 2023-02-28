@@ -238,13 +238,14 @@ public class VendorStatement extends PageUtils{
 					String receiptReport = "";
 					
 					for (ArrayList<String> row : statementData) {
-						if(row.get(3).equals("January")) {
-						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(1) + "\t" + row.get(2) + "\t" + row.get(3) + "\t " + row.get(4) + "\t           " + row.get(5);
+						if(row.get(4).equals("January")) {
+						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
 						lblSDate.setText("Statement Date     2023-01-01");	
 						lblDate.setText("STATEMENT DATE           2023-01-01");
 						lblDue.setText("DUE DATE           2023-01-31");
-						lblBalance.setText("Balance Due          " + row.get(5));
-						lblBalanceDue.setText("BALANCE DUE           " + row.get(5));
+						lblBalance.setText("Balance Due          " + row.get(6));
+						lblBalanceDue.setText("BALANCE DUE           " + row.get(6));
+                                                lblBill.setText("Bill To:    " + row.get(1));
 						}
 					}
 
@@ -280,13 +281,14 @@ public class VendorStatement extends PageUtils{
 					receiptReport = "";
 					
 					for (ArrayList<String> row : statementData) {
-						if(row.get(3).equals("February")) {
-						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(1) + "\t" + row.get(2) + "\t" + row.get(3) + "\t " + row.get(4) + "\t           " + row.get(5);
+						if(row.get(4).equals("February")) {
+						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
 						lblSDate.setText("Statement Date     2023-02-01");	
 						lblDate.setText("STATEMENT DATE           2023-02-01");
 						lblDue.setText("DUE DATE           2023-02-28");
-						lblBalance.setText("Balance Due          " + row.get(5));
-						lblBalanceDue.setText("BALANCE DUE           " + row.get(5));
+						lblBalance.setText("Balance Due          " + row.get(6));
+						lblBalanceDue.setText("BALANCE DUE           " + row.get(6));
+                                                lblBill.setText("Bill To:    " + row.get(1));
 						}
 					}
 
@@ -322,13 +324,14 @@ public class VendorStatement extends PageUtils{
 					receiptReport = "";
 					
 					for (ArrayList<String> row : statementData) {
-						if(row.get(3).equals("March")) {
-							receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(1) + "\t" + row.get(2) + "\t" + row.get(3) + "\t " + row.get(4) + "\t           " + row.get(5);
+						if(row.get(4).equals("March")) {
+						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
 						lblSDate.setText("Statement Date     2023-03-01");	
 						lblDate.setText("STATEMENT DATE           2023-03-01");
 						lblDue.setText("DUE DATE           2023-03-31");
-						lblBalance.setText("Balance Due          " + row.get(5));
-						lblBalanceDue.setText("BALANCE DUE           " + row.get(5));
+						lblBalance.setText("Balance Due          " + row.get(6));
+						lblBalanceDue.setText("BALANCE DUE           " + row.get(6));
+                                                lblBill.setText("Bill To:    " + row.get(1));
 						}
 					}
 
@@ -364,13 +367,14 @@ public class VendorStatement extends PageUtils{
     					receiptReport = "";
     					
     					for (ArrayList<String> row : statementData) {
-    						if(row.get(3).equals("April")) {
-    						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(1) + "\t" + row.get(2) + "\t" + row.get(3) + "\t " + row.get(4) + "\t           " + row.get(5);
-    						lblSDate.setText("Statement Date     2023-04-01");	
-    						lblDate.setText("STATEMENT DATE           2023-04-01");
-    						lblDue.setText("DUE DATE           2023-04-30");
-    						lblBalance.setText("Balance Due          " + row.get(5));
-    						lblBalanceDue.setText("BALANCE DUE           " + row.get(5));
+    						if(row.get(4).equals("April")) {
+    						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
+						lblSDate.setText("Statement Date     2023-04-01");	
+						lblDate.setText("STATEMENT DATE           2023-04-30");
+						lblDue.setText("DUE DATE           2023-03-30");
+						lblBalance.setText("Balance Due          " + row.get(6));
+						lblBalanceDue.setText("BALANCE DUE           " + row.get(6));
+                                                lblBill.setText("Bill To:    " + row.get(1));
     						}
     					}
 
@@ -406,13 +410,14 @@ public class VendorStatement extends PageUtils{
     					receiptReport = "";
     					
     					for (ArrayList<String> row : statementData) {
-    						if(row.get(3).equals("May")) {
-    						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(1) + "\t" + row.get(2) + "\t" + row.get(3) + "\t " + row.get(4) + "\t           " + row.get(5);
-    						lblSDate.setText("Statement Date     2023-05-01");	
-    						lblDate.setText("STATEMENT DATE           2023-05-01");
-    						lblDue.setText("DUE DATE           2023-05-31");
-    						lblBalance.setText("Balance Due          " + row.get(5));
-    						lblBalanceDue.setText("BALANCE DUE           " + row.get(5));
+    						if(row.get(4).equals("May")) {
+    						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
+						lblSDate.setText("Statement Date     2023-05-01");	
+						lblDate.setText("STATEMENT DATE           2023-05-01");
+						lblDue.setText("DUE DATE           2023-05-31");
+						lblBalance.setText("Balance Due          " + row.get(6));
+						lblBalanceDue.setText("BALANCE DUE           " + row.get(6));
+                                                lblBill.setText("Bill To:    " + row.get(1));
     						}
     					}
 
@@ -448,13 +453,14 @@ public class VendorStatement extends PageUtils{
         					receiptReport = "";
         					
         					for (ArrayList<String> row : statementData) {
-        						if(row.get(3).equals("June")) {
-        						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(1) + "\t" + row.get(2) + "\t" + row.get(3) + "\t " + row.get(4) + "\t           " + row.get(5);
-        						lblSDate.setText("Statement Date     2023-06-01");	
-        						lblDate.setText("STATEMENT DATE           2023-06-01");
-        						lblDue.setText("DUE DATE           2023-06-30");
-        						lblBalance.setText("Balance Due          " + row.get(5));
-        						lblBalanceDue.setText("BALANCE DUE           " + row.get(5));
+        						if(row.get(4).equals("June")) {
+        						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
+                                                        lblSDate.setText("Statement Date     2023-06-01");	
+                                                        lblDate.setText("STATEMENT DATE           2023-06-01");
+                                                        lblDue.setText("DUE DATE           2023-06-30");
+                                                        lblBalance.setText("Balance Due          " + row.get(6));
+                                                        lblBalanceDue.setText("BALANCE DUE           " + row.get(6));
+                                                        lblBill.setText("Bill To:    " + row.get(1));
         						}
         					}
 
@@ -490,13 +496,14 @@ public class VendorStatement extends PageUtils{
         					receiptReport = "";
         					
         					for (ArrayList<String> row : statementData) {
-        						if(row.get(3).equals("July")) {
-        						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(1) + "\t" + row.get(2) + "\t" + row.get(3) + "\t " + row.get(4) + "\t           " + row.get(5);
-        						lblSDate.setText("Statement Date     2023-07-01");	
-        						lblDate.setText("STATEMENT DATE           2023-07-01");
-        						lblDue.setText("DUE DATE           2023-07-31");
-        						lblBalance.setText("Balance Due          " + row.get(5));
-        						lblBalanceDue.setText("BALANCE DUE           " + row.get(5));
+        						if(row.get(4).equals("July")) {
+        						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
+                                                        lblSDate.setText("Statement Date     2023-07-01");	
+                                                        lblDate.setText("STATEMENT DATE           2023-07-01");
+                                                        lblDue.setText("DUE DATE           2023-07-31");
+                                                        lblBalance.setText("Balance Due          " + row.get(6));
+                                                        lblBalanceDue.setText("BALANCE DUE           " + row.get(6));
+                                                        lblBill.setText("Bill To:    " + row.get(1));
         						}
         					}
 
@@ -532,13 +539,14 @@ public class VendorStatement extends PageUtils{
         					receiptReport = "";
         					
         					for (ArrayList<String> row : statementData) {
-        						if(row.get(3).equals("August")) {
-        						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(1) + "\t" + row.get(2) + "\t" + row.get(3) + "\t " + row.get(4) + "\t           " + row.get(5);
-        						lblSDate.setText("Statement Date     2023-08-01");	
-        						lblDate.setText("STATEMENT DATE           2023-08-01");
-        						lblDue.setText("DUE DATE           2023-08-31");
-        						lblBalance.setText("Balance Due          " + row.get(5));
-        						lblBalanceDue.setText("BALANCE DUE           " + row.get(5));
+        						if(row.get(4).equals("August")) {
+        						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
+                                                        lblSDate.setText("Statement Date     2023-08-01");	
+                                                        lblDate.setText("STATEMENT DATE           2023-08-01");
+                                                        lblDue.setText("DUE DATE           2023-08-31");
+                                                        lblBalance.setText("Balance Due          " + row.get(6));
+                                                        lblBalanceDue.setText("BALANCE DUE           " + row.get(6));
+                                                        lblBill.setText("Bill To:    " + row.get(1));
         						}
         					}
 
@@ -574,13 +582,14 @@ public class VendorStatement extends PageUtils{
         					receiptReport = "";
         					
         					for (ArrayList<String> row : statementData) {
-        						if(row.get(3).equals("September")) {
-        						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(1) + "\t" + row.get(2) + "\t" + row.get(3) + "\t " + row.get(4) + "\t           " + row.get(5);
-        						lblSDate.setText("Statement Date     2023-09-01");	
-        						lblDate.setText("STATEMENT DATE           2023-09-01");
-        						lblDue.setText("DUE DATE           2023-09-30");
-        						lblBalance.setText("Balance Due          " + row.get(5));
-        						lblBalanceDue.setText("BALANCE DUE           " + row.get(5));
+        						if(row.get(4).equals("September")) {
+        						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
+                                                        lblSDate.setText("Statement Date     2023-09-01");	
+                                                        lblDate.setText("STATEMENT DATE           2023-09-01");
+                                                        lblDue.setText("DUE DATE           2023-09-30");
+                                                        lblBalance.setText("Balance Due          " + row.get(6));
+                                                        lblBalanceDue.setText("BALANCE DUE           " + row.get(6));
+                                                        lblBill.setText("Bill To:    " + row.get(1));
         						}
         					}
 
@@ -616,13 +625,14 @@ public class VendorStatement extends PageUtils{
         					receiptReport = "";
         					
         					for (ArrayList<String> row : statementData) {
-        						if(row.get(3).equals("October")) {
-        						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(1) + "\t" + row.get(2) + "\t" + row.get(3) + "\t " + row.get(4) + "\t           " + row.get(5);
-        						lblSDate.setText("Statement Date     2023-10-01");	
-        						lblDate.setText("STATEMENT DATE           2023-10-01");
-        						lblDue.setText("DUE DATE           2023-10-31");
-        						lblBalance.setText("Balance Due          " + row.get(5));
-        						lblBalanceDue.setText("BALANCE DUE           " + row.get(5));
+        						if(row.get(4).equals("October")) {
+        						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
+                                                        lblSDate.setText("Statement Date     2023-10-01");	
+                                                        lblDate.setText("STATEMENT DATE           2023-10-01");
+                                                        lblDue.setText("DUE DATE           2023-10-31");
+                                                        lblBalance.setText("Balance Due          " + row.get(6));
+                                                        lblBalanceDue.setText("BALANCE DUE           " + row.get(6));
+                                                        lblBill.setText("Bill To:    " + row.get(1));
         						}
         					}
 
@@ -658,13 +668,14 @@ public class VendorStatement extends PageUtils{
         					receiptReport = "";
         					
         					for (ArrayList<String> row : statementData) {
-        						if(row.get(3).equals("November")) {
-        						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(1) + "\t" + row.get(2) + "\t" + row.get(3) + "\t " + row.get(4) + "\t           " + row.get(5);
-        						lblSDate.setText("Statement Date     2023-11-01");	
-        						lblDate.setText("STATEMENT DATE           2023-11-01");
-        						lblDue.setText("DUE DATE           2023-11-30");
-        						lblBalance.setText("Balance Due          " + row.get(5));
-        						lblBalanceDue.setText("BALANCE DUE           " + row.get(5));
+        						if(row.get(4).equals("November")) {
+        						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
+                                                        lblSDate.setText("Statement Date     2023-11-01");	
+                                                        lblDate.setText("STATEMENT DATE           2023-11-01");
+                                                        lblDue.setText("DUE DATE           2023-11-30");
+                                                        lblBalance.setText("Balance Due          " + row.get(6));
+                                                        lblBalanceDue.setText("BALANCE DUE           " + row.get(6));
+                                                        lblBill.setText("Bill To:    " + row.get(1));
         						}
         					}
 
@@ -700,13 +711,14 @@ public class VendorStatement extends PageUtils{
         					receiptReport = "";
         					
         					for (ArrayList<String> row : statementData) {
-        						if(row.get(3).equals("December")) {
-        						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(1) + "\t" + row.get(2) + "\t" + row.get(3) + "\t " + row.get(4) + "\t           " + row.get(5);
-        						lblSDate.setText("Statement Date     2023-12-01");	
-        						lblDate.setText("STATEMENT DATE           2023-12-01");
-        						lblDue.setText("DUE DATE           2023-12-31");
-        						lblBalance.setText("Balance Due          " + row.get(5));
-        						lblBalanceDue.setText("BALANCE DUE           " + row.get(5));
+        						if(row.get(4).equals("December")) {
+        						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
+                                                        lblSDate.setText("Statement Date     2023-12-01");	
+                                                        lblDate.setText("STATEMENT DATE           2023-12-01");
+                                                        lblDue.setText("DUE DATE           2023-12-31");
+                                                        lblBalance.setText("Balance Due          " + row.get(6));
+                                                        lblBalanceDue.setText("BALANCE DUE           " + row.get(6));
+                                                        lblBill.setText("Bill To:    " + row.get(1));
         						}
         					}
 
