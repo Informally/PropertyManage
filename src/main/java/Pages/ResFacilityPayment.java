@@ -190,14 +190,26 @@ public class ResFacilityPayment extends PageUtils{
 		txtCcv.setBounds(704, 223, 100, 42);
 		fp.getContentPane().add(txtCcv);
 		
+                // Name
+		JLabel lblName = new JLabel("Name: ");
+		lblName.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblName.setBounds(434, 273, 315, 42);
+		fp.getContentPane().add(lblName);
+
+		JTextField txtName = new JTextField();
+		txtName.setBounds(554, 273, 250, 42);
+                txtName.setEditable(false);
+                txtName.setBackground(Color.gray);
+		fp.getContentPane().add(txtName);
+                
 		// Amount
 		JLabel lblAmount = new JLabel("Amount:   RM ");
 		lblAmount.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblAmount.setBounds(434, 273, 315, 42);
+		lblAmount.setBounds(434, 323, 315, 42);
 		fp.getContentPane().add(lblAmount);
 
 		JTextField txtAmount = new JTextField();
-		txtAmount.setBounds(554, 273, 250, 42);
+		txtAmount.setBounds(554, 323, 250, 42);
 		fp.getContentPane().add(txtAmount);
 
 		// Error text
@@ -243,6 +255,7 @@ public class ResFacilityPayment extends PageUtils{
 				if (row.length > 0) {
 					txtUID.setText((String) jTable.getValueAt(row[0], 0));
 					txtFacilityType.setText((String) jTable.getValueAt(row[0], 2));
+                                        txtName.setText((String) jTable.getValueAt(row[0], 3));
 					txtPrice.setText((String) jTable.getValueAt(row[0], 4));
 					txtDuration.setText((String) jTable.getValueAt(row[0], 5));
 					txtOut.setText((String) jTable.getValueAt(row[0], 6));
@@ -261,8 +274,8 @@ public class ResFacilityPayment extends PageUtils{
 		// Payment Display
 		CRUD newCrud = new CRUD();
 		tblDataHistory = newCrud.read("FacilityPaymentHistory.txt");
-		String rowPayment[] = new String[6];
-		String columnPayment[] = { "Payment Id", "Facility Type","Outstanding", "Total Paid", "Payment ID", "Date" };
+		String rowPayment[] = new String[7];
+		String columnPayment[] = { "Payment Id", "Facility Type","Name","Outstanding", "Total Paid", "Payment ID", "Date" };
 
 		JTable jTablePayment = new JTable();
 		jTablePayment.setBounds(44, 423, 770, 100);
@@ -279,6 +292,7 @@ public class ResFacilityPayment extends PageUtils{
 			rowPayment[3] = tblDataHistory.get(i).get(3);
 			rowPayment[4] = tblDataHistory.get(i).get(4);
 			rowPayment[5] = tblDataHistory.get(i).get(5);
+                        rowPayment[6] = tblDataHistory.get(i).get(6);
 			tableModelPayment.addRow(rowPayment);
 
 		}
@@ -319,7 +333,7 @@ public class ResFacilityPayment extends PageUtils{
 
 		// Make Payment Btn
 		JButton addUserBtn = new JButton("Make Payment");
-		addUserBtn.setBounds(44, 323, 200, 42);
+		addUserBtn.setBounds(44, 323, 170, 42);
 		addUserBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		addUserBtn.addActionListener(new ActionListener() {
 
@@ -342,6 +356,7 @@ public class ResFacilityPayment extends PageUtils{
 
 				String userID = txtUID.getText().trim();
 				String dateBook = txtDateBook.getText().trim();
+                                String name = txtName.getText().trim();
 				String price = txtPrice.getText().trim();
 				String out = txtOut.getText().trim();
 				String facilityType = txtFacilityType.getText().trim();
@@ -365,12 +380,14 @@ public class ResFacilityPayment extends PageUtils{
 				LocalDateTime now = LocalDateTime.now();
 				data.add(uid);
 				data.add(facilityType);
+                                data.add(name);
 				data.add(out);
 				data.add(amount);
 				data.add(userID);
 				data.add(dtf.format(now));
 				
 				dataReceipt.add(uid);
+                                dataReceipt.add(name);
 				dataReceipt.add(facilityType);
 				dataReceipt.add(price);
 				dataReceipt.add(duration);
@@ -389,14 +406,15 @@ public class ResFacilityPayment extends PageUtils{
 				crud.update("FacilityBooking.txt", userID, 0, "", 0, String.valueOf(totalDebt), 6, "", 0);
 				//crud.update("VendorStatement.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
 				//crud.update("VendorInvoice.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
-				crud.update("FacilityPaymentHistory.txt", uid, 0,"", 0, String.valueOf(totalDebt), 2, "", 0);
-				crud.update("FacilityPaymentHistory.txt", uid, 0,"", 0, String.valueOf(amount), 3, "", 0);
-                                crud.update("ResidentInvoiceStatement.txt", userID, 0,"", 0, String.valueOf(totalDebt), 3, "", 0);
+				crud.update("FacilityPaymentHistory.txt", uid, 0,"", 0, String.valueOf(totalDebt), 3, "", 0);
+				crud.update("FacilityPaymentHistory.txt", uid, 0,"", 0, String.valueOf(amount), 4, "", 0);
+                                crud.update("ResidentInvoiceStatement.txt", userID, 0,"", 0, String.valueOf(totalDebt), 4, "", 0);
 
 				// Clear text after update or add
 				txtUID.setText("");
 				txtDateBook.setText("");
 				txtPrice.setText("");
+                                txtName.setText("");
 				txtFacilityType.setText("");
 				txtDuration.setText("");
 				txtTime.setText("");
@@ -446,6 +464,7 @@ public class ResFacilityPayment extends PageUtils{
 					rowPayment[3] = tblDataHistory.get(i).get(3);
 					rowPayment[4] = tblDataHistory.get(i).get(4);
 					rowPayment[5] = tblDataHistory.get(i).get(5);
+                                        rowPayment[6] = tblDataHistory.get(i).get(6);
 					tableModelPayment.addRow(rowPayment);
 
 				}
@@ -469,10 +488,11 @@ public class ResFacilityPayment extends PageUtils{
 				DefaultTableModel tableModelPayment = (DefaultTableModel) jTablePayment.getModel();
 				String uid = tableModelPayment.getValueAt(i, 0).toString();
 				String roomType = tableModelPayment.getValueAt(i, 1).toString();
-				String out = tableModelPayment.getValueAt(i, 2).toString();
-				String amount = tableModelPayment.getValueAt(i, 3).toString();
-				String userID = tableModelPayment.getValueAt(i, 4).toString();
-				String dtf = tableModelPayment.getValueAt(i, 5).toString();
+                                String name = tableModelPayment.getValueAt(i, 2).toString();
+				String out = tableModelPayment.getValueAt(i, 3).toString();
+				String amount = tableModelPayment.getValueAt(i, 4).toString();
+				String userID = tableModelPayment.getValueAt(i, 5).toString();
+				String dtf = tableModelPayment.getValueAt(i, 6).toString();
 				
 				int a = jTable.getSelectedRow();
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
@@ -495,17 +515,18 @@ public class ResFacilityPayment extends PageUtils{
 				String receipt = "\t\t<----- Receipt ----->\n";
 				String lblpaymentId = "\tPayment ID:";
 				String paymentId = uid + "\n\n\tDescription\t\t\tPrice\n\t---------------\t\t\t-------\n";
+                                String lblName = "\tName ("+ name + ")\n";
 				String lblFacilityType = "\tFacility Type ("+ roomType + ")\n";
 				String lblPrice = "\tFacility Price" + "\t\t\t" + roomPrice + "\n";
 				String lblDuration = "\tDuration(hours)" + "\t\t" + deposit + "\n";
 				String lblTotal = "\t---------------------------------------------------------------\n\tTotal Paid" + "\t\t\t" + amount + "\n";
 				String lblDate = "\tDate Paid " + dtf + "\n\t---------------------------------------------------------------" + "\n";
 				String lblThank = "\t                  Thank you for your payment\n";
-				textArea.setText(receipt + lblpaymentId + paymentId + lblFacilityType + lblPrice + lblDuration + lblTotal + lblDate + lblThank);
+				textArea.setText(receipt + lblpaymentId + paymentId + lblName + lblFacilityType + lblPrice + lblDuration + lblTotal + lblDate + lblThank);
 				
 			}
 		});
-		viewReceiptBtn.setBounds(264, 323, 200, 42);
+		viewReceiptBtn.setBounds(234, 323, 170, 42);
 		viewReceiptBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		fp.getContentPane().add(viewReceiptBtn);
 		

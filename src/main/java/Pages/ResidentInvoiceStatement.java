@@ -80,8 +80,8 @@ public class ResidentInvoiceStatement extends PageUtils{
 		CRUD newCrud = new CRUD();
 		tblData.clear();
 		tblData = newCrud.read("ResidentInvoiceStatement.txt");
-		String rowPayment[] = new String[5];
-		String columnPayment[] = { "Id", "Type", "Type", "Outstanding", "Date" };
+		String rowPayment[] = new String[6];
+		String columnPayment[] = { "Id","Name", "Payment Type", "Type", "Outstanding", "Date" };
 
 		JTable jTablePayment = new JTable();
 		jTablePayment.setBounds(44, 73, 770, 100);
@@ -96,6 +96,7 @@ public class ResidentInvoiceStatement extends PageUtils{
 			rowPayment[2] = tblData.get(i).get(2);
 			rowPayment[3] = tblData.get(i).get(3);
 			rowPayment[4] = tblData.get(i).get(4);
+                        rowPayment[5] = tblData.get(i).get(5);
 			tableModelPayment.addRow(rowPayment);
 
 		}
@@ -131,15 +132,16 @@ public class ResidentInvoiceStatement extends PageUtils{
 				if (row.length > 0) {
 
 				String paymentID = (String) jTablePayment.getValueAt(row[0], 0);
-				String type = (String) jTablePayment.getValueAt(row[0], 1);
-				String type1 = (String) jTablePayment.getValueAt(row[0], 2);
-				String outstanding = (String) jTablePayment.getValueAt(row[0], 3);
-				String date = (String) jTablePayment.getValueAt(row[0], 4);
+                                String name = (String) jTablePayment.getValueAt(row[0], 1);
+				String type = (String) jTablePayment.getValueAt(row[0], 2);
+				String type1 = (String) jTablePayment.getValueAt(row[0], 3);
+				String outstanding = (String) jTablePayment.getValueAt(row[0], 4);
+				String date = (String) jTablePayment.getValueAt(row[0], 5);
 
 
 				String report = "<-------- Invoice/Statement -------->\n\n";
 					
-				report += "\nPayment Id: " + paymentID + "\n" + "Type: " + type + "\n" + "Type: " + type1 + "\n" + "Outstanding: RM" + outstanding + "\n" + "Date: " + date + "\n----------------------\n";
+				report += "\nPayment Id: " + paymentID + "\n" + "Name: " + name + "\n" + "Payment Type: " + type + "\n" + "Type: " + type1 + "\n" + "Outstanding: RM" + outstanding + "\n" + "Date: " + date + "\n----------------------\n";
 				textArea.setText(report);
 
 				}

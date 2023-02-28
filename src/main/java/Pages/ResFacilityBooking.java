@@ -397,6 +397,7 @@ public class ResFacilityBooking extends PageUtils{
                                         dataIs.add(uid);
                                         dataIs.add("Facility");
                                         dataIs.add(facilityType);
+                                        dataIs.add(name);
                                         dataIs.add(String.valueOf(totalPrice));
                                         dataIs.add(date);
 
