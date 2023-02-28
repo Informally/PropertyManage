@@ -183,11 +183,11 @@ public class TenRoomPayment extends PageUtils{
 		//Name
 		JLabel lblname = new JLabel("Name: ");
 		lblname.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblname.setBounds(470, 323, 315, 42);
+		lblname.setBounds(470, 273, 315, 42);
 		rp.getContentPane().add(lblname);
 
 		JTextField txtName = new JTextField();
-		txtName.setBounds(554, 323, 250, 42);
+		txtName.setBounds(554, 273, 250, 42);
 		txtName.setBackground(Color.lightGray);
 		txtName.setEditable(false);
 		rp.getContentPane().add(txtName);
@@ -206,11 +206,11 @@ public class TenRoomPayment extends PageUtils{
 		// Amount
 		JLabel lblAmount = new JLabel("Amount:   RM ");
 		lblAmount.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblAmount.setBounds(434, 273, 315, 42);
+		lblAmount.setBounds(434, 323, 315, 42);
 		rp.getContentPane().add(lblAmount);
 
 		JTextField txtAmount = new JTextField();
-		txtAmount.setBounds(554, 273, 250, 42);
+		txtAmount.setBounds(554, 323, 250, 42);
 		rp.getContentPane().add(txtAmount);
 
 		// Error text
@@ -315,7 +315,7 @@ public class TenRoomPayment extends PageUtils{
 
 		// Make Payment Button
 		JButton makepaymentBtn = new JButton("Make Payment");
-		makepaymentBtn.setBounds(44, 323, 200, 42);
+		makepaymentBtn.setBounds(44, 323, 170, 42);
 		makepaymentBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		makepaymentBtn.addActionListener(new ActionListener() {
 
@@ -392,6 +392,7 @@ public class TenRoomPayment extends PageUtils{
 				dataMonthly.add(dtf.format(now));
                                 
                 dataIs.add(uid);
+                dataIs.add(name);
                 dataIs.add("Monthly");
                 dataIs.add(roomType);
                 dataIs.add(price);
@@ -405,9 +406,9 @@ public class TenRoomPayment extends PageUtils{
 				int totalDebt = Integer.parseInt(out) - Integer.parseInt(amount);
 				crud.update("BookingRoom.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
 
-				crud.update("ResidentPaymentHistory.txt", uid, 0,"", 0, String.valueOf(totalDebt), 2, "", 0);
-				crud.update("ResidentPaymentHistory.txt", uid, 0,"", 0, String.valueOf(amount), 3, "", 0);
-                crud.update("ResidentInvoiceStatement.txt", userID, 0,"", 0, String.valueOf(totalDebt), 3, "", 0);
+				crud.update("ResidentPaymentHistory.txt", uid, 0,"", 0, String.valueOf(totalDebt), 3, "", 0);
+				crud.update("ResidentPaymentHistory.txt", uid, 0,"", 0, String.valueOf(amount), 4, "", 0);
+                crud.update("ResidentInvoiceStatement.txt", userID, 0,"", 0, String.valueOf(totalDebt), 4, "", 0);
 
 				// Clear text after update or add
 				txtUID.setText("");
@@ -486,18 +487,19 @@ public class TenRoomPayment extends PageUtils{
 				int i = jTablePayment.getSelectedRow();
 				DefaultTableModel tableModelPayment = (DefaultTableModel) jTablePayment.getModel();
 				String uid = tableModelPayment.getValueAt(i, 0).toString();
-				String roomType = tableModelPayment.getValueAt(i, 1).toString();
-				String out = tableModelPayment.getValueAt(i, 2).toString();
-				String amount = tableModelPayment.getValueAt(i, 3).toString();
-				String month = tableModelPayment.getValueAt(i, 4).toString();
-				String year = tableModelPayment.getValueAt(i, 5).toString();
-				String userID = tableModelPayment.getValueAt(i, 6).toString();
-				String dtf = tableModelPayment.getValueAt(i, 7).toString();
+                                String name = tableModelPayment.getValueAt(i, 1).toString();
+				String roomType = tableModelPayment.getValueAt(i, 2).toString();
+				String out = tableModelPayment.getValueAt(i, 3).toString();
+				String amount = tableModelPayment.getValueAt(i, 4).toString();
+				String month = tableModelPayment.getValueAt(i, 5).toString();
+				String year = tableModelPayment.getValueAt(i, 6).toString();
+				String userID = tableModelPayment.getValueAt(i, 7).toString();
+				String dtf = tableModelPayment.getValueAt(i, 8).toString();
 				
 				int a = jTable.getSelectedRow();
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 				String uuid = tableModel.getValueAt(0, 0).toString();
-				String roomNo1 = tableModel.getValueAt(0, 1).toString();
+				String name1 = tableModel.getValueAt(0, 1).toString();
 				String roomType1 = tableModel.getValueAt(0, 2).toString();
 				String roomPrice = tableModel.getValueAt(0, 3).toString();
 				String deposit = tableModel.getValueAt(0, 4).toString();
@@ -511,15 +513,15 @@ public class TenRoomPayment extends PageUtils{
 				String paymentId = uid + "\n\n\tDescription\t\t\tPrice\n\t---------------\t\t\t-------\n";
 				String lblRoomType = "\tRoom Type ("+ roomType + ")\n";
 				String lblPrice = "\tRoom Price" + "\t\t\t" + roomPrice + "\n";
-				String lblDeposit = "\tRoom Deposit" + "\t\t" + deposit + "\n";
+				String lblOut = "\tOutstanding" + "\t\t" + out + "\n";
 				String lblTotal = "\t---------------------------------------------------------------\n\tTotal Paid" + "\t\t\t" + amount + "\n";
 				String lblPaymentDate = "\tPayment for " + month + " " + year + "\n";
 				String lblDate = "\tDate Paid " + dtf + "\n\t---------------------------------------------------------------" + "\n";
 				String lblThank = "\t                  Thank you for your payment\n";
-				JOptionPane.showMessageDialog(null, receipt + lblpaymentId + paymentId + lblRoomType + lblPrice + lblDeposit + lblTotal + lblPaymentDate + lblDate + lblThank, "Receipt", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, receipt + lblpaymentId + paymentId + lblRoomType + lblPrice + lblOut + lblTotal + lblPaymentDate + lblDate + lblThank, "Receipt", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
-		viewReceiptBtn.setBounds(264, 323, 200, 42);
+		viewReceiptBtn.setBounds(234, 323, 170, 42);
 		viewReceiptBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		rp.getContentPane().add(viewReceiptBtn);
 		

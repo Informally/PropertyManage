@@ -297,6 +297,7 @@ public class ResFacilityBooking extends PageUtils{
 				String uid = txtUID.getText().trim();
 				
 				crud.delete("FacilityBooking.txt", uid, 0, "", 0);
+                                crud.delete("ResidentInvoiceStatement.txt", uid, 0, "", 0);
 				
 				// Refresh the data in table
 				tblData = crud.read("FacilityBooking.txt");
@@ -395,9 +396,9 @@ public class ResFacilityBooking extends PageUtils{
                                         data.add(time);
                                         
                                         dataIs.add(uid);
+                                        dataIs.add(name);
                                         dataIs.add("Facility");
                                         dataIs.add(facilityType);
-                                        dataIs.add(name);
                                         dataIs.add(String.valueOf(totalPrice));
                                         dataIs.add(date);
 
@@ -416,6 +417,7 @@ public class ResFacilityBooking extends PageUtils{
                                         data.add(time);
                                         
                                         dataIs.add(userId);
+                                        dataIs.add(name);
                                         dataIs.add("Facility");
                                         dataIs.add(facilityType);
                                         dataIs.add(String.valueOf(totalPrice));

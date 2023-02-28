@@ -304,7 +304,8 @@ public class TenBookingRoom extends PageUtils{
 				String uid = txtUID.getText().trim();
 				
 				crud.delete("BookingRoom.txt", uid, 0, "", 0);
-				
+				crud.delete("ResidentInvoiceStatement.txt", uid, 0, "", 0);
+                                
 				// Refresh the data in table
 				tblData = crud.read("BookingRoom.txt");
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
@@ -401,6 +402,7 @@ public class TenBookingRoom extends PageUtils{
 					data.add(year);
                                         
                                         dataIs.add(uid);
+                                        dataIs.add(name);
                                         dataIs.add("Room");
                                         dataIs.add(roomType);
                                         dataIs.add(total);
@@ -420,6 +422,7 @@ public class TenBookingRoom extends PageUtils{
 					data.add(year);
                                        
                                         dataIs.add(userId);
+                                        dataIs.add(name);
                                         dataIs.add("Room");
                                         dataIs.add(roomType);
                                         dataIs.add(total);
