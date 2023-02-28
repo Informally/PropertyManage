@@ -298,8 +298,12 @@ public class AssignJob extends PageUtils {
 					data.add(emid);
 					data.add(name);
 					data.add(email);
-					//we will call the read function in CRUD to get the password value, then assign to a local variablem then add to data
-					data.add(crud.read("Employee.txt").get(0).get(3));
+					ArrayList<ArrayList<String>> bulkData = crud.readBulk("Employee.txt", "all", 0, "", 0);
+					for (int i = 0; i < bulkData.size(); i++) {
+						if (bulkData.get(i).get(0).equals(emid)) {
+							data.add(bulkData.get(i).get(3));
+						}
+					}
 					data.add(contact);
 					data.add(age);
 					data.add(job);

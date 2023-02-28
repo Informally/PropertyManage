@@ -30,7 +30,7 @@ public class Security extends PageUtils{
 	public JFrame SecPage;
 	CRUD crud = new CRUD();
 	ArrayList<ArrayList<String>> tblData = new ArrayList<>();
-        ArrayList<ArrayList<String>> tblData2 = new ArrayList<>();
+    ArrayList<ArrayList<String>> tblData2 = new ArrayList<>();
 
 	/**
 	 * Launch the application.
@@ -183,6 +183,14 @@ public class Security extends PageUtils{
 
 		// Table 1: show all security guards only
 		tblData = crud.read("Employee.txt");
+		//find what is the maximum amount of columns in tblData
+		int maxCol = 0;
+		for (int i = 0; i < tblData.size(); i++) {
+			if (tblData.get(i).size() > maxCol) {
+				maxCol = tblData.get(i).size();
+			}
+		}
+		System.out.println("Max Column: " + maxCol);
 		String row[] = new String[6];
 		String column[] = { "Employee Id", "Name", "Email", "Contact", "Age", "Job Role" };
 
@@ -196,9 +204,9 @@ public class Security extends PageUtils{
                         row[0] = tblData.get(i).get(0);
                         row[1] = tblData.get(i).get(1);
                         row[2] = tblData.get(i).get(2);
-                        row[3] = tblData.get(i).get(3);
-                        row[4] = tblData.get(i).get(4);
-                        row[5] = tblData.get(i).get(5);
+                        row[3] = tblData.get(i).get(4);
+                        row[4] = tblData.get(i).get(5);
+                        row[5] = tblData.get(i).get(6);
                         tableModel.addRow(row);
                         }
                 }
@@ -217,11 +225,8 @@ public class Security extends PageUtils{
 					txtEMID.setText((String) jTable.getValueAt(row[0], 0));
 					txtName.setText((String) jTable.getValueAt(row[0], 1));
 					txtRole.setText((String) jTable.getValueAt(row[0], 5));
-                                        PatrolDay.setSelectedIndex(-1);
-                                        PatrolSchedule.setSelectedIndex(-1);
-					//txtCheck.setText((String) jTable.getValueAt(row[0], 3));
-					//txtAge.setText((String) jTable.getValueAt(row[0], 4));
-					//txtJob.setText((String) jTable.getValueAt(row[0], 5));
+                    PatrolDay.setSelectedIndex(-1);
+                    PatrolSchedule.setSelectedIndex(-1);
 				}
 			}
 		});
