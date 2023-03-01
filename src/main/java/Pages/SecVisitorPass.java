@@ -157,7 +157,7 @@ public class SecVisitorPass extends PageUtils{
                 txtOwnerContact.setEditable(false);
 		vp.getContentPane().add(txtOwnerContact);
 
-		// Time in
+		//  Time in
 		JLabel lblTime = new JLabel("Time in: ");
 		lblTime.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblTime.setBounds(434, 223, 315, 42);

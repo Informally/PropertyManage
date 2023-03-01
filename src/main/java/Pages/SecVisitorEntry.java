@@ -87,7 +87,6 @@ public class SecVisitorEntry extends PageUtils {
 
 		JTextField txtUID = new JTextField("");
 		txtUID.setBounds(164, 73, 250, 42);
-		txtUID.setBackground(Color.lightGray);
 		txtUID.setEditable(false);
 		ve.getContentPane().add(txtUID);
 
@@ -99,6 +98,7 @@ public class SecVisitorEntry extends PageUtils {
 
 		JTextField txtName = new JTextField();
 		txtName.setBounds(554, 73, 250, 42);
+		txtName.setEditable(false);
 		ve.getContentPane().add(txtName);
 
 		// Destination
@@ -109,6 +109,7 @@ public class SecVisitorEntry extends PageUtils {
 
 		JTextField txtDestination = new JTextField();
 		txtDestination.setBounds(164, 123, 250, 42);
+		txtDestination.setEditable(false);
 		ve.getContentPane().add(txtDestination);
 
 		// Contact
@@ -119,6 +120,7 @@ public class SecVisitorEntry extends PageUtils {
 
 		JTextField txtContact = new JTextField();
 		txtContact.setBounds(554, 123, 250, 42);
+		txtContact.setEditable(false);
 		ve.getContentPane().add(txtContact);
 		
 		// Owner Name
@@ -129,6 +131,7 @@ public class SecVisitorEntry extends PageUtils {
 
 		JTextField txtIc = new JTextField();
 		txtIc.setBounds(164, 173, 250, 42);
+		txtIc.setEditable(false);
 		ve.getContentPane().add(txtIc);
 
 				// Owner Contact
@@ -139,6 +142,7 @@ public class SecVisitorEntry extends PageUtils {
 		
 				JTextField txtOwnerContact = new JTextField();
 				txtOwnerContact.setBounds(554, 173, 250, 42);
+				txtOwnerContact.setEditable(false);
 				ve.getContentPane().add(txtOwnerContact);
 
 		// Date
@@ -149,6 +153,7 @@ public class SecVisitorEntry extends PageUtils {
 
 		JTextField txtDate = new JTextField();
 		txtDate.setBounds(164, 223, 250, 42);
+		txtDate.setEditable(false);
 		ve.getContentPane().add(txtDate);
 
 		// Time in
@@ -231,7 +236,7 @@ public class SecVisitorEntry extends PageUtils {
 		// Result Display 2
 		tblData = crud.read("VisitorEntry.txt");
 		String row[] = new String[8];
-		String column[] = { "Entry ID", "Name", "Destination", "Contact", "Identity Card", "Date", "Time in", "Time out"};
+		String column[] = { "Pass ID", "Visitor Name", "Destination", "Contact", "Owner Name", "Date", "Time in", "Time out"};
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 483, 770, 150);
@@ -305,10 +310,10 @@ public class SecVisitorEntry extends PageUtils {
 		ve.getContentPane().add(clearBtn);
 
 		// Save Btn
-		JButton addUserBtn = new JButton("Save");
-		addUserBtn.setBounds(44, 273, 150, 42);
-		addUserBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		addUserBtn.addActionListener(new ActionListener() {
+		JButton saveBtn = new JButton("Save");
+		saveBtn.setBounds(44, 273, 150, 42);
+		saveBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		saveBtn.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -395,7 +400,7 @@ public class SecVisitorEntry extends PageUtils {
 				jTable.updateUI();
 			}
 		});
-		ve.getContentPane().add(addUserBtn);
+		ve.getContentPane().add(saveBtn);
 		
 		// back Button
 		JButton backBtn = new JButton("Back");
