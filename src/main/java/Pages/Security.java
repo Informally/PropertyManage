@@ -70,8 +70,8 @@ public class Security extends PageUtils{
 		lblNewLabel.setBounds(34, 5, 665, 81);
 		SecPage.getContentPane().add(lblNewLabel);
 
-		// Employee ID
-		JLabel lblEMID = new JLabel("Employee ID: ");
+		//  ID
+		JLabel lblEMID = new JLabel("ID: ");
 		lblEMID.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblEMID.setBounds(44, 73, 315, 42);
 		SecPage.getContentPane().add(lblEMID);
@@ -159,19 +159,9 @@ public class Security extends PageUtils{
 
 		JTextField txtCheck = new JTextField();
 		txtCheck.setBounds(164, 173, 250, 42);
-                //txtCheck.setBackground(Color.lightGray);
-		//txtCheck.setEditable(false);
 		SecPage.getContentPane().add(txtCheck);
 
-		// Job Role
-		//JLabel lblJob = new JLabel("Job Role: ");
-		//lblJob.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		//lblJob.setBounds(434, 173, 315, 42);
-		//SecPage.getContentPane().add(lblJob);
 
-		//JTextField txtJob = new JTextField();
-		//txtJob.setBounds(554, 173, 250, 42);
-		//SecPage.getContentPane().add(txtJob);
 
 		// Error text
 		JLabel errorText = new JLabel();
@@ -234,7 +224,7 @@ public class Security extends PageUtils{
                 // table 2: assign partol schedule and checkpoint table
                 tblData2 = crud.read("Patrol.txt");
 		String row1[] = new String[6];
-		String column1[] = { "Employee Id", "Name", "Job Role", "Patrol Day", "Patrol Schedule", "Checkpoint" };
+		String column1[] = { "Checkpoint Id", "Name", "Job Role", "Patrol Day", "Patrol Schedule", "Checkpoint" };
 
 		JTable jTable1 = new JTable();
 		jTable1.setBounds(44, 400, 900, 200);
@@ -382,9 +372,9 @@ public class Security extends PageUtils{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-
-				if (emid.isEmpty()) { // this means to prompt user to select an employee
-                    JOptionPane.showMessageDialog(null,"Please select a Security Guard");
+				//if all fields are empty
+				if (emid.isEmpty() && name.isEmpty() && role.isEmpty() && day.isEmpty() && schedule.isEmpty() && checkpoint.isEmpty()) {
+					JOptionPane.showMessageDialog(null,"Please select a Security Guard");
 
 				} 
 				//else if all fields are not empty except for the checkpoint, day and schedule
@@ -396,17 +386,21 @@ public class Security extends PageUtils{
 					ArrayList<ArrayList<String>> compareData = crud.read("Patrol.txt");
 					// check if entryId is the same as the value in compareData in position 0
 					boolean pDay = false;
+					boolean userExists = false;
+					//read thorugh compareData if pDay is in position 3 and userExists is in position 1
 					for (int i = 0; i < compareData.size(); i++) {
-    					if (compareData.get(i).get(3).equals(day)) {
+    					if (compareData.get(i).get(3).equals(day) && compareData.get(i).get(1).equals(name)) {
         					System.out.println("This guard already has a patrol schedule for this day. \nPlease select another day.");
         					JOptionPane.showMessageDialog(null,"This guard already has a patrol schedule for this day. \nPlease select another day.");
         					pDay = true;
+							userExists = true;
         				break;
     					}
 					}
 
-					if (!pDay) {
-   						data.add(emid);
+					if (!pDay && !userExists) {
+						String uid = uuid.toString();
+   						data.add(uid);
     					data.add(name);
     					data.add(role);		
     					data.add(day);
