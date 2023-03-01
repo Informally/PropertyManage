@@ -366,6 +366,8 @@ public class SecVisitorEntry extends PageUtils {
 						if (compareData.get(i).get(0).equals(entryId)) {
 							System.out.println("Visitor already exist");
 							JOptionPane.showMessageDialog(null,"Visitor already exited");
+							//dont add data to file
+							break;
 						}else{
 							data.add(entryId);
 							data.add(name);
