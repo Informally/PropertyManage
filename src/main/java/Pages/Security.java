@@ -274,7 +274,7 @@ public class Security extends PageUtils{
 			}
 		});
 		JScrollPane scroll1 = new JScrollPane(jTable1, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
-				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scroll1.setBounds(44, 400, 900, 200);
 		SecPage.getContentPane().add(scroll1);
                 
