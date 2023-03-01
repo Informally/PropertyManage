@@ -101,14 +101,14 @@ public class SecIncident extends PageUtils {
 		inc.getContentPane().add(txtName);
 
 		// Destination
-		JLabel lblDestination = new JLabel("Destination: ");
-		lblDestination.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblDestination.setBounds(44, 123, 315, 42);
-		inc.getContentPane().add(lblDestination);
+		JLabel lblLocation = new JLabel("Location: ");
+		lblLocation.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblLocation.setBounds(44, 123, 315, 42);
+		inc.getContentPane().add(lblLocation);
 
-		JTextField txtDestination = new JTextField();
-		txtDestination.setBounds(174, 123, 250, 42);
-		inc.getContentPane().add(txtDestination);
+		JTextField txtLocation = new JTextField();
+		txtLocation.setBounds(174, 123, 250, 42);
+		inc.getContentPane().add(txtLocation);
 
 		// Contact
 		JLabel lblContact = new JLabel("Contact: ");
@@ -140,8 +140,8 @@ public class SecIncident extends PageUtils {
 		txtDate.setBounds(564, 173, 250, 42);
 		inc.getContentPane().add(txtDate);
 
-		// Time in
-		JLabel lblTimeIn = new JLabel("Time in: ");
+		// Time
+		JLabel lblTimeIn = new JLabel("Time: ");
 		lblTimeIn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblTimeIn.setBounds(44, 223, 250, 42);
 		inc.getContentPane().add(lblTimeIn);
@@ -149,16 +149,6 @@ public class SecIncident extends PageUtils {
 		JTextField txtTimeIn = new JTextField();
 		txtTimeIn.setBounds(174, 223, 250, 42);
 		inc.getContentPane().add(txtTimeIn);
-		
-		// Time out
-		JLabel lblTimeOut = new JLabel("Time out: ");
-		lblTimeOut.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblTimeOut.setBounds(444, 223, 315, 42);
-		inc.getContentPane().add(lblTimeOut);
-
-		JTextField txtTimeOut = new JTextField();
-		txtTimeOut.setBounds(564, 223, 250, 42);
-		inc.getContentPane().add(txtTimeOut);
 
 		// Error text
 		JLabel errorText = new JLabel();
@@ -170,8 +160,8 @@ public class SecIncident extends PageUtils {
 
 		// Result Display
 		tblData = crud.read("Incident.txt");
-		String row[] = new String[8];
-		String column[] = { "Incident ID", "Name", "Destination", "Contact", "Incident", "Date", "Time in", "Time out" };
+		String row[] = new String[7];
+		String column[] = { "Incident ID", "Name", "Location", "Contact", "Incident", "Date", "Time" };
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 323, 770, 100);
@@ -186,7 +176,6 @@ public class SecIncident extends PageUtils {
 			row[4] = tblData.get(i).get(4);
 			row[5] = tblData.get(i).get(5);
 			row[6] = tblData.get(i).get(6);
-			row[7] = tblData.get(i).get(7);
 			tableModel.addRow(row);
 
 		}
@@ -202,12 +191,11 @@ public class SecIncident extends PageUtils {
 				if (row.length > 0) {
 					txtUID.setText((String) jTable.getValueAt(row[0], 0));
 					txtName.setText((String) jTable.getValueAt(row[0], 1));
-					txtDestination.setText((String) jTable.getValueAt(row[0], 2));
+					txtLocation.setText((String) jTable.getValueAt(row[0], 2));
 					txtContact.setText((String) jTable.getValueAt(row[0], 3));
 					txtIncident.setText((String) jTable.getValueAt(row[0], 4));
 					txtDate.setText((String) jTable.getValueAt(row[0], 5));
 					txtTimeIn.setText((String) jTable.getValueAt(row[0], 6));
-					txtTimeOut.setText((String) jTable.getValueAt(row[0], 7));
 				}
 
 			}
@@ -253,12 +241,11 @@ public class SecIncident extends PageUtils {
 			public void actionPerformed(ActionEvent e) {
 				txtUID.setText("");
 				txtName.setText("");
-				txtDestination.setText("");
+				txtLocation.setText("");
 				txtContact.setText("");
 				txtIncident.setText("");
 				txtDate.setText("");
 				txtTimeIn.setText("");
-				txtTimeOut.setText("");
 			}
 		});
 		inc.getContentPane().add(clearBtn);
@@ -277,12 +264,11 @@ public class SecIncident extends PageUtils {
 
 				String incidentId = txtUID.getText().trim();
 				String name = txtName.getText().trim();
-				String destination = txtDestination.getText().trim();
+				String destination = txtLocation.getText().trim();
 				String contact = txtContact.getText().trim();
 				String incident = txtIncident.getText().trim();
 				String date = txtDate.getText().trim();
 				String timeIn = txtTimeIn.getText().trim();
-				String timeOut = txtTimeOut.getText().trim();
 
 				ArrayList<String> data = new ArrayList<>();
 
@@ -302,7 +288,6 @@ public class SecIncident extends PageUtils {
 					data.add(incident);
 					data.add(date);
 					data.add(timeIn);
-					data.add(timeOut);
 
 					crud.create("Incident.txt", data);
 					}else {// this means update data
@@ -313,19 +298,17 @@ public class SecIncident extends PageUtils {
 						data.add(incident);
 						data.add(date);
 						data.add(timeIn);
-						data.add(timeOut);
 						crud.updateRow("Incident.txt", incidentId, 0, "", 0, data);
 					}
 
 					// Clear text after update or add
 					txtUID.setText("");
 					txtName.setText("");
-					txtDestination.setText("");
+					txtLocation.setText("");
 					txtContact.setText("");
 					txtIncident.setText("");
 					txtDate.setText("");
 					txtTimeIn.setText("");
-					txtTimeOut.setText("");
 
 					// Refresh the data in table
 					tblData = crud.read("Incident.txt");
@@ -342,7 +325,6 @@ public class SecIncident extends PageUtils {
 						row[4] = tblData.get(i).get(4);
 						row[5] = tblData.get(i).get(5);
 						row[6] = tblData.get(i).get(6);
-						row[7] = tblData.get(i).get(7);
 						tableModel.addRow(row);
 					}
 					try {

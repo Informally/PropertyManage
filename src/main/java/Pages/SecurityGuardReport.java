@@ -108,7 +108,7 @@ public class SecurityGuardReport extends PageUtils{
 					String checkpointReport = "<----- Checkpoint Report ----->\n";
 
 					for (ArrayList<String> row : checkpointData) {
-						checkpointReport += "\nCheckpoint Id: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Destination: " + row.get(2) + "\n" + "Contact: " + row.get(3) + "\n" + "Status: " + row.get(4) + "\n"+ "Date: " + row.get(5) + "\n"+ "Time in: " + row.get(6) + "\n"+ "Time outs: " + row.get(7) + "\n----------------------\n";
+						checkpointReport += "\nCheckpoint Id: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Location: " + row.get(2) + "\n" + "Contact: " + row.get(3) + "\n" + "Status: " + row.get(4) + "\n"+ "Date: " + row.get(5) + "\n"+ "Time in: " + row.get(6) + "\n"+ "Time outs: " + row.get(7) + "\n----------------------\n";
 
 					}
 
@@ -121,7 +121,7 @@ public class SecurityGuardReport extends PageUtils{
 					String incidentReport = "<----- Incident Report ----->\n";
 
 					for (ArrayList<String> row : incidentData) {
-						incidentReport += "\nIncident Id: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Destination: " + row.get(2) + "\n" + "Contact: " + row.get(3) + "\n" + "Incident: " + row.get(4) + "\n"+ "Date: " + row.get(5) + "\n"+ "Time in: " + row.get(6) + "\n"+ "Time outs: " + row.get(7) 
+						incidentReport += "\nIncident Id: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Location: " + row.get(2) + "\n" + "Contact: " + row.get(3) + "\n" + "Incident: " + row.get(4) + "\n"+ "Date: " + row.get(5) + "\n"+ "Time: " + row.get(6)
 								+ "\n----------------------\n";
 
 					}
