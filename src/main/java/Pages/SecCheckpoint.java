@@ -93,14 +93,14 @@ public class SecCheckpoint extends PageUtils{
 		c.getContentPane().add(txtName);
 
 		// Destination
-		JLabel lblDestination = new JLabel("Destination: ");
-		lblDestination.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblDestination.setBounds(44, 123, 315, 42);
-		c.getContentPane().add(lblDestination);
+		JLabel lblLocation = new JLabel("Location: ");
+		lblLocation.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblLocation.setBounds(44, 123, 315, 42);
+		c.getContentPane().add(lblLocation);
 
-		JTextField txtDestination = new JTextField();
-		txtDestination.setBounds(174, 123, 250, 42);
-		c.getContentPane().add(txtDestination);
+		JTextField txtLocation = new JTextField();
+		txtLocation.setBounds(174, 123, 250, 42);
+		c.getContentPane().add(txtLocation);
 
 		// Contact
 		JLabel lblContact = new JLabel("Contact: ");
@@ -163,7 +163,7 @@ public class SecCheckpoint extends PageUtils{
 		// Result Display
 		tblData = crud.read("Checkpoint.txt");
 		String row[] = new String[8];
-		String column[] = { "Checkpoint ID", "Name", "Destination", "Contact", "Status", "Date", "Time in", "Time out"};
+		String column[] = { "Checkpoint ID", "Name", "Location", "Contact", "Status", "Date", "Time in", "Time out"};
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 323, 770, 250);
@@ -194,7 +194,7 @@ public class SecCheckpoint extends PageUtils{
 				if (row.length > 0) {
 					txtUID.setText((String) jTable.getValueAt(row[0], 0));
 					txtName.setText((String) jTable.getValueAt(row[0], 1));
-					txtDestination.setText((String) jTable.getValueAt(row[0], 2));
+					txtLocation.setText((String) jTable.getValueAt(row[0], 2));
 					txtContact.setText((String) jTable.getValueAt(row[0], 3));
 					txtStatus.setText((String) jTable.getValueAt(row[0], 4));
 					txtDate.setText((String) jTable.getValueAt(row[0], 5));
@@ -226,7 +226,7 @@ public class SecCheckpoint extends PageUtils{
 			public void actionPerformed(ActionEvent e) {
 				txtUID.setText("");
 				txtName.setText("");
-				txtDestination.setText("");
+				txtLocation.setText("");
 				txtContact.setText("");
 				txtStatus.setText("");
 				txtDate.setText("");
@@ -249,7 +249,7 @@ public class SecCheckpoint extends PageUtils{
 
 				String checkPointId = txtUID.getText().trim();
 				String name = txtName.getText().trim();
-				String destination = txtDestination.getText().trim();
+				String location = txtLocation.getText().trim();
 				String contact = txtContact.getText().trim();
 				String status = txtStatus.getText().trim();
 				String date = txtDate.getText().trim();
@@ -269,7 +269,7 @@ public class SecCheckpoint extends PageUtils{
 				String uid = uuid.toString();
 				data.add(uid);
 				data.add(name);
-				data.add(destination);
+				data.add(location);
 				data.add(contact);
 				data.add(status);
 				data.add(date);
@@ -280,7 +280,7 @@ public class SecCheckpoint extends PageUtils{
 				}else {// this means update data
 					data.add(checkPointId);
 					data.add(name);
-					data.add(destination);		
+					data.add(location);		
 					data.add(contact);
 					data.add(status);
 					data.add(date);
@@ -292,7 +292,7 @@ public class SecCheckpoint extends PageUtils{
 				// Clear text after update or add
 				txtUID.setText("");
 				txtName.setText("");
-				txtDestination.setText("");
+				txtLocation.setText("");
 				txtContact.setText("");
 				txtStatus.setText("");
 				txtDate.setText("");
