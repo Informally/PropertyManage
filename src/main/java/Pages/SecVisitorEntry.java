@@ -39,6 +39,7 @@ public class SecVisitorEntry extends PageUtils {
 	public JFrame ve;
 	CRUD crud = new CRUD();
 	ArrayList<ArrayList<String>> tblData = new ArrayList<>();
+	ArrayList<ArrayList<String>> tblData1 = new ArrayList<>();
 
 	/**
 	 * Launch the application.
@@ -78,15 +79,15 @@ public class SecVisitorEntry extends PageUtils {
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		ve.getContentPane().add(lblNewLabel);
 
-		// Entry ID
-		JLabel lblUID = new JLabel("Entry ID: ");
+		// Pass ID
+		JLabel lblUID = new JLabel("Pass ID: ");
 		lblUID.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblUID.setBounds(44, 73, 315, 42);
 		ve.getContentPane().add(lblUID);
 
 		JTextField txtUID = new JTextField("");
 		txtUID.setBounds(164, 73, 250, 42);
-		txtUID.setBackground(Color.gray);
+		txtUID.setBackground(Color.lightGray);
 		txtUID.setEditable(false);
 		ve.getContentPane().add(txtUID);
 
@@ -120,8 +121,8 @@ public class SecVisitorEntry extends PageUtils {
 		txtContact.setBounds(554, 123, 250, 42);
 		ve.getContentPane().add(txtContact);
 		
-		// Identity Card
-		JLabel lblIc = new JLabel("Identity Card: ");
+		// Owner Name
+		JLabel lblIc = new JLabel("Owner Name: ");
 		lblIc.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblIc.setBounds(44, 173, 250, 42);
 		ve.getContentPane().add(lblIc);
@@ -130,34 +131,44 @@ public class SecVisitorEntry extends PageUtils {
 		txtIc.setBounds(164, 173, 250, 42);
 		ve.getContentPane().add(txtIc);
 
+				// Owner Contact
+				JLabel lblOwnerContact = new JLabel("Owner Contact: ");
+				lblOwnerContact.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 15));
+				lblOwnerContact.setBounds(434, 173, 315, 42);
+				ve.getContentPane().add(lblOwnerContact);
+		
+				JTextField txtOwnerContact = new JTextField();
+				txtOwnerContact.setBounds(554, 173, 250, 42);
+				ve.getContentPane().add(txtOwnerContact);
+
 		// Date
 		JLabel lblDate = new JLabel("Date: ");
 		lblDate.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblDate.setBounds(434, 173, 315, 42);
+		lblDate.setBounds(44, 223, 315, 42);
 		ve.getContentPane().add(lblDate);
 
 		JTextField txtDate = new JTextField();
-		txtDate.setBounds(554, 173, 250, 42);
+		txtDate.setBounds(164, 223, 250, 42);
 		ve.getContentPane().add(txtDate);
 
 		// Time in
 		JLabel lblTimeIn = new JLabel("Time in: ");
 		lblTimeIn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblTimeIn.setBounds(44, 223, 250, 42);
+		lblTimeIn.setBounds(434, 223, 250, 42);
 		ve.getContentPane().add(lblTimeIn);
 
 		JTextField txtTimeIn = new JTextField();
-		txtTimeIn.setBounds(164, 223, 250, 42);
+		txtTimeIn.setBounds(554, 223, 250, 42);
 		ve.getContentPane().add(txtTimeIn);
 		
 		// Time out
 		JLabel lblTimeOut = new JLabel("Time out: ");
 		lblTimeOut.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblTimeOut.setBounds(434, 223, 315, 42);
+		lblTimeOut.setBounds(434, 273, 315, 42);
 		ve.getContentPane().add(lblTimeOut);
 
 		JTextField txtTimeOut = new JTextField();
-		txtTimeOut.setBounds(554, 223, 250, 42);
+		txtTimeOut.setBounds(554, 273, 250, 42);
 		ve.getContentPane().add(txtTimeOut);
 
 		// Error text
@@ -168,13 +179,62 @@ public class SecVisitorEntry extends PageUtils {
 		errorText.setVisible(false);
 		ve.getContentPane().add(errorText);
 
-		// Result Display
+		// Result Display 1
+		tblData1 = crud.read("VisitorPass.txt");
+		String row1[] = new String[8];
+		String column1[] = { "Pass ID", "Visitor Name", "Destination", "Contact","Owner Name","Owner Contact", "Date", "Time in"};
+
+		JTable jTable1 = new JTable();
+		jTable1.setBounds(44, 323, 770, 150);
+		DefaultTableModel tableModel1 = (DefaultTableModel) jTable1.getModel();
+		tableModel1.setColumnIdentifiers(column1);
+		jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		for (int i = 0; i < tblData1.size(); i++) {
+			row1[0] = tblData1.get(i).get(0);
+			row1[1] = tblData1.get(i).get(1);
+			row1[2] = tblData1.get(i).get(2);
+			row1[3] = tblData1.get(i).get(3);
+			row1[4] = tblData1.get(i).get(6);
+			row1[5] = tblData1.get(i).get(5);
+            row1[6] = tblData1.get(i).get(4);
+			row1[7] = tblData1.get(i).get(7);
+			tableModel1.addRow(row1);
+
+		}
+		jTable1.setModel(tableModel1);
+
+		ListSelectionModel select1 = jTable1.getSelectionModel();
+		select1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		select1.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) {
+				int[] row1 = jTable1.getSelectedRows();
+				int columnNum1 = jTable1.getColumnCount();
+
+				if (row1.length > 0) {
+					txtUID.setText((String) jTable1.getValueAt(row1[0], 0));
+					txtName.setText((String) jTable1.getValueAt(row1[0], 1));
+					txtDestination.setText((String) jTable1.getValueAt(row1[0], 2));
+					txtContact.setText((String) jTable1.getValueAt(row1[0], 3));
+                    txtIc.setText((String) jTable1.getValueAt(row1[0], 4));
+					txtOwnerContact.setText((String) jTable1.getValueAt(row1[0], 5));
+					txtDate.setText((String) jTable1.getValueAt(row1[0], 6));
+					txtTimeIn.setText((String) jTable1.getValueAt(row1[0], 7));
+				}
+
+			}
+			});
+		JScrollPane scroll1 = new JScrollPane(jTable1, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+		JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scroll1.setBounds(44, 323, 770, 150);
+		ve.getContentPane().add(scroll1);
+
+		// Result Display 2
 		tblData = crud.read("VisitorEntry.txt");
 		String row[] = new String[8];
 		String column[] = { "Entry ID", "Name", "Destination", "Contact", "Identity Card", "Date", "Time in", "Time out"};
 
 		JTable jTable = new JTable();
-		jTable.setBounds(44, 323, 770, 250);
+		jTable.setBounds(44, 483, 770, 150);
 		DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 		tableModel.setColumnIdentifiers(column);
 		jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -214,7 +274,7 @@ public class SecVisitorEntry extends PageUtils {
 			});
 		JScrollPane scroll = new JScrollPane(jTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 		JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scroll.setBounds(44, 373, 770, 250);
+		scroll.setBounds(44, 483, 770, 150);
 		ve.getContentPane().add(scroll);
 
 		// Error text calculation
@@ -227,7 +287,7 @@ public class SecVisitorEntry extends PageUtils {
 		
 		// Clear Text field Btn
 		JButton clearBtn = new JButton("Clear All");
-		clearBtn.setBounds(204, 323, 150, 42);
+		clearBtn.setBounds(204, 273, 150, 42);
 		clearBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		clearBtn.addActionListener(new ActionListener() {
 			@Override
@@ -246,7 +306,7 @@ public class SecVisitorEntry extends PageUtils {
 
 		// Save Btn
 		JButton addUserBtn = new JButton("Save");
-		addUserBtn.setBounds(44, 323, 150, 42);
+		addUserBtn.setBounds(44, 273, 150, 42);
 		addUserBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		addUserBtn.addActionListener(new ActionListener() {
 
