@@ -225,7 +225,9 @@ public class SecVisitorEntry extends PageUtils {
 					txtOwnerContact.setText((String) jTable1.getValueAt(row1[0], 5));
 					txtDate.setText((String) jTable1.getValueAt(row1[0], 6));
 					txtTimeIn.setText((String) jTable1.getValueAt(row1[0], 7));
+					txtTimeIn.setEditable(true);
 					txtTimeOut.setText("");
+					txtTimeOut.setEditable(true);
 				}
 
 			}
@@ -274,7 +276,9 @@ public class SecVisitorEntry extends PageUtils {
 					txtIc.setText((String) jTable.getValueAt(row[0], 4));
 					txtDate.setText((String) jTable.getValueAt(row[0], 5));
 					txtTimeIn.setText((String) jTable.getValueAt(row[0], 6));
+					txtTimeIn.setEditable(false);
 					txtTimeOut.setText((String) jTable.getValueAt(row[0], 7));
+					txtTimeOut.setEditable(false);
 				}
 
 			}

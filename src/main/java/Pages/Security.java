@@ -384,6 +384,7 @@ public class Security extends PageUtils{
 					//data.add(job);
 
 					//crud.create("Employee.txt", data);
+					//crud.updateRow("Patrol.txt", emid, 0, "", 0, data);
 
 				} 
                 else { // this means update data
@@ -394,7 +395,7 @@ public class Security extends PageUtils{
 					data.add(schedule);
 					data.add(checkpoint);
                     crud.create("Patrol.txt", data);
-					crud.updateRow("Patrol.txt", emid, 0, "", 0, data);
+					
 				}              
          
 				// Clear text after update or add
