@@ -510,7 +510,7 @@ public class TenRoomPayment extends PageUtils{
 
 				String receipt = "\t\t<----- Receipt ----->\n";
 				String lblpaymentId = "\tPayment ID:";
-				String paymentId = uid + "\n\n\tDescription\t\t\tPrice\n\t---------------\t\t\t-------\n";
+				String paymentId = uid + "\n\nD\\tescription\t\t\tPrice\n\t---------------\t\t\t-------\n";
 				String lblRoomType = "\tRoom Type ("+ roomType + ")\n";
 				String lblPrice = "\tRoom Price" + "\t\t\t" + roomPrice + "\n";
 				String lblOut = "\tOutstanding" + "\t\t" + out + "\n";

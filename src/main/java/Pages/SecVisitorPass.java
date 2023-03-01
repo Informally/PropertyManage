@@ -99,6 +99,7 @@ public class SecVisitorPass extends PageUtils{
 
 		JTextField txtName = new JTextField();
 		txtName.setBounds(554, 73, 250, 42);
+                txtName.setEditable(false);
 		vp.getContentPane().add(txtName);
 
 		// Destination
@@ -109,6 +110,7 @@ public class SecVisitorPass extends PageUtils{
 
 		JTextField txtDestination = new JTextField();
 		txtDestination.setBounds(164, 123, 250, 42);
+                txtDestination.setEditable(false);
 		vp.getContentPane().add(txtDestination);
 
 		// Contact
@@ -119,6 +121,7 @@ public class SecVisitorPass extends PageUtils{
 
 		JTextField txtContact = new JTextField();
 		txtContact.setBounds(554, 123, 250, 42);
+                txtContact.setEditable(false);
 		vp.getContentPane().add(txtContact);
                 
                 // Date
@@ -129,6 +132,7 @@ public class SecVisitorPass extends PageUtils{
 
 		JTextField txtDate = new JTextField();
 		txtDate.setBounds(164, 173, 250, 42);
+                txtDate.setEditable(false);
 		vp.getContentPane().add(txtDate);
                 
                 // Owner Name
@@ -139,6 +143,7 @@ public class SecVisitorPass extends PageUtils{
 
 		JTextField txtOwnerName = new JTextField();
 		txtOwnerName.setBounds(164, 223, 250, 42);
+                txtOwnerName.setEditable(false);
 		vp.getContentPane().add(txtOwnerName);
 
 		// Owner Contact
@@ -149,6 +154,7 @@ public class SecVisitorPass extends PageUtils{
 
 		JTextField txtOwnerContact = new JTextField();
 		txtOwnerContact.setBounds(554, 173, 250, 42);
+                txtOwnerContact.setEditable(false);
 		vp.getContentPane().add(txtOwnerContact);
 
 		// Time in
@@ -159,6 +165,7 @@ public class SecVisitorPass extends PageUtils{
 
 		JTextField txtTime = new JTextField();
 		txtTime.setBounds(554, 223, 250, 42);
+                txtTime.setEditable(false);
 		vp.getContentPane().add(txtTime);
 
 		// Error text
@@ -184,9 +191,9 @@ public class SecVisitorPass extends PageUtils{
 			row[1] = tblData.get(i).get(1);
 			row[2] = tblData.get(i).get(2);
 			row[3] = tblData.get(i).get(3);
-			row[4] = tblData.get(i).get(4);
+			row[4] = tblData.get(i).get(6);
 			row[5] = tblData.get(i).get(5);
-                        row[6] = tblData.get(i).get(6);
+                        row[6] = tblData.get(i).get(4);
 			row[7] = tblData.get(i).get(7);
 			tableModel.addRow(row);
 
@@ -205,9 +212,9 @@ public class SecVisitorPass extends PageUtils{
 					txtName.setText((String) jTable.getValueAt(row[0], 1));
 					txtDestination.setText((String) jTable.getValueAt(row[0], 2));
 					txtContact.setText((String) jTable.getValueAt(row[0], 3));
-                                        txtOwnerName.setText((String) jTable.getValueAt(row[0], 4));
+                                        txtOwnerName.setText((String) jTable.getValueAt(row[0], 6));
 					txtOwnerContact.setText((String) jTable.getValueAt(row[0], 5));
-					txtDate.setText((String) jTable.getValueAt(row[0], 6));
+					txtDate.setText((String) jTable.getValueAt(row[0], 4));
 					txtTime.setText((String) jTable.getValueAt(row[0], 7));
 				}
 
@@ -228,7 +235,7 @@ public class SecVisitorPass extends PageUtils{
 		
 		// Clear Text field Btn
 		JButton clearBtn = new JButton("Clear All");
-		clearBtn.setBounds(204, 273, 150, 42);
+		clearBtn.setBounds(44, 273, 150, 42);
 		clearBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		clearBtn.addActionListener(new ActionListener() {
 			@Override
@@ -245,98 +252,7 @@ public class SecVisitorPass extends PageUtils{
 		});
 		vp.getContentPane().add(clearBtn);
 
-		// Save Btn
-		JButton addUserBtn = new JButton("Save");
-		addUserBtn.setBounds(44, 273, 150, 42);
-		addUserBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		addUserBtn.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-				User user = new User();
-				UUID uuid = UUID.randomUUID();
-
-				String passId = txtUID.getText().trim();
-				String name = txtName.getText().trim();
-				String destination = txtDestination.getText().trim();
-				String contact = txtContact.getText().trim();
-                                String ownerName = txtOwnerName.getText().trim();
-				String ownerContact = txtOwnerContact.getText().trim();
-				String date = txtDate.getText().trim();
-				String time = txtTime.getText().trim();
-
-				ArrayList<String> data = new ArrayList<>();
-
-				try {
-					Thread.sleep(500);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				
-				if (passId.isEmpty()) { // this means new data is added
-				String uid = uuid.toString();
-				data.add(uid);
-				data.add(name);
-				data.add(destination);
-				data.add(contact);
-                                data.add(ownerName);
-				data.add(ownerContact);
-				data.add(date);
-				data.add(time);
-
-				crud.create("VisitorPass.txt", data);
-				}else {// this means update data
-					data.add(passId);
-					data.add(name);
-					data.add(destination);
-					data.add(contact);
-                                        data.add(ownerName);
-				        data.add(ownerContact);
-					data.add(date);
-					data.add(time);
-					crud.updateRow("VisitorPass.txt", passId, 0, "", 0, data);
-				}
-
-				// Clear text after update or add
-				txtUID.setText("");
-				txtName.setText("");
-				txtDestination.setText("");
-				txtContact.setText("");
-                                txtOwnerName.setText("");
-				txtOwnerContact.setText("");
-				txtDate.setText("");
-				txtTime.setText("");
-
-				// Refresh the data in table
-				tblData = crud.read("VisitorPass.txt");
-				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
-				tableModel.setColumnIdentifiers(column);
-				tableModel.getDataVector().removeAllElements();
-				tableModel.fireTableDataChanged();
-				jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-				for (int i = 0; i < tblData.size(); i++) {
-					row[0] = tblData.get(i).get(0);
-					row[1] = tblData.get(i).get(1);
-					row[2] = tblData.get(i).get(2);
-					row[3] = tblData.get(i).get(3);
-					row[4] = tblData.get(i).get(4);
-					row[5] = tblData.get(i).get(5);
-                                        row[6] = tblData.get(i).get(6);
-					row[7] = tblData.get(i).get(7);
-					tableModel.addRow(row);
-				}
-				try {
-					Thread.sleep(100);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				jTable.updateUI();
-			}
-		});
-		vp.getContentPane().add(addUserBtn);
+		
 		
 		// back Button
 		JButton backBtn = new JButton("Back");
