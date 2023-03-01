@@ -345,8 +345,8 @@ public class TenMonthlyPayment extends PageUtils {
                 }
 
                 String uid = uuid.toString();
-                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-                DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+                DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
                 LocalDateTime now = LocalDateTime.now();
                 data.add(uid);
                 data.add(name);
