@@ -361,24 +361,26 @@ public class SecVisitorEntry extends PageUtils {
 					// read data from file
 					ArrayList<ArrayList<String>> compareData = crud.read("VisitorEntry.txt");
 					// check if entryId is the same as the value in compareData in position 0
-					//System.out.println(compareData);
+					boolean visitorExists = false;
 					for (int i = 0; i < compareData.size(); i++) {
-						if (compareData.get(i).get(0).equals(entryId)) {
-							System.out.println("Visitor already exist");
-							JOptionPane.showMessageDialog(null,"Visitor already exited");
-							//dont add data to file
-							break;
-						}else{
-							data.add(entryId);
-							data.add(name);
-							data.add(destination);		
-							data.add(contact);
-							data.add(ic);
-							data.add(date);
-							data.add(timeIn);
-							data.add(timeOut);
-							crud.create("VisitorEntry.txt", data);
-						}
+    					if (compareData.get(i).get(0).equals(entryId)) {
+        					System.out.println("Visitor already exists");
+        					JOptionPane.showMessageDialog(null,"Visitor already exists");
+        					visitorExists = true;
+        				break;
+    					}
+					}
+
+					if (!visitorExists) {
+   						data.add(entryId);
+    					data.add(name);
+    					data.add(destination);		
+    					data.add(contact);
+    					data.add(ic);
+    					data.add(date);
+    					data.add(timeIn);
+    					data.add(timeOut);
+    					crud.create("VisitorEntry.txt", data);
 					}
 				}
 
