@@ -472,12 +472,12 @@ public class TenMonthlyPayment extends PageUtils {
 
                 int a = jTable.getSelectedRow();
                 DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
-                String uuid = tableModel.getValueAt(i, 0).toString();
-                String name1 = tableModel.getValueAt(i, 1).toString();
-                String roomType = tableModel.getValueAt(i, 2).toString();
-                String roomPrice = tableModel.getValueAt(i, 3).toString();
-                String deposit = tableModel.getValueAt(i, 4).toString();
-                String total = tableModel.getValueAt(i, 5).toString();
+                String uuid = tableModel.getValueAt(0, 0).toString();
+                String name1 = tableModel.getValueAt(0, 1).toString();
+                String roomType = tableModel.getValueAt(0, 2).toString();
+                String roomPrice = tableModel.getValueAt(0, 3).toString();
+                String deposit = tableModel.getValueAt(0, 4).toString();
+                String total = tableModel.getValueAt(0, 5).toString();
 
                 String receipt = "\t\t<------------- Receipt ------------->\n";
                 String lblpaymentId = "\tPayment ID:";
@@ -486,7 +486,7 @@ public class TenMonthlyPayment extends PageUtils {
                 String lblRoomType = "\tRoom Type (" + roomType + ")\n";
                 String lblPrice = "\tRoom Price                    " + "\t\t\t          " + roomPrice + "\n";
                 String lblTotal = "\t---------------------------------------------------------------\n\tTotal Paid" + "\t\t\t                                 " + amount + "\n";
-                String lblPaymentDate = "\tPayment for " + month + " " + year + "\n";
+                String lblPaymentDate = "\tPayment for " + month + " / " + year + "\n";
                 String lblDate = "\tDate Paid " + dtf + "\n\t---------------------------------------------------------------" + "\n";
                 String lblThank = "\t                  Thank you for your payment\n";
                 JOptionPane.showMessageDialog(null, receipt + lblpaymentId + paymentId + lblName + lblRoomType + lblPrice + lblTotal + lblPaymentDate + lblDate + lblThank, "Receipt", JOptionPane.INFORMATION_MESSAGE);

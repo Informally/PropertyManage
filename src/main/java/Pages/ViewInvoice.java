@@ -65,12 +65,12 @@ public class ViewInvoice extends PageUtils {
 	 */
 	private void initialize() {
 		viewInvoice = new JFrame();
-		viewInvoice.setTitle("View Invoice");
+		viewInvoice.setTitle("Issue Invoice");
 		viewInvoice.setBounds(100, 100, 871, 622);
 		viewInvoice.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		viewInvoice.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("View Invoice");
+		JLabel lblNewLabel = new JLabel("Issue Invoice");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 5, 665, 40);
 		viewInvoice.getContentPane().add(lblNewLabel);
