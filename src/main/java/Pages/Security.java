@@ -106,17 +106,6 @@ public class Security extends PageUtils{
 		txtRole.setEditable(false);
 		SecPage.getContentPane().add(txtRole);
 
-		// Patrolling Schedule (Add this)
-		//JLabel lblPatrol = new JLabel("Contact: ");
-		//lblPatrol.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		//lblPatrol.setBounds(434, 123, 315, 42);
-		//SecPage.getContentPane().add(lblPatrol);
-
-		//JTextField txtPatrol = new JTextField();
-		//txtPatrol.setBounds(554, 123, 250, 42);
-                //txtPatrol.setBackground(Color.lightGray);
-		//txtPatrol.setEditable(false);
-		//SecPage.getContentPane().add(txtPatrol);
                 
                 // Patrol Day
 		JLabel lblPatrolDay = new JLabel("Patrol Day: ");
@@ -372,9 +361,13 @@ public class Security extends PageUtils{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				//if all fields are empty
+
+				// set PatrolDay to index -1
+				PatrolDay.setSelectedIndex(-1);
+				PatrolSchedule.setSelectedIndex(-1);
+				// //if all fields are empty
 				if (emid.isEmpty() && name.isEmpty() && role.isEmpty() && day.isEmpty() && schedule.isEmpty() && checkpoint.isEmpty()) {
-					JOptionPane.showMessageDialog(null,"Please select a Security Guard");
+				JOptionPane.showMessageDialog(null,"Please select a Security Guard");
 
 				} 
 				//else if all fields are not empty except for the checkpoint, day and schedule
