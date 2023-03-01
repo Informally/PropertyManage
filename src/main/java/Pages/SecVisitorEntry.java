@@ -192,6 +192,7 @@ public class SecVisitorEntry extends PageUtils {
 
 		JTable jTable1 = new JTable();
 		jTable1.setBounds(44, 323, 770, 150);
+		jTable1.setDefaultEditor(Object.class, null);
 		DefaultTableModel tableModel1 = (DefaultTableModel) jTable1.getModel();
 		tableModel1.setColumnIdentifiers(column1);
 		jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -244,6 +245,8 @@ public class SecVisitorEntry extends PageUtils {
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 483, 770, 150);
+		//set table to be uneditable
+		jTable.setDefaultEditor(Object.class, null);
 		DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 		tableModel.setColumnIdentifiers(column);
 		jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);

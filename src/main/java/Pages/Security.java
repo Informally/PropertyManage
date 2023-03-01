@@ -287,16 +287,26 @@ public class Security extends PageUtils{
 		calErrorText.setVisible(false);
 		SecPage.getContentPane().add(calErrorText);
 
-		
+		// Update Btn
+		JButton updateBtn = new JButton("Update");
+		updateBtn.setBounds(44, 620, 150, 42);
+		updateBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		updateBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		SecPage.getContentPane().add(updateBtn);
+
 		// Delete Btn
 		JButton deleteBtn = new JButton("Delete");
-		deleteBtn.setBounds(44, 620, 150, 42);
+		deleteBtn.setBounds(204, 620, 150, 42);
 		deleteBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		deleteBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-                                String emid = txtEMID.getText().trim();
+                String emid = txtEMID.getText().trim();
 				
 				crud.delete("Patrol.txt", emid, 0, "", 0);
                                 
@@ -374,7 +384,7 @@ public class Security extends PageUtils{
 				}
 
 				if (emid.isEmpty()) { // this means to prompt user to select an employee
-                                    JOptionPane.showMessageDialog(null,"Please select a Security Guard");
+                    JOptionPane.showMessageDialog(null,"Please select a Security Guard");
 					//String id = uuid.toString();
 					//data.add(id);
 					//data.add(name);
