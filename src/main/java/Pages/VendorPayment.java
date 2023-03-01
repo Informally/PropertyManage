@@ -198,6 +198,8 @@ public class VendorPayment extends PageUtils{
 
 		JTextField txtName = new JTextField();
 		txtName.setBounds(554, 273, 250, 42);
+                txtName.setBackground(Color.white);
+		txtName.setEditable(false);
 		vp.getContentPane().add(txtName);
                 
 		// Amount

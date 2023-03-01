@@ -162,22 +162,22 @@ public class ManageUserPayment extends PageUtils{
 		// Amount
 		JLabel lblAmount = new JLabel("Amount:   RM ");
 		lblAmount.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblAmount.setBounds(434, 173, 315, 42);
+		lblAmount.setBounds(434, 273, 315, 42);
 		mngPayment.getContentPane().add(lblAmount);
 
 		JTextField txtAmount = new JTextField();
-		txtAmount.setBounds(554, 173, 250, 42);
+		txtAmount.setBounds(554, 273, 250, 42);
 		mngPayment.getContentPane().add(txtAmount);
                 
                 // Name
                 JLabel lblName = new JLabel("Name:");
                 lblName.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-                lblName.setBounds(434, 273, 315, 42);
+                lblName.setBounds(434, 173, 315, 42);
                 mngPayment.getContentPane().add(lblName);
 
                 JTextField txtName = new JTextField();
-                txtName.setBounds(554, 273, 250, 42);
-                txtName.setBackground(Color.gray);
+                txtName.setBounds(554, 173, 250, 42);
+                txtName.setBackground(Color.white);
                 txtName.setEditable(false);
                 mngPayment.getContentPane().add(txtName);
 
@@ -317,7 +317,6 @@ public class ManageUserPayment extends PageUtils{
                                 String price = txtPrice.getText().trim();
                                 String out = txtOut.getText().trim();
                                 String roomType = txtRoomType.getText().trim();
-                                String deposit = txtDeposit.getText().trim();
                                 String year = txtYear.getText().trim();
                                 String amount = txtAmount.getText().trim();
 
@@ -348,7 +347,6 @@ public class ManageUserPayment extends PageUtils{
                                 dataReceipt.add(name);
                                 dataReceipt.add(roomType);
                                 dataReceipt.add(price);
-                                dataReceipt.add(deposit);
                                 dataReceipt.add(amount);
                                 dataReceipt.add(month);
                                 dataReceipt.add(year);
@@ -422,13 +420,13 @@ public class ManageUserPayment extends PageUtils{
                                 crud.update("MonthlyPaymentHistory.txt", uid, 0, "", 0, String.valueOf(amount), 4, "", 0);
 
 				// Clear text after update or add
-				txtUID.setText("");
+				 txtUID.setText("");
                                 txtMonth.setText("");
                                 txtPrice.setText("");
                                 txtRoomType.setText("");
-                                txtDeposit.setText("");
                                 txtYear.setText("");
                                 txtOut.setText("");
+                                txtName.setText("");
                                 txtAmount.setText("");
 
 				// Refresh the data in table
@@ -516,13 +514,13 @@ public class ManageUserPayment extends PageUtils{
 
                 String receipt = "\t\t<------------- Receipt ------------->\n";
                 String lblpaymentId = "\tPayment ID:";
-                String paymentId = uid + "\n\n\tDescription               Price\n\t---------------\t\t\t-----------------\n";
+                String paymentId = uid + "\n\n\tDescription                          Price(RM)\n\t---------------\t\t\t                            -----------------\n";
                 String lblName = "\tName (" + name + ")\n";
                 String lblRoomType = "\tRoom Type (" + roomType + ")\n";
-                String lblPrice = "\tRoom Price                    " + "\t\t\t" + roomPrice + "\n";
-                String lblDeposit = "\tRoom Deposit                    " + "\t\t" + deposit + "\n";
-                String lblTotal = "\t---------------------------------------------------------------\n\tTotal Paid " + "\t\t\t" + amount + "\n";
-                String lblPaymentDate = "\tPayment for " + month + "/" + year + "\n";
+                String lblPrice = "\tRoom Price                    " + "\t\t\t          " + roomPrice + "\n";
+                String lblDeposit = "\tRoom Deposit                    " + "\t\t           " + deposit + "\n";
+                String lblTotal = "\t---------------------------------------------------------------\n\tTotal Paid" + "\t\t\t                                 " + amount + "\n";
+                String lblPaymentDate = "\tPayment for " + month + " " + year + "\n";
                 String lblDate = "\tDate Paid " + dtf + "\n\t---------------------------------------------------------------" + "\n";
                 String lblThank = "\t                  Thank you for your payment\n";
                 JOptionPane.showMessageDialog(null, receipt + lblpaymentId + paymentId + lblName + lblRoomType + lblPrice + lblDeposit + lblTotal + lblPaymentDate + lblDate + lblThank, "Receipt", JOptionPane.INFORMATION_MESSAGE);
