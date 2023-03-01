@@ -29,9 +29,9 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class ResidentInvoiceStatement extends PageUtils{
+public class ViewOutStanding2 extends PageUtils {
 
-	public JFrame ris;
+	public JFrame viewOutStanding2;
 	public CRUD crud = new CRUD();
 	ArrayList<ArrayList<String>> tblData = new ArrayList<>();
 
@@ -43,8 +43,8 @@ public class ResidentInvoiceStatement extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ResidentInvoiceStatement window = new ResidentInvoiceStatement();
-					window.ris.setVisible(true);
+					ViewOutStanding2 window = new ViewOutStanding2();
+					window.viewOutStanding2.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -55,7 +55,7 @@ public class ResidentInvoiceStatement extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public ResidentInvoiceStatement() {
+	public ViewOutStanding2() {
 		initialize();
 	}
 
@@ -63,25 +63,24 @@ public class ResidentInvoiceStatement extends PageUtils{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		ris = new JFrame();
-		ris.setTitle("Resident Invoice & Statement");
-		ris.setBounds(100, 100, 871, 622);
-		ris.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		ris.getContentPane().setLayout(null);
+		viewOutStanding2 = new JFrame();
+		viewOutStanding2.setTitle("View Outstanding Fees Vendor");
+		viewOutStanding2.setBounds(100, 100, 871, 622);
+		viewOutStanding2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		viewOutStanding2.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Resident Invoice & Statement");
+		JLabel lblNewLabel = new JLabel("View Outstanding Fees Vendor");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
-		ris.getContentPane().add(lblNewLabel);
+		viewOutStanding2.getContentPane().add(lblNewLabel);
 
-		
-		
-
+	
+	
 		CRUD newCrud = new CRUD();
 		tblData.clear();
-		tblData = newCrud.read("ResidentInvoiceStatement.txt");
-		String rowPayment[] = new String[6];
-		String columnPayment[] = { "Id","Name", "Payment Type", "Detail", "Outstanding", "Date" };
+		tblData = newCrud.read("PaymentHistory.txt");
+		String rowPayment[] = new String[8];
+		String columnPayment[] = { "Id", "Name", "Outstanding", "Total Paid", "Month", "Year", "Payment ID", "Date"};
 
 		JTable jTablePayment = new JTable();
 		jTablePayment.setBounds(44, 73, 770, 100);
@@ -96,7 +95,9 @@ public class ResidentInvoiceStatement extends PageUtils{
 			rowPayment[2] = tblData.get(i).get(2);
 			rowPayment[3] = tblData.get(i).get(3);
 			rowPayment[4] = tblData.get(i).get(4);
-                        rowPayment[5] = tblData.get(i).get(5);
+			rowPayment[5] = tblData.get(i).get(5);
+			rowPayment[6] = tblData.get(i).get(6);
+                        rowPayment[7] = tblData.get(i).get(7);
 			tableModelPayment.addRow(rowPayment);
 
 		}
@@ -106,7 +107,7 @@ public class ResidentInvoiceStatement extends PageUtils{
 		JScrollPane scrollPayment = new JScrollPane(jTablePayment, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollPayment.setBounds(44, 73, 770, 100);
-		ris.getContentPane().add(scrollPayment);
+		viewOutStanding2.getContentPane().add(scrollPayment);
 		
 		
 		// Result Display
@@ -120,7 +121,7 @@ public class ResidentInvoiceStatement extends PageUtils{
 		JScrollPane scroll = new JScrollPane (textArea, 
 				   JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scroll.setBounds(44, 200, 770, 300);
-		ris.getContentPane().add(scroll);
+		viewOutStanding2.getContentPane().add(scroll);
 
 		ListSelectionModel selectPayment = jTablePayment.getSelectionModel();
 		selectPayment.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -128,27 +129,28 @@ public class ResidentInvoiceStatement extends PageUtils{
 			public void valueChanged(ListSelectionEvent e) {
 				int[] row = jTablePayment.getSelectedRows();
 				int columnNum = jTablePayment.getColumnCount();
-
+                                
 				if (row.length > 0) {
+                                
+                                String uid = jTablePayment.getValueAt(row[0], 0).toString();
+				String name = jTablePayment.getValueAt(row[0], 1).toString();
+				String out = jTablePayment.getValueAt(row[0], 2).toString();
+				String paid = jTablePayment.getValueAt(row[0], 3).toString();
+				String Month = jTablePayment.getValueAt(row[0], 4).toString();
+                                String Year = jTablePayment.getValueAt(row[0], 5).toString();
+				String dtf = jTablePayment.getValueAt(row[0], 7).toString();
 
-				String paymentID = (String) jTablePayment.getValueAt(row[0], 0);
-                                String name = (String) jTablePayment.getValueAt(row[0], 1);
-				String type = (String) jTablePayment.getValueAt(row[0], 2);
-				String type1 = (String) jTablePayment.getValueAt(row[0], 3);
-				String outstanding = (String) jTablePayment.getValueAt(row[0], 4);
-				String date = (String) jTablePayment.getValueAt(row[0], 5);
-
-
-				String report = "<-------- Invoice/Statement -------->\n\n";
+				String report = "<-------- Invoice for Outstanding payment -------->\n";
 					
-				report += "\nPayment Id: " + paymentID + "\n" + "Name: " + name + "\n" + "Payment Type: " + type + "\n" + "Detail: " + type1 + "\n" + "Outstanding: RM" + outstanding + "\n" + "Date: " + date + "\n----------------------\n";
-				textArea.setText(report);
+				report += "\n Payment ID: " + uid + "\n" + "Name: " + name + "\n" + "Outstanding: " + out + "\n" + "Total Paid: " + paid + "\n" + "Month: " + Month + "\n" + "Year: " + Year + "\n" + "Date: " + dtf + "\n----------------------\n";
+                                textArea.setText(report);
 
 				}
 				
 
 			}
 		});
+		
 		
 		// back Button
 		JButton backBtn = new JButton("Back");
@@ -158,15 +160,14 @@ public class ResidentInvoiceStatement extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ResidentPaymentHistoryMenu resPayHis = new ResidentPaymentHistoryMenu();
-				setOriginalFrame(ris);
-				setTargetedFrame(resPayHis.rphm);
+				AccountExecMenu acctmenu = new AccountExecMenu();
+				setOriginalFrame(viewOutStanding2);
+				setTargetedFrame(acctmenu.aem);
 				navigatePage();
 
 			}
 		});
-		ris.getContentPane().add(backBtn);
+		viewOutStanding2.getContentPane().add(backBtn);
 		
-
 	}
 }

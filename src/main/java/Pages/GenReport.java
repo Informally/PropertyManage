@@ -77,9 +77,12 @@ public class GenReport extends PageUtils {
 
 		JComboBox<String> reportTypeOptions = new JComboBox<>();
 		reportTypeOptions.setBounds(164, 73, 250, 42);
-		reportTypeOptions.addItem("Payment Report");
+		reportTypeOptions.addItem("Payment Report Resident/Tenant");
+                reportTypeOptions.addItem("Payment Report Vendor");
 		reportTypeOptions.addItem("User Report");
-		reportTypeOptions.addItem("Debt Report");
+		reportTypeOptions.addItem("Patrolling Report");
+                reportTypeOptions.addItem("Complaint Report");
+                reportTypeOptions.addItem("Job Report");
 		genReport.getContentPane().add(reportTypeOptions);
 
 		// Result Display
@@ -97,18 +100,31 @@ public class GenReport extends PageUtils {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
 				switch ((String) reportTypeOptions.getSelectedItem()) {
-				case "Payment Report":
-					ArrayList<ArrayList<String>> paymentdata = crud.read("Payment.txt");
+				case "Payment Report Resident/Tenant":
+					ArrayList<ArrayList<String>> paymentdata = crud.read("MonthlyPaymentHistory.txt");
 
-					String paymentreport = "<----- Payment Report ----->\n";
+					String paymentreport = "<----- Payment Report Resident/Tenant ----->\n";
 
 					for (ArrayList<String> row : paymentdata) {
-						paymentreport += "\nPayment Id: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Detail: " + row.get(2) + "\n" + "Payment: RM" + row.get(3) + "\n" + "Role: " + row.get(4) + "\n"+ "Date: " + row.get(6) + "\n----------------------\n";
+						paymentreport += "\nPayment Id: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Room Type: " + row.get(2) + "\n" + "Outstanding: RM" + row.get(3) + "\n" + "Total Paid: RM " + row.get(4) + "\n"+ "Date: " + row.get(8) + "\n----------------------\n";
 
 
 					}
 
 					textArea.setText(paymentreport);
+					break;
+                                case "Payment Report Vendor":
+					ArrayList<ArrayList<String>> paymentdata2 = crud.read("PaymentHistory.txt");
+
+					String paymentreport2 = "<----- Payment Report Vendor ----->\n";
+
+					for (ArrayList<String> row : paymentdata2) {
+						paymentreport2 += "\nPayment Id: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Outstanding: RM " + row.get(2) + "\n" + "Total Paid: RM " + row.get(3) + "\n" + "Month: " + row.get(4) + "\n"+ "\n----------------------\n";
+
+
+					}
+
+					textArea.setText(paymentreport2);
 					break;
 				case "User Report":
 					ArrayList<ArrayList<String>> userdata = crud.read("User.txt");
@@ -124,17 +140,74 @@ public class GenReport extends PageUtils {
 
 					textArea.setText(userreport);
 					break;
-				case "Debt Report":
-					ArrayList<ArrayList<String>> debtdata = crud.read("Debt.txt");
+				case "Patrolling Report":
+					ArrayList<ArrayList<String>> patroldata = crud.read("Patrol.txt");
 
-					String debtreport = "<----- Outstanding fees Report ----->\n";
+					String patrolreport = "<---------- Patrolling Report ---------->\n";
 
-					for (ArrayList<String> row : debtdata) {
-						debtreport += "\n Debt Id: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Detail: " + row.get(2) + "\n" + "Debt: RM" + row.get(3) + "\n" + "Role: " + row.get(4) + "\n----------------------\n";
+					for (ArrayList<String> row : patroldata) {
+						patrolreport += "\nEmployee Id: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Job Role: " + row.get(2) + "\n" + "Patrol Day: " + row.get(3) + "\n" + "Patrol Schedule: " + row.get(4) + "\n"+ "Checkpoint: " + row.get(5) + "\n----------------------\n";
+
 
 					}
 
-					textArea.setText(debtreport);
+					textArea.setText(patrolreport);
+					break;
+                                case "Complaint Report":
+					ArrayList<ArrayList<String>> residentdata = crud.read("ResidentComplaint.txt");
+                                       
+					String complaintreport = "<---------- Resident Complaint Report ---------->\n";
+                                        
+
+					for (ArrayList<String> row : residentdata) {
+						complaintreport += "\nNo.: " + row.get(0) + "\n" + "User: " + row.get(1) + "\n" + "Name: "
+								+ row.get(2) + "\n" + "Email: " + row.get(3) + "\n" + "Contact: " + row.get(4) 
+                                                                + "\n" + "Status: " + row.get(5) + "\n"+ "Date: " + row.get(6) + "\n" + "Subject: " 
+                                                                + row.get(7) + "\n"+ "Detail: " + row.get(8) +"\n----------------------\n";
+                                                
+
+					}
+
+					//textArea.setText(complaintreport);
+					//break;
+                                        
+                                        ArrayList<ArrayList<String>> vendordata = crud.read("VendorComplaint.txt");
+                                                String complaintreport2 = "\n<---------- Vendor Complaint Report ---------->\n";
+                                        
+
+                                                for (ArrayList<String> row2 : vendordata) {
+						complaintreport2 += "\nNo.: " + row2.get(0) + "\n" + "User: " + row2.get(1) + "\n" + "Name: "
+								+ row2.get(2) + "\n" + "Email: " + row2.get(3) + "\n" + "Contact: " + row2.get(4) 
+                                                                + "\n" + "Status: " + row2.get(5) + "\n"+ "Date: " + row2.get(6) + "\n" + "Subject: " 
+                                                                + row2.get(7) + "\n"+ "Detail: " + row2.get(8) +"\n----------------------\n";
+
+					}
+                                                
+                                        ArrayList<ArrayList<String>> adminExdata = crud.read("AdminExComplaint.txt");
+                                                String complaintreport3 = "\n<---------- Admin Executive Complaint Report ---------->\n";
+                                        
+
+                                                for (ArrayList<String> row3 : adminExdata) {
+						complaintreport3 += "\nNo.: " + row3.get(0) + "\n" + "User: " + row3.get(1) + "\n" + "Name: "
+								+ row3.get(2) + "\n" + "Email: " + row3.get(3) + "\n" + "Contact: " + row3.get(4) 
+                                                                + "\n" + "Status: " + row3.get(5) + "\n"+ "Date: " + row3.get(6) + "\n" + "Subject: " 
+                                                                + row3.get(7) + "\n"+ "Detail: " + row3.get(8) +"\n----------------------\n";
+
+					}
+
+					textArea.setText(complaintreport + complaintreport2 + complaintreport3);
+					break;
+                                case "Job Report":
+					ArrayList<ArrayList<String>> jobdata = crud.read("Employee.txt");
+
+					String jobreport = "<---------- Employees Job Report ----------->\n";
+
+					for (ArrayList<String> row : jobdata) {
+						jobreport += "\nEmployee Id: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Email: " + row.get(2) + "\n" + "Contact: " + row.get(3) + "\n" + "Age: " + row.get(4) + "\n" + "Job Role: " + row.get(5) +"\n----------------------\n";
+
+					}
+
+					textArea.setText(jobreport);
 					break;
 				}
 

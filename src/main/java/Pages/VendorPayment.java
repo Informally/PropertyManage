@@ -487,11 +487,11 @@ public class VendorPayment extends PageUtils{
 
 				String receipt = "\t\t<------------- Receipt ------------->\n";
 				String lblpaymentId = "\tPayment ID: ";
-				String paymentId = uid + "\n\n\tDescription           Price\n\t---------------\t\t\t---------------------\n";
-				String lblName = "\tName                    " + "\t\t\t" + name + "\n";
-                                String lblRental = "\tRental                    " + "\t\t\t" + rental + "\n";
-				String lblUtilities = "\tUtilities                    " + "\t\t\t" + utilities + "\n";
-				String lblServices = "\tServices                    " + "\t\t\t" + services + "\n";
+				String paymentId = uid + "\n\n\tDescription                Price\n\t---------------\t\t\t                 ---------------------\n";
+				String lblName = "\tName                    " + "\t\t\t       " + name + "\n";
+                                String lblRental = "\tRental                    " + "\t\t\t      " + rental + "\n";
+				String lblUtilities = "\tUtilities                    " + "\t\t\t    " + utilities + "\n";
+				String lblServices = "\tServices                    " + "\t\t\t  " + services + "\n";
 				String lblTotal = "\t---------------------------------------------------------------\n\tTotal Paid:                    " + "\t\t\t" + amount + "\n";
 				String lblPaymentDate = "\tPayment for: " + month + " " + year + "\n";
 				String lblDate = "\tDate Paid: " + dtf + "\n\t---------------------------------------------------------------" + "\n";

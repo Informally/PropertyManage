@@ -168,6 +168,18 @@ public class ManageUserPayment extends PageUtils{
 		JTextField txtAmount = new JTextField();
 		txtAmount.setBounds(554, 173, 250, 42);
 		mngPayment.getContentPane().add(txtAmount);
+                
+                // Name
+                JLabel lblName = new JLabel("Name:");
+                lblName.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+                lblName.setBounds(434, 273, 315, 42);
+                mngPayment.getContentPane().add(lblName);
+
+                JTextField txtName = new JTextField();
+                txtName.setBounds(554, 273, 250, 42);
+                txtName.setBackground(Color.gray);
+                txtName.setEditable(false);
+                mngPayment.getContentPane().add(txtName);
 
 		// Error text
 		JLabel errorText = new JLabel();
@@ -179,8 +191,8 @@ public class ManageUserPayment extends PageUtils{
 
 		// Result Display
 		tblData = crud.read("MonthlyPayment.txt");
-		String row[] = new String[6];
-		String column[] = { "Room Id", "Room Type", "Room Price", "Total", "Month", "Year" };
+		String row[] = new String[7];
+		String column[] = { "Room Id","Name" , "Room Type", "Room Price", "Outstanding", "Month", "Year"};
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 323, 770, 100);
@@ -194,6 +206,7 @@ public class ManageUserPayment extends PageUtils{
 			row[3] = tblData.get(i).get(3);
 			row[4] = tblData.get(i).get(4);
 			row[5] = tblData.get(i).get(5);
+                        row[6] = tblData.get(i).get(6);
 			tableModel.addRow(row);
 
 		}
@@ -208,11 +221,12 @@ public class ManageUserPayment extends PageUtils{
 
 				if (row.length > 0) {
 					txtUID.setText((String) jTable.getValueAt(row[0], 0));
-					txtRoomType.setText((String) jTable.getValueAt(row[0], 1));
-					txtPrice.setText((String) jTable.getValueAt(row[0], 2));
-                                        txtOut.setText((String) jTable.getValueAt(row[0], 3));
-					txtMonth.setText((String) jTable.getValueAt(row[0], 4));
-					txtYear.setText((String) jTable.getValueAt(row[0], 5));
+                                        txtName.setText((String) jTable.getValueAt(row[0], 1));
+                                        txtRoomType.setText((String) jTable.getValueAt(row[0], 2));
+                                        txtPrice.setText((String) jTable.getValueAt(row[0], 3));
+                                        txtOut.setText((String) jTable.getValueAt(row[0], 4));
+                                        txtMonth.setText((String) jTable.getValueAt(row[0], 5));
+                                        txtYear.setText((String) jTable.getValueAt(row[0], 6));
 				}
 
 			}
@@ -226,8 +240,8 @@ public class ManageUserPayment extends PageUtils{
 		// Payment Display
 		CRUD newCrud = new CRUD();
 		tblDataHistory = newCrud.read("MonthlyPaymentHistory.txt");
-		String rowPayment[] = new String[7];
-		String columnPayment[] = { "Id","Outstanding", "Total Paid", "Month", "Year", "Payment ID", "Date" };
+		String rowPayment[] = new String[9];
+		String columnPayment[] = { "Id" , "Name" ,"Room Type" , "Outstanding", "Total Paid", "Month", "Year", "Payment ID", "Date" };
 
 		JTable jTablePayment = new JTable();
 		jTablePayment.setBounds(44, 423, 770, 100);
@@ -239,12 +253,14 @@ public class ManageUserPayment extends PageUtils{
 
 		for (int i = 0; i < tblDataHistory.size(); i++) {
 			rowPayment[0] = tblDataHistory.get(i).get(0);
-			rowPayment[1] = tblDataHistory.get(i).get(1);
-			rowPayment[2] = tblDataHistory.get(i).get(2);
-			rowPayment[3] = tblDataHistory.get(i).get(3);
-			rowPayment[4] = tblDataHistory.get(i).get(4);
-			rowPayment[5] = tblDataHistory.get(i).get(5);
-			rowPayment[6] = tblDataHistory.get(i).get(6);
+                        rowPayment[1] = tblDataHistory.get(i).get(1);
+                        rowPayment[2] = tblDataHistory.get(i).get(2);
+                        rowPayment[3] = tblDataHistory.get(i).get(3);
+                        rowPayment[4] = tblDataHistory.get(i).get(4);
+                        rowPayment[5] = tblDataHistory.get(i).get(5);
+                        rowPayment[6] = tblDataHistory.get(i).get(6);
+                        rowPayment[7] = tblDataHistory.get(i).get(7);
+                        rowPayment[8] = tblDataHistory.get(i).get(8);
 			tableModelPayment.addRow(rowPayment);
 
 		}
@@ -296,13 +312,14 @@ public class ManageUserPayment extends PageUtils{
 				UUID uuid = UUID.randomUUID();
 
 				String userID = txtUID.getText().trim();
-				String month = txtMonth.getText().trim();
-				String price = txtPrice.getText().trim();
-				String out = txtOut.getText().trim();
-				String roomType = txtRoomType.getText().trim();
-				String deposit = txtDeposit.getText().trim();
-				String year = txtYear.getText().trim();
-				String amount = txtAmount.getText().trim();
+                                String name = txtName.getText().trim();
+                                String month = txtMonth.getText().trim();
+                                String price = txtPrice.getText().trim();
+                                String out = txtOut.getText().trim();
+                                String roomType = txtRoomType.getText().trim();
+                                String deposit = txtDeposit.getText().trim();
+                                String year = txtYear.getText().trim();
+                                String amount = txtAmount.getText().trim();
 
 				ArrayList<String> data = new ArrayList<>();
                                 ArrayList<String> dataReceipt = new ArrayList<>();
@@ -318,21 +335,24 @@ public class ManageUserPayment extends PageUtils{
 				DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 				LocalDateTime now = LocalDateTime.now();
 				data.add(uid);
-				data.add(out);
-				data.add(amount);
-				data.add(month);
-				data.add(year);
-				data.add(userID);
-				data.add(dtf.format(now));
-                                
+                                data.add(name);
+                                data.add(roomType);
+                                data.add(out);
+                                data.add(amount);
+                                data.add(month);
+                                data.add(year);
+                                data.add(userID);
+                                data.add(dtf.format(now));
+
                                 dataReceipt.add(uid);
-				dataReceipt.add(roomType);
-				dataReceipt.add(price);
-				dataReceipt.add(deposit);
-				dataReceipt.add(amount);
-				dataReceipt.add(month);
-				dataReceipt.add(year);
-				dataReceipt.add(dtf.format(now));
+                                dataReceipt.add(name);
+                                dataReceipt.add(roomType);
+                                dataReceipt.add(price);
+                                dataReceipt.add(deposit);
+                                dataReceipt.add(amount);
+                                dataReceipt.add(month);
+                                dataReceipt.add(year);
+                                dataReceipt.add(dtf.format(now));
                                 
 				/*CRUD crudCard = new CRUD();
 				tblCard = crudCard.read("Card.txt");
@@ -392,27 +412,24 @@ public class ManageUserPayment extends PageUtils{
 
 				crud.create("MonthlyPaymentHistory.txt", data);
                                 crud.create("MonthlyReceipt.txt", dataReceipt);
-				//crud.create("RoomReceipt.txt", dataReceipt);
-				//crud.create("MonthlyPayment.txt", dataMonthly);
-				// Update the debt value
-				int totalDebt = Integer.parseInt(out) - Integer.parseInt(amount);
-				crud.update("MonthlyPayment.txt", userID, 0, "", 0, String.valueOf(totalDebt), 3, "", 0);
-                                crud.update("ResidentInvoiceStatement.txt", userID, 0, "", 0, String.valueOf(totalDebt), 3, "", 0);
-				//crud.update("VendorStatement.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
-				//crud.update("VendorInvoice.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
-				crud.update("MonthlyPaymentHistory.txt", uid, 0,"", 0, String.valueOf(totalDebt), 1, "", 0);
-				crud.update("MonthlyPaymentHistory.txt", uid, 0,"", 0, String.valueOf(amount), 2, "", 0);
-                                crud.update("ResidentInvoiceStatement.txt", userID, 0,"", 0, String.valueOf(totalDebt), 3, "", 0);
+
+                                // Update the debt value
+                                int totalDebt = Integer.parseInt(out) - Integer.parseInt(amount);
+                                crud.update("MonthlyPayment.txt", userID, 0, "", 0, String.valueOf(totalDebt), 4, "", 0);
+                                crud.update("ResidentInvoiceStatement.txt", userID, 0, "", 0, String.valueOf(totalDebt), 4, "", 0);
+
+                                crud.update("MonthlyPaymentHistory.txt", uid, 0, "", 0, String.valueOf(totalDebt), 3, "", 0);
+                                crud.update("MonthlyPaymentHistory.txt", uid, 0, "", 0, String.valueOf(amount), 4, "", 0);
 
 				// Clear text after update or add
 				txtUID.setText("");
-				txtMonth.setText("");
-				txtPrice.setText("");
-				txtRoomType.setText("");
-				txtDeposit.setText("");
-				txtYear.setText("");
-				txtOut.setText("");
-				txtAmount.setText("");
+                                txtMonth.setText("");
+                                txtPrice.setText("");
+                                txtRoomType.setText("");
+                                txtDeposit.setText("");
+                                txtYear.setText("");
+                                txtOut.setText("");
+                                txtAmount.setText("");
 
 				// Refresh the data in table
 				tblData = crud.read("MonthlyPayment.txt");
@@ -428,6 +445,7 @@ public class ManageUserPayment extends PageUtils{
 					row[3] = tblData.get(i).get(3);
 					row[4] = tblData.get(i).get(4);
 					row[5] = tblData.get(i).get(5);
+                                        row[6] = tblData.get(i).get(6);
 					tableModel.addRow(row);
 				}
 				try {
@@ -452,6 +470,8 @@ public class ManageUserPayment extends PageUtils{
 					rowPayment[4] = tblDataHistory.get(i).get(4);
 					rowPayment[5] = tblDataHistory.get(i).get(5);
 					rowPayment[6] = tblDataHistory.get(i).get(6);
+                                        rowPayment[7] = tblDataHistory.get(i).get(7);
+                                        rowPayment[8] = tblDataHistory.get(i).get(8);
 					tableModelPayment.addRow(rowPayment);
 
 				}
@@ -474,41 +494,38 @@ public class ManageUserPayment extends PageUtils{
 		viewReceiptBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				int i = jTablePayment.getSelectedRow();
-				DefaultTableModel tableModelPayment = (DefaultTableModel) jTablePayment.getModel();
-				String uid = tableModelPayment.getValueAt(i, 0).toString();
-				String out = tableModelPayment.getValueAt(i, 1).toString();
-				String amount = tableModelPayment.getValueAt(i, 2).toString();
-				String month = tableModelPayment.getValueAt(i, 3).toString();
-				String year = tableModelPayment.getValueAt(i, 4).toString();
-				String userID = tableModelPayment.getValueAt(i, 5).toString();
-				String dtf = tableModelPayment.getValueAt(i, 6).toString();
-				
-				int a = jTable.getSelectedRow();
-				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
-				String uuid = tableModel.getValueAt(0, 0).toString();
-				String roomType = tableModel.getValueAt(0, 1).toString();
-				String roomPrice = tableModel.getValueAt(0, 2).toString();
-				String deposit = tableModel.getValueAt(0, 3).toString();
-				String total = tableModel.getValueAt(0, 4).toString();
-				
-				/* Receipt Display
-				JTextArea textArea = new JTextArea();
-				textArea.setLineWrap(true);
-				textArea.setEditable(false);
-				textArea.setBounds(844, 70, 420, 500);
-				mngPayment.getContentPane().add(textArea);*/
+		DefaultTableModel tableModelPayment = (DefaultTableModel) jTablePayment.getModel();
+		String uid = tableModelPayment.getValueAt(i, 0).toString();
+                String name = tableModelPayment.getValueAt(i, 1).toString();
+                String roomType2 = tableModelPayment.getValueAt(i, 2).toString();
+                String out = tableModelPayment.getValueAt(i, 3).toString();
+                String amount = tableModelPayment.getValueAt(i, 4).toString();
+                String month = tableModelPayment.getValueAt(i, 5).toString();
+                String year = tableModelPayment.getValueAt(i, 6).toString();
+                String userID = tableModelPayment.getValueAt(i, 7).toString();
+                String dtf = tableModelPayment.getValueAt(i, 8).toString();
 
-				String receipt = "\t\t<----- Receipt ----->\n";
-				String lblpaymentId = "\tPayment ID:";
-				String paymentId = uid + "\n\n\tDescription \t\t\tPrice\n\t---------------\t\t\t-------\n";
-				String lblRoomType = "\tRoom Type ("+ roomType + ")\n";
-				String lblPrice = "\tRoom Price " + "\t\t\t" + roomPrice + "\n";
-				String lblDeposit = "\tRoom Deposit " + "\t\t" + deposit + "\n";
-				String lblTotal = "\t---------------------------------------------------------------\n\tTotal Paid " + "\t\t\t" + amount + "\n";
-				String lblPaymentDate = "\tPayment for " + month + "/" + year + "\n";
-				String lblDate = "\tDate Paid " + dtf + "\n\t---------------------------------------------------------------" + "\n";
-				String lblThank = "\t                  Thank you for your payment\n";
-				JOptionPane.showMessageDialog(null, receipt + lblpaymentId + paymentId + lblRoomType + lblPrice + lblDeposit + lblTotal + lblPaymentDate + lblDate + lblThank, "Receipt", JOptionPane.INFORMATION_MESSAGE);
+                int a = jTable.getSelectedRow();
+                DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
+                String uuid = tableModel.getValueAt(0, 0).toString();
+                String name1 = tableModel.getValueAt(0, 1).toString();
+                String roomType = tableModel.getValueAt(0, 2).toString();
+                String roomPrice = tableModel.getValueAt(0, 3).toString();
+                String deposit = tableModel.getValueAt(0, 4).toString();
+                String total = tableModel.getValueAt(0, 5).toString();
+
+                String receipt = "\t\t<------------- Receipt ------------->\n";
+                String lblpaymentId = "\tPayment ID:";
+                String paymentId = uid + "\n\n\tDescription               Price\n\t---------------\t\t\t-----------------\n";
+                String lblName = "\tName (" + name + ")\n";
+                String lblRoomType = "\tRoom Type (" + roomType + ")\n";
+                String lblPrice = "\tRoom Price                    " + "\t\t\t" + roomPrice + "\n";
+                String lblDeposit = "\tRoom Deposit                    " + "\t\t" + deposit + "\n";
+                String lblTotal = "\t---------------------------------------------------------------\n\tTotal Paid " + "\t\t\t" + amount + "\n";
+                String lblPaymentDate = "\tPayment for " + month + "/" + year + "\n";
+                String lblDate = "\tDate Paid " + dtf + "\n\t---------------------------------------------------------------" + "\n";
+                String lblThank = "\t                  Thank you for your payment\n";
+                JOptionPane.showMessageDialog(null, receipt + lblpaymentId + paymentId + lblName + lblRoomType + lblPrice + lblDeposit + lblTotal + lblPaymentDate + lblDate + lblThank, "Receipt", JOptionPane.INFORMATION_MESSAGE);
 				
 			}
 		});
