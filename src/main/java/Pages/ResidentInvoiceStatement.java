@@ -81,7 +81,7 @@ public class ResidentInvoiceStatement extends PageUtils{
 		tblData.clear();
 		tblData = newCrud.read("ResidentInvoiceStatement.txt");
 		String rowPayment[] = new String[6];
-		String columnPayment[] = { "Id","Name", "Payment Type", "Type", "Outstanding", "Date" };
+		String columnPayment[] = { "Id","Name", "Payment Type", "Detail", "Outstanding", "Date" };
 
 		JTable jTablePayment = new JTable();
 		jTablePayment.setBounds(44, 73, 770, 100);
@@ -141,7 +141,7 @@ public class ResidentInvoiceStatement extends PageUtils{
 
 				String report = "<-------- Invoice/Statement -------->\n\n";
 					
-				report += "\nPayment Id: " + paymentID + "\n" + "Name: " + name + "\n" + "Payment Type: " + type + "\n" + "Type: " + type1 + "\n" + "Outstanding: RM" + outstanding + "\n" + "Date: " + date + "\n----------------------\n";
+				report += "\nPayment Id: " + paymentID + "\n" + "Name: " + name + "\n" + "Payment Type: " + type + "\n" + "Detail: " + type1 + "\n" + "Outstanding: RM" + outstanding + "\n" + "Date: " + date + "\n----------------------\n";
 				textArea.setText(report);
 
 				}
