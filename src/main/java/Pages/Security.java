@@ -188,6 +188,8 @@ public class Security extends PageUtils{
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 273, 900, 100);
+				//set jTabl1 to be uneditable
+				jTable.setDefaultEditor(Object.class, null);
 		DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 		tableModel.setColumnIdentifiers(column);
 		jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -219,6 +221,7 @@ public class Security extends PageUtils{
 					txtRole.setText((String) jTable.getValueAt(row[0], 5));
                     PatrolDay.setSelectedIndex(-1);
                     PatrolSchedule.setSelectedIndex(-1);
+					txtCheck.setText("");
 				}
 			}
 		});
@@ -235,6 +238,8 @@ public class Security extends PageUtils{
 
 		JTable jTable1 = new JTable();
 		jTable1.setBounds(44, 400, 900, 200);
+		//set jTabl1 to be uneditable
+		jTable1.setDefaultEditor(Object.class, null);
 		DefaultTableModel tableModel1 = (DefaultTableModel) jTable1.getModel();
 		tableModel1.setColumnIdentifiers(column1);
 		jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -264,7 +269,7 @@ public class Security extends PageUtils{
 					txtRole.setText((String) jTable1.getValueAt(row1[0], 2));
 					PatrolDay.setSelectedItem((String) jTable1.getValueAt(row1[0], 3));
 					PatrolSchedule.setSelectedItem((String) jTable1.getValueAt(row1[0], 4));
-					txtCheck.setText((String) jTable.getValueAt(row1[0], 5));
+					txtCheck.setText((String) jTable1.getValueAt(row1[0], 5));
 				}
 			}
 		});
@@ -381,17 +386,16 @@ public class Security extends PageUtils{
 					//crud.create("Employee.txt", data);
 
 				} 
-                                else { // this means update data
+                else { // this means update data
 					data.add(emid);
 					data.add(name);
 					data.add(role);
 					data.add(day);
 					data.add(schedule);
 					data.add(checkpoint);
-                                        crud.create("Patrol.txt", data);
+                    crud.create("Patrol.txt", data);
 					crud.updateRow("Patrol.txt", emid, 0, "", 0, data);
-				} 
-                                
+				}              
          
 				// Clear text after update or add
 				txtEMID.setText("");

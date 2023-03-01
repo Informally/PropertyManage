@@ -9,6 +9,7 @@ import java.awt.EventQueue;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
@@ -224,6 +225,7 @@ public class SecVisitorEntry extends PageUtils {
 					txtOwnerContact.setText((String) jTable1.getValueAt(row1[0], 5));
 					txtDate.setText((String) jTable1.getValueAt(row1[0], 6));
 					txtTimeIn.setText((String) jTable1.getValueAt(row1[0], 7));
+					txtTimeOut.setText("");
 				}
 
 			}
@@ -338,20 +340,34 @@ public class SecVisitorEntry extends PageUtils {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-				
-				if (entryId.isEmpty()) { // this means new data is added
-				String uid = uuid.toString();
-				data.add(uid);
-				data.add(name);
-				data.add(destination);
-				data.add(contact);
-				data.add(ic);
-				data.add(date);
-				data.add(timeIn);
-				data.add(timeOut);
+				//if all fields are empty
+				if (entryId.isEmpty() && name.isEmpty() && destination.isEmpty() && contact.isEmpty() && ic.isEmpty() && date.isEmpty() && timeIn.isEmpty() && timeOut.isEmpty()) {
+					JOptionPane.showMessageDialog(null,"Please select a Visitor Pass");
+				// String uid = uuid.toString();
+				// data.add(entryId);
+				// data.add(name);
+				// data.add(destination);
+				// data.add(contact);
+				// data.add(ic);
+				// data.add(date);
+				// data.add(timeIn);
+				// data.add(timeOut);
 
-				crud.create("VisitorEntry.txt", data);
-				}else {// this means update data
+				// crud.create("VisitorEntry.txt", data);
+				}
+				//if all fields are not empty except timeOut
+				else if (!entryId.isEmpty() && !name.isEmpty() && !destination.isEmpty() && !contact.isEmpty() && !ic.isEmpty() && !date.isEmpty() && !timeIn.isEmpty() && timeOut.isEmpty()) {
+					data.add(entryId);
+					data.add(name);
+					data.add(destination);
+					data.add(contact);
+					data.add(ic);
+					data.add(date);
+					data.add(timeIn);
+					data.add(timeOut);
+					crud.create("VisitorEntry.txt", data);
+				}
+				else {// this means update data
 					data.add(entryId);
 					data.add(name);
 					data.add(destination);		
@@ -362,6 +378,9 @@ public class SecVisitorEntry extends PageUtils {
 					data.add(timeOut);
 					crud.updateRow("VisitorEntry.txt", entryId, 0, "", 0, data);
 				}
+
+
+
 
 				// Clear text after update or add
 				txtUID.setText("");
