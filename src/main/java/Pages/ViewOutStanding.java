@@ -64,12 +64,12 @@ public class ViewOutStanding extends PageUtils {
 	 */
 	private void initialize() {
 		viewOutStanding = new JFrame();
-		viewOutStanding.setTitle("View Outstanding Fees");
+		viewOutStanding.setTitle("View Outstanding Fees Resident/Tenant");
 		viewOutStanding.setBounds(100, 100, 871, 622);
 		viewOutStanding.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		viewOutStanding.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("View Outstanding Fees");
+		JLabel lblNewLabel = new JLabel("View Outstanding Fees Resident/Tenant");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		viewOutStanding.getContentPane().add(lblNewLabel);
@@ -79,8 +79,8 @@ public class ViewOutStanding extends PageUtils {
 		CRUD newCrud = new CRUD();
 		tblData.clear();
 		tblData = newCrud.read("MonthlyPaymentHistory.txt");
-		String rowPayment[] = new String[7];
-		String columnPayment[] = { "Id","Outstanding", "Total Paid", "Month", "Year", "Payment ID", "Date"};
+		String rowPayment[] = new String[9];
+		String columnPayment[] = { "Id","Name" ,"Room Type" , "Outstanding", "Total Paid", "Month", "Year", "Payment ID", "Date"};
 
 		JTable jTablePayment = new JTable();
 		jTablePayment.setBounds(44, 73, 770, 100);
@@ -97,6 +97,8 @@ public class ViewOutStanding extends PageUtils {
 			rowPayment[4] = tblData.get(i).get(4);
 			rowPayment[5] = tblData.get(i).get(5);
 			rowPayment[6] = tblData.get(i).get(6);
+                        rowPayment[7] = tblData.get(i).get(7);
+                        rowPayment[8] = tblData.get(i).get(8);
 			tableModelPayment.addRow(rowPayment);
 
 		}
@@ -131,17 +133,17 @@ public class ViewOutStanding extends PageUtils {
                                 
 				if (row.length > 0) {
                                 
-				String uid = jTablePayment.getValueAt(row[0], 0).toString();
-				String out = jTablePayment.getValueAt(row[0], 1).toString();
-				String amount = jTablePayment.getValueAt(row[0], 2).toString();
-				String month = jTablePayment.getValueAt(row[0], 3).toString();
-				String year = jTablePayment.getValueAt(row[0], 4).toString();
-				String userID = jTablePayment.getValueAt(row[0], 5).toString();
+                                String uid = jTablePayment.getValueAt(row[0], 0).toString();
+				String name = jTablePayment.getValueAt(row[0], 1).toString();
+				String roomType = jTablePayment.getValueAt(row[0], 2).toString();
+				String out = jTablePayment.getValueAt(row[0], 3).toString();
+				String paid = jTablePayment.getValueAt(row[0], 4).toString();
+				String Month = jTablePayment.getValueAt(row[0], 5).toString();
 				String dtf = jTablePayment.getValueAt(row[0], 6).toString();
 
 				String report = "<-------- Invoice for Outstanding payment -------->\n";
 					
-				report += "\n Payment ID: " + uid + "\n" + "Outstanding: " + out + "\n" + "Total Paid: " + amount + "\n" + "Month: " + month + "\n" + "Year: " + year + "\n" + "User ID: " + userID + "\n" + "Date: " + dtf + "\n----------------------\n";
+				report += "\n Payment ID: " + uid + "\n" + "Name: " + name + "\n" + "Room Type: " + roomType + "\n" + "Outstanding: " + out + "\n" + "Total Paid: " + paid + "\n" + "Month: " + Month + "\n" + "Date: " + dtf + "\n----------------------\n";
                                 textArea.setText(report);
 
 				}

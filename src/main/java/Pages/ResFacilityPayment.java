@@ -510,7 +510,7 @@ public class ResFacilityPayment extends PageUtils{
 				
 				String receipt = "\t\t<----- Receipt ----->\n";
 				String lblpaymentId = "\tPayment ID:";
-				String paymentId = uid + "\n\n\tDescription\t\t\tPrice\n\t---------------\t\t\t-------\n";
+				String paymentId = uid + "\n\n\tDescription\t\t\tPrice(RM)\n\t---------------\t\t\t-------\n";
                                 String lblName = "\tName ("+ name + ")\n";
 				String lblFacilityType = "\tFacility Type ("+ roomType + ")\n";
 				String lblPrice = "\tFacility Price" + "\t\t\t" + roomPrice + "\n";
