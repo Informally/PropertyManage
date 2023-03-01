@@ -615,4 +615,8 @@ public class CRUD {
             System.out.println("File is deleted");
         }
     }
+
+    public boolean search(String string, String entryId, int i) {
+        return false;
+    }
 }

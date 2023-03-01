@@ -343,31 +343,31 @@ public class SecVisitorEntry extends PageUtils {
 				//if all fields are empty
 				if (entryId.isEmpty() && name.isEmpty() && destination.isEmpty() && contact.isEmpty() && ic.isEmpty() && date.isEmpty() && timeIn.isEmpty() && timeOut.isEmpty()) {
 					JOptionPane.showMessageDialog(null,"Please select a Visitor Pass");
-				// String uid = uuid.toString();
-				// data.add(entryId);
-				// data.add(name);
-				// data.add(destination);
-				// data.add(contact);
-				// data.add(ic);
-				// data.add(date);
-				// data.add(timeIn);
-				// data.add(timeOut);
 
-				// crud.create("VisitorEntry.txt", data);
 				}
 				//if all fields are not empty except timeOut
 				else if (!entryId.isEmpty() && !name.isEmpty() && !destination.isEmpty() && !contact.isEmpty() && !ic.isEmpty() && !date.isEmpty() && !timeIn.isEmpty() && timeOut.isEmpty()) {
-					data.add(entryId);
-					data.add(name);
-					data.add(destination);
-					data.add(contact);
-					data.add(ic);
-					data.add(date);
-					data.add(timeIn);
-					data.add(timeOut);
-					crud.create("VisitorEntry.txt", data);
+					JOptionPane.showMessageDialog(null,"Please enter Time Out");
+					// data.add(entryId);
+					// data.add(name);
+					// data.add(destination);
+					// data.add(contact);
+					// data.add(ic);
+					// data.add(date);
+					// data.add(timeIn);
+					// data.add(timeOut);
+					// crud.create("VisitorEntry.txt", data);
 				}
-				else {// this means update data
+				else {
+					//if entryId already exist in the Patrol.txt
+					tblData = crud.read("VisitorEntry.txt");
+					//write a code that compares the entryId with the entryId in the Patrol.txt
+					//if the entryId is the same, then display a message that the visitor already exist
+					if (tblData.contains(entryId)) {
+						JOptionPane.showMessageDialog(null,"Visitor already exist");
+					}
+
+					else{
 					data.add(entryId);
 					data.add(name);
 					data.add(destination);		
@@ -376,11 +376,10 @@ public class SecVisitorEntry extends PageUtils {
 					data.add(date);
 					data.add(timeIn);
 					data.add(timeOut);
-					crud.updateRow("VisitorEntry.txt", entryId, 0, "", 0, data);
+					crud.create("VisitorEntry.txt", data);
+					//crud.updateRow("VisitorEntry.txt", entryId, 0, "", 0, data);
+					}
 				}
-
-
-
 
 				// Clear text after update or add
 				txtUID.setText("");

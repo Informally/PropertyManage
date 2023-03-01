@@ -1,5 +1,1 @@
-95e8c412-50de-4d88-a28b-4d9ed1c9ec64~Bryan~Security Guard~Sunday~12am - 4am ~pool
-bd08bdec-de0d-4af0-9557-035bbab1c3e6~Yudhi~Security Guard~Tuesday~12pm - 4pm~meeting room 2
-bd08bdec-de0d-4af0-9557-035bbab1c3e6~Yudhi~Security Guard~Tuesday~12pm - 4pm~meeting room 2
-bd08bdec-de0d-4af0-9557-035bbab1c3e6~Yudhi~Security Guard~Tuesday~12pm - 4pm~meeting room 2
-95e8c412-50de-4d88-a28b-4d9ed1c9ec64~Bryan~Security Guard~Sunday~12am - 4am ~pool
+bd08bdec-de0d-4af0-9557-035bbab1c3e6~Yudhi~Security Guard~Wednesday~12pm - 4pm~gym
