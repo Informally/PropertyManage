@@ -85,22 +85,12 @@ public class ResFacilityBooking extends PageUtils{
                 // Name
 		JLabel lblName = new JLabel("Name: ");
 		lblName.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblName.setBounds(444, 123, 315, 42);
+		lblName.setBounds(444, 73, 315, 42);
 		fb.getContentPane().add(lblName);
 
 		JTextField txtName = new JTextField();
-		txtName.setBounds(584,123, 250, 42);
+		txtName.setBounds(584,73, 250, 42);
 		fb.getContentPane().add(txtName);
-                
-		// Facility No
-		JLabel lblFacility = new JLabel("Facility No: ");
-		lblFacility.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblFacility.setBounds(444, 73, 315, 42);
-		fb.getContentPane().add(lblFacility);
-
-		JTextField txtFacility = new JTextField();
-		txtFacility.setBounds(584,73, 250, 42);
-		fb.getContentPane().add(txtFacility);
 
 		// Facility Type
 		JLabel lblFacilityType = new JLabel("Facility Type:");
@@ -117,13 +107,13 @@ public class ResFacilityBooking extends PageUtils{
 		fb.getContentPane().add(txtFacilityType);
 		
 		// Facility Price
-		JLabel lblPrice = new JLabel("Facility Price: ");
+		JLabel lblPrice = new JLabel("Facility Price:RM");
 		lblPrice.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblPrice.setBounds(444, 173, 315, 42);
+		lblPrice.setBounds(444, 123, 315, 42);
 		fb.getContentPane().add(lblPrice);
 
 		JTextField txtPrice = new JTextField();
-		txtPrice.setBounds(584, 173, 250, 42);
+		txtPrice.setBounds(584, 123, 250, 42);
 		txtPrice.setBackground(Color.white);
 		txtPrice.setEditable(false);
 		fb.getContentPane().add(txtPrice);
@@ -141,11 +131,11 @@ public class ResFacilityBooking extends PageUtils{
 		// Duration
 		JLabel lblDuration = new JLabel("Duration(hours):");
 		lblDuration.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblDuration.setBounds(444, 223, 315, 42);
+		lblDuration.setBounds(444, 173, 315, 42);
 		fb.getContentPane().add(lblDuration);
 
 		JComboBox<String> txtDuration = new JComboBox<>();
-		txtDuration.setBounds(584, 223, 250, 42);
+		txtDuration.setBounds(584, 173, 250, 42);
 		txtDuration.addItem("1");
 		txtDuration.addItem("2");
 		txtDuration.addItem("3");
@@ -229,8 +219,8 @@ public class ResFacilityBooking extends PageUtils{
 
 		// Result Display
 		tblData = crud.read("FacilityBooking.txt");
-		String row[] = new String[9];
-		String column[] = { "Facility Id", "Facility No", "Facility Type","Name", "Facility Price", "Duration", "Total", "Date", "Time" };
+		String row[] = new String[8];
+		String column[] = { "Facility Id", "Facility Type","Name", "Facility Price", "Duration", "Total", "Date", "Time" };
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 323, 770, 250);
@@ -246,7 +236,6 @@ public class ResFacilityBooking extends PageUtils{
 			row[5] = tblData.get(i).get(5);
 			row[6] = tblData.get(i).get(6);
                         row[7] = tblData.get(i).get(7);
-                        row[8] = tblData.get(i).get(8);
 			tableModel.addRow(row);
 
 		}
@@ -261,13 +250,12 @@ public class ResFacilityBooking extends PageUtils{
 
 				if (row.length > 0) {
 					txtUID.setText((String) jTable.getValueAt(row[0], 0));
-					txtFacility.setText((String) jTable.getValueAt(row[0], 1));
-					txtFacilityType.setToolTipText((String) jTable.getValueAt(row[0], 2));
-                                        txtName.setText((String) jTable.getValueAt(row[0], 3));
-					txtPrice.setText((String) jTable.getValueAt(row[0], 4));					
-					txtDuration.setToolTipText((String) jTable.getValueAt(row[0], 5));
-					txtDate.setText((String) jTable.getValueAt(row[0], 7));
-					txtTime.setText((String) jTable.getValueAt(row[0], 8));
+					txtFacilityType.setToolTipText((String) jTable.getValueAt(row[0], 1));
+                                        txtName.setText((String) jTable.getValueAt(row[0], 2));
+					txtPrice.setText((String) jTable.getValueAt(row[0], 3));					
+					txtDuration.setToolTipText((String) jTable.getValueAt(row[0], 4));
+					txtDate.setText((String) jTable.getValueAt(row[0], 6));
+					txtTime.setText((String) jTable.getValueAt(row[0], 7));
 				}
 
 			}
@@ -315,7 +303,6 @@ public class ResFacilityBooking extends PageUtils{
 					row[5] = tblData.get(i).get(5);
 					row[6] = tblData.get(i).get(6);
                                         row[7] = tblData.get(i).get(7);
-                                        row[8] = tblData.get(i).get(8);
 					tableModel.addRow(row);
 				}
 				try {
@@ -338,7 +325,6 @@ public class ResFacilityBooking extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				txtUID.setText("");
-				txtFacility.setText("");
 				txtDate.setText("");
                                 txtName.setText("");
 				txtPrice.setText("");
@@ -364,7 +350,6 @@ public class ResFacilityBooking extends PageUtils{
 				//DateTimeFormatter yearFormatter = DateTimeFormatter.ofPattern("yyyy");
 				
 				String userId = txtUID.getText().trim();
-				String facility = txtFacility.getText().trim();
 				String date = txtDate.getText().trim();
                                 String name = txtName.getText().trim();
 				String duration = txtDuration.getSelectedItem().toString().trim();
@@ -386,7 +371,6 @@ public class ResFacilityBooking extends PageUtils{
 				if (userId.isEmpty()) { // this means new data is added
 					String uid = uuid.toString();
 					data.add(uid);
-					data.add(facility);
 					data.add(facilityType);
                                         data.add(name);
 					data.add(price);
@@ -407,7 +391,6 @@ public class ResFacilityBooking extends PageUtils{
 
 				} else { // this means update data
 					data.add(userId);
-					data.add(facility);
 					data.add(facilityType);
                                         data.add(name);
 					data.add(price);
@@ -429,7 +412,6 @@ public class ResFacilityBooking extends PageUtils{
 
 				// Clear text after update or add
 				txtUID.setText("");
-				txtFacility.setText("");
 				txtDate.setText("");
 				txtPrice.setText("");
                                 txtName.setText("");
@@ -453,7 +435,6 @@ public class ResFacilityBooking extends PageUtils{
 					row[5] = tblData.get(i).get(5);
 					row[6] = tblData.get(i).get(6);
                                         row[7] = tblData.get(i).get(7);
-                                        row[8] = tblData.get(i).get(8);
 					tableModel.addRow(row);
 				}
 				try {

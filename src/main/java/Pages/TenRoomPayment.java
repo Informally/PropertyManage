@@ -125,7 +125,7 @@ public class TenRoomPayment extends PageUtils{
 		rp.getContentPane().add(txtYear);
 
 		// Price
-		JLabel lblPrice = new JLabel("Price: ");
+		JLabel lblPrice = new JLabel("Price:       RM");
 		lblPrice.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblPrice.setBounds(44, 173, 315, 42);
 		rp.getContentPane().add(lblPrice);
@@ -137,8 +137,8 @@ public class TenRoomPayment extends PageUtils{
 		rp.getContentPane().add(txtPrice);
 
 		// Outstanding
-		JLabel lblOut = new JLabel("Outstanding: ");
-		lblOut.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		JLabel lblOut = new JLabel("Outstanding:RM");
+		lblOut.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		lblOut.setBounds(44, 273, 315, 42);
 		rp.getContentPane().add(lblOut);
 
@@ -149,7 +149,7 @@ public class TenRoomPayment extends PageUtils{
 		rp.getContentPane().add(txtOut);
 		
 		// Deposit
-		JLabel lblDeposit = new JLabel("Deposit: ");
+		JLabel lblDeposit = new JLabel("Deposit:   RM");
 		lblDeposit.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblDeposit.setBounds(44, 223, 315, 42);
 		rp.getContentPane().add(lblDeposit);
@@ -183,7 +183,7 @@ public class TenRoomPayment extends PageUtils{
 		//Name
 		JLabel lblname = new JLabel("Name: ");
 		lblname.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblname.setBounds(470, 273, 315, 42);
+		lblname.setBounds(434, 273, 315, 42);
 		rp.getContentPane().add(lblname);
 
 		JTextField txtName = new JTextField();
@@ -498,27 +498,30 @@ public class TenRoomPayment extends PageUtils{
 				
 				int a = jTable.getSelectedRow();
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
-				String uuid = tableModel.getValueAt(0, 0).toString();
-				String name1 = tableModel.getValueAt(0, 1).toString();
-				String roomType1 = tableModel.getValueAt(0, 2).toString();
-				String roomPrice = tableModel.getValueAt(0, 3).toString();
-				String deposit = tableModel.getValueAt(0, 4).toString();
-				String total = tableModel.getValueAt(0, 5).toString();
-				String month1 = tableModel.getValueAt(0, 6).toString();
-				String year1 = tableModel.getValueAt(0, 7).toString();
+				String uuid = tableModel.getValueAt(i, 0).toString();
+				String name1 = tableModel.getValueAt(i, 1).toString();
+				String roomType1 = tableModel.getValueAt(i, 2).toString();
+				String roomPrice = tableModel.getValueAt(i, 3).toString();
+				String deposit = tableModel.getValueAt(i, 4).toString();
+				String total = tableModel.getValueAt(i, 5).toString();
+				String month1 = tableModel.getValueAt(i, 6).toString();
+				String year1 = tableModel.getValueAt(i, 7).toString();
 				
-
+                                // Receipt Display
 				String receipt = "\t\t<----- Receipt ----->\n";
 				String lblpaymentId = "\tPayment ID:";
-				String paymentId = uid + "\n\nD\\tescription\t\t\tPrice\n\t---------------\t\t\t-------\n";
-				String lblRoomType = "\tRoom Type ("+ roomType + ")\n";
+				String paymentId = uid + "\n\n\tDescription\t\t\tPrice\n\t---------------\t\t\t-------\n";
+				String lblName = "\tName ("+ name + ")\n";
+                                String lblRoomType = "\tRoom Type ("+ roomType + ")\n";
 				String lblPrice = "\tRoom Price" + "\t\t\t" + roomPrice + "\n";
-				String lblOut = "\tOutstanding" + "\t\t" + out + "\n";
+                                String lblDeposit = "\tDeposit" + "\t\t\t" + deposit + "\n";
+				String lblOut = "\tOutstanding" + "\t\t\t" + out + "\n";
 				String lblTotal = "\t---------------------------------------------------------------\n\tTotal Paid" + "\t\t\t" + amount + "\n";
 				String lblPaymentDate = "\tPayment for " + month + " " + year + "\n";
 				String lblDate = "\tDate Paid " + dtf + "\n\t---------------------------------------------------------------" + "\n";
 				String lblThank = "\t                  Thank you for your payment\n";
-				JOptionPane.showMessageDialog(null, receipt + lblpaymentId + paymentId + lblRoomType + lblPrice + lblOut + lblTotal + lblPaymentDate + lblDate + lblThank, "Receipt", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, receipt + lblpaymentId + paymentId + lblName + lblRoomType + lblPrice + lblDeposit + lblOut + lblTotal + lblPaymentDate + lblDate + lblThank, "Receipt", JOptionPane.INFORMATION_MESSAGE);
+                                
 			}
 		});
 		viewReceiptBtn.setBounds(234, 323, 170, 42);

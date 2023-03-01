@@ -127,7 +127,7 @@ public class TenMonthlyPayment extends PageUtils {
         mp.getContentPane().add(txtYear);
 
         // Price
-        JLabel lblPrice = new JLabel("Price: ");
+        JLabel lblPrice = new JLabel("Price:        RM");
         lblPrice.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
         lblPrice.setBounds(44, 173, 315, 42);
         mp.getContentPane().add(lblPrice);
@@ -139,28 +139,16 @@ public class TenMonthlyPayment extends PageUtils {
         mp.getContentPane().add(txtPrice);
 
         // Outstanding
-        JLabel lblOut = new JLabel("Outstanding: ");
-        lblOut.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-        lblOut.setBounds(44, 273, 315, 42);
+        JLabel lblOut = new JLabel("Outstanding: RM");
+        lblOut.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
+        lblOut.setBounds(44, 223, 315, 42);
         mp.getContentPane().add(lblOut);
 
         JTextField txtOut = new JTextField();
-        txtOut.setBounds(164, 273, 250, 42);
+        txtOut.setBounds(164, 223, 250, 42);
         txtOut.setBackground(Color.white);
         txtOut.setEditable(false);
         mp.getContentPane().add(txtOut);
-
-        // Deposit
-        JLabel lblDeposit = new JLabel("Deposit: ");
-        lblDeposit.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-        lblDeposit.setBounds(44, 223, 315, 42);
-        mp.getContentPane().add(lblDeposit);
-
-        JTextField txtDeposit = new JTextField();
-        txtDeposit.setBounds(164, 223, 250, 42);
-        txtDeposit.setBackground(Color.white);
-        txtDeposit.setEditable(false);
-        mp.getContentPane().add(txtDeposit);
 
         // Card Number
         JLabel lblCard = new JLabel("Card No: ");
@@ -225,7 +213,7 @@ public class TenMonthlyPayment extends PageUtils {
         // Result Display
         tblData = crud.read("MonthlyPayment.txt");
         String row[] = new String[7];
-        String column[] = {"Room Id","Name" , "Room Type", "Room Price", "Total", "Month", "Year"};
+        String column[] = {"Room Id","Name" , "Room Type", "Room Price", "Outstanding", "Month", "Year"};
 
         JTable jTable = new JTable();
         jTable.setBounds(44, 323, 770, 100);
@@ -343,7 +331,6 @@ public class TenMonthlyPayment extends PageUtils {
                 String price = txtPrice.getText().trim();
                 String out = txtOut.getText().trim();
                 String roomType = txtRoomType.getText().trim();
-                String deposit = txtDeposit.getText().trim();
                 String year = txtYear.getText().trim();
                 String amount = txtAmount.getText().trim();
 
@@ -375,7 +362,6 @@ public class TenMonthlyPayment extends PageUtils {
                 dataReceipt.add(name);
                 dataReceipt.add(roomType);
                 dataReceipt.add(price);
-                dataReceipt.add(deposit);
                 dataReceipt.add(amount);
                 dataReceipt.add(month);
                 dataReceipt.add(year);
@@ -398,7 +384,6 @@ public class TenMonthlyPayment extends PageUtils {
                 txtMonth.setText("");
                 txtPrice.setText("");
                 txtRoomType.setText("");
-                txtDeposit.setText("");
                 txtYear.setText("");
                 txtOut.setText("");
                 txtCard.setText("");
@@ -487,12 +472,12 @@ public class TenMonthlyPayment extends PageUtils {
 
                 int a = jTable.getSelectedRow();
                 DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
-                String uuid = tableModel.getValueAt(0, 0).toString();
-                String name1 = tableModel.getValueAt(0, 1).toString();
-                String roomType = tableModel.getValueAt(0, 2).toString();
-                String roomPrice = tableModel.getValueAt(0, 3).toString();
-                String deposit = tableModel.getValueAt(0, 4).toString();
-                String total = tableModel.getValueAt(0, 5).toString();
+                String uuid = tableModel.getValueAt(i, 0).toString();
+                String name1 = tableModel.getValueAt(i, 1).toString();
+                String roomType = tableModel.getValueAt(i, 2).toString();
+                String roomPrice = tableModel.getValueAt(i, 3).toString();
+                String deposit = tableModel.getValueAt(i, 4).toString();
+                String total = tableModel.getValueAt(i, 5).toString();
 
                 String receipt = "\t\t<------------- Receipt ------------->\n";
                 String lblpaymentId = "\tPayment ID:";

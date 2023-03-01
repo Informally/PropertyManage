@@ -109,7 +109,7 @@ public class TenBookingRoom extends PageUtils{
 		br.getContentPane().add(txtRoomType);
 		
 		// Room Price
-		JLabel lblPrice = new JLabel("Room Price: ");
+		JLabel lblPrice = new JLabel("Room Price:  RM");
 		lblPrice.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblPrice.setBounds(444, 123, 315, 42);
 		br.getContentPane().add(lblPrice);
@@ -131,7 +131,7 @@ public class TenBookingRoom extends PageUtils{
 		br.getContentPane().add(txtMonth);
 
 		// Deposit
-		JLabel lblDeposit = new JLabel("Deposit:");
+		JLabel lblDeposit = new JLabel("Deposit:         RM");
 		lblDeposit.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblDeposit.setBounds(444, 173, 315, 42);
 		br.getContentPane().add(lblDeposit);
@@ -153,7 +153,7 @@ public class TenBookingRoom extends PageUtils{
 		br.getContentPane().add(txtYear);
 		
 		// Total
-		JLabel lblTotal = new JLabel("Total:");
+		JLabel lblTotal = new JLabel("Total:              RM");
 		lblTotal.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblTotal.setBounds(444, 223, 315, 42);
 		br.getContentPane().add(lblTotal);
