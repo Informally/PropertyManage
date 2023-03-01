@@ -69,12 +69,12 @@ public class SecVisitorPass extends PageUtils{
 	 */
 	private void initialize() {
 		vp = new JFrame();
-		vp.setTitle("Visitor Pass");
+		vp.setTitle("View Visitor Pass");
 		vp.setBounds(100, 100, 871, 722);
 		vp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		vp.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Visitor Pass");
+		JLabel lblNewLabel = new JLabel("View All Visitor Pass");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		vp.getContentPane().add(lblNewLabel);
@@ -87,12 +87,12 @@ public class SecVisitorPass extends PageUtils{
 
 		JTextField txtUID = new JTextField("");
 		txtUID.setBounds(164, 73, 250, 42);
-		txtUID.setBackground(Color.gray);
+		//txtUID.setBackground(Color.gray);
 		txtUID.setEditable(false);
 		vp.getContentPane().add(txtUID);
 
-		// Name
-		JLabel lblName = new JLabel("Name: ");
+		// Visitor Name
+		JLabel lblName = new JLabel("Visitor Name: ");
 		lblName.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblName.setBounds(434, 73, 315, 42);
 		vp.getContentPane().add(lblName);
@@ -179,7 +179,7 @@ public class SecVisitorPass extends PageUtils{
 		// Result Display
 		tblData = crud.read("VisitorPass.txt");
 		String row[] = new String[8];
-		String column[] = { "Pass ID", "Name", "Destination", "Contact","Owner Name","Owner Contact", "Date", "Time in"};
+		String column[] = { "Pass ID", "Visitor Name", "Destination", "Contact","Owner Name","Owner Contact", "Date", "Time in"};
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 323, 770, 250);
@@ -193,7 +193,7 @@ public class SecVisitorPass extends PageUtils{
 			row[3] = tblData.get(i).get(3);
 			row[4] = tblData.get(i).get(6);
 			row[5] = tblData.get(i).get(5);
-                        row[6] = tblData.get(i).get(4);
+            row[6] = tblData.get(i).get(4);
 			row[7] = tblData.get(i).get(7);
 			tableModel.addRow(row);
 
@@ -212,7 +212,7 @@ public class SecVisitorPass extends PageUtils{
 					txtName.setText((String) jTable.getValueAt(row[0], 1));
 					txtDestination.setText((String) jTable.getValueAt(row[0], 2));
 					txtContact.setText((String) jTable.getValueAt(row[0], 3));
-                                        txtOwnerName.setText((String) jTable.getValueAt(row[0], 6));
+                    txtOwnerName.setText((String) jTable.getValueAt(row[0], 6));
 					txtOwnerContact.setText((String) jTable.getValueAt(row[0], 5));
 					txtDate.setText((String) jTable.getValueAt(row[0], 4));
 					txtTime.setText((String) jTable.getValueAt(row[0], 7));
