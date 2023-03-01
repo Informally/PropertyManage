@@ -220,7 +220,7 @@ public class ResFacilityBooking extends PageUtils{
 		// Result Display
 		tblData = crud.read("FacilityBooking.txt");
 		String row[] = new String[8];
-		String column[] = { "Facility Id", "Facility Type","Name", "Facility Price", "Duration", "Total", "Date", "Time" };
+		String column[] = { "Facility Id", "Facility Type","Name", "Facility Price", "Duration", "Total Price", "Date", "Time" };
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 323, 770, 250);

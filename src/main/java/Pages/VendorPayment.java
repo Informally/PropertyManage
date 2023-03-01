@@ -101,7 +101,7 @@ public class VendorPayment extends PageUtils{
 		vp.getContentPane().add(txtMonth);
 
 		// Rental
-		JLabel lblRental = new JLabel("Rental: ");
+		JLabel lblRental = new JLabel("Rental:      RM");
 		lblRental.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblRental.setBounds(44, 123, 315, 42);
 		vp.getContentPane().add(lblRental);
@@ -125,7 +125,7 @@ public class VendorPayment extends PageUtils{
 		vp.getContentPane().add(txtYear);
 
 		// Utilities
-		JLabel lblUtilities = new JLabel("Utilities: ");
+		JLabel lblUtilities = new JLabel("Utilities:    RM");
 		lblUtilities.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblUtilities.setBounds(44, 173, 315, 42);
 		vp.getContentPane().add(lblUtilities);
@@ -137,8 +137,8 @@ public class VendorPayment extends PageUtils{
 		vp.getContentPane().add(txtUtilities);
 
 		// Outstanding
-		JLabel lblOut = new JLabel("Outstanding: ");
-		lblOut.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		JLabel lblOut = new JLabel("Outstanding: RM");
+		lblOut.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		lblOut.setBounds(44, 273, 315, 42);
 		vp.getContentPane().add(lblOut);
 
@@ -149,7 +149,7 @@ public class VendorPayment extends PageUtils{
 		vp.getContentPane().add(txtOut);
 		
 		// Services
-		JLabel lblServices = new JLabel("Services: ");
+		JLabel lblServices = new JLabel("Services:  RM");
 		lblServices.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblServices.setBounds(44, 223, 315, 42);
 		vp.getContentPane().add(lblServices);

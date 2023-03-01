@@ -167,7 +167,7 @@ public class VendorInvoice extends PageUtils{
 		lblColumn.setBounds(34, 193, 315, 42);
 		
 		//Label Column2
-		JLabel lblColumn2 = new JLabel("Year                        Amount");
+		JLabel lblColumn2 = new JLabel("Year                        Amount(RM)");
 		lblColumn2.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12));
 		lblColumn2.setBounds(375, 193, 315, 42);
 		

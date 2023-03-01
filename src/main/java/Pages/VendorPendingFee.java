@@ -89,7 +89,7 @@ public class VendorPendingFee extends PageUtils{
 		
 		for (ArrayList<String> row : pendingData) {
 			if(Integer.parseInt(row.get(4)) > 0) {
-			pendingReport += "\tPending ID:" + row.get(0) + "\n\n\tDescription\t\t\tPrice\n\t---------------\t\t\t-------\n" + "\tName" + "\t\t\t" + row.get(1) + "\n" + "\tRental" + "\t\t\t" + row.get(2) + "\n" + "\tUtilities" + "\t\t\t" + row.get(3) + "\n" + "\tServices" + "\t\t\t" + row.get(4) + "\n" + "\t---------------------------------------------------------------\n\tOutstanding" + "\t\t\t" + row.get(5) + "\n"+ "\tPending fee for " + row.get(6) + " " + row.get(7) + "\n\t---------------------------------------------------------------" + "\n\n" + "\t\t<----- Pending Fee ----->\n";
+			pendingReport += "\tPending ID:" + row.get(0) + "\n\n\tDescription\t\t\tPrice(RM)\n\t---------------\t\t\t-----------\n" + "\tName" + "\t\t\t" + row.get(1) + "\n" + "\tRental" + "\t\t\t" + row.get(2) + "\n" + "\tUtilities" + "\t\t\t" + row.get(3) + "\n" + "\tServices" + "\t\t\t" + row.get(4) + "\n" + "\t---------------------------------------------------------------\n\tOutstanding" + "\t\t\t" + row.get(5) + "\n"+ "\tPending fee for " + row.get(6) + " " + row.get(7) + "\n\t---------------------------------------------------------------" + "\n\n" + "\t\t<----- Pending Fee ----->\n";
 			}
 		}
 
