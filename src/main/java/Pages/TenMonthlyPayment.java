@@ -485,12 +485,11 @@ public class TenMonthlyPayment extends PageUtils {
                 String lblName = "\tName (" + name + ")\n";
                 String lblRoomType = "\tRoom Type (" + roomType + ")\n";
                 String lblPrice = "\tRoom Price                    " + "\t\t\t          " + roomPrice + "\n";
-                String lblDeposit = "\tRoom Deposit                    " + "\t\t           " + deposit + "\n";
                 String lblTotal = "\t---------------------------------------------------------------\n\tTotal Paid" + "\t\t\t                                 " + amount + "\n";
                 String lblPaymentDate = "\tPayment for " + month + " " + year + "\n";
                 String lblDate = "\tDate Paid " + dtf + "\n\t---------------------------------------------------------------" + "\n";
                 String lblThank = "\t                  Thank you for your payment\n";
-                JOptionPane.showMessageDialog(null, receipt + lblpaymentId + paymentId + lblName + lblRoomType + lblPrice + lblDeposit + lblTotal + lblPaymentDate + lblDate + lblThank, "Receipt", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, receipt + lblpaymentId + paymentId + lblName + lblRoomType + lblPrice + lblTotal + lblPaymentDate + lblDate + lblThank, "Receipt", JOptionPane.INFORMATION_MESSAGE);
 
             }
         });
