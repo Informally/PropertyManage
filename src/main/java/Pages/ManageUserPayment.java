@@ -138,27 +138,15 @@ public class ManageUserPayment extends PageUtils{
 		// Outstanding
 		JLabel lblOut = new JLabel("Outstanding: ");
 		lblOut.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblOut.setBounds(44, 273, 315, 42);
+		lblOut.setBounds(44, 223, 315, 42);
 		mngPayment.getContentPane().add(lblOut);
 
 		JTextField txtOut = new JTextField();
-		txtOut.setBounds(164, 273, 250, 42);
+		txtOut.setBounds(164, 223, 250, 42);
 		txtOut.setBackground(Color.white);
 		txtOut.setEditable(false);
 		mngPayment.getContentPane().add(txtOut);
-		
-		// Deposit
-		JLabel lblDeposit = new JLabel("Deposit: ");
-		lblDeposit.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblDeposit.setBounds(44, 223, 315, 42);
-		mngPayment.getContentPane().add(lblDeposit);
-
-		JTextField txtDeposit = new JTextField();
-		txtDeposit.setBounds(164, 223, 250, 42);
-		txtDeposit.setBackground(Color.white);
-		txtDeposit.setEditable(false);
-		mngPayment.getContentPane().add(txtDeposit);
-			
+				
 		// Amount
 		JLabel lblAmount = new JLabel("Amount:   RM ");
 		lblAmount.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -266,26 +254,6 @@ public class ManageUserPayment extends PageUtils{
 		}
 		jTablePayment.setModel(tableModelPayment);
 
-//		ListSelectionModel selectPayment = jTablePayment.getSelectionModel();
-//		selectPayment.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-//		selectPayment.addListSelectionListener(new ListSelectionListener() {
-//			public void valueChanged(ListSelectionEvent e) {
-//				int[] row = jTablePayment.getSelectedRows();
-//				int columnNum = jTablePayment.getColumnCount();
-//
-//				if (row.length > 0) {
-//					HashMap<Integer, String> debtDt = crud.read("Payment.txt",
-//							(String) jTablePayment.getValueAt(row[0], 5), 5, "", 0);
-//					txtUID.setText((String) jTablePayment.getValueAt(row[0], 0));
-//					txtMonth.setText((String) jTablePayment.getValueAt(row[0], 1));
-//					txtPrice.setText((String) jTablePayment.getValueAt(row[0], 2));
-//					txtYear.setText((String) jTablePayment.getValueAt(row[0], 3));
-//					txtOut.setText((String) jTablePayment.getValueAt(row[0], 4));
-//					txtRoomType.setText(debtDt.get(3));
-//				}
-//
-//			}
-//		});
 		JScrollPane scrollPayment = new JScrollPane(jTablePayment, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollPayment.setBounds(44, 503, 770, 100);
@@ -352,62 +320,6 @@ public class ManageUserPayment extends PageUtils{
                                 dataReceipt.add(year);
                                 dataReceipt.add(dtf.format(now));
                                 
-				/*CRUD crudCard = new CRUD();
-				tblCard = crudCard.read("Card.txt");
-				String rowCard[] = new String[3];
-				for (int a = 0; a < tblCard.size(); a++) {
-					rowCard[0] = tblCard.get(a).get(0);
-					rowCard[1] = tblCard.get(a).get(1);
-					rowCard[2] = tblCard.get(a).get(2);
-				
-				if(!txtCard.getText().equals(rowCard[0]) || !txtDate.getText().equals(rowCard[1]) || !txtCcv.getText().equals(rowCard[2])) {
-					JOptionPane.showMessageDialog(contentPane, "Invalid Card Number Or Expiration Date!");
-					return;
-				}else {
-					
-				User user = new User();
-				UUID uuid = UUID.randomUUID();
-
-				String userID = txtUID.getText().trim();
-				String month = txtMonth.getText().trim();
-				String price = txtPrice.getText().trim();
-				String out = txtOut.getText().trim();
-				String roomType = txtRoomType.getText().trim();
-				String deposit = txtDeposit.getText().trim();
-				String year = txtYear.getText().trim();
-				String amount = txtAmount.getText().trim();
-
-				ArrayList<String> data = new ArrayList<>();
-				ArrayList<String> dataReceipt = new ArrayList<>();
-
-				try {
-					Thread.sleep(500);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-
-				String uid = uuid.toString();
-				DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-				DateTimeFormatter df = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-				LocalDateTime now = LocalDateTime.now();
-				data.add(uid);
-				data.add(out);
-				data.add(amount);
-				data.add(month);
-				data.add(year);
-				data.add(userID);
-				data.add(dtf.format(now));
-				
-				dataReceipt.add(uid);
-				dataReceipt.add(roomType);
-				dataReceipt.add(price);
-				dataReceipt.add(deposit);
-				dataReceipt.add(amount);
-				dataReceipt.add(month);
-				dataReceipt.add(year);
-				dataReceipt.add(dtf.format(now)); */
-
 				crud.create("MonthlyPaymentHistory.txt", data);
                                 crud.create("MonthlyReceipt.txt", dataReceipt);
 
