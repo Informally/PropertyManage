@@ -385,26 +385,35 @@ public class Security extends PageUtils{
 
 				if (emid.isEmpty()) { // this means to prompt user to select an employee
                     JOptionPane.showMessageDialog(null,"Please select a Security Guard");
-					//String id = uuid.toString();
-					//data.add(id);
-					//data.add(name);
-					//data.add(email);
-					//data.add(contact);
-					//data.add(age);
-					//data.add(job);
-
-					//crud.create("Employee.txt", data);
-					//crud.updateRow("Patrol.txt", emid, 0, "", 0, data);
 
 				} 
+				//else if all fields are not empty except for the checkpoint, day and schedule
+				else if (!emid.isEmpty() && !name.isEmpty() && !role.isEmpty() && day.isEmpty() && schedule.isEmpty() && checkpoint.isEmpty()) {
+					JOptionPane.showMessageDialog(null,"Please assign a Patrol Schedule and Checkpoint");
+				}
                 else { // this means update data
-					data.add(emid);
-					data.add(name);
-					data.add(role);
-					data.add(day);
-					data.add(schedule);
-					data.add(checkpoint);
-                    crud.create("Patrol.txt", data);
+					// read data from file
+					ArrayList<ArrayList<String>> compareData = crud.read("Patrol.txt");
+					// check if entryId is the same as the value in compareData in position 0
+					boolean pDay = false;
+					for (int i = 0; i < compareData.size(); i++) {
+    					if (compareData.get(i).get(3).equals(day)) {
+        					System.out.println("This guard already has a patrol schedule for this day. \nPlease select another day.");
+        					JOptionPane.showMessageDialog(null,"This guard already has a patrol schedule for this day. \nPlease select another day.");
+        					pDay = true;
+        				break;
+    					}
+					}
+
+					if (!pDay) {
+   						data.add(emid);
+    					data.add(name);
+    					data.add(role);		
+    					data.add(day);
+    					data.add(schedule);
+    					data.add(checkpoint);
+						crud.create("Patrol.txt", data);
+					}
 					
 				}              
          
