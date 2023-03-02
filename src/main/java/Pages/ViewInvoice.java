@@ -75,7 +75,7 @@ public class ViewInvoice extends PageUtils {
 		lblNewLabel.setBounds(34, 5, 665, 40);
 		viewInvoice.getContentPane().add(lblNewLabel);
                 
-                // Month
+        // Month
 		JLabel lblMonth = new JLabel("Vendor Invoice: ");
 		lblMonth.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblMonth.setBounds(44, 180, 315, 42);
