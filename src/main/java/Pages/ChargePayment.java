@@ -3,6 +3,7 @@ package Pages;
 import java.awt.EventQueue;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -58,18 +59,18 @@ public class ChargePayment extends PageUtils {
 	 */
 	private void initialize() {
 		chargepaymentFrame = new JFrame();
-		chargepaymentFrame.setTitle("Assign Job/Task to Employee");
+		chargepaymentFrame.setTitle("Charge Payment to Vendor");
 		chargepaymentFrame.setBounds(100, 100, 871, 622);
 		chargepaymentFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		chargepaymentFrame.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Assign Job/Task to Employee");
+		JLabel lblNewLabel = new JLabel("Charge Payment to Vendor");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		lblNewLabel.setBounds(34, 5, 665, 81);
 		chargepaymentFrame.getContentPane().add(lblNewLabel);
 
-		// Employee ID
-		JLabel lblEMID = new JLabel("Employee ID: ");
+		//  ID
+		JLabel lblEMID = new JLabel("ID: ");
 		lblEMID.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblEMID.setBounds(44, 73, 315, 42);
 		chargepaymentFrame.getContentPane().add(lblEMID);
@@ -80,65 +81,67 @@ public class ChargePayment extends PageUtils {
 		txtEMID.setEditable(false);
 		chargepaymentFrame.getContentPane().add(txtEMID);
 
-		// Name
-		JLabel lblName = new JLabel("Name: ");
+		// Vendor Name
+		JLabel lblName = new JLabel("Vendor Name: ");
 		lblName.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblName.setBounds(434, 73, 315, 42);
 		chargepaymentFrame.getContentPane().add(lblName);
-
-		JTextField txtName = new JTextField();
-		txtName.setBounds(554, 73, 250, 42);
-                txtName.setBackground(Color.lightGray);
-		txtName.setEditable(false);
-		chargepaymentFrame.getContentPane().add(txtName);
-
-		// Email
-		JLabel lblEmail = new JLabel("Email: ");
-		lblEmail.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblEmail.setBounds(44, 123, 315, 42);
-		chargepaymentFrame.getContentPane().add(lblEmail);
-
-		JTextField txtEmail = new JTextField();
-		txtEmail.setBounds(164, 123, 250, 42);
-                txtEmail.setBackground(Color.lightGray);
-		txtEmail.setEditable(false);
-		chargepaymentFrame.getContentPane().add(txtEmail);
-
-		// Contact
-		JLabel lblContact = new JLabel("Contact: ");
-		lblContact.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblContact.setBounds(434, 123, 315, 42);
-		chargepaymentFrame.getContentPane().add(lblContact);
-
-		JTextField txtContact = new JTextField();
-		txtContact.setBounds(554, 123, 250, 42);
-        txtContact.setBackground(Color.lightGray);
-		txtContact.setEditable(false);
-		chargepaymentFrame.getContentPane().add(txtContact);
+        
+        //JComboBox that lists all the vendors from user.txt
+        JComboBox<String> comboBox = new JComboBox<String>();
+        comboBox.setBounds(554, 73, 250, 42);
+        // comboBox.setBackground(Color.lightGray);
+        comboBox.setEditable(false);
+        chargepaymentFrame.getContentPane().add(comboBox);
+        //get all the users from user.txt
+        ArrayList<ArrayList<String>> users = crud.read("User.txt");
+        //add all users to the comboBox if position 6 in users is "Vendor"
+        for (ArrayList<String> user : users) {
+            if (user.get(5).equals("Vendor")) {
+                comboBox.addItem(user.get(1));
+            }
+        }
 
 
 
-		// Age
-		JLabel lblAge = new JLabel("Age: ");
-		lblAge.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblAge.setBounds(44, 173, 315, 42);
-		chargepaymentFrame.getContentPane().add(lblAge);
+		// Payment Details
+		JLabel lblDetails = new JLabel("Detail: ");
+		lblDetails.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblDetails.setBounds(44, 123, 315, 42);
+		chargepaymentFrame.getContentPane().add(lblDetails);
 
-		JTextField txtAge = new JTextField();
-		txtAge.setBounds(164, 173, 250, 42);
-                txtAge.setBackground(Color.lightGray);
-		txtAge.setEditable(false);
-		chargepaymentFrame.getContentPane().add(txtAge);
+        //JComboBox that lists the Utilities, Rental, and Services
+        JComboBox<String> comboBox_1 = new JComboBox<String>();
+        comboBox_1.setBounds(164, 123, 250, 42);
+        // comboBox_1.setBackground(Color.lightGray);
+        comboBox_1.setEditable(false);
+        chargepaymentFrame.getContentPane().add(comboBox_1);
+        comboBox_1.addItem("Utilities");
+        comboBox_1.addItem("Rental");
+        comboBox_1.addItem("Services");
 
-		// Job Role
-		JLabel lblJob = new JLabel("Job Role: ");
-		lblJob.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblJob.setBounds(434, 173, 315, 42);
-		chargepaymentFrame.getContentPane().add(lblJob);
 
-		JTextField txtJob = new JTextField();
-		txtJob.setBounds(554, 173, 250, 42);
-		chargepaymentFrame.getContentPane().add(txtJob);
+		// Amount
+		JLabel lblAmt = new JLabel("Amount: ");
+		lblAmt.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblAmt.setBounds(434, 123, 315, 42);
+		chargepaymentFrame.getContentPane().add(lblAmt);
+
+		JTextField txtAmt = new JTextField();
+		txtAmt.setBounds(554, 123, 250, 42);
+		chargepaymentFrame.getContentPane().add(txtAmt);
+
+		// Date
+		JLabel lblDate = new JLabel("Date: ");
+		lblDate.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblDate.setBounds(44, 173, 315, 42);
+		chargepaymentFrame.getContentPane().add(lblDate);
+
+		JTextField txtDate = new JTextField();
+		txtDate.setBounds(164, 173, 250, 42);
+		chargepaymentFrame.getContentPane().add(txtDate);
+
+
 
 		// Error text
 		JLabel errorText = new JLabel();
@@ -149,9 +152,9 @@ public class ChargePayment extends PageUtils {
 		chargepaymentFrame.getContentPane().add(errorText);
 
 		// Result Display
-		tblData = crud.read("Employee.txt");
-		String row[] = new String[6];
-		String column[] = { "Employee Id", "Name", "Email", "Contact", "Age", "Job Role" };
+		tblData = crud.read("PendingFee.txt");
+		String row[] = new String[5];
+		String column[] = { "ID", "Name", "Detail", "Amount", "Date"};
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 273, 770, 250);
@@ -162,9 +165,8 @@ public class ChargePayment extends PageUtils {
 			row[0] = tblData.get(i).get(0);
 			row[1] = tblData.get(i).get(1);
 			row[2] = tblData.get(i).get(2);
-			row[3] = tblData.get(i).get(4);
-			row[4] = tblData.get(i).get(5);
-			row[5] = tblData.get(i).get(6);
+			row[3] = tblData.get(i).get(3);
+			row[4] = tblData.get(i).get(4);
 			tableModel.addRow(row);
 
 		}
@@ -182,17 +184,17 @@ public class ChargePayment extends PageUtils {
 
 
 					txtEMID.setText((String) jTable.getValueAt(row[0], 0));
-					txtName.setText((String) jTable.getValueAt(row[0], 1));
-					txtEmail.setText((String) jTable.getValueAt(row[0], 2));
-					txtContact.setText((String) jTable.getValueAt(row[0], 3));
-					txtAge.setText((String) jTable.getValueAt(row[0], 4));
-					txtJob.setText((String) jTable.getValueAt(row[0],5 ));
+                    //set the selected name from the table to the comboBox
+                    comboBox.setSelectedItem((String) jTable.getValueAt(row[0], 1));
+                    comboBox_1.setSelectedItem((String) jTable.getValueAt(row[0], 2));
+					txtAmt.setText((String) jTable.getValueAt(row[0], 3));
+					txtDate.setText((String) jTable.getValueAt(row[0], 4));
 				}
 
 			}
 		});
 		JScrollPane scroll = new JScrollPane(jTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
-				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scroll.setBounds(44, 273, 770, 250);
 		chargepaymentFrame.getContentPane().add(scroll);
 
@@ -215,10 +217,10 @@ public class ChargePayment extends PageUtils {
 				
 				String emid = txtEMID.getText().trim();
 				
-				crud.delete("Employee.txt", emid, 0, "", 0);
+				crud.delete("PendingFee.txt", emid, 0, "", 0);
 				
 				// Refresh the data in table
-				tblData = crud.read("Employee.txt");
+				tblData = crud.read("PendingFee.txt");
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 				tableModel.setColumnIdentifiers(column);
 				tableModel.getDataVector().removeAllElements();
@@ -228,9 +230,9 @@ public class ChargePayment extends PageUtils {
 					row[0] = tblData.get(i).get(0);
 					row[1] = tblData.get(i).get(1);
 					row[2] = tblData.get(i).get(2);
-					row[3] = tblData.get(i).get(4);
-					row[4] = tblData.get(i).get(5);
-					row[5] = tblData.get(i).get(6);
+					row[3] = tblData.get(i).get(3);
+					row[4] = tblData.get(i).get(4);
+
 					tableModel.addRow(row);
 				}
 				try {
@@ -253,20 +255,21 @@ public class ChargePayment extends PageUtils {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				txtEMID.setText("");
-				txtName.setText("");
-				txtEmail.setText("");
-				txtContact.setText("");
-				txtAge.setText("");
-				txtJob.setText("");
+                //set comboBox to default
+                comboBox.setSelectedIndex(-1);
+				// txtName.setText("");
+				comboBox_1.setSelectedIndex(-1);
+				txtAmt.setText("");
+				txtDate.setText("");
 			}
 		});
 		chargepaymentFrame.getContentPane().add(clearBtn);
 
-		// Assign JOb/Task Btn
-		JButton addResTenBtn = new JButton("Assign Job/Task");
-		addResTenBtn.setBounds(44, 223, 200, 42);
-		addResTenBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		addResTenBtn.addActionListener(new ActionListener() {
+		// Charge Payment Btn
+		JButton chargeButton = new JButton("Charge Payment");
+		chargeButton.setBounds(44, 223, 200, 42);
+		chargeButton.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		chargeButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -275,11 +278,11 @@ public class ChargePayment extends PageUtils {
 				UUID uuid = UUID.randomUUID();
 
 				String emid = txtEMID.getText().trim();
-				String name = txtName.getText().trim();
-				String email = txtEmail.getText().trim();
-				String contact = txtContact.getText().trim();
-				String age = txtAge.getText().trim();
-				String job = txtJob.getText().trim();
+                String name = (String) comboBox.getSelectedItem();
+                String detail = (String) comboBox_1.getSelectedItem();
+				String amt = txtAmt.getText().trim();
+				String date = txtDate.getText().trim();
+
 
 				ArrayList<String> data = new ArrayList<>();
 
@@ -290,37 +293,38 @@ public class ChargePayment extends PageUtils {
 					e1.printStackTrace();
 				}
 
-				if (job.isEmpty()) { // this means to prompt user to select an employee
-                                    JOptionPane.showMessageDialog(null,"Please select an employee");
+				if (emid.isEmpty()) { // this means new data is added
+                    String no = uuid.toString();
+                    data.add(no);
+                    data.add(name);
+                    data.add(detail);
+                    data.add(amt);
+                    data.add(date);
+                    
+                    crud.create("PendingFee.txt", data);
+                    
+                } else { // this means update data
+                    data.add(emid);
+                    data.add(name);
+                    data.add(detail);
+                    data.add(amt);
+                    data.add(date);
 
-				} 
-                    else { // this means update data
-					data.add(emid);
-					data.add(name);
-					data.add(email);
-					ArrayList<ArrayList<String>> bulkData = crud.readBulk("Employee.txt", "all", 0, "", 0);
-					for (int i = 0; i < bulkData.size(); i++) {
-						if (bulkData.get(i).get(0).equals(emid)) {
-							data.add(bulkData.get(i).get(3));
-						}
-					}
-					data.add(contact);
-					data.add(age);
-					data.add(job);
-					crud.updateRow("Employee.txt", emid, 0, "", 0, data);
-				} 
+                    crud.updateRow("PendingFee.txt", emid, 0, "", 0, data);
+                }
                                 
          
 				// Clear text after update or add
 				txtEMID.setText("");
-				txtName.setText("");
-				txtEmail.setText("");
-				txtContact.setText("");
-				txtAge.setText("");
-				txtJob.setText("");
+                //set comboBox to default
+                comboBox.setSelectedIndex(-1);
+                //ser comboBox_1 to default
+                comboBox_1.setSelectedIndex(-1);
+				txtAmt.setText("");
+				txtDate.setText("");
 
 				// Refresh the data in table
-				tblData = crud.read("Employee.txt");
+				tblData = crud.read("PendingFee.txt");
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 				tableModel.setColumnIdentifiers(column);
 				tableModel.getDataVector().removeAllElements();
@@ -330,9 +334,8 @@ public class ChargePayment extends PageUtils {
 					row[0] = tblData.get(i).get(0);
 					row[1] = tblData.get(i).get(1);
 					row[2] = tblData.get(i).get(2);
-					row[3] = tblData.get(i).get(4);
-					row[4] = tblData.get(i).get(5);
-					row[5] = tblData.get(i).get(6);
+					row[3] = tblData.get(i).get(3);
+					row[4] = tblData.get(i).get(4);
 					tableModel.addRow(row);
 				}
 				try {
@@ -345,7 +348,7 @@ public class ChargePayment extends PageUtils {
 
 			}
 		});
-		chargepaymentFrame.getContentPane().add(addResTenBtn);
+		chargepaymentFrame.getContentPane().add(chargeButton);
 		
 		// back Button
 		JButton backBtn = new JButton("Back");
