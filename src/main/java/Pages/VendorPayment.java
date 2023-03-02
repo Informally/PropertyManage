@@ -420,8 +420,8 @@ public class VendorPayment extends PageUtils{
 				// Update the debt value
 				int totalDebt = Integer.parseInt(amttopay) - Integer.parseInt(pending);
 				crud.update("PendingFee.txt", userID, 0, "", 0, String.valueOf(totalDebt), 3, "", 0);
-				crud.update("VendorStatement.txt", userID, 0, "", 0, String.valueOf(totalDebt), 6, "", 0);
-				crud.update("VendorInvoice.txt", userID, 0, "", 0, String.valueOf(totalDebt), 6, "", 0);
+				// crud.update("VendorStatement.txt", userID, 0, "", 0, String.valueOf(totalDebt), 6, "", 0);
+				// crud.update("VendorInvoice.txt", userID, 0, "", 0, String.valueOf(totalDebt), 6, "", 0);
 				crud.update("PaymentHistory.txt", uid, 0,"", 0, String.valueOf(totalDebt), 5, "", 0);
 				crud.update("PaymentHistory.txt", uid, 0,"", 0, String.valueOf(totalDebt), 3, "", 0);
 
