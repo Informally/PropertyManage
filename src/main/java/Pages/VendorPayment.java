@@ -475,14 +475,9 @@ public class VendorPayment extends PageUtils{
 				
 				int a = jTable.getSelectedRow();
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
-				String uuid = tableModel.getValueAt(0, 0).toString();
-                                String name1 = tableModel.getValueAt(0, 1).toString();
 				String rental = tableModel.getValueAt(0, 2).toString();
 				String utilities = tableModel.getValueAt(0, 3).toString();
 				String services = tableModel.getValueAt(0, 4).toString();
-				String out2 = tableModel.getValueAt(0, 5).toString();
-				String month1 = tableModel.getValueAt(0, 6).toString();
-				String year1 = tableModel.getValueAt(0, 7).toString();
 				
 
 				String receipt = "\t\t<------------- Receipt ------------->\n";

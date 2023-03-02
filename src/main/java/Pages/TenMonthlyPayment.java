@@ -474,17 +474,6 @@ public class TenMonthlyPayment extends PageUtils {
                 String userID = tableModelPayment.getValueAt(i, 8).toString();
                 String dtf = tableModelPayment.getValueAt(i, 9).toString();
 
-                /*
-                int a = jTable.getSelectedRow();
-                DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
-                String uuid = tableModel.getValueAt(0, 0).toString();
-                String name1 = tableModel.getValueAt(0, 1).toString();
-                String roomType2 = tableModel.getValueAt(0, 2).toString();
-                String roomPrice2 = tableModel.getValueAt(0, 3).toString();
-                String deposit = tableModel.getValueAt(0, 4).toString();
-                String total = tableModel.getValueAt(0, 5).toString();
-*/
-
                 String receipt = "\t\t<------------- Receipt ------------->\n";
                 String lblpaymentId = "\tPayment ID:";
                 String paymentId = uid + "\n\n\tDescription                          Price(RM)\n\t---------------\t\t\t                            -----------------\n";
