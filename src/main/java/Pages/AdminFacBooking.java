@@ -375,18 +375,19 @@ public class AdminFacBooking extends PageUtils{
 					data.add(facilityType);
 					data.add(price);
 					data.add(duration);
-                                        data.add(String.valueOf(totalPrice));
-                                        data.add(date);
-                                        data.add(time);
+                    data.add(String.valueOf(totalPrice));
+                    data.add(date);
+                    data.add(time);
                                         
-                                        dataIs.add(uid);
-                                        dataIs.add("Facility");
-                                        dataIs.add(facilityType);
-                                        dataIs.add(String.valueOf(totalPrice));
-                                        dataIs.add(date);
+                    dataIs.add(uid);
+					dataIs.add(facility);
+                    dataIs.add("Facility");
+                    dataIs.add(facilityType);
+                    dataIs.add(String.valueOf(totalPrice));
+                    dataIs.add(date);
 
 					crud.create("FacilityBooking.txt", data);
-                                        crud.create("ResidentInvoiceStatement.txt", dataIs);
+                    crud.create("ResidentInvoiceStatement.txt", dataIs);
 
 				} else { // this means update data
 					data.add(userId);
