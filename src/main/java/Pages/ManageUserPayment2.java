@@ -100,7 +100,7 @@ public class ManageUserPayment2 extends PageUtils{
 		mngPayment2.getContentPane().add(txtMonth);
 
 		// Rental
-		JLabel lblRental = new JLabel("Rental: ");
+		JLabel lblRental = new JLabel("Rental:      RM");
 		lblRental.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblRental.setBounds(44, 123, 315, 42);
 		mngPayment2.getContentPane().add(lblRental);
@@ -136,7 +136,7 @@ public class ManageUserPayment2 extends PageUtils{
 		mngPayment2.getContentPane().add(txtName);
 
 		// Utilities
-		JLabel lblUtilities = new JLabel("Utilities: ");
+		JLabel lblUtilities = new JLabel("Utilities:    RM");
 		lblUtilities.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblUtilities.setBounds(44, 173, 315, 42);
 		mngPayment2.getContentPane().add(lblUtilities);
@@ -148,8 +148,8 @@ public class ManageUserPayment2 extends PageUtils{
 		mngPayment2.getContentPane().add(txtUtilities);
 
 		// Outstanding
-		JLabel lblOut = new JLabel("Outstanding: ");
-		lblOut.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		JLabel lblOut = new JLabel("Outstanding: RM");
+		lblOut.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		lblOut.setBounds(44, 273, 315, 42);
 		mngPayment2.getContentPane().add(lblOut);
 
@@ -160,7 +160,7 @@ public class ManageUserPayment2 extends PageUtils{
 		mngPayment2.getContentPane().add(txtOut);
 		
 		// Services
-		JLabel lblServices = new JLabel("Services: ");
+		JLabel lblServices = new JLabel("Services:  RM");
 		lblServices.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblServices.setBounds(44, 223, 315, 42);
 		mngPayment2.getContentPane().add(lblServices);
@@ -421,7 +421,7 @@ public class ManageUserPayment2 extends PageUtils{
 				DefaultTableModel tableModelPayment = (DefaultTableModel) jTablePayment.getModel();
 				String uid = tableModelPayment.getValueAt(i, 0).toString();
                                 String name = tableModelPayment.getValueAt(i, 1).toString();
-				String total = tableModelPayment.getValueAt(i, 2).toString();
+				String out = tableModelPayment.getValueAt(i, 2).toString();
 				String amount = tableModelPayment.getValueAt(i, 3).toString();
 				String month = tableModelPayment.getValueAt(i, 4).toString();
 				String year = tableModelPayment.getValueAt(i, 5).toString();
@@ -435,7 +435,7 @@ public class ManageUserPayment2 extends PageUtils{
 				String rental = tableModel.getValueAt(0, 2).toString();
 				String utilities = tableModel.getValueAt(0, 3).toString();
 				String services = tableModel.getValueAt(0, 4).toString();
-				String out = tableModel.getValueAt(0, 5).toString();
+				String out2 = tableModel.getValueAt(0, 5).toString();
 				String month1 = tableModel.getValueAt(0, 6).toString();
 				String year1 = tableModel.getValueAt(0, 7).toString();
 				
@@ -448,11 +448,12 @@ public class ManageUserPayment2 extends PageUtils{
 				String lblUtilities = "\tUtilities                    " + "\t\t\t    " + utilities + "\n";
 				String lblServices = "\tServices                    " + "\t\t\t  " + services + "\n";
 				String lblTotal = "\t---------------------------------------------------------------\n\tTotal Paid:                    " + "\t\t\t" + amount + "\n";
+                                String lblOut = "\tOutstanding                 " + "\t\t\t  " + out + "\n";
 				String lblPaymentDate = "\tPayment for: " + month + " " + year + "\n";
 				String lblDate = "\tDate Paid: " + dtf + "\n\t---------------------------------------------------------------" + "\n";
 				String lblThank = "\t                  Thank you for your payment\n";
 				//textArea.setText(receipt + lblpaymentId + paymentId + lblRental + lblUtilities + lblServices + lblTotal + lblPaymentDate + lblDate + lblThank);
-				JOptionPane.showMessageDialog(null, receipt + lblpaymentId + paymentId + lblName + lblRental + lblUtilities + lblServices + lblTotal + lblPaymentDate + lblDate + lblThank, "Receipt", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, receipt + lblpaymentId + paymentId + lblName + lblRental + lblUtilities + lblServices + lblTotal + lblOut + lblPaymentDate + lblDate + lblThank, "Receipt", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		viewReceiptBtn.setBounds(264, 323, 200, 42);

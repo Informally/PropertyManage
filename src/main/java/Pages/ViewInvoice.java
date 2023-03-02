@@ -155,7 +155,7 @@ public class ViewInvoice extends PageUtils {
 		lblColumn.setBounds(50, 193, 315, 42);
 		
 		//Label Column2
-		JLabel lblColumn2 = new JLabel("Year                        Amount");
+		JLabel lblColumn2 = new JLabel("Year                        Amount(RM)");
 		lblColumn2.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12));
 		lblColumn2.setBounds(420, 193, 315, 42);
 		
@@ -185,7 +185,7 @@ public class ViewInvoice extends PageUtils {
 		tblData.clear();
 		tblData = newCrud.read("ResidentInvoiceStatement.txt");
 		String rowPayment[] = new String[6];
-		String columnPayment[] = { "Id","Name", "Payment Type", "Type", "Outstanding", "Date" };
+		String columnPayment[] = { "Id","Name", "Payment Type", "Detail", "Outstanding", "Date" };
 
 
 
@@ -238,7 +238,7 @@ public class ViewInvoice extends PageUtils {
 
 				String report = "<-------- Invoice/Statement -------->\n\n";
 					
-				report += "\nPayment Id: " + paymentID + "\n" + "Name: " + name + "\n" + "Payment Type: " + type + "\n" + "Type: " + type1 + "\n" + "Outstanding: RM" + outstanding + "\n" + "Date: " + date + "\n----------------------\n";
+				report += "\nPayment Id: " + paymentID + "\n" + "Name: " + name + "\n" + "Payment Type: " + type + "\n" + "Detail: " + type1 + "\n" + "Outstanding: RM" + outstanding + "\n" + "Date: " + date + "\n----------------------\n";
 				//textArea.setText(report);
 				
 				//JOPtionPane showing report with the title "Invoice/Statement"
