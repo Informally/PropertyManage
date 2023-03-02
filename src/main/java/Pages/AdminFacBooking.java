@@ -325,11 +325,11 @@ public class AdminFacBooking extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				txtUID.setText("");
-				txtFacility.setText("");
+				//txtFacility.setText("");
 				txtDate.setText("");
 				txtPrice.setText("");
-				txtFacilityType.setToolTipText(null);
-				txtDuration.setToolTipText(null);
+				txtFacilityType.setSelectedIndex(-1);
+				txtDuration.setSelectedIndex(-1);
 				txtTime.setText("");
 			}
 		});
@@ -411,11 +411,11 @@ public class AdminFacBooking extends PageUtils{
 
 				// Clear text after update or add
 				txtUID.setText("");
-				txtFacility.setText("");
+				//txtFacility.setText("");
 				txtDate.setText("");
 				txtPrice.setText("");
-				txtFacilityType.setToolTipText(null);
-				txtDuration.setToolTipText(null);
+				txtFacilityType.setSelectedIndex(-1);
+				txtDuration.setSelectedIndex(-1);
 				txtTime.setText("");
 
 				// Refresh the data in table
