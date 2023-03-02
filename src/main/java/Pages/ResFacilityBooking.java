@@ -220,7 +220,7 @@ public class ResFacilityBooking extends PageUtils{
 		// Result Display
 		tblData = crud.read("FacilityBooking.txt");
 		String row[] = new String[8];
-		String column[] = { "Facility Id", "Facility Type","Name", "Facility Price", "Duration", "Total Price", "Date", "Time" };
+		String column[] = { "Facility Id", "Name","Facility Type", "Facility Price", "Duration", "Total Price", "Date", "Time" };
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 323, 770, 250);
@@ -371,8 +371,8 @@ public class ResFacilityBooking extends PageUtils{
 				if (userId.isEmpty()) { // this means new data is added
 					String uid = uuid.toString();
 					data.add(uid);
-					data.add(facilityType);
-                                        data.add(name);
+					data.add(name);
+                                        data.add(facilityType);
 					data.add(price);
 					data.add(duration);
                                         data.add(String.valueOf(totalPrice));
@@ -391,8 +391,8 @@ public class ResFacilityBooking extends PageUtils{
 
 				} else { // this means update data
 					data.add(userId);
-					data.add(facilityType);
-                                        data.add(name);
+					data.add(name);
+                                        data.add(facilityType);
 					data.add(price);
 					data.add(duration);
                                         data.add(String.valueOf(totalPrice));
