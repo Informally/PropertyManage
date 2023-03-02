@@ -82,14 +82,15 @@ public class AdminFacBooking extends PageUtils{
 		txtUID.setEditable(false);
 		afb.getContentPane().add(txtUID);
 
-		// Facility No
-		JLabel lblFacility = new JLabel("Facility No: ");
+		// Name
+		JLabel lblFacility = new JLabel("Name: ");
 		lblFacility.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblFacility.setBounds(444, 73, 315, 42);
 		afb.getContentPane().add(lblFacility);
 
-		JTextField txtFacility = new JTextField();
+		JTextField txtFacility = new JTextField(adminName);
 		txtFacility.setBounds(584, 73, 250, 42);
+		txtFacility.setEditable(false);
 		afb.getContentPane().add(txtFacility);
 
 		// Facility Type
@@ -220,7 +221,7 @@ public class AdminFacBooking extends PageUtils{
 		// Result Display
 		tblData = crud.read("FacilityBooking.txt");
 		String row[] = new String[8];
-		String column[] = { "Facility Id", "Facility No", "Facility Type", "Facility Price", "Duration", "Total", "Date", "Time" };
+		String column[] = {"Facility ID", "Facility Type", "Name", "Facility Price", "Duration", "Total Price", "Date", "Time" };
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 323, 770, 250);
