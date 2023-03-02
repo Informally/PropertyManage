@@ -234,7 +234,21 @@ public class VendorPayment extends PageUtils{
 			row[2] = tblData.get(i).get(2);
 			row[3] = tblData.get(i).get(3);
 			row[4] = tblData.get(i).get(4);
-			tableModel.addRow(row);
+			// tableModel.addRow(row);
+
+			// Check if the row contains the search string
+			boolean match = false;
+			for (int j = 0; j < row.length; j++) {
+				if (row[j].toLowerCase().contains(vendorName.toLowerCase())) {
+				match = true;
+				break;
+		}
+	}
+
+			// Add the row if it matches the search string
+			if (match) {
+				tableModel.addRow(row);
+				}
 
 		}
 		jTable.setModel(tableModel);
@@ -294,7 +308,20 @@ public class VendorPayment extends PageUtils{
 			rowPayment[5] = tblDataHistory.get(i).get(5);
 			rowPayment[6] = tblDataHistory.get(i).get(6);
 			rowPayment[7] = tblDataHistory.get(i).get(7);
-			tableModelPayment.addRow(rowPayment);
+			// tableModelPayment.addRow(rowPayment);
+			// Check if the row contains the search string
+			boolean match1 = false;
+			for (int b = 0; b < rowPayment.length; b++) {
+				if (rowPayment[b].toLowerCase().contains(vendorName.toLowerCase())) {
+				match1 = true;
+				break;
+				}
+			}
+
+			// Add the row if it matches the search string
+			if (match1) {
+				tableModelPayment.addRow(rowPayment);
+			}
 
 		}
 		jTablePayment.setModel(tableModelPayment);
@@ -422,10 +449,20 @@ public class VendorPayment extends PageUtils{
 					row[2] = tblData.get(i).get(2);
 					row[3] = tblData.get(i).get(3);
 					row[4] = tblData.get(i).get(4);
-					// row[5] = tblData.get(i).get(5);
-					// row[6] = tblData.get(i).get(6);
-                    // row[7] = tblData.get(i).get(7);
-					tableModel.addRow(row);
+					// tableModel.addRow(row);
+					// Check if the row contains the search string
+			boolean match2 = false;
+			for (int w = 0; w < row.length; w++) {
+				if (row[w].toLowerCase().contains(vendorName.toLowerCase())) {
+				match2 = true;
+				break;
+		}
+	}
+
+			// Add the row if it matches the search string
+			if (match2) {
+				tableModel.addRow(row);
+				}
 				}
 				try {
 					Thread.sleep(100);
@@ -450,7 +487,20 @@ public class VendorPayment extends PageUtils{
 					rowPayment[5] = tblDataHistory.get(i).get(5);
 					rowPayment[6] = tblDataHistory.get(i).get(6);
                     rowPayment[7] = tblDataHistory.get(i).get(7);
-					tableModelPayment.addRow(rowPayment);
+					// tableModelPayment.addRow(rowPayment);
+					// Check if the row contains the search string
+			boolean match3 = false;
+			for (int q = 0; q < rowPayment.length; q++) {
+				if (rowPayment[q].toLowerCase().contains(vendorName.toLowerCase())) {
+				match3 = true;
+				break;
+				}
+			}
+
+			// Add the row if it matches the search string
+			if (match3) {
+				tableModelPayment.addRow(rowPayment);
+				}
 
 				}
 				try {
