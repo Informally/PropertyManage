@@ -230,13 +230,13 @@ public class AdminFacBooking extends PageUtils{
 		jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		for (int i = 0; i < tblData.size(); i++) {
 			row[0] = tblData.get(i).get(0);
-			row[1] = tblData.get(i).get(1);
-			row[2] = tblData.get(i).get(2);
+			row[1] = tblData.get(i).get(2);
+			row[2] = tblData.get(i).get(1);
 			row[3] = tblData.get(i).get(3);
 			row[4] = tblData.get(i).get(4);
 			row[5] = tblData.get(i).get(5);
 			row[6] = tblData.get(i).get(6);
-                        row[7] = tblData.get(i).get(7);
+            row[7] = tblData.get(i).get(7);
 			tableModel.addRow(row);
 
 		}
@@ -251,8 +251,8 @@ public class AdminFacBooking extends PageUtils{
 
 				if (row.length > 0) {
 					txtUID.setText((String) jTable.getValueAt(row[0], 0));
-					txtFacility.setText((String) jTable.getValueAt(row[0], 1));
-					txtFacilityType.setToolTipText((String) jTable.getValueAt(row[0], 2));
+					txtFacility.setText((String) jTable.getValueAt(row[0], 2));
+					txtFacilityType.setToolTipText((String) jTable.getValueAt(row[0], 1));
 					txtPrice.setText((String) jTable.getValueAt(row[0], 3));					
 					txtDuration.setToolTipText((String) jTable.getValueAt(row[0], 4));
 					txtDate.setText((String) jTable.getValueAt(row[0], 6));
