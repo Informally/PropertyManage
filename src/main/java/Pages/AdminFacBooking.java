@@ -254,8 +254,8 @@ public class AdminFacBooking extends PageUtils{
 					txtFacilityType.setToolTipText((String) jTable.getValueAt(row[0], 2));
 					txtPrice.setText((String) jTable.getValueAt(row[0], 3));					
 					txtDuration.setToolTipText((String) jTable.getValueAt(row[0], 4));
-					txtDate.setText((String) jTable.getValueAt(row[0], 5));
-					txtTime.setText((String) jTable.getValueAt(row[0], 6));
+					txtDate.setText((String) jTable.getValueAt(row[0], 6));
+					txtTime.setText((String) jTable.getValueAt(row[0], 7));
 				}
 
 			}
