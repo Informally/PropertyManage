@@ -76,7 +76,7 @@ public class ViewOutStanding2 extends PageUtils {
 
 	
 	
-		CRUD newCrud = new CRUD();
+		/*CRUD newCrud = new CRUD();
 		tblData.clear();
 		tblData = newCrud.read("PaymentHistory.txt");
 		String rowPayment[] = new String[8];
@@ -107,7 +107,7 @@ public class ViewOutStanding2 extends PageUtils {
 		JScrollPane scrollPayment = new JScrollPane(jTablePayment, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollPayment.setBounds(44, 73, 770, 100);
-		viewOutStanding2.getContentPane().add(scrollPayment);
+		viewOutStanding2.getContentPane().add(scrollPayment);*/
 		
 		
 		// Result Display
@@ -117,7 +117,7 @@ public class ViewOutStanding2 extends PageUtils {
 		textArea.setBounds(44, 200, 770, 300);
 
 
-		// Scroll
+		/* Scroll
 		JScrollPane scroll = new JScrollPane (textArea, 
 				   JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scroll.setBounds(44, 200, 770, 300);
@@ -149,7 +149,23 @@ public class ViewOutStanding2 extends PageUtils {
 				
 
 			}
-		});
+		});*/
+                JScrollPane scroll = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scroll.setBounds(44, 130, 770, 450);
+		viewOutStanding2.getContentPane().add(scroll);
+		
+		ArrayList<ArrayList<String>> pendingData = crud.read("PendingFee.txt");
+
+		String pendingReport = "\t\t<----- Pending Fee ----->\n";
+		
+		for (ArrayList<String> row : pendingData) {
+			if(Integer.parseInt(row.get(4)) > 0) {
+			pendingReport += "\tPending ID:" + row.get(0) + "\n\n\tDescription\t\t\tPrice(RM)\n\t---------------\t\t\t-----------\n" + "\tName" + "\t\t\t" + row.get(1) + "\n" + "\tRental" + "\t\t\t" + row.get(2) + "\n" + "\tUtilities" + "\t\t\t" + row.get(3) + "\n" + "\tServices" + "\t\t\t" + row.get(4) + "\n" + "\t---------------------------------------------------------------\n\tOutstanding" + "\t\t\t" + row.get(5) + "\n"+ "\tPending fee for " + row.get(6) + " " + row.get(7) + "\n\t---------------------------------------------------------------" + "\n\n" + "\t\t<----- Pending Fee ----->\n";
+			}
+		}
+
+		textArea.setText(pendingReport);
 		
 		
 		// back Button

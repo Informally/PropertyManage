@@ -1,7 +1,7 @@
 package Data;
 
-public class User {
-	private String userId, name,  email, password, age, role;
+public class User implements IUser {
+	private String userId, name, email, password, age, role;
 
 	public String getUserId() {
 		return userId;

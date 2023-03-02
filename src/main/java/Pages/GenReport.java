@@ -106,7 +106,7 @@ public class GenReport extends PageUtils {
 					String paymentreport = "<----- Payment Report Resident/Tenant ----->\n";
 
 					for (ArrayList<String> row : paymentdata) {
-						paymentreport += "\nPayment Id: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Room Type: " + row.get(2) + "\n" + "Outstanding: RM" + row.get(3) + "\n" + "Total Paid: RM " + row.get(4) + "\n"+ "Date: " + row.get(8) + "\n----------------------\n";
+						paymentreport += "\nPayment Id: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Room Type: " + row.get(2) + "\n" + "Room Price: RM " + row.get(3) + "\n" + "Outstanding: RM " + row.get(4) + "\n" + "Total Paid: RM " + row.get(5) + "\n"+ "Date: " + row.get(9) + "\n----------------------\n";
 
 
 					}
@@ -203,7 +203,7 @@ public class GenReport extends PageUtils {
 					String jobreport = "<---------- Employees Job Report ----------->\n";
 
 					for (ArrayList<String> row : jobdata) {
-						jobreport += "\nEmployee Id: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Email: " + row.get(2) + "\n" + "Contact: " + row.get(3) + "\n" + "Age: " + row.get(4) + "\n" + "Job Role: " + row.get(5) +"\n----------------------\n";
+						jobreport += "\nEmployee Id: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Email: " + row.get(2) + "\n" + "Contact: " + row.get(4) + "\n" + "Age: " + row.get(5) + "\n" + "Job Role: " + row.get(6) +"\n----------------------\n";
 
 					}
 

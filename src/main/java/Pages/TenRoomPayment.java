@@ -324,16 +324,16 @@ public class TenRoomPayment extends PageUtils{
 			public void actionPerformed(ActionEvent e) {
 				CRUD crudCard = new CRUD();
 
-                tblCard = crudCard.readBulk("Card.txt", txtCard.getText().trim(), 0, "",0);
-                
-                if(tblCard.size() == 0){
-                    ArrayList<String> cardDetails = new ArrayList<>();
-                    cardDetails.add(txtCard.getText().trim());
-                    cardDetails.add(txtDate.getText().trim());
-                    cardDetails.add(txtCcv.getText().trim());
-                    
-                    crud.create("Card.txt", cardDetails);
-                }
+                                tblCard = crudCard.readBulk("Card.txt", txtCard.getText().trim(), 0, "",0);
+
+                                if(tblCard.size() == 0){
+                                    ArrayList<String> cardDetails = new ArrayList<>();
+                                    cardDetails.add(txtCard.getText().trim());
+                                    cardDetails.add(txtDate.getText().trim());
+                                    cardDetails.add(txtCcv.getText().trim());
+
+                                    crud.create("Card.txt", cardDetails);
+                                }
 					
 				User user = new User();
 				UUID uuid = UUID.randomUUID();
