@@ -406,22 +406,20 @@ public class VendorPayment extends PageUtils{
 				data.add(date);
 
 
-				dataReceipt.add(uid);
-                dataReceipt.add(name);
-				dataReceipt.add(details);
-				dataReceipt.add(pending);
-				dataReceipt.add(amttopay);
-				dataReceipt.add("");
-				dataReceipt.add(userID);
-				dataReceipt.add(date);
+				// dataReceipt.add(uid);
+                // dataReceipt.add(name);
+				// dataReceipt.add(details);
+				// dataReceipt.add(pending);
+				// dataReceipt.add(amttopay);
+				// dataReceipt.add("");
+				// dataReceipt.add(userID);
+				// dataReceipt.add(date);
 
 				crud.create("PaymentHistory.txt", data);
-				crud.create("VendorReceipt.txt", dataReceipt);
+				// crud.create("VendorReceipt.txt", dataReceipt);
 				// Update the debt value
 				int totalDebt = Integer.parseInt(amttopay) - Integer.parseInt(pending);
 				crud.update("PendingFee.txt", userID, 0, "", 0, String.valueOf(totalDebt), 3, "", 0);
-				// crud.update("VendorStatement.txt", userID, 0, "", 0, String.valueOf(totalDebt), 6, "", 0);
-				// crud.update("VendorInvoice.txt", userID, 0, "", 0, String.valueOf(totalDebt), 6, "", 0);
 				crud.update("PaymentHistory.txt", uid, 0,"", 0, String.valueOf(totalDebt), 5, "", 0);
 				crud.update("PaymentHistory.txt", uid, 0,"", 0, String.valueOf(totalDebt), 3, "", 0);
 
