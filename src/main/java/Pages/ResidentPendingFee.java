@@ -107,7 +107,7 @@ public class ResidentPendingFee extends PageUtils{
 		
 		                        for (ArrayList<String> row : pendingData) {
 			                if(Integer.parseInt(row.get(5)) > 0) {
-			                pendingReport += "\tPending ID:" + row.get(0) + "\n\n\tDescription\t\t\tPrice(RM)\n\t---------------\t\t\t-----------\n" + "\tName" + "\t\t\t" + row.get(1) + "\n" + "\tRoom" + "\t\t\t" + row.get(3) + "\n" + "\tDeposit" + "\t\t\t" + row.get(4) + "\n" + "\t---------------------------------------------------------------\n\tOutstanding" + "\t\t\t" + row.get(5) + "\n"+ "\tPending fee for " + row.get(6) + "/" + row.get(7) + "\n\t---------------------------------------------------------------" + "\n\n" + "\t\t<----- Room Pending Fee ----->\n";
+			                pendingReport += "\tPending ID:" + row.get(0) + "\n\n\tDescription\t\t\tPrice(RM)\n\t---------------\t\t\t-----------\n" + "\tName" + "\t\t\t" + row.get(1) + "\n" + "\tRoom(" + row.get(2) + ")\t\t\t" + row.get(3) + "\n" + "\tDeposit" + "\t\t\t" + row.get(4) + "\n" + "\t---------------------------------------------------------------\n\tOutstanding" + "\t\t\t" + row.get(5) + "\n"+ "\tPending fee for " + row.get(6) + "/" + row.get(7) + "\n\t---------------------------------------------------------------" + "\n\n" + "\t\t<----- Room Pending Fee ----->\n";
 			                }
 		                        }
 
@@ -120,7 +120,7 @@ public class ResidentPendingFee extends PageUtils{
 		
 		                        for (ArrayList<String> row : monthlyData) {
 			                if(Integer.parseInt(row.get(3)) > 0) {
-			                monthlyReport += "\tPending ID:" + row.get(0) + "\n\n\tDescription\t\t\tPrice(RM)\n\t---------------\t\t\t-----------\n" + "\tName" + "\t\t\t" + row.get(1) + "\n\tRoom Type(" + row.get(2) + ")\n" + "\tRoom Price" + "\t\t\t" + row.get(3) + "\n" + "\t---------------------------------------------------------------\n\tOutstanding" + "\t\t\t" + row.get(4) + "\n"+ "\tPending fee for " + row.get(5) + "/" + row.get(6) + "\n\t---------------------------------------------------------------" + "\n\n" + "\t\t<----- Monthly Pending Fee ----->\n";
+			                monthlyReport += "\tPending ID:" + row.get(0) + "\n\n\tDescription\t\t\tPrice(RM)\n\t---------------\t\t\t-----------\n" + "\tName" + "\t\t\t" + row.get(1) + "\n\tRoom Type\t\t\t" + row.get(2) + "\n" + "\tRoom Price" + "\t\t\t" + row.get(3) + "\n" + "\t---------------------------------------------------------------\n\tOutstanding" + "\t\t\t" + row.get(4) + "\n"+ "\tPending fee for " + row.get(5) + "/" + row.get(6) + "\n\t---------------------------------------------------------------" + "\n\n" + "\t\t<----- Monthly Pending Fee ----->\n";
 			                }
 		                        }
 

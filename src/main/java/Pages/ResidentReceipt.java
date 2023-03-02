@@ -106,7 +106,7 @@ public class ResidentReceipt extends PageUtils{
 		                        String pendingReport = "\t\t<----- Room Receipt ----->\n";
 		
 		                        for (ArrayList<String> row : pendingData) {
-			                pendingReport += "\tPayment ID:" + row.get(0) + "\n\n\tDescription\t\t\tPrice(RM)\n\t---------------\t\t\t-----------\n" + "\tName\t\t\t(" + row.get(1) + ")\n" + "\tRoom Type\t\t\t(" + row.get(2) + ")\n" + "\tRoom Price" + "\t\t\t" + row.get(3) + "\n" + "\tDeposit" + "\t\t\t" + row.get(4) + "\n" + "\t---------------------------------------------------------------\n\tTotal Paid" + "\t\t\t" + row.get(5) + "\n"+ "\tPayment for " + row.get(6) + " " + row.get(7) + "\n" + "\tDate Paid " + row.get(8) + "\n\t---------------------------------------------------------------" + "\n" + "\t                  Thank you for your payment\n\n" + "\t\t<----- Room Receipt ----->\n";
+			                pendingReport += "\tPayment ID:" + row.get(0) + "\n\n\tDescription\t\t\tPrice(RM)\n\t---------------\t\t\t-----------\n" + "\tName\t\t\t" + row.get(1) + "\n" + "\tRoom Type\t\t\t" + row.get(2) + "\n" + "\tRoom Price" + "\t\t\t" + row.get(3) + "\n" + "\tDeposit" + "\t\t\t" + row.get(4) + "\n" + "\t---------------------------------------------------------------\n\tTotal Paid" + "\t\t\t" + row.get(5) + "\n"+ "\tPayment for " + row.get(6) + " " + row.get(7) + "\n" + "\tDate Paid " + row.get(8) + "\n\t---------------------------------------------------------------" + "\n" + "\t                  Thank you for your payment\n\n" + "\t\t<----- Room Receipt ----->\n";
 			                
 		                        }
 
@@ -118,7 +118,7 @@ public class ResidentReceipt extends PageUtils{
 		                        String monthlyReport = "\t\t<----- Monthly Receipt ----->\n";
 		
 		                        for (ArrayList<String> row : monthlyData) {
-			                monthlyReport += "\tPayment ID:" + row.get(0) + "\n\n\tDescription\t\t\tPrice(RM)\n\t---------------\t\t\t-----------\n" + "\tName\t\t\t(" + row.get(1) + ")\n" + "\tRoom Type\t\t\t(" + row.get(2) + ")\n" + "\tRoom Price" + "\t\t\t" + row.get(3) + "\n" + "\t---------------------------------------------------------------\n\tTotal Paid" + "\t\t\t" + row.get(4) + "\n"+ "\tPayment for " + row.get(5) + " " + row.get(6) + "\n" + "\tDate Paid " + row.get(7) + "\n\t---------------------------------------------------------------" + "\n" + "\t                  Thank you for your payment\n\n" + "\t\t<----- Monthly Receipt ----->\n";
+			                monthlyReport += "\tPayment ID:" + row.get(0) + "\n\n\tDescription\t\t\tPrice(RM)\n\t---------------\t\t\t-----------\n" + "\tName\t\t\t" + row.get(1) + "\n" + "\tRoom Type\t\t\t" + row.get(2) + "\n" + "\tRoom Price" + "\t\t\t" + row.get(3) + "\n" + "\t---------------------------------------------------------------\n\tTotal Paid" + "\t\t\t" + row.get(4) + "\n"+ "\tPayment for " + row.get(5) + " " + row.get(6) + "\n" + "\tDate Paid " + row.get(7) + "\n\t---------------------------------------------------------------" + "\n" + "\t                  Thank you for your payment\n\n" + "\t\t<----- Monthly Receipt ----->\n";
 			                
 		                        }
 
@@ -131,7 +131,7 @@ public class ResidentReceipt extends PageUtils{
 		                        String facilityReport = "\t\t<----- Facility Receipt ----->\n";
 		
 		                        for (ArrayList<String> row : facilityData) {
-			                facilityReport += "\tPayment ID:" + row.get(0) + "\n\n\tDescription\t\t\tPrice(RM)\n\t---------------\t\t\t-----------\n" + "\tName\t\t\t(" + row.get(1) + ")\n" + "\tFacility Type\t\t\t(" + row.get(2) + ")\n" + "\tFacility Price" + "\t\t\t" + row.get(3) + "\n" + "\tDuration" + "\t\t\t" + row.get(4) + "\n" + "\t---------------------------------------------------------------\n\tTotal Paid" + "\t\t\t" + row.get(5) + "\n"+ "\tPayment for " + row.get(6) + " " + row.get(7) + "\n" + "\tDate Paid " + row.get(8) + "\n\t---------------------------------------------------------------" + "\n" + "\t                  Thank you for your payment\n\n" + "\t\t<----- Facility Receipt ----->\n";
+			                facilityReport += "\tPayment ID:" + row.get(0) + "\n\n\tDescription\t\t\tPrice(RM)\n\t---------------\t\t\t-----------\n" + "\tName\t\t\t" + row.get(1) + "\n" + "\tFacility Type\t\t\t" + row.get(2) + "\n" + "\tFacility Price" + "\t\t\t" + row.get(3) + "\n" + "\tDuration" + "\t\t\t" + row.get(4) + "\n" + "\t---------------------------------------------------------------\n\tTotal Paid" + "\t\t\t" + row.get(5) + "\n"+ "\tPayment for " + row.get(6) + " " + row.get(7) + "\n" + "\tDate Paid " + row.get(8) + "\n\t---------------------------------------------------------------" + "\n" + "\t                  Thank you for your payment\n\n" + "\t\t<----- Facility Receipt ----->\n";
 			                
 		                        }
 
