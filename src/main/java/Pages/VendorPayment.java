@@ -84,81 +84,73 @@ public class VendorPayment extends PageUtils{
 
 		JTextField txtUID = new JTextField("");
 		txtUID.setBounds(164, 73, 250, 42);
-		txtUID.setBackground(Color.gray);
+		txtUID.setBackground(Color.lightGray);
 		txtUID.setEditable(false);
 		vp.getContentPane().add(txtUID);
 
-		// Month
-		JLabel lblMonth = new JLabel("Month: ");
-		lblMonth.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblMonth.setBounds(434, 73, 315, 42);
-		vp.getContentPane().add(lblMonth);
+		// // Month
+		// JLabel lblMonth = new JLabel("Month: ");
+		// lblMonth.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		// lblMonth.setBounds(434, 73, 315, 42);
+		// vp.getContentPane().add(lblMonth);
 
-		JTextField txtMonth = new JTextField();
-		txtMonth.setBounds(554, 73, 250, 42);
-		txtMonth.setBackground(Color.white);
-		txtMonth.setEditable(false);
-		vp.getContentPane().add(txtMonth);
+		// JTextField txtMonth = new JTextField();
+		// txtMonth.setBounds(554, 73, 250, 42);
+		// txtMonth.setBackground(Color.white);
+		// // txtMonth.setEditable(false);
+		// vp.getContentPane().add(txtMonth);
 
-		// Rental
-		JLabel lblRental = new JLabel("Rental:      RM");
-		lblRental.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblRental.setBounds(44, 123, 315, 42);
-		vp.getContentPane().add(lblRental);
+		// Detail
+		JLabel lblDetail = new JLabel("Detail: ");
+		lblDetail.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblDetail.setBounds(44, 123, 315, 42);
+		vp.getContentPane().add(lblDetail);
 
-		JTextField txtRental = new JTextField();
-		txtRental.setBounds(164, 123, 250, 42);
-		txtRental.setBackground(Color.white);
-		txtRental.setEditable(false);
-		vp.getContentPane().add(txtRental);
+		JTextField txtDetail = new JTextField();
+		txtDetail.setBounds(164, 123, 250, 42);
+		txtDetail.setBackground(Color.white);
+		txtDetail.setEditable(false);
+		vp.getContentPane().add(txtDetail);
 
-		// Year
-		JLabel lblYear = new JLabel("Year: ");
-		lblYear.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblYear.setBounds(434, 123, 315, 42);
-		vp.getContentPane().add(lblYear);
+		// // Year
+		// JLabel lblYear = new JLabel("Year: ");
+		// lblYear.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		// lblYear.setBounds(434, 123, 315, 42);
+		// vp.getContentPane().add(lblYear);
 
-		JTextField txtYear = new JTextField();
-		txtYear.setBounds(554, 123, 250, 42);
-		txtYear.setBackground(Color.white);
-		txtYear.setEditable(false);
-		vp.getContentPane().add(txtYear);
+		// JTextField txtYear = new JTextField();
+		// txtYear.setBounds(554, 123, 250, 42);
+		// txtYear.setBackground(Color.white);
+		// txtYear.setEditable(false);
+		// vp.getContentPane().add(txtYear);
 
-		// Utilities
-		JLabel lblUtilities = new JLabel("Utilities:    RM");
-		lblUtilities.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblUtilities.setBounds(44, 173, 315, 42);
-		vp.getContentPane().add(lblUtilities);
 
-		JTextField txtUtilities = new JTextField();
-		txtUtilities.setBounds(164, 173, 250, 42);
-		txtUtilities.setBackground(Color.white);
-		txtUtilities.setEditable(false);
-		vp.getContentPane().add(txtUtilities);
+		// Amount to Pay
+		JLabel lblPay = new JLabel("Amount: RM");
+		lblPay.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
+		lblPay.setBounds(434, 273, 315, 42);
+		vp.getContentPane().add(lblPay);
 
-		// Outstanding
-		JLabel lblOut = new JLabel("Outstanding: RM");
-		lblOut.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
-		lblOut.setBounds(44, 273, 315, 42);
-		vp.getContentPane().add(lblOut);
-
-		JTextField txtOut = new JTextField();
-		txtOut.setBounds(164, 273, 250, 42);
-		txtOut.setBackground(Color.white);
-		txtOut.setEditable(false);
-		vp.getContentPane().add(txtOut);
+		JTextField txtPay = new JTextField();
+		txtPay.setBounds(554, 273, 250, 42);
+		txtPay.setBackground(Color.white);
+		//set as non editable
+		txtPay.setEditable(false);
+		vp.getContentPane().add(txtPay);
 		
-		// Services
-		JLabel lblServices = new JLabel("Services:  RM");
-		lblServices.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblServices.setBounds(44, 223, 315, 42);
-		vp.getContentPane().add(lblServices);
 
-		JTextField txtServices = new JTextField();
-		txtServices.setBounds(164, 223, 250, 42);
-		txtServices.setBackground(Color.white);
-		txtServices.setEditable(false);
-		vp.getContentPane().add(txtServices);
+				// Date
+				JLabel lblDate = new JLabel("Date: ");
+				lblDate.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
+				lblDate.setBounds(44, 173, 315, 42);
+				vp.getContentPane().add(lblDate);
+		
+				JTextField txtDate = new JTextField();
+				txtDate.setBounds(164, 173, 250, 42);
+				//set background as white
+				txtDate.setBackground(Color.white);
+				txtDate.setEditable(false);
+				vp.getContentPane().add(txtDate);
 		
 		// Card Number
 		JLabel lblCard = new JLabel("Card No: ");
@@ -171,14 +163,14 @@ public class VendorPayment extends PageUtils{
 		vp.getContentPane().add(txtCard);
 		
 		// Expiration Date
-		JLabel lblDate = new JLabel("Expiry Date: ");
-		lblDate.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblDate.setBounds(434, 223, 315, 42);
-		vp.getContentPane().add(lblDate);
+		JLabel lblExDate = new JLabel("Expiry Date: ");
+		lblExDate.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblExDate.setBounds(434, 223, 315, 42);
+		vp.getContentPane().add(lblExDate);
 
-		JTextField txtDate = new JTextField();
-		txtDate.setBounds(554, 223, 100, 42);
-		vp.getContentPane().add(txtDate);
+		JTextField txtExDate = new JTextField();
+		txtExDate.setBounds(554, 223, 100, 42);
+		vp.getContentPane().add(txtExDate);
 		
 		// CCV
 		JLabel lblCcv = new JLabel("CCV: ");
@@ -190,27 +182,31 @@ public class VendorPayment extends PageUtils{
 		txtCcv.setBounds(704, 223, 100, 42);
 		vp.getContentPane().add(txtCcv);
 		
-                // Name
+        // Name
 		JLabel lblName = new JLabel("Name:");
 		lblName.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblName.setBounds(434, 273, 315, 42);
+		lblName.setBounds(434, 73, 315, 42);
 		vp.getContentPane().add(lblName);
 
 		JTextField txtName = new JTextField();
-		txtName.setBounds(554, 273, 250, 42);
-                txtName.setBackground(Color.white);
+		txtName.setBounds(554, 73, 250, 42);
+        txtName.setBackground(Color.white);
 		txtName.setEditable(false);
 		vp.getContentPane().add(txtName);
                 
-		// Amount
-		JLabel lblAmount = new JLabel("Amount:   RM ");
-		lblAmount.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblAmount.setBounds(434, 323, 315, 42);
-		vp.getContentPane().add(lblAmount);
+		// Pending Amount
+		JLabel lblPending = new JLabel("Pending:   RM ");
+		lblPending.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		lblPending.setBounds(434, 123, 315, 42);
+		vp.getContentPane().add(lblPending);
 
-		JTextField txtAmount = new JTextField();
-		txtAmount.setBounds(554, 323, 250, 42);
-		vp.getContentPane().add(txtAmount);
+		JTextField txtPending = new JTextField();
+		txtPending.setBounds(554, 123, 250, 42);
+		//set background as white
+		txtPending.setBackground(Color.white);
+		//set as non-editable
+		txtPending.setEditable(false);
+		vp.getContentPane().add(txtPending);
 
 		// Error text
 		JLabel errorText = new JLabel();
@@ -222,13 +218,15 @@ public class VendorPayment extends PageUtils{
 
 		// Result Display
 		tblData = crud.read("PendingFee.txt");
-		String row[] = new String[8];
-		String column[] = { "Id", "Name", "Rental", "Utilities", "Services", "Outstanding", "Month", "Year" };
-
+		String row[] = new String[5];
+		String column[] = { "Charge ID", "Name", "Detail", "Amount", "Date"};
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 323, 770, 100);
 		DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
+		jTable.setDefaultEditor(Object.class, null);
 		tableModel.setColumnIdentifiers(column);
+		//set table as non-editable
+
 		jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		for (int i = 0; i < tblData.size(); i++) {
 			row[0] = tblData.get(i).get(0);
@@ -236,9 +234,6 @@ public class VendorPayment extends PageUtils{
 			row[2] = tblData.get(i).get(2);
 			row[3] = tblData.get(i).get(3);
 			row[4] = tblData.get(i).get(4);
-			row[5] = tblData.get(i).get(5);
-			row[6] = tblData.get(i).get(6);
-                        row[7] = tblData.get(i).get(7);
 			tableModel.addRow(row);
 
 		}
@@ -253,13 +248,17 @@ public class VendorPayment extends PageUtils{
 
 				if (row.length > 0) {
 					txtUID.setText((String) jTable.getValueAt(row[0], 0));
-                                        txtName.setText((String) jTable.getValueAt(row[0], 1));
-					txtRental.setText((String) jTable.getValueAt(row[0], 2));
-					txtUtilities.setText((String) jTable.getValueAt(row[0], 3));
-					txtServices.setText((String) jTable.getValueAt(row[0], 4));
-					txtOut.setText((String) jTable.getValueAt(row[0], 5));
-					txtMonth.setText((String) jTable.getValueAt(row[0], 6));
-					txtYear.setText((String) jTable.getValueAt(row[0], 7));
+                    txtName.setText((String) jTable.getValueAt(row[0], 1));
+					txtDetail.setText((String) jTable.getValueAt(row[0], 2));
+					txtPending.setText((String) jTable.getValueAt(row[0], 3));
+					txtDate.setText((String) jTable.getValueAt(row[0], 4));
+					//set txtPay as the same value as txtPending
+					txtPay.setText((String) jTable.getValueAt(row[0], 3));
+
+					// txtServices.setText((String) jTable.getValueAt(row[0], 4));
+					// txtOut.setText((String) jTable.getValueAt(row[0], 5));
+					// txtMonth.setText((String) jTable.getValueAt(row[0], 6));
+					// txtYear.setText((String) jTable.getValueAt(row[0], 7));
 				}
 
 			}
@@ -274,12 +273,14 @@ public class VendorPayment extends PageUtils{
 		CRUD newCrud = new CRUD();
 		tblDataHistory = newCrud.read("PaymentHistory.txt");
 		String rowPayment[] = new String[8];
-		String columnPayment[] = { "Id", "Name", "Outstanding", "Total Paid", "Month", "Year", "Payment ID", "Date" };
+		String columnPayment[] = { "Payment ID", "Name", "Detail", "Pending", "Amount Paid", "Outstanding" ,"Charge ID", "Date" };
 
 		JTable jTablePayment = new JTable();
 		jTablePayment.setBounds(44, 423, 770, 100);
 		DefaultTableModel tableModelPayment = (DefaultTableModel) jTablePayment.getModel();
 		tableModelPayment.setColumnIdentifiers(columnPayment);
+		//set table as non-editable
+		jTablePayment.setDefaultEditor(Object.class, null);
 		jTablePayment.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		jTable.setRowSelectionAllowed(false);
 		System.out.print(tblDataHistory);
@@ -292,7 +293,7 @@ public class VendorPayment extends PageUtils{
 			rowPayment[4] = tblDataHistory.get(i).get(4);
 			rowPayment[5] = tblDataHistory.get(i).get(5);
 			rowPayment[6] = tblDataHistory.get(i).get(6);
-                        rowPayment[7] = tblDataHistory.get(i).get(7);
+			rowPayment[7] = tblDataHistory.get(i).get(7);
 			tableModelPayment.addRow(rowPayment);
 
 		}
@@ -300,7 +301,7 @@ public class VendorPayment extends PageUtils{
 
 
 		JScrollPane scrollPayment = new JScrollPane(jTablePayment, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
-				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollPayment.setBounds(44, 503, 770, 100);
 		vp.getContentPane().add(scrollPayment);
 
@@ -326,24 +327,23 @@ public class VendorPayment extends PageUtils{
                                 if(tblCard.size() == 0){
                                     ArrayList<String> cardDetails = new ArrayList<>();
                                     cardDetails.add(txtCard.getText().trim());
-                                    cardDetails.add(txtDate.getText().trim());
+                                    cardDetails.add(txtExDate.getText().trim());
                                     cardDetails.add(txtCcv.getText().trim());
 
                                     crud.create("Card.txt", cardDetails);
                                 }
 				
+				
 				User user = new User();
 				UUID uuid = UUID.randomUUID();
-
+				//Strings from PendingFee txt
 				String userID = txtUID.getText().trim();
-                                String name = txtName.getText().trim();
-				String month = txtMonth.getText().trim();
-				String utilities = txtUtilities.getText().trim();
-				String out = txtOut.getText().trim();
-				String rental = txtRental.getText().trim();
-				String services = txtServices.getText().trim();
-				String year = txtYear.getText().trim();
-				String amount = txtAmount.getText().trim();
+                String name = txtName.getText().trim();
+				String details = txtDetail.getText().trim();
+				String pending = txtPending.getText().trim();
+				String date = txtDate.getText().trim();
+				//new strings
+				String amttopay = txtPay.getText().trim();
 
 				ArrayList<String> data = new ArrayList<>();
 				ArrayList<String> dataReceipt = new ArrayList<>();
@@ -360,47 +360,44 @@ public class VendorPayment extends PageUtils{
 				DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 				LocalDateTime now = LocalDateTime.now();
 				data.add(uid);
-                                data.add(name);
-				data.add(out);
-				data.add(amount);
-				data.add(month);
-				data.add(year);
+                data.add(name);
+				data.add(details);
+				data.add(pending);
+				data.add(amttopay);
+				data.add("");
 				data.add(userID);
-				data.add(dtf.format(now));
-				
+				data.add(date);
+
+
 				dataReceipt.add(uid);
-                                dataReceipt.add(name);
-				dataReceipt.add(rental);
-				dataReceipt.add(utilities);
-				dataReceipt.add(services);
-				dataReceipt.add(amount);
-				dataReceipt.add(month);
-				dataReceipt.add(year);
-				dataReceipt.add(dtf.format(now));
+                dataReceipt.add(name);
+				dataReceipt.add(details);
+				dataReceipt.add(pending);
+				dataReceipt.add(amttopay);
+				dataReceipt.add("");
+				dataReceipt.add(userID);
+				dataReceipt.add(date);
 
 				crud.create("PaymentHistory.txt", data);
 				crud.create("VendorReceipt.txt", dataReceipt);
 				// Update the debt value
-				int totalDebt = Integer.parseInt(out) - Integer.parseInt(amount);
-				crud.update("PendingFee.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
+				int totalDebt = Integer.parseInt(amttopay) - Integer.parseInt(pending);
+				crud.update("PendingFee.txt", userID, 0, "", 0, String.valueOf(totalDebt), 3, "", 0);
 				crud.update("VendorStatement.txt", userID, 0, "", 0, String.valueOf(totalDebt), 6, "", 0);
 				crud.update("VendorInvoice.txt", userID, 0, "", 0, String.valueOf(totalDebt), 6, "", 0);
-				crud.update("PaymentHistory.txt", uid, 0,"", 0, String.valueOf(totalDebt), 2, "", 0);
-				crud.update("PaymentHistory.txt", uid, 0,"", 0, String.valueOf(amount), 3, "", 0);
+				crud.update("PaymentHistory.txt", uid, 0,"", 0, String.valueOf(totalDebt), 5, "", 0);
+				crud.update("PaymentHistory.txt", uid, 0,"", 0, String.valueOf(totalDebt), 3, "", 0);
 
 				// Clear text after update or add
 				txtUID.setText("");
-                                txtName.setText("");
-				txtMonth.setText("");
-				txtUtilities.setText("");
-				txtRental.setText("");
-				txtServices.setText("");
-				txtYear.setText("");
-				txtOut.setText("");
+                txtName.setText("");
+				txtDetail.setText("");
+				txtPending.setText("");
+				txtPay.setText("");
+				txtExDate.setText("");
 				txtCard.setText("");
 				txtDate.setText("");
 				txtCcv.setText("");
-				txtAmount.setText("");
 
 				// Refresh the data in table
 				tblData = crud.read("PendingFee.txt");
@@ -415,9 +412,9 @@ public class VendorPayment extends PageUtils{
 					row[2] = tblData.get(i).get(2);
 					row[3] = tblData.get(i).get(3);
 					row[4] = tblData.get(i).get(4);
-					row[5] = tblData.get(i).get(5);
-					row[6] = tblData.get(i).get(6);
-                                        row[7] = tblData.get(i).get(7);
+					// row[5] = tblData.get(i).get(5);
+					// row[6] = tblData.get(i).get(6);
+                    // row[7] = tblData.get(i).get(7);
 					tableModel.addRow(row);
 				}
 				try {
@@ -442,7 +439,7 @@ public class VendorPayment extends PageUtils{
 					rowPayment[4] = tblDataHistory.get(i).get(4);
 					rowPayment[5] = tblDataHistory.get(i).get(5);
 					rowPayment[6] = tblDataHistory.get(i).get(6);
-                                        rowPayment[7] = tblDataHistory.get(i).get(7);
+                    rowPayment[7] = tblDataHistory.get(i).get(7);
 					tableModelPayment.addRow(rowPayment);
 
 				}
