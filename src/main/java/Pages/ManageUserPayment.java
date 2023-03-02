@@ -407,7 +407,7 @@ public class ManageUserPayment extends PageUtils{
 		DefaultTableModel tableModelPayment = (DefaultTableModel) jTablePayment.getModel();
 		String uid = tableModelPayment.getValueAt(i, 0).toString();
                 String name = tableModelPayment.getValueAt(i, 1).toString();
-                String roomType2 = tableModelPayment.getValueAt(i, 2).toString();
+                String roomType = tableModelPayment.getValueAt(i, 2).toString();
                 String out = tableModelPayment.getValueAt(i, 3).toString();
                 String amount = tableModelPayment.getValueAt(i, 4).toString();
                 String month = tableModelPayment.getValueAt(i, 5).toString();
@@ -419,7 +419,7 @@ public class ManageUserPayment extends PageUtils{
                 DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
                 String uuid = tableModel.getValueAt(0, 0).toString();
                 String name1 = tableModel.getValueAt(0, 1).toString();
-                String roomType = tableModel.getValueAt(0, 2).toString();
+                String roomType2 = tableModel.getValueAt(0, 2).toString();
                 String roomPrice = tableModel.getValueAt(0, 3).toString();
                 String deposit = tableModel.getValueAt(0, 4).toString();
                 String total = tableModel.getValueAt(0, 5).toString();
