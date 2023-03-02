@@ -85,18 +85,23 @@ public class VendorInvoice extends PageUtils{
 
 		JComboBox<String> reportOptions = new JComboBox<>();
 		reportOptions.setBounds(120, 73, 250, 42);
-		reportOptions.addItem("January");
-		reportOptions.addItem("February");
-		reportOptions.addItem("March");
-		reportOptions.addItem("April");
-		reportOptions.addItem("May");
-		reportOptions.addItem("June");
-		reportOptions.addItem("July");
-		reportOptions.addItem("August");
-		reportOptions.addItem("September");
-		reportOptions.addItem("October");
-		reportOptions.addItem("November");
-		reportOptions.addItem("December");
+		ArrayList<ArrayList<String>> paymentHistory = crud.read("PaymentHistory.txt");
+		for (int i = 0; i < paymentHistory.size(); i++) {
+			reportOptions.addItem(paymentHistory.get(i).get(0));
+		}
+
+		// reportOptions.addItem("January");
+		// reportOptions.addItem("February");
+		// reportOptions.addItem("March");
+		// reportOptions.addItem("April");
+		// reportOptions.addItem("May");
+		// reportOptions.addItem("June");
+		// reportOptions.addItem("July");
+		// reportOptions.addItem("August");
+		// reportOptions.addItem("September");
+		// reportOptions.addItem("October");
+		// reportOptions.addItem("November");
+		// reportOptions.addItem("December");
 		vi.getContentPane().add(reportOptions);
 
 		// Result Display
