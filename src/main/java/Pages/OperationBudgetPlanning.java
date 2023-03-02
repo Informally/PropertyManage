@@ -100,7 +100,7 @@ public class OperationBudgetPlanning extends PageUtils {
 		optBgtPlan.getContentPane().add(txtDate);
 
 		// Priority
-		JLabel lblPriority = new JLabel("Prority: ");
+		JLabel lblPriority = new JLabel("Priority: ");
 		lblPriority.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblPriority.setBounds(434, 123, 315, 42);
 		optBgtPlan.getContentPane().add(lblPriority);
