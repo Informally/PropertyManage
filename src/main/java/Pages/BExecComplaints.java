@@ -70,6 +70,8 @@ public class BExecComplaints extends PageUtils {
 		bec.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		bec.getContentPane().setLayout(null);
 
+		// Title
+
 		JLabel lblNewLabel = new JLabel(buildingName + ", View & Update Complaint");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
