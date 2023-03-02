@@ -614,9 +614,9 @@ public class VendorInvoice extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VendorPaymentHistoryMenu payHis = new VendorPaymentHistoryMenu(vendorName);
+				VendorMenu payHis = new VendorMenu(vendorName);
                                 setOriginalFrame(vi);
-				setTargetedFrame(payHis.phm);
+				setTargetedFrame(payHis.vm);
 				navigatePage();
 
 			}
