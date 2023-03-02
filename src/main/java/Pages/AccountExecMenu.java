@@ -149,7 +149,7 @@ public class AccountExecMenu extends PageUtils {
 		});
 		aem.getContentPane().add(viewOutStandingBtn2);
                 
-                 // Charge Payment
+        // Charge Payment
 		JButton chargeBtn2 = new JButton("Charge Payment");
 		chargeBtn2.setBounds(44, 393, 315, 42);
 		chargeBtn2.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -158,9 +158,9 @@ public class AccountExecMenu extends PageUtils {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				ChargeBtn2 chargeBtn2 = new ChargeBtn2();
+				ChargePayment chargeBtn2 = new ChargePayment();
 				setOriginalFrame(aem);
-				setTargetedFrame(chargePayment.chargePayment);
+				setTargetedFrame(chargeBtn2.chargepaymentFrame);
 				navigatePage();
 
 			}
