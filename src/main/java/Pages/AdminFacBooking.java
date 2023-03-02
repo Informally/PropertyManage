@@ -399,14 +399,14 @@ public class AdminFacBooking extends PageUtils{
                                         data.add(date);
                                         data.add(time);
                                         
-                                        dataIs.add(userId);
-                                        dataIs.add("Facility");
-                                        dataIs.add(facilityType);
-                                        dataIs.add(String.valueOf(totalPrice));
-                                        dataIs.add(date);
+                                        // dataIs.add(userId);
+                                        // dataIs.add("Facility");
+                                        // dataIs.add(facilityType);
+                                        // dataIs.add(String.valueOf(totalPrice));
+                                        // dataIs.add(date);
                                         
 					crud.updateRow("FacilityBooking.txt", userId, 0, "", 0, data);
-                                        crud.updateRow("ResidentInvoiceStatement.txt", userId, 0, "", 0, dataIs);
+                                        // crud.updateRow("ResidentInvoiceStatement.txt", userId, 0, "", 0, dataIs);
 				}
 
 				// Clear text after update or add
