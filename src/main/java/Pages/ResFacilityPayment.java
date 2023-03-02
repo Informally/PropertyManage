@@ -273,8 +273,8 @@ public class ResFacilityPayment extends PageUtils{
 		// Payment Display
 		CRUD newCrud = new CRUD();
 		tblDataHistory = newCrud.read("FacilityPaymentHistory.txt");
-		String rowPayment[] = new String[7];
-		String columnPayment[] = { "Payment Id", "Facility Type","Name","Outstanding", "Total Paid", "Payment ID", "Date" };
+		String rowPayment[] = new String[9];
+		String columnPayment[] = { "Payment Id", "Facility Type","Facility Price" ,"Duration","Name","Outstanding", "Total Paid", "Payment ID", "Date" };
 
 		JTable jTablePayment = new JTable();
 		jTablePayment.setBounds(44, 423, 770, 100);
@@ -292,6 +292,8 @@ public class ResFacilityPayment extends PageUtils{
 			rowPayment[4] = tblDataHistory.get(i).get(4);
 			rowPayment[5] = tblDataHistory.get(i).get(5);
                         rowPayment[6] = tblDataHistory.get(i).get(6);
+                        rowPayment[7] = tblDataHistory.get(i).get(7);
+                        rowPayment[8] = tblDataHistory.get(i).get(8);
 			tableModelPayment.addRow(rowPayment);
 
 		}
@@ -379,6 +381,8 @@ public class ResFacilityPayment extends PageUtils{
 				LocalDateTime now = LocalDateTime.now();
 				data.add(uid);
 				data.add(facilityType);
+                                data.add(price);
+                                data.add(duration);
                                 data.add(name);
 				data.add(out);
 				data.add(amount);
@@ -405,8 +409,8 @@ public class ResFacilityPayment extends PageUtils{
 				crud.update("FacilityBooking.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
 				//crud.update("VendorStatement.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
 				//crud.update("VendorInvoice.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
-				crud.update("FacilityPaymentHistory.txt", uid, 0,"", 0, String.valueOf(totalDebt), 3, "", 0);
-				crud.update("FacilityPaymentHistory.txt", uid, 0,"", 0, String.valueOf(amount), 4, "", 0);
+				crud.update("FacilityPaymentHistory.txt", uid, 0,"", 0, String.valueOf(totalDebt), 5, "", 0);
+				crud.update("FacilityPaymentHistory.txt", uid, 0,"", 0, String.valueOf(amount), 6, "", 0);
                                 crud.update("ResidentInvoiceStatement.txt", userID, 0,"", 0, String.valueOf(totalDebt), 4, "", 0);
 
 				// Clear text after update or add
@@ -463,6 +467,8 @@ public class ResFacilityPayment extends PageUtils{
 					rowPayment[4] = tblDataHistory.get(i).get(4);
 					rowPayment[5] = tblDataHistory.get(i).get(5);
                                         rowPayment[6] = tblDataHistory.get(i).get(6);
+                                        rowPayment[7] = tblDataHistory.get(i).get(7);
+                                        rowPayment[8] = tblDataHistory.get(i).get(8);
 					tableModelPayment.addRow(rowPayment);
 
 				}
@@ -486,20 +492,13 @@ public class ResFacilityPayment extends PageUtils{
 				DefaultTableModel tableModelPayment = (DefaultTableModel) jTablePayment.getModel();
 				String uid = tableModelPayment.getValueAt(i, 0).toString();
 				String roomType = tableModelPayment.getValueAt(i, 1).toString();
-                                String name = tableModelPayment.getValueAt(i, 2).toString();
-				String out = tableModelPayment.getValueAt(i, 3).toString();
-				String amount = tableModelPayment.getValueAt(i, 4).toString();
-				String userID = tableModelPayment.getValueAt(i, 5).toString();
-				String dtf = tableModelPayment.getValueAt(i, 6).toString();
-				
-				int a = jTable.getSelectedRow();
-				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
-				String uuid = tableModel.getValueAt(i, 0).toString();
-				String roomType1 = tableModel.getValueAt(i, 2).toString();
-				String roomPrice = tableModel.getValueAt(i, 3).toString();
-				String duration = tableModel.getValueAt(i, 4).toString();
-				String total = tableModel.getValueAt(i, 6).toString();
-				String month1 = tableModel.getValueAt(i, 7).toString();
+                                String roomPrice = tableModelPayment.getValueAt(i, 2).toString();
+                                String duration = tableModelPayment.getValueAt(i, 3).toString();
+                                String name = tableModelPayment.getValueAt(i, 4).toString();
+				String out = tableModelPayment.getValueAt(i, 5).toString();
+				String amount = tableModelPayment.getValueAt(i, 6).toString();
+				String userID = tableModelPayment.getValueAt(i, 7).toString();
+				String dtf = tableModelPayment.getValueAt(i, 8).toString();
 				
 				// Receipt Display
 				JTextArea textArea = new JTextArea();
@@ -516,9 +515,10 @@ public class ResFacilityPayment extends PageUtils{
 				String lblPrice = "\tFacility Price" + "\t\t\t" + roomPrice + "\n";
 				String lblDuration = "\tDuration(hours)" + "\t\t" + duration + "\n";
 				String lblTotal = "\t---------------------------------------------------------------\n\tTotal Paid" + "\t\t\t" + amount + "\n";
-				String lblDate = "\tDate Paid " + dtf + "\n\t---------------------------------------------------------------" + "\n";
-				String lblThank = "\t                  Thank you for your payment\n";
-				textArea.setText(receipt + lblpaymentId + paymentId + lblName + lblFacilityType + lblPrice + lblDuration + lblTotal + lblDate + lblThank);
+				String lblOut = "\tOutstanding" + "\t\t\t" + out + "\n";
+                                String lblDate = "\tDate Paid " + dtf + "\n\t---------------------------------------------------------------" + "\n";
+       				String lblThank = "\t                  Thank you for your payment\n";
+				textArea.setText(receipt + lblpaymentId + paymentId + lblName + lblFacilityType + lblPrice + lblDuration + lblTotal + lblOut + lblDate  + lblThank);
 				
 			}
 		});
