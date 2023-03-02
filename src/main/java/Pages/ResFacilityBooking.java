@@ -250,8 +250,8 @@ public class ResFacilityBooking extends PageUtils{
 
 				if (row.length > 0) {
 					txtUID.setText((String) jTable.getValueAt(row[0], 0));
-					txtFacilityType.setToolTipText((String) jTable.getValueAt(row[0], 1));
-                                        txtName.setText((String) jTable.getValueAt(row[0], 2));
+                                        txtName.setText((String) jTable.getValueAt(row[0], 1));
+                                        txtFacilityType.setToolTipText((String) jTable.getValueAt(row[0], 2));
 					txtPrice.setText((String) jTable.getValueAt(row[0], 3));					
 					txtDuration.setToolTipText((String) jTable.getValueAt(row[0], 4));
 					txtDate.setText((String) jTable.getValueAt(row[0], 6));
