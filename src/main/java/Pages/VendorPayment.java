@@ -354,6 +354,16 @@ public class VendorPayment extends PageUtils{
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				
+				//if pending is 0, then do not allow payment
+				if(pending.equals("0")){
+					JOptionPane.showMessageDialog(null, "No outstanding payment");
+					calErrorText.setText("No outstanding payment");
+					calErrorText.setVisible(true);
+
+					//do not write to file
+					return;
+				}
 
 				String uid = uuid.toString();
 				DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
@@ -462,13 +472,13 @@ public class VendorPayment extends PageUtils{
 				int i = jTablePayment.getSelectedRow();
 				DefaultTableModel tableModelPayment = (DefaultTableModel) jTablePayment.getModel();
 				String uid = tableModelPayment.getValueAt(i, 0).toString();
-                                String name = tableModelPayment.getValueAt(i, 1).toString();
-				String out = tableModelPayment.getValueAt(i, 2).toString();
-				String amount = tableModelPayment.getValueAt(i, 3).toString();
-				String month = tableModelPayment.getValueAt(i, 4).toString();
-				String year = tableModelPayment.getValueAt(i, 5).toString();
-				String userID = tableModelPayment.getValueAt(i, 6).toString();
-				String dtf = tableModelPayment.getValueAt(i, 7).toString();
+                String name = tableModelPayment.getValueAt(i, 1).toString();
+				String details = tableModelPayment.getValueAt(i, 2).toString();
+				String pending = tableModelPayment.getValueAt(i, 3).toString();
+				String amttopay = tableModelPayment.getValueAt(i, 4).toString();
+				String outstanding = tableModelPayment.getValueAt(i, 5).toString();
+				String chargeID = tableModelPayment.getValueAt(i, 6).toString();
+				String date = tableModelPayment.getValueAt(i, 7).toString();
 				
 				int a = jTable.getSelectedRow();
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
@@ -481,16 +491,16 @@ public class VendorPayment extends PageUtils{
 				String lblpaymentId = "\tPayment ID: ";
 				String paymentId = uid + "\n\n\tDescription                Price\n\t---------------\t\t\t                 ---------------------\n";
 				String lblName = "\tName                    " + "\t\t\t       " + name + "\n";
-                                String lblRental = "\tRental                    " + "\t\t\t      " + rental + "\n";
-				String lblUtilities = "\tUtilities                    " + "\t\t\t    " + utilities + "\n";
-				String lblServices = "\tServices                    " + "\t\t\t  " + services + "\n";
-				String lblTotal = "\t---------------------------------------------------------------\n\tTotal Paid:                    " + "\t\t\t" + amount + "\n";
-                                String lblOut = "\tOutstanding                 " + "\t\t\t  " + out + "\n";
-				String lblPaymentDate = "\tPayment for: " + month + " " + year + "\n";
-				String lblDate = "\tDate Paid: " + dtf + "\n\t---------------------------------------------------------------" + "\n";
+                String lblDetailString = "\tDetails                  " + "\t\t\t      " + details + "\n";
+				String lblPending = "\tPending                    " + "\t\t\t    " + pending + "\n";
+				// String lblAmt = "\tAmount Paid                   " + "\t\t\t  " + amttopay + "\n";
+				String lblTotal = "\t---------------------------------------------------------------\n\tTotal Paid:                    " + "\t\t\t" + amttopay + "\n";
+                String lblOut = "\tOutstanding                 " + "\t\t\t  " + outstanding + "\n";
+				// String lblPaymentDate = "\tPayment for: " + month + " " + year + "\n";
+				String lblDate = "\tDate Paid: " + date + "\n\t---------------------------------------------------------------" + "\n";
 				String lblThank = "\t                  Thank you for your payment\n";
 				//textArea.setText(receipt + lblpaymentId + paymentId + lblRental + lblUtilities + lblServices + lblTotal + lblPaymentDate + lblDate + lblThank);
-				JOptionPane.showMessageDialog(null, receipt + lblpaymentId + paymentId + lblName + lblRental + lblUtilities + lblServices + lblTotal + lblOut + lblPaymentDate + lblDate + lblThank, "Receipt", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, receipt + lblpaymentId + paymentId + lblName + lblDetailString + lblPending + lblTotal + lblOut + lblDate + lblThank, "Receipt", JOptionPane.INFORMATION_MESSAGE);
 			}
 		});
 		viewReceiptBtn.setBounds(234, 323, 170, 42);
