@@ -223,7 +223,7 @@ public class ResFacilityPayment extends PageUtils{
 		// Result Display
 		tblData = crud.read("FacilityBooking.txt");
 		String row[] = new String[8];
-		String column[] = { "Facility Id", "Facility Type", "Name", "Facility Price", "Duration", "Outstanding","Date", "Time" };
+		String column[] = { "Facility Id", "Name", "Facility Type", "Facility Price", "Duration", "Outstanding","Date", "Time" };
 
 		JTable jTable = new JTable();
 		jTable.setBounds(44, 323, 770, 100);
@@ -253,8 +253,8 @@ public class ResFacilityPayment extends PageUtils{
 
 				if (row.length > 0) {
 					txtUID.setText((String) jTable.getValueAt(row[0], 0));
-					txtFacilityType.setText((String) jTable.getValueAt(row[0], 1));
-                                        txtName.setText((String) jTable.getValueAt(row[0], 2));
+                                        txtName.setText((String) jTable.getValueAt(row[0], 1));
+					txtFacilityType.setText((String) jTable.getValueAt(row[0], 2));
 					txtPrice.setText((String) jTable.getValueAt(row[0], 3));
 					txtDuration.setText((String) jTable.getValueAt(row[0], 4));
 					txtOut.setText((String) jTable.getValueAt(row[0], 5));
