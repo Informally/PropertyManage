@@ -76,7 +76,7 @@ public class ResTenVisitorPass extends PageUtils{
 		rtvp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		rtvp.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Residnet/Tenant Visitor Pass");
+		JLabel lblNewLabel = new JLabel("Resident/Tenant Visitor Pass");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		rtvp.getContentPane().add(lblNewLabel);
@@ -219,7 +219,7 @@ public class ResTenVisitorPass extends PageUtils{
 					txtName.setText((String) jTable.getValueAt(row[0], 1));
 					txtDestination.setText((String) jTable.getValueAt(row[0], 2));
 					txtContact.setText((String) jTable.getValueAt(row[0], 3));
-                                        txtOwnerName.setText((String) jTable.getValueAt(row[0], 4));
+                    txtOwnerName.setText((String) jTable.getValueAt(row[0], 4));
 					txtOwnerContact.setText((String) jTable.getValueAt(row[0], 5));
 					txtDate.setText((String) jTable.getValueAt(row[0], 6));
 					txtTime.setText((String) jTable.getValueAt(row[0], 7));
@@ -364,6 +364,49 @@ public class ResTenVisitorPass extends PageUtils{
 			}
 		});
 		rtvp.getContentPane().add(addUserBtn);
+
+		// Delete Btn
+		JButton deleteBtn = new JButton("Delete");
+		deleteBtn.setBounds(364, 273, 150, 42);
+		deleteBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		deleteBtn.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				String uid = txtUID.getText().trim();
+				
+				crud.delete("VisitorPass.txt", uid, 0, "", 0);
+				
+				// Refresh the data in table
+				tblData = crud.read("VisitorPass.txt");
+				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
+				tableModel.setColumnIdentifiers(column);
+				tableModel.getDataVector().removeAllElements();
+				tableModel.fireTableDataChanged();
+				jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+				for (int i = 0; i < tblData.size(); i++) {
+					row[0] = tblData.get(i).get(0);
+					row[1] = tblData.get(i).get(1);
+					row[2] = tblData.get(i).get(2);
+					row[3] = tblData.get(i).get(3);
+					row[4] = tblData.get(i).get(4);
+					row[5] = tblData.get(i).get(5);
+					row[6] = tblData.get(i).get(6);
+                    row[7] = tblData.get(i).get(7);
+					tableModel.addRow(row);
+				}
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				jTable.updateUI();
+
+			}
+		});
+		rtvp.getContentPane().add(deleteBtn);
+
 		
 		// back Button
 		JButton backBtn = new JButton("Back");
