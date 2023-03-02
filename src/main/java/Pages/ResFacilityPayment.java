@@ -253,8 +253,8 @@ public class ResFacilityPayment extends PageUtils{
 
 				if (row.length > 0) {
 					txtUID.setText((String) jTable.getValueAt(row[0], 0));
-					txtFacilityType.setText((String) jTable.getValueAt(row[0], 1));
-                                        txtName.setText((String) jTable.getValueAt(row[0], 2));
+                                        txtName.setText((String) jTable.getValueAt(row[0], 1));
+					txtFacilityType.setText((String) jTable.getValueAt(row[0], 2));
 					txtPrice.setText((String) jTable.getValueAt(row[0], 3));
 					txtDuration.setText((String) jTable.getValueAt(row[0], 4));
 					txtOut.setText((String) jTable.getValueAt(row[0], 5));
