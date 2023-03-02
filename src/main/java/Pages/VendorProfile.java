@@ -124,7 +124,7 @@ public class VendorProfile extends PageUtils {
 		vp.getContentPane().add(txtAge);
 
 		// Role
-		JLabel lblRole = new JLabel("Contact: ");
+		JLabel lblRole = new JLabel("Role: ");
 		lblRole.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblRole.setBounds(434, 173, 315, 42);
 		vp.getContentPane().add(lblRole);
