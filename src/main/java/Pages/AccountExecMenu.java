@@ -148,10 +148,28 @@ public class AccountExecMenu extends PageUtils {
 			}
 		});
 		aem.getContentPane().add(viewOutStandingBtn2);
+                
+                 // Charge Payment
+		JButton chargeBtn2 = new JButton("Charge Payment");
+		chargeBtn2.setBounds(44, 393, 315, 42);
+		chargeBtn2.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		chargeBtn2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				ChargeBtn2 chargeBtn2 = new ChargeBtn2();
+				setOriginalFrame(aem);
+				setTargetedFrame(chargePayment.chargePayment);
+				navigatePage();
+
+			}
+		});
+		aem.getContentPane().add(chargeBtn2);
 
 		// Log Out Btn
 		JButton logOutBtn = new JButton("Log Out");
-		logOutBtn.setBounds(44, 393, 315, 42);
+		logOutBtn.setBounds(44, 453, 315, 42);
 		logOutBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		logOutBtn.addActionListener(new ActionListener() {
 
