@@ -101,8 +101,8 @@ public class VendorMenu extends PageUtils {
 		});
 		vm.getContentPane().add(paymentBtn);
 
-		// Payment History Button
-		JButton payHisBtn = new JButton("Payment History");
+		// View Invoice/Statement Button
+		JButton payHisBtn = new JButton("View Invoice/Statement");
 		payHisBtn.setBounds(44, 213, 315, 42);
 		payHisBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		payHisBtn.addActionListener(new ActionListener() {
@@ -110,10 +110,11 @@ public class VendorMenu extends PageUtils {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				VendorPaymentHistoryMenu paymentHistoryMenu = new VendorPaymentHistoryMenu(vendorName);
+				VendorInvoice vendorinvoice = new VendorInvoice(vendorName);
                                 setOriginalFrame(vm);
-				setTargetedFrame(paymentHistoryMenu.phm);
+				setTargetedFrame(vendorinvoice.vi);
 				navigatePage();
+                                
 
 			}
 		});
