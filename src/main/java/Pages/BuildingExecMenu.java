@@ -54,14 +54,14 @@ public class BuildingExecMenu extends PageUtils{
 	private void initialize(String buildingName) {
 		buildExec = new JFrame();
 		buildExec.setTitle("Building Executive Menu");
-		buildExec.setBounds(100, 100, 871, 622);
+		buildExec.setBounds(100, 100, 450, 500);
 		buildExec.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//set as non resizable
 		buildExec.setResizable(false);
 		buildExec.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Building Executive Menu");
-		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
+		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		buildExec.getContentPane().add(lblNewLabel);
 		
