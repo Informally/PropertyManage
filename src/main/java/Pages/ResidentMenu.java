@@ -83,22 +83,22 @@ public class ResidentMenu extends PageUtils{
 		});
 		rm.getContentPane().add(profileBtn);
 
-		// Tenant Booking Room Button
-		JButton bookingBtn = new JButton("Tenant Booking");
-		bookingBtn.setBounds(44, 153, 315, 42);
-		bookingBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		bookingBtn.addActionListener(new ActionListener() {
+		// // Tenant Booking Room Button
+		// JButton bookingBtn = new JButton("Tenant Booking");
+		// bookingBtn.setBounds(44, 153, 315, 42);
+		// bookingBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		// bookingBtn.addActionListener(new ActionListener() {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				TenBookingRoom bookingRoom = new TenBookingRoom();
-                                setOriginalFrame(rm);
-				setTargetedFrame(bookingRoom.br);
-				navigatePage();
+		// 	@Override
+		// 	public void actionPerformed(ActionEvent e) {
+		// 		TenBookingRoom bookingRoom = new TenBookingRoom();
+        //                         setOriginalFrame(rm);
+		// 		setTargetedFrame(bookingRoom.br);
+		// 		navigatePage();
 
-			}
-		});
-		rm.getContentPane().add(bookingBtn);
+		// 	}
+		// });
+		// rm.getContentPane().add(bookingBtn);
 
 		// User Payment Button
 		JButton paymentBtn = new JButton("Payment");
