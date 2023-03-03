@@ -1,4 +1,0 @@
-821c93d7-687b-48c4-9549-985f5e22f53d~Alania~Room~Single~850~2023-03-02
-72082e0d-4c89-4d2c-8cf2-e5eccba9dc5d~Fong~Room~Double~1130~2023-03-02
-2fffb03c-2e8b-4c41-ad05-28c2f20f38e0~Palan~Room~Suite~1000~2023-03-02
-ab462ea2-753b-4833-a99f-66fa20cb2d71~Palan~Monthly~Suite~-500~02/03/2023
