@@ -437,6 +437,14 @@ public class AdminFacBooking extends PageUtils{
                                         // crud.updateRow("ResidentInvoiceStatement.txt", userId, 0, "", 0, dataIs);
 				}
 
+				// close the current window and open the new one
+				AdminExecMenu aem = new AdminExecMenu(adminName);
+				setOriginalFrame(afb);
+				setTargetedFrame(aem.Aem);
+				navigatePage();
+				// afb.dispose();
+				
+
 				// Clear text after update or add
 				txtUID.setText("");
 				txtFacility.setText(adminName);
@@ -507,5 +515,8 @@ public class AdminFacBooking extends PageUtils{
 		afb.getContentPane().add(backBtn);
 
 
+	}
+
+	protected void setVisible(boolean b) {
 	}
 }
