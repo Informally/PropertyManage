@@ -78,8 +78,8 @@ public class VendorInvoice extends PageUtils{
 		vi.getContentPane().add(lblNewLabel);
 
 		// Month
-		JLabel lblMonth = new JLabel("Month: ");
-		lblMonth.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		JLabel lblMonth = new JLabel("Select ID: ");
+		lblMonth.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		lblMonth.setBounds(44, 73, 315, 42);
 		vi.getContentPane().add(lblMonth);
 
