@@ -72,13 +72,15 @@ public class VisitorViewPass extends PageUtils{
         String search = JOptionPane.showInputDialog(null, "Enter the name of your visitor pass.\nThe name should be give to you by the owner:");
 		vvp = new JFrame();
 		vvp.setTitle("View Visitor Pass");
-		vvp.setBounds(100, 100, 871, 722);
+		vvp.setBounds(100, 100, 871, 500);
 		vvp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//set as non resizable
+		vvp.setResizable(false);
 		vvp.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Visitor Pass");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
-		lblNewLabel.setBounds(34, 11, 665, 81);
+		lblNewLabel.setBounds(34, 3, 665, 81);
 		vvp.getContentPane().add(lblNewLabel);
 
 		// Pass ID
@@ -89,7 +91,6 @@ public class VisitorViewPass extends PageUtils{
 
 		JTextField txtUID = new JTextField("");
 		txtUID.setBounds(164, 73, 250, 42);
-		txtUID.setBackground(Color.gray);
 		txtUID.setEditable(false);
 		vvp.getContentPane().add(txtUID);
 
@@ -101,6 +102,8 @@ public class VisitorViewPass extends PageUtils{
 
 		JTextField txtName = new JTextField();
 		txtName.setBounds(554, 73, 250, 42);
+		//set as non editable
+		txtName.setEditable(false);
 		vvp.getContentPane().add(txtName);
 
 		// Destination
@@ -111,6 +114,8 @@ public class VisitorViewPass extends PageUtils{
 
 		JTextField txtDestination = new JTextField();
 		txtDestination.setBounds(164, 123, 250, 42);
+		//set as non editable
+		txtDestination.setEditable(false);
 		vvp.getContentPane().add(txtDestination);
 
 		// Contact
@@ -121,6 +126,8 @@ public class VisitorViewPass extends PageUtils{
 
 		JTextField txtContact = new JTextField();
 		txtContact.setBounds(554, 123, 250, 42);
+		//set as non editable
+		txtContact.setEditable(false);
 		vvp.getContentPane().add(txtContact);
                 
                 // Date
@@ -131,6 +138,8 @@ public class VisitorViewPass extends PageUtils{
 
 		JTextField txtDate = new JTextField();
 		txtDate.setBounds(164, 173, 250, 42);
+		//set as non editable
+		txtDate.setEditable(false);
 		vvp.getContentPane().add(txtDate);
                 
                 // Owner Name
@@ -141,6 +150,8 @@ public class VisitorViewPass extends PageUtils{
 
 		JTextField txtOwnerName = new JTextField();
 		txtOwnerName.setBounds(164, 223, 250, 42);
+		//set as non editable
+		txtOwnerName.setEditable(false);
 		vvp.getContentPane().add(txtOwnerName);
 
 		// Owner Contact
@@ -151,6 +162,8 @@ public class VisitorViewPass extends PageUtils{
 
 		JTextField txtOwnerContact = new JTextField();
 		txtOwnerContact.setBounds(554, 173, 250, 42);
+		//set as non editable
+		txtOwnerContact.setEditable(false);
 		vvp.getContentPane().add(txtOwnerContact);
 
 		// Time in
@@ -161,6 +174,8 @@ public class VisitorViewPass extends PageUtils{
 
 		JTextField txtTime = new JTextField();
 		txtTime.setBounds(554, 223, 250, 42);
+		//set as non editable
+		txtTime.setEditable(false);
 		vvp.getContentPane().add(txtTime);
 
 		// Error text
@@ -177,9 +192,11 @@ public class VisitorViewPass extends PageUtils{
 		String column[] = { "Pass ID", "Name", "Destination", "Contact","Owner Name","Owner Contact", "Date", "Time in"};
 
 		JTable jTable = new JTable();
-		jTable.setBounds(44, 323, 770, 250);
+		jTable.setBounds(44, 323, 770, 100);
 		DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 		tableModel.setColumnIdentifiers(column);
+		//set table as non editable
+		jTable.setDefaultEditor(Object.class, null);
 		jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		for (int i = 0; i < tblData.size(); i++) {
 			row[0] = tblData.get(i).get(0);
@@ -229,7 +246,7 @@ public class VisitorViewPass extends PageUtils{
 			});
 		JScrollPane scroll = new JScrollPane(jTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 		JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scroll.setBounds(44, 323, 770, 250);
+		scroll.setBounds(44, 323, 770, 100);
 		vvp.getContentPane().add(scroll);
 
 		// Error text calculation
@@ -242,7 +259,7 @@ public class VisitorViewPass extends PageUtils{
 		
 		// Clear Text field Btn
 		JButton clearBtn = new JButton("Clear All");
-		clearBtn.setBounds(204, 273, 150, 42);
+		clearBtn.setBounds(44, 273, 150, 42);
 		clearBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		clearBtn.addActionListener(new ActionListener() {
 			@Override
@@ -251,7 +268,7 @@ public class VisitorViewPass extends PageUtils{
 				txtName.setText("");
 				txtDestination.setText("");
 				txtContact.setText("");
-                                txtOwnerName.setText("");
+                txtOwnerName.setText("");
 				txtOwnerContact.setText("");
 				txtDate.setText("");
 				txtTime.setText("");
@@ -259,115 +276,115 @@ public class VisitorViewPass extends PageUtils{
 		});
 		vvp.getContentPane().add(clearBtn);
 
-		// Save Btn
-		JButton addUserBtn = new JButton("Save");
-		addUserBtn.setBounds(44, 273, 150, 42);
-		addUserBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		addUserBtn.addActionListener(new ActionListener() {
+		// // Save Btn
+		// JButton addUserBtn = new JButton("Save");
+		// addUserBtn.setBounds(44, 273, 150, 42);
+		// addUserBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		// addUserBtn.addActionListener(new ActionListener() {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
+		// 	@Override
+		// 	public void actionPerformed(ActionEvent e) {
 
-				User user = new User();
-				UUID uuid = UUID.randomUUID();
+		// 		User user = new User();
+		// 		UUID uuid = UUID.randomUUID();
 
-				String passId = txtUID.getText().trim();
-				String name = txtName.getText().trim();
-				String destination = txtDestination.getText().trim();
-				String contact = txtContact.getText().trim();
-                                String ownerName = txtOwnerName.getText().trim();
-				String ownerContact = txtOwnerContact.getText().trim();
-				String date = txtDate.getText().trim();
-				String time = txtTime.getText().trim();
+		// 		String passId = txtUID.getText().trim();
+		// 		String name = txtName.getText().trim();
+		// 		String destination = txtDestination.getText().trim();
+		// 		String contact = txtContact.getText().trim();
+        //         String ownerName = txtOwnerName.getText().trim();
+		// 		String ownerContact = txtOwnerContact.getText().trim();
+		// 		String date = txtDate.getText().trim();
+		// 		String time = txtTime.getText().trim();
 
-				ArrayList<String> data = new ArrayList<>();
+		// 		ArrayList<String> data = new ArrayList<>();
 
-				try {
-					Thread.sleep(500);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
+		// 		try {
+		// 			Thread.sleep(500);
+		// 		} catch (InterruptedException e1) {
+		// 			// TODO Auto-generated catch block
+		// 			e1.printStackTrace();
+		// 		}
 				
-				if (passId.isEmpty()) { // this means new data is added
-				String uid = uuid.toString();
-				data.add(uid);
-				data.add(name);
-				data.add(destination);
-				data.add(contact);
-                                data.add(ownerName);
-				data.add(ownerContact);
-				data.add(date);
-				data.add(time);
+		// 		if (passId.isEmpty()) { // this means new data is added
+		// 		String uid = uuid.toString();
+		// 		data.add(uid);
+		// 		data.add(name);
+		// 		data.add(destination);
+		// 		data.add(contact);
+        //                         data.add(ownerName);
+		// 		data.add(ownerContact);
+		// 		data.add(date);
+		// 		data.add(time);
 
-				crud.create("VisitorPass.txt", data);
-				}else {// this means update data
-					data.add(passId);
-					data.add(name);
-					data.add(destination);
-					data.add(contact);
-                                        data.add(ownerName);
-				        data.add(ownerContact);
-					data.add(date);
-					data.add(time);
-					crud.updateRow("VisitorPass.txt", passId, 0, "", 0, data);
-				}
+		// 		crud.create("VisitorPass.txt", data);
+		// 		}else {// this means update data
+		// 			data.add(passId);
+		// 			data.add(name);
+		// 			data.add(destination);
+		// 			data.add(contact);
+        //                                 data.add(ownerName);
+		// 		        data.add(ownerContact);
+		// 			data.add(date);
+		// 			data.add(time);
+		// 			crud.updateRow("VisitorPass.txt", passId, 0, "", 0, data);
+		// 		}
 
-				// Clear text after update or add
-				txtUID.setText("");
-				txtName.setText("");
-				txtDestination.setText("");
-				txtContact.setText("");
-                                txtOwnerName.setText("");
-				txtOwnerContact.setText("");
-				txtDate.setText("");
-				txtTime.setText("");
+		// 		// Clear text after update or add
+		// 		txtUID.setText("");
+		// 		txtName.setText("");
+		// 		txtDestination.setText("");
+		// 		txtContact.setText("");
+        //                         txtOwnerName.setText("");
+		// 		txtOwnerContact.setText("");
+		// 		txtDate.setText("");
+		// 		txtTime.setText("");
 
-				// Refresh the data in table
-				tblData = crud.read("VisitorPass.txt");
-				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
-				tableModel.setColumnIdentifiers(column);
-				tableModel.getDataVector().removeAllElements();
-				tableModel.fireTableDataChanged();
-				jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-				for (int i = 0; i < tblData.size(); i++) {
-                                    row[0] = tblData.get(i).get(0);
-                                    row[1] = tblData.get(i).get(1);
-                                    row[2] = tblData.get(i).get(2);
-                                    row[3] = tblData.get(i).get(3);
-                                    row[4] = tblData.get(i).get(4);
-                                    row[5] = tblData.get(i).get(5);
-                                    row[6] = tblData.get(i).get(6);
-                                    row[7] = tblData.get(i).get(7);
+		// 		// Refresh the data in table
+		// 		tblData = crud.read("VisitorPass.txt");
+		// 		DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
+		// 		tableModel.setColumnIdentifiers(column);
+		// 		tableModel.getDataVector().removeAllElements();
+		// 		tableModel.fireTableDataChanged();
+		// 		jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		// 		for (int i = 0; i < tblData.size(); i++) {
+        //                             row[0] = tblData.get(i).get(0);
+        //                             row[1] = tblData.get(i).get(1);
+        //                             row[2] = tblData.get(i).get(2);
+        //                             row[3] = tblData.get(i).get(3);
+        //                             row[4] = tblData.get(i).get(4);
+        //                             row[5] = tblData.get(i).get(5);
+        //                             row[6] = tblData.get(i).get(6);
+        //                             row[7] = tblData.get(i).get(7);
     
-                                    // Check if the row contains the search string
-                                    boolean match = false;
-                                    for (int j = 0; j < row.length; j++) {
-                                        if (row[j].toLowerCase().contains(search.toLowerCase())) {
-                                        match = true;
-                                        break;
-                                        }
-                                   }
+        //                             // Check if the row contains the search string
+        //                             boolean match = false;
+        //                             for (int j = 0; j < row.length; j++) {
+        //                                 if (row[j].toLowerCase().contains(search.toLowerCase())) {
+        //                                 match = true;
+        //                                 break;
+        //                                 }
+        //                            }
     
-                                     // Add the row if it matches the search string
-                                    if (match) {
-                                        tableModel.addRow(row);
-                                        }
-                                }
-				try {
-					Thread.sleep(100);
-				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				jTable.updateUI();
-			}
-		});
-		vvp.getContentPane().add(addUserBtn);
+        //                              // Add the row if it matches the search string
+        //                             if (match) {
+        //                                 tableModel.addRow(row);
+        //                                 }
+        //                         }
+		// 		try {
+		// 			Thread.sleep(100);
+		// 		} catch (InterruptedException e1) {
+		// 			// TODO Auto-generated catch block
+		// 			e1.printStackTrace();
+		// 		}
+		// 		jTable.updateUI();
+		// 	}
+		// });
+		// vvp.getContentPane().add(addUserBtn);
 		
 		// Exit Button
 		JButton exitBtn = new JButton("Exit");
-		exitBtn.setBounds(700, 11, 150, 42);
+		exitBtn.setBounds(650, 11, 150, 42);
 		exitBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		exitBtn.addActionListener(new ActionListener() {
 

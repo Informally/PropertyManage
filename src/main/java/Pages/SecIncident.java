@@ -47,7 +47,7 @@ public class SecIncident extends PageUtils {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SecIncident window = new SecIncident();
+					SecIncident window = new SecIncident(null);
 					window.inc.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -59,14 +59,14 @@ public class SecIncident extends PageUtils {
 	/**
 	 * Create the application.
 	 */
-	public SecIncident() {
-		initialize();
+	public SecIncident(String secname) {
+		initialize(secname);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String secname) {
 		inc = new JFrame();
 		inc.setTitle("Incident");
 		inc.setBounds(100, 100, 871, 822);
@@ -223,7 +223,7 @@ public class SecIncident extends PageUtils {
 		JButton viewBtn = new JButton("View Report");
 		viewBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				SecurityGuardReport incidentReport = new SecurityGuardReport();
+				SecurityGuardReport incidentReport = new SecurityGuardReport(secname);
 				incidentReport.incReport.setVisible(true);
 				inc.setVisible(false);
 			}
@@ -346,7 +346,7 @@ public class SecIncident extends PageUtils {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				SecurityGuardMenu sg = new SecurityGuardMenu();
+				SecurityGuardMenu sg = new SecurityGuardMenu(secname);
                                 setOriginalFrame(inc);
 				setTargetedFrame(sg.sg);
 				navigatePage();

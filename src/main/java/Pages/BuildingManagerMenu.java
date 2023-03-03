@@ -56,6 +56,8 @@ public class BuildingManagerMenu extends PageUtils {
 		bmm.setTitle("Building Manager Menu");
 		bmm.setBounds(100, 100, 871, 622);
 		bmm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//set as non resizable
+		bmm.setResizable(false);
 		bmm.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Building Manager Menu");

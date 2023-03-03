@@ -63,6 +63,8 @@ public class AdminFacBooking extends PageUtils{
 		afb.setTitle("Facility Booking");
 		afb.setBounds(100, 100, 900, 822);
 		afb.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//set as non resizable
+		afb.setResizable(false);
 		afb.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel(adminName + "- Facility Booking");

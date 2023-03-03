@@ -54,41 +54,43 @@ public class SecLogin extends PageUtils{
 	private void initialize() {
 		seclog = new JFrame();
 		seclog.setTitle("Security Guard Login");
-		seclog.setBounds(100, 100, 871, 622);
+		seclog.setBounds(100, 100, 450, 350);
 		seclog.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//set as non resizable
+		seclog.setResizable(false);
 		seclog.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Security Guard Login");
+		JLabel lblNewLabel = new JLabel("    Security Guard Login");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 27));
-		lblNewLabel.setBounds(34, 11, 665, 81);
+		lblNewLabel.setBounds(34, 6, 665, 81);
 		seclog.getContentPane().add(lblNewLabel);
                 
 
 		// Email
 		JLabel lblEmail = new JLabel("Email: ");
 		lblEmail.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblEmail.setBounds(204, 133, 315, 42);
+		lblEmail.setBounds(34, 73, 315, 42);
 		seclog.getContentPane().add(lblEmail);
 
 		JTextField txtEmail = new JTextField();
-		txtEmail.setBounds(304, 133, 250, 42);
+		txtEmail.setBounds(154, 73, 250, 42);
 		seclog.getContentPane().add(txtEmail);
 
 		// Password
 		JLabel lblPassword = new JLabel("Password: ");
 		lblPassword.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		lblPassword.setBounds(204, 183, 315, 42);
+		lblPassword.setBounds(34, 133, 315, 42);
 		seclog.getContentPane().add(lblPassword);
 
 		JTextField txtPassword = new JTextField();
-		txtPassword.setBounds(304, 183, 250, 42);
+		txtPassword.setBounds(154, 133, 250, 42);
 		seclog.getContentPane().add(txtPassword);
                 
                 
                 //back Button
                 
 		JButton back = new JButton("Go Back");
-		back.setBounds(404, 253, 250, 42);
+		back.setBounds(150, 243, 150, 42);
 		back.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		back.addActionListener(new ActionListener() {
 
@@ -112,7 +114,7 @@ public class SecLogin extends PageUtils{
 		seclog.getContentPane().add(errorText);
 
 		JButton loginBtn = new JButton("Login");
-		loginBtn.setBounds(224, 253, 150, 42);
+		loginBtn.setBounds(150, 193, 150, 42);
 		loginBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		loginBtn.addActionListener(new ActionListener() {
 			@Override
@@ -129,7 +131,8 @@ public class SecLogin extends PageUtils{
 				String role = data.get(6);
 				if(role.equals("Security Guard"))
 				{
-					SecurityGuardMenu sgm = new SecurityGuardMenu();
+					String secname = data.get(1);
+					SecurityGuardMenu sgm = new SecurityGuardMenu(secname);
                                         setOriginalFrame(seclog);
                                         setTargetedFrame(sgm.sg);
                                         navigatePage();

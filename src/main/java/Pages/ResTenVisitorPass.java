@@ -129,8 +129,10 @@ public class ResTenVisitorPass extends PageUtils{
 		lblDate.setBounds(44, 223, 315, 42);
 		rtvp.getContentPane().add(lblDate);
 
-		JTextField txtDate = new JTextField();
+		JTextField txtDate = new JTextField(restenname);
 		txtDate.setBounds(164, 173, 250, 42);
+		//set as non editable
+		txtDate.setEditable(false);
 		rtvp.getContentPane().add(txtDate);
                 
                 // Owner Name
@@ -139,10 +141,8 @@ public class ResTenVisitorPass extends PageUtils{
 		lblOwnerName.setBounds(44, 173, 315, 42);
 		rtvp.getContentPane().add(lblOwnerName);
 
-		JTextField txtOwnerName = new JTextField(restenname);
+		JTextField txtOwnerName = new JTextField();
 		txtOwnerName.setBounds(164, 223, 250, 42);
-		//set as non-editable
-		txtOwnerName.setEditable(false);
 		rtvp.getContentPane().add(txtOwnerName);
 
 		// Owner Contact
@@ -182,6 +182,8 @@ public class ResTenVisitorPass extends PageUtils{
 		jTable.setBounds(44, 323, 770, 250);
 		DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 		tableModel.setColumnIdentifiers(column);
+		//set table as non editable
+		jTable.setDefaultEditor(Object.class, null);
 		jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		for (int i = 0; i < tblData.size(); i++) {
 			row[0] = tblData.get(i).get(0);
@@ -253,9 +255,9 @@ public class ResTenVisitorPass extends PageUtils{
 				txtName.setText("");
 				txtDestination.setText("");
 				txtContact.setText("");
-                txtOwnerName.setText(restenname);
+                txtOwnerName.setText("");
 				txtOwnerContact.setText("");
-				txtDate.setText("");
+				txtDate.setText(restenname);
 				txtTime.setText("");
 			}
 		});
@@ -320,9 +322,9 @@ public class ResTenVisitorPass extends PageUtils{
 				txtName.setText("");
 				txtDestination.setText("");
 				txtContact.setText("");
-                txtOwnerName.setText(restenname);
+                txtOwnerName.setText("");
 				txtOwnerContact.setText("");
-				txtDate.setText("");
+				txtDate.setText(restenname);
 				txtTime.setText("");
 
 				// Refresh the data in table

@@ -39,7 +39,7 @@ public class SecCheckpoint extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SecCheckpoint window = new SecCheckpoint();
+					SecCheckpoint window = new SecCheckpoint(null);
 					window.c.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -51,14 +51,14 @@ public class SecCheckpoint extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public SecCheckpoint() {
-		initialize();
+	public SecCheckpoint(String secname) {
+		initialize(secname);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String secname) {
 		c = new JFrame();
 		c.setTitle("Checkpoint Check-in");
 		c.setBounds(100, 100, 871, 722);
@@ -336,7 +336,7 @@ public class SecCheckpoint extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				SecurityGuardMenu sg = new SecurityGuardMenu();
+				SecurityGuardMenu sg = new SecurityGuardMenu(secname);
                                 setOriginalFrame(c);
 				setTargetedFrame(sg.sg);
 				navigatePage();

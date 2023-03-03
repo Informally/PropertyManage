@@ -44,7 +44,7 @@ public class SecurityGuardReport extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SecurityGuardReport window = new SecurityGuardReport();
+					SecurityGuardReport window = new SecurityGuardReport(null);
 					window.incReport.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -56,14 +56,14 @@ public class SecurityGuardReport extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public SecurityGuardReport() {
-		initialize();
+	public SecurityGuardReport(String secname) {
+		initialize(secname);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String secname) {
 		incReport = new JFrame();
 		incReport.setTitle("View Report");
 		incReport.setBounds(100, 100, 871, 622);
@@ -142,7 +142,7 @@ public class SecurityGuardReport extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				SecIncident incident = new SecIncident();
+				SecIncident incident = new SecIncident(secname);
                                 setOriginalFrame(incReport);
 				setTargetedFrame(incident.inc);
 				navigatePage();

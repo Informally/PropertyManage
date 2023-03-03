@@ -65,6 +65,8 @@ public class ResidentComplaint extends PageUtils {
 		rc.setTitle("Resident Complaint");
 		rc.setBounds(100, 100, 1200, 722);
 		rc.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//set the frame as non resizable
+		rc.setResizable(false);
 		rc.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Resident Complaint");
@@ -193,6 +195,8 @@ public class ResidentComplaint extends PageUtils {
 		jTable.setBounds(44, 500, 1100, 150);
 		DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 		tableModel.setColumnIdentifiers(column);
+		//set table as non-editable
+		jTable.setDefaultEditor(Object.class, null);
 		jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		for (int i = 0; i < tblData.size(); i++) {
 			row[0] = tblData.get(i).get(0);

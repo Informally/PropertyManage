@@ -62,6 +62,8 @@ public class ChargePaymentResTen extends PageUtils {
 		chargepaymentrestenFrame.setTitle("Charge Payment to Resident/Tenant");
 		chargepaymentrestenFrame.setBounds(100, 100, 871, 622);
 		chargepaymentrestenFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//set as non resizable
+		chargepaymentrestenFrame.setResizable(false);
 		chargepaymentrestenFrame.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Charge Payment to Resident/Tenant");

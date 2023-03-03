@@ -62,6 +62,8 @@ public class ChargePayment extends PageUtils {
 		chargepaymentFrame.setTitle("Charge Payment to Vendor");
 		chargepaymentFrame.setBounds(100, 100, 871, 622);
 		chargepaymentFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//set as non resizable
+		chargepaymentFrame.setResizable(false);
 		chargepaymentFrame.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Charge Payment to Vendor");

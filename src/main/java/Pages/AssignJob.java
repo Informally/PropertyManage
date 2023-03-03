@@ -61,6 +61,8 @@ public class AssignJob extends PageUtils {
 		AsgnJobPage.setTitle("Assign Job/Task to Employee");
 		AsgnJobPage.setBounds(100, 100, 871, 622);
 		AsgnJobPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//set as non resizable
+		AsgnJobPage.setResizable(false);
 		AsgnJobPage.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Assign Job/Task to Employee");

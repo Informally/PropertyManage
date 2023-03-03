@@ -40,7 +40,7 @@ public class SecurityGuardMenu extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SecurityGuardMenu window = new SecurityGuardMenu();
+					SecurityGuardMenu window = new SecurityGuardMenu(null);
 					window.sg.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -52,22 +52,24 @@ public class SecurityGuardMenu extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public SecurityGuardMenu() {
-		initialize();
+	public SecurityGuardMenu(String secname) {
+		initialize(secname);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String secname) {
 		sg = new JFrame();
 		sg.setTitle("Security Guard Menu");
-		sg.setBounds(100, 100, 871, 622);
+		sg.setBounds(100, 100, 400, 450);
 		sg.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//set as non resizable
+		sg.setResizable(false);
 		sg.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Security Guard Menu");
-		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
+		JLabel lblNewLabel = new JLabel("    Welcome, " + secname + "!");
+		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		sg.getContentPane().add(lblNewLabel);
 
@@ -79,7 +81,7 @@ public class SecurityGuardMenu extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				SecVisitorPass visitorPass = new SecVisitorPass();
+				SecVisitorPass visitorPass = new SecVisitorPass(secname);
 				visitorPass.vp.setVisible(true);
 				sg.setVisible(false);
 			}
@@ -94,7 +96,7 @@ public class SecurityGuardMenu extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				SecVisitorEntry visitorEntry = new SecVisitorEntry();
+				SecVisitorEntry visitorEntry = new SecVisitorEntry(secname);
 				visitorEntry.ve.setVisible(true);
 				sg.setVisible(false);
 
@@ -111,7 +113,7 @@ public class SecurityGuardMenu extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				SecCheckpoint checkpoint = new SecCheckpoint();
+				SecCheckpoint checkpoint = new SecCheckpoint(secname);
 				checkpoint.c.setVisible(true);
 				sg.setVisible(false);
 
@@ -128,7 +130,7 @@ public class SecurityGuardMenu extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				SecIncident incident = new SecIncident();
+				SecIncident incident = new SecIncident(secname);
 				incident.inc.setVisible(true);
 				sg.setVisible(false);
 

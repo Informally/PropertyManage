@@ -65,6 +65,8 @@ public class AdminExComplain extends PageUtils{
 		aec.setTitle("Admin Complaint Management");
 		aec.setBounds(100, 100, 1200, 722);
 		aec.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//set as non resizable
+		aec.setResizable(false);
 		aec.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel(adminName + "- Complaint Management");

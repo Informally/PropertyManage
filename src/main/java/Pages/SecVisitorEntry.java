@@ -49,7 +49,7 @@ public class SecVisitorEntry extends PageUtils {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SecVisitorEntry window = new SecVisitorEntry();
+					SecVisitorEntry window = new SecVisitorEntry(null);
 					window.ve.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -61,14 +61,14 @@ public class SecVisitorEntry extends PageUtils {
 	/**
 	 * Create the application.
 	 */
-	public SecVisitorEntry() {
-		initialize();
+	public SecVisitorEntry(String secname) {
+		initialize(secname);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String secname) {
 		ve = new JFrame();
 		ve.setTitle("Visitor Entry");
 		ve.setBounds(100, 100, 871, 722);
@@ -432,7 +432,7 @@ public class SecVisitorEntry extends PageUtils {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				SecurityGuardMenu sg = new SecurityGuardMenu();
+				SecurityGuardMenu sg = new SecurityGuardMenu(secname);
                                 setOriginalFrame(ve);
 				setTargetedFrame(sg.sg);
 				navigatePage();

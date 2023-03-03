@@ -68,6 +68,8 @@ public class BExecComplaints extends PageUtils {
 		bec.setTitle("View & Update Complaint");
 		bec.setBounds(100, 100, 1200, 1000);
 		bec.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//set as non resizable
+		bec.setResizable(false);
 		bec.getContentPane().setLayout(null);
 
 		// Title

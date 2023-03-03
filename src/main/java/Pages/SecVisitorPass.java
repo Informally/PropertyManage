@@ -48,7 +48,7 @@ public class SecVisitorPass extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					SecVisitorPass window = new SecVisitorPass();
+					SecVisitorPass window = new SecVisitorPass(null);
 					window.vp.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -60,14 +60,14 @@ public class SecVisitorPass extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public SecVisitorPass() {
-		initialize();
+	public SecVisitorPass(String secname) {
+		initialize(secname);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String secname) {
 		vp = new JFrame();
 		vp.setTitle("View Visitor Pass");
 		vp.setBounds(100, 100, 871, 722);
@@ -262,7 +262,7 @@ public class SecVisitorPass extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				SecurityGuardMenu sg = new SecurityGuardMenu();
+				SecurityGuardMenu sg = new SecurityGuardMenu(secname);
                                 setOriginalFrame(vp);
 				setTargetedFrame(sg.sg);
 				navigatePage();

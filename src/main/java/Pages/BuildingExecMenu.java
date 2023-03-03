@@ -56,6 +56,8 @@ public class BuildingExecMenu extends PageUtils{
 		buildExec.setTitle("Building Executive Menu");
 		buildExec.setBounds(100, 100, 871, 622);
 		buildExec.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//set as non resizable
+		buildExec.setResizable(false);
 		buildExec.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Building Executive Menu");
