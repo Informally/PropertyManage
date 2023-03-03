@@ -60,13 +60,15 @@ public class GenReport extends PageUtils {
 	private void initialize() {
 		genReport = new JFrame();
 		genReport.setTitle("Generate Report");
-		genReport.setBounds(100, 100, 871, 622);
+		genReport.setBounds(100, 100, 700, 622);
+		//set as non-resizable
+		genReport.setResizable(false);
 		genReport.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		genReport.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Generate Report");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
-		lblNewLabel.setBounds(34, 11, 665, 81);
+		lblNewLabel.setBounds(34, 3, 665, 81);
 		genReport.getContentPane().add(lblNewLabel);
 
 		// Report Type
@@ -89,11 +91,11 @@ public class GenReport extends PageUtils {
 		JTextArea textArea = new JTextArea();
 		textArea.setLineWrap(true);
 		textArea.setEditable(false);
-		textArea.setBounds(44, 130, 770, 450);
+		textArea.setBounds(44, 130, 600, 450);
 
 		JScrollPane scroll = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
-				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scroll.setBounds(44, 130, 770, 450);
+		JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scroll.setBounds(44, 130, 600, 450);
 		genReport.getContentPane().add(scroll);
 
 		reportTypeOptions.addItemListener(new ItemListener() {
@@ -101,27 +103,26 @@ public class GenReport extends PageUtils {
 			public void itemStateChanged(ItemEvent e) {
 				switch ((String) reportTypeOptions.getSelectedItem()) {
 				case "Payment Report Resident/Tenant":
-					ArrayList<ArrayList<String>> paymentdata = crud.read("MonthlyPaymentHistory.txt");
+					ArrayList<ArrayList<String>> paymentdata = crud.read("ResTenPaymentHistory.txt");
 
 					String paymentreport = "<----- Payment Report Resident/Tenant ----->\n";
-
+				
 					for (ArrayList<String> row : paymentdata) {
-						paymentreport += "\nPayment Id: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Room Type: " + row.get(2) + "\n" + "Room Price: RM " + row.get(3) + "\n" + "Outstanding: RM " + row.get(4) + "\n" + "Total Paid: RM " + row.get(5) + "\n"+ "Date: " + row.get(9) + "\n----------------------\n";
+						paymentreport += "\nPayment Id: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Details: " + row.get(2) + "\n" + "Pending: RM" + row.get(3) + "\n" + "Total Paid: RM" + row.get(4) + "\n" + "Outstanding: RM" + row.get(5) + "\n"+ "Charge ID: " + row.get(6) + "\n"+ "Date: " + row.get(7)+"\n------------------------------------------------"+"\n------------------------------------------------\n";
 
 
 					}
 
 					textArea.setText(paymentreport);
 					break;
-                                case "Payment Report Vendor":
+                
+				case "Payment Report Vendor":
 					ArrayList<ArrayList<String>> paymentdata2 = crud.read("PaymentHistory.txt");
 
 					String paymentreport2 = "<----- Payment Report Vendor ----->\n";
 
 					for (ArrayList<String> row : paymentdata2) {
-						paymentreport2 += "\nPayment Id: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Outstanding: RM " + row.get(2) + "\n" + "Total Paid: RM " + row.get(3) + "\n" + "Month: " + row.get(4) + "\n"+ "\n----------------------\n";
-
-
+						paymentreport2 += "\nPayment Id: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Details: " + row.get(2) + "\n" + "Pending: RM" + row.get(3) + "\n" + "Total Paid: RM" + row.get(4) + "\n" + "Outstanding: RM" + row.get(5) + "\n"+ "Charge ID: " + row.get(6) + "\n"+ "Date: " + row.get(7)+"\n------------------------------------------------"+"\n------------------------------------------------\n";
 					}
 
 					textArea.setText(paymentreport2);
@@ -216,7 +217,7 @@ public class GenReport extends PageUtils {
 
 		// back Button
 		JButton backBtn = new JButton("Back");
-		backBtn.setBounds(700, 11, 150, 42);
+		backBtn.setBounds(400, 11, 150, 42);
 		backBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		backBtn.addActionListener(new ActionListener() {
 

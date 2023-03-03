@@ -54,14 +54,14 @@ public class BuildingManagerMenu extends PageUtils {
 	private void initialize() {
 		bmm = new JFrame();
 		bmm.setTitle("Building Manager Menu");
-		bmm.setBounds(100, 100, 871, 622);
+		bmm.setBounds(100, 100, 450, 450);
 		bmm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//set as non resizable
 		bmm.setResizable(false);
 		bmm.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Building Manager Menu");
-		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
+		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		bmm.getContentPane().add(lblNewLabel);
 		
