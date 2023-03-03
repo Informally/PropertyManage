@@ -437,6 +437,12 @@ public class ResFacilityBooking extends PageUtils{
                     crud.updateRow("ResidentInvoiceStatement.txt", userId, 0, "", 0, dataIs);
 				}
 
+
+				// close the current window and open the new one
+				ResidentMenu aem = new ResidentMenu(restenname);
+				setOriginalFrame(fb);
+				setTargetedFrame(aem.rm);
+				navigatePage();
 				// Clear text after update or add
 				txtUID.setText("");
 				txtDate.setText("");
