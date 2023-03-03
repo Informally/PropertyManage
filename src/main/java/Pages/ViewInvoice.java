@@ -209,7 +209,7 @@ public class ViewInvoice extends PageUtils {
 			rowPayment[2] = tblData.get(i).get(2);
 			rowPayment[3] = tblData.get(i).get(3);
 			rowPayment[4] = tblData.get(i).get(4);
-                        rowPayment[5] = tblData.get(i).get(5);
+            rowPayment[5] = tblData.get(i).get(5);
 			tableModelPayment.addRow(rowPayment);
 
 		}
@@ -217,7 +217,7 @@ public class ViewInvoice extends PageUtils {
 
 		
 		JScrollPane scrollPayment = new JScrollPane(jTablePayment, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
-				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollPayment.setBounds(60, 73, 770, 100);
 		viewInvoice.getContentPane().add(scrollPayment);
 		
@@ -236,7 +236,7 @@ public class ViewInvoice extends PageUtils {
 				if (row.length > 0) {
 
 				String paymentID = (String) jTablePayment.getValueAt(row[0], 0);
-                                String name = (String) jTablePayment.getValueAt(row[0], 1);
+                String name = (String) jTablePayment.getValueAt(row[0], 1);
 				String type = (String) jTablePayment.getValueAt(row[0], 2);
 				String type1 = (String) jTablePayment.getValueAt(row[0], 3);
 				String outstanding = (String) jTablePayment.getValueAt(row[0], 4);
@@ -266,10 +266,6 @@ public class ViewInvoice extends PageUtils {
 				//assuming reportTypeOptions contains the selected report type
 				String selectedReportType = reportTypeOptions.getSelectedItem().toString();
 				String receiptReport = "";
-
-
-				// set the text
-				String text = "Invoice/Statement";
 				//iterate through each record in statementData
 				for (ArrayList<String> record : statementData) {
   				//check if the selected report type matches the first item of this record

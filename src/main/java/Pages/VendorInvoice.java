@@ -67,12 +67,12 @@ public class VendorInvoice extends PageUtils{
 	 */
 	private void initialize(String vendorName) {
 		vi = new JFrame();
-		vi.setTitle("Vendor Invoice");
+		vi.setTitle("Vendor Invoice/Statement");
 		vi.setBounds(100, 100, 871, 822);
 		vi.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		vi.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Vendor Invoice");
+		JLabel lblNewLabel = new JLabel("Vendor Invoice/Statement");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		vi.getContentPane().add(lblNewLabel);
@@ -86,22 +86,14 @@ public class VendorInvoice extends PageUtils{
 		JComboBox<String> reportOptions = new JComboBox<>();
 		reportOptions.setBounds(120, 73, 250, 42);
 		ArrayList<ArrayList<String>> paymentHistory = crud.read("PaymentHistory.txt");
+		//add the records with the vendorName to the combobox
 		for (int i = 0; i < paymentHistory.size(); i++) {
-			reportOptions.addItem(paymentHistory.get(i).get(0));
+			if (paymentHistory.get(i).get(1).equals(vendorName)) {
+				reportOptions.addItem(paymentHistory.get(i).get(0));
+				reportOptions.setSelectedIndex(-1);
+			}
 		}
 
-		// reportOptions.addItem("January");
-		// reportOptions.addItem("February");
-		// reportOptions.addItem("March");
-		// reportOptions.addItem("April");
-		// reportOptions.addItem("May");
-		// reportOptions.addItem("June");
-		// reportOptions.addItem("July");
-		// reportOptions.addItem("August");
-		// reportOptions.addItem("September");
-		// reportOptions.addItem("October");
-		// reportOptions.addItem("November");
-		// reportOptions.addItem("December");
 		vi.getContentPane().add(reportOptions);
 
 		// Result Display
@@ -111,39 +103,35 @@ public class VendorInvoice extends PageUtils{
 		textArea.setBounds(44, 130, 770, 450);
 		
 		// Invoice
-		JLabel lblStatement = new JLabel("INVOICE ");
+		JLabel lblStatement = new JLabel("------------INVOICE------------");
 		lblStatement.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 23));
-		lblStatement.setBounds(564, 3, 315, 42);
+		lblStatement.setBounds(0, 3, 315, 42);
 		
 		// Date Issued
 		JLabel lblSDate = new JLabel("Date Issued:");
 		lblSDate.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12));
 		lblSDate.setBounds(564, 33, 315, 42);
 		
-		// Customer ID
-		//JLabel lblCusId = new JLabel("Customer ID ");
-		//lblCusId.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12));
-		//lblCusId.setBounds(564, 53, 315, 42);
-		
+
 		// Company
 		JLabel lblCompany = new JLabel("Parkhill Resident");
 		lblCompany.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 23));
-		lblCompany.setBounds(34, 3, 315, 42);
+		lblCompany.setBounds(0, 53, 315, 42);
 		
 		//Company Address
 		JLabel lblComAdd = new JLabel("2, 217, Technology Park Malaysia,");
 		lblComAdd.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12));
-		lblComAdd.setBounds(34, 43, 315, 42);
+		lblComAdd.setBounds(0, 83, 315, 42);
 		
 		//Company Address
 		JLabel lblComAdd2 = new JLabel("57000 Kuala Lumpur,Wilayah Kuala Lumpur");
 		lblComAdd2.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12));
-		lblComAdd2.setBounds(34, 63, 315, 42);
+		lblComAdd2.setBounds(0, 103, 315, 42);
 		
 		//Company Phone
 		JLabel lblComAdd3 = new JLabel("03-8656 9488");
 		lblComAdd3.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12));
-		lblComAdd3.setBounds(34, 83, 315, 42);
+		lblComAdd3.setBounds(0, 123, 315, 42);
 		
 		//Bill To
 		JLabel lblBill = new JLabel("Bill To:");
@@ -188,427 +176,75 @@ public class VendorInvoice extends PageUtils{
 		
 				
 		JScrollPane scroll = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
-				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scroll.setBounds(0, 130, 1000, 530);
 		vi.getContentPane().add(scroll);
 
 		reportOptions.addItemListener(new ItemListener() {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
-				switch ((String) reportOptions.getSelectedItem()) {
-				
-                    case "January":
-					
-					ArrayList<ArrayList<String>> statementData = crud.read("VendorInvoice.txt");
+			//read all the records from PaymentHistory.txt and declare as an arraylist
+			ArrayList<ArrayList<String>> statementData = crud.read("PaymentHistory.txt");
+			//print the arraylist if the selection in reportTypeOptions is equal to the first item in the arraylist
+			//assuming reportTypeOptions contains the selected report type
+			String selectedReportType = reportOptions.getSelectedItem().toString();
+			String receiptReport = "";
 
-					String receiptReport = "";
-					
-					for (ArrayList<String> row : statementData) {
-						if(row.get(4).equals("January")) {
-						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
-						lblSDate.setText("Date Issued:     2023-01-01");
-						lblContract.setText("Due To:     2023-01-31");
-						lblBalance.setText("Balance Due      " + row.get(6));
-						lblInvNo.setText("Invoice No:     " + row.get(0));
-                                                lblBill.setText("Bill To:    " + row.get(1));
-						}
-					}
 
+			// set the text
+			String text = "Invoice/Statement";
+			//iterate through each record in statementData
+			for (ArrayList<String> record : statementData) {
+			  //check if the selected report type matches the first item of this record
+				  if (record.get(0).equals(selectedReportType)) {
+				//print the entire record
+					System.out.println(record);
+					receiptReport +="\n\n\n\n\n\n\n\n\n\n\n\n\n"+"Payment ID: " + record.get(0) + "\n" + "Name: "+record.get(1) + "\n" + "Details: "+record.get(2) + "\n" + "Pending: RM"+record.get(3) + "\n" + "Amount Paid: RM"+record.get(4)+ "\n" + "Outstanding: RM"+record.get(5)+ "\n" + "Charge ID: "+record.get(6)+ "\n" + "Date: "+record.get(7);
 					textArea.setText(receiptReport);
 					textArea.add(lblStatement);
-					textArea.add(lblSDate);
-					textArea.add(lblInvNo);
-					textArea.add(lblCompany);
-					textArea.add(lblComAdd);
-					textArea.add(lblComAdd2);
-					textArea.add(lblComAdd3);
-					textArea.add(lblBill);
-					textArea.add(lblContract);
-					textArea.add(lblColumn);
-					textArea.add(lblColumn2);
-					textArea.add(lblBalance);
-					textArea.add(lblRemittance);
-					textArea.add(lblToDate);
-					break;
+						textArea.add(lblCompany);
+						textArea.add(lblComAdd);
+						textArea.add(lblComAdd2);
+						textArea.add(lblComAdd3);
+				  }
+			}
 				
-				case "February":
+				// case "February":
 					
-					statementData = crud.read("VendorInvoice.txt");
+				// 	statementData = crud.read("VendorInvoice.txt");
 
-					receiptReport = "";
+				// 	receiptReport = "";
 					
-					for (ArrayList<String> row : statementData) {
-						if(row.get(4).equals("February")) {
-						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
-						lblSDate.setText("Date Issued:     2023-02-01");
-						lblContract.setText("Due To:     2023-02-28");
-						lblBalance.setText("Balance Due      " + row.get(6));
-						lblInvNo.setText("Invoice No:     " + row.get(0));
-                                                lblBill.setText("Bill To:    " + row.get(1));
-						}
-					}
+				// 	for (ArrayList<String> row : statementData) {
+				// 		if(row.get(4).equals("February")) {
+				// 		receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
+				// 		lblSDate.setText("Date Issued:     2023-02-01");
+				// 		lblContract.setText("Due To:     2023-02-28");
+				// 		lblBalance.setText("Balance Due      " + row.get(6));
+				// 		lblInvNo.setText("Invoice No:     " + row.get(0));
+                //                                 lblBill.setText("Bill To:    " + row.get(1));
+				// 		}
+				// 	}
 
-					textArea.setText(receiptReport);
-					textArea.add(lblStatement);
-					textArea.add(lblSDate);
-					textArea.add(lblCompany);
-					textArea.add(lblComAdd);
-					textArea.add(lblComAdd2);
-					textArea.add(lblComAdd3);
-					textArea.add(lblBill);
-					textArea.add(lblContract);
-					textArea.add(lblColumn);
-					textArea.add(lblColumn2);
-					textArea.add(lblBalance);
-					textArea.add(lblRemittance);
-					textArea.add(lblToDate);
-					textArea.add(lblInvNo);
-					break;
-					
-                    case "March":
-					
-					statementData = crud.read("VendorInvoice.txt");
+				// 	textArea.setText(receiptReport);
+				// 	textArea.add(lblStatement);
+				// 	textArea.add(lblSDate);
+				// 	textArea.add(lblCompany);
+				// 	textArea.add(lblComAdd);
+				// 	textArea.add(lblComAdd2);
+				// 	textArea.add(lblComAdd3);
+				// 	textArea.add(lblBill);
+				// 	textArea.add(lblContract);
+				// 	textArea.add(lblColumn);
+				// 	textArea.add(lblColumn2);
+				// 	textArea.add(lblBalance);
+				// 	textArea.add(lblRemittance);
+				// 	textArea.add(lblToDate);
+				// 	textArea.add(lblInvNo);
+				// 	break;
 
-					receiptReport = "";
-					
-					for (ArrayList<String> row : statementData) {
-						if(row.get(4).equals("March")) {
-						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
-						lblSDate.setText("Date Issued:     2023-03-01");
-						lblContract.setText("Due To:     2023-03-31");
-						lblBalance.setText("Balance Due      " + row.get(6));
-						lblInvNo.setText("Invoice No:     " + row.get(0));
-                                                lblBill.setText("Bill To:    " + row.get(1));
-						}
-					}
-
-					textArea.setText(receiptReport);
-					textArea.add(lblStatement);
-					textArea.add(lblSDate);
-					textArea.add(lblCompany);
-					textArea.add(lblComAdd);
-					textArea.add(lblComAdd2);
-					textArea.add(lblComAdd3);
-					textArea.add(lblBill);
-					textArea.add(lblContract);
-					textArea.add(lblColumn);
-					textArea.add(lblColumn2);
-					textArea.add(lblBalance);
-					textArea.add(lblRemittance);
-					textArea.add(lblToDate);
-					textArea.add(lblInvNo);
-					break;
-					
-                    case "April":
-    					
-    					statementData = crud.read("VendorInvoice.txt");
-
-    					receiptReport = "";
-    					
-    					for (ArrayList<String> row : statementData) {
-    						if(row.get(4).equals("April")) {
-    						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
-						lblSDate.setText("Date Issued:     2023-04-01");
-						lblContract.setText("Due To:     2023-04-30");
-						lblBalance.setText("Balance Due      " + row.get(6));
-						lblInvNo.setText("Invoice No:     " + row.get(0));
-                                                lblBill.setText("Bill To:    " + row.get(1));
-    						}
-    					}
-
-    					textArea.setText(receiptReport);
-    					textArea.add(lblStatement);
-    					textArea.add(lblSDate);
-    					textArea.add(lblCompany);
-    					textArea.add(lblComAdd);
-    					textArea.add(lblComAdd2);
-    					textArea.add(lblComAdd3);
-    					textArea.add(lblBill);
-    					textArea.add(lblContract);
-    					textArea.add(lblColumn);
-    					textArea.add(lblColumn2);
-    					textArea.add(lblBalance);
-    					textArea.add(lblRemittance);
-    					textArea.add(lblToDate);
-    					textArea.add(lblInvNo);
-    					break;
-    					
-                        case "May":
-    					
-    					statementData = crud.read("VendorInvoice.txt");
-
-    					receiptReport = "";
-    					
-    					for (ArrayList<String> row : statementData) {
-    						if(row.get(4).equals("May")) {
-    						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
-						lblSDate.setText("Date Issued:     2023-05-01");
-						lblContract.setText("Due To:     2023-05-31");
-						lblBalance.setText("Balance Due      " + row.get(6));
-						lblInvNo.setText("Invoice No:     " + row.get(0));
-                                                lblBill.setText("Bill To:    " + row.get(1));
-    						}
-    					}
-
-    					textArea.setText(receiptReport);
-    					textArea.add(lblStatement);
-    					textArea.add(lblSDate);
-    					textArea.add(lblCompany);
-    					textArea.add(lblComAdd);
-    					textArea.add(lblComAdd2);
-    					textArea.add(lblComAdd3);
-    					textArea.add(lblBill);
-    					textArea.add(lblContract);
-    					textArea.add(lblColumn);
-    					textArea.add(lblColumn2);
-    					textArea.add(lblBalance);
-    					textArea.add(lblRemittance);
-    					textArea.add(lblToDate);
-    					textArea.add(lblInvNo);
-    					break;
-    					
-                        case "June":
-        					
-        					statementData = crud.read("VendorInvoice.txt");
-
-        					receiptReport = "";
-        					
-        					for (ArrayList<String> row : statementData) {
-        						if(row.get(4).equals("June")) {
-        						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
-                                                        lblSDate.setText("Date Issued:     2023-06-01");
-                                                        lblContract.setText("Due To:     2023-06-30");
-                                                        lblBalance.setText("Balance Due      " + row.get(6));
-                                                        lblInvNo.setText("Invoice No:     " + row.get(0));
-                                                        lblBill.setText("Bill To:    " + row.get(1));
-        						}
-        					}
-
-        					textArea.setText(receiptReport);
-        					textArea.add(lblStatement);
-        					textArea.add(lblSDate);
-        					textArea.add(lblCompany);
-        					textArea.add(lblComAdd);
-        					textArea.add(lblComAdd2);
-        					textArea.add(lblComAdd3);
-        					textArea.add(lblBill);
-        					textArea.add(lblContract);
-        					textArea.add(lblColumn);
-        					textArea.add(lblColumn2);
-        					textArea.add(lblBalance);
-        					textArea.add(lblRemittance);
-        					textArea.add(lblToDate);
-        					textArea.add(lblInvNo);
-        					break;
-        					
-                        case "July":
-        					
-        					statementData = crud.read("VendorInvoice.txt");
-
-        					receiptReport = "";
-        					
-        					for (ArrayList<String> row : statementData) {
-        						if(row.get(4).equals("July")) {
-        						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
-                                                        lblSDate.setText("Date Issued:     2023-07-01");
-                                                        lblContract.setText("Due To:     2023-07-31");
-                                                        lblBalance.setText("Balance Due      " + row.get(6));
-                                                        lblInvNo.setText("Invoice No:     " + row.get(0));
-                                                        lblBill.setText("Bill To:    " + row.get(1));
-        						}
-        					}
-
-        					textArea.setText(receiptReport);
-        					textArea.add(lblStatement);
-        					textArea.add(lblSDate);
-        					textArea.add(lblCompany);
-        					textArea.add(lblComAdd);
-        					textArea.add(lblComAdd2);
-        					textArea.add(lblComAdd3);
-        					textArea.add(lblBill);
-        					textArea.add(lblContract);
-        					textArea.add(lblColumn);
-        					textArea.add(lblColumn2);
-        					textArea.add(lblBalance);
-        					textArea.add(lblRemittance);
-        					textArea.add(lblToDate);
-        					textArea.add(lblInvNo);
-        					break;
-        					
-                        case "August":
-        					
-        					statementData = crud.read("VendorInvoice.txt");
-
-        					receiptReport = "";
-        					
-        					for (ArrayList<String> row : statementData) {
-        						if(row.get(4).equals("August")) {
-        						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
-                                                        lblSDate.setText("Date Issued:     2023-08-01");
-                                			lblContract.setText("Due To:     2023-08-31");
-                                        		lblBalance.setText("Balance Due      " + row.get(6));
-                                                	lblInvNo.setText("Invoice No:     " + row.get(0));
-                                                        lblBill.setText("Bill To:    " + row.get(1));
-        						}
-        					}
-
-        					textArea.setText(receiptReport);
-        					textArea.add(lblStatement);
-        					textArea.add(lblSDate);
-        					textArea.add(lblCompany);
-        					textArea.add(lblComAdd);
-        					textArea.add(lblComAdd2);
-        					textArea.add(lblComAdd3);
-        					textArea.add(lblBill);
-        					textArea.add(lblContract);
-        					textArea.add(lblColumn);
-        					textArea.add(lblColumn2);
-        					textArea.add(lblBalance);
-        					textArea.add(lblRemittance);
-        					textArea.add(lblToDate);
-        					textArea.add(lblInvNo);
-        					break;
-        					
-                        case "September":
-        					
-        					statementData = crud.read("VendorInvoice.txt");
-
-        					receiptReport = "";
-        					
-        					for (ArrayList<String> row : statementData) {
-        						if(row.get(4).equals("September")) {
-        						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
-                                                        lblSDate.setText("Date Issued:     2023-09-01");
-                                                        lblContract.setText("Due To:     2023-09-30");
-                                                        lblBalance.setText("Balance Due      " + row.get(6));
-                                                    	lblInvNo.setText("Invoice No:     " + row.get(0));
-                                                        lblBill.setText("Bill To:    " + row.get(1));
-        						}
-        					}
-
-        					textArea.setText(receiptReport);
-        					textArea.add(lblStatement);
-        					textArea.add(lblSDate);
-        					textArea.add(lblCompany);
-        					textArea.add(lblComAdd);
-        					textArea.add(lblComAdd2);
-        					textArea.add(lblComAdd3);
-        					textArea.add(lblBill);
-        					textArea.add(lblContract);
-        					textArea.add(lblColumn);
-        					textArea.add(lblColumn2);
-        					textArea.add(lblBalance);
-        					textArea.add(lblRemittance);
-        					textArea.add(lblToDate);
-        					textArea.add(lblInvNo);
-        					break;
-        					
-                        case "October":
-        					
-        					statementData = crud.read("VendorInvoice.txt");
-
-        					receiptReport = "";
-        					
-        					for (ArrayList<String> row : statementData) {
-        						if(row.get(4).equals("October")) {
-        						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
-                                                	lblSDate.setText("Date Issued:     2023-10-01");
-                                                	lblContract.setText("Due To:     2023-10-31");
-                                                	lblBalance.setText("Balance Due      " + row.get(6));
-                                                	lblInvNo.setText("Invoice No:     " + row.get(0));
-                                                        lblBill.setText("Bill To:    " + row.get(1));
-        						}
-        					}
-
-        					textArea.setText(receiptReport);
-        					textArea.add(lblStatement);
-        					textArea.add(lblSDate);
-        					textArea.add(lblCompany);
-        					textArea.add(lblComAdd);
-        					textArea.add(lblComAdd2);
-        					textArea.add(lblComAdd3);
-        					textArea.add(lblBill);
-        					textArea.add(lblContract);
-        					textArea.add(lblColumn);
-        					textArea.add(lblColumn2);
-        					textArea.add(lblBalance);
-        					textArea.add(lblRemittance);
-        					textArea.add(lblToDate);
-        					textArea.add(lblInvNo);
-        					break;
-        					
-                        case "November":
-        					
-        					statementData = crud.read("VendorInvoice.txt");
-
-        					receiptReport = "";
-        					
-        					for (ArrayList<String> row : statementData) {
-        						if(row.get(4).equals("November")) {
-        						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
-                                                        lblSDate.setText("Date Issued:     2023-11-01");
-                                                        lblContract.setText("Due To:     2023-11-30");
-                                                        lblBalance.setText("Balance Due      " + row.get(6));
-                                                        lblInvNo.setText("Invoice No:     " + row.get(0));
-                                                        lblBill.setText("Bill To:    " + row.get(1));
-        						}
-        					}
-
-        					textArea.setText(receiptReport);
-        					textArea.add(lblStatement);
-        					textArea.add(lblSDate);
-        					textArea.add(lblCompany);
-        					textArea.add(lblComAdd);
-        					textArea.add(lblComAdd2);
-        					textArea.add(lblComAdd3);
-        					textArea.add(lblBill);
-        					textArea.add(lblContract);
-        					textArea.add(lblColumn);
-        					textArea.add(lblColumn2);
-        					textArea.add(lblBalance);
-        					textArea.add(lblRemittance);
-        					textArea.add(lblToDate);
-        					textArea.add(lblInvNo);
-        					break;
-        					
-                        case "December":
-        					
-        					statementData = crud.read("VendorInvoice.txt");
-
-        					receiptReport = "";
-        					
-        					for (ArrayList<String> row : statementData) {
-        						if(row.get(4).equals("December")) {
-        						receiptReport += "\n\n\n\n\n\n\n\n\n\n\n\n\n\n          " + row.get(2) + "\t" + row.get(3) + "\t" + row.get(4) + "\t " + row.get(5) + "\t           " + row.get(6);
-                                                	lblSDate.setText("Date Issued:     2023-12-01");
-                                                    	lblContract.setText("Due To:     2023-12-31");
-                                                        lblBalance.setText("Balance Due      " + row.get(6));
-                                                	lblInvNo.setText("Invoice No:     " + row.get(0));
-                                                        lblBill.setText("Bill To:    " + row.get(1));
-        						}
-        					}
-
-        					textArea.setText(receiptReport);
-        					textArea.add(lblStatement);
-        					textArea.add(lblSDate);
-        					textArea.add(lblCompany);
-        					textArea.add(lblComAdd);
-        					textArea.add(lblComAdd2);
-        					textArea.add(lblComAdd3);
-        					textArea.add(lblBill);
-        					textArea.add(lblContract);
-        					textArea.add(lblColumn);
-        					textArea.add(lblColumn2);
-        					textArea.add(lblBalance);
-        					textArea.add(lblRemittance);
-        					textArea.add(lblToDate);
-        					textArea.add(lblInvNo);
-        					break;
-				
-				
 				}
 
-			}
 		});
 
 		// back Button
