@@ -59,12 +59,12 @@ public class ChargePaymentResTen extends PageUtils {
 	 */
 	private void initialize() {
 		chargepaymentrestenFrame = new JFrame();
-		chargepaymentrestenFrame.setTitle("Charge Payment to Vendor");
+		chargepaymentrestenFrame.setTitle("Charge Payment to Resident/Tenant");
 		chargepaymentrestenFrame.setBounds(100, 100, 871, 622);
 		chargepaymentrestenFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		chargepaymentrestenFrame.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Charge Payment to Vendor");
+		JLabel lblNewLabel = new JLabel("Charge Payment to Resident/Tenant");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		lblNewLabel.setBounds(34, 5, 665, 81);
 		chargepaymentrestenFrame.getContentPane().add(lblNewLabel);
@@ -82,8 +82,8 @@ public class ChargePaymentResTen extends PageUtils {
 		chargepaymentrestenFrame.getContentPane().add(txtEMID);
 
 		// Vendor Name
-		JLabel lblName = new JLabel("Vendor Name: ");
-		lblName.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		JLabel lblName = new JLabel("Resident Name: ");
+		lblName.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 14));
 		lblName.setBounds(434, 73, 315, 42);
 		chargepaymentrestenFrame.getContentPane().add(lblName);
         
@@ -94,13 +94,15 @@ public class ChargePaymentResTen extends PageUtils {
         comboBox.setEditable(false);
         chargepaymentrestenFrame.getContentPane().add(comboBox);
         //get all the users from user.txt
-        ArrayList<ArrayList<String>> users = crud.read("User.txt");
-        //add all users to the comboBox if position 6 in users is "Vendor"
+        ArrayList<ArrayList<String>> users = crud.read("ResTen.txt");
+        //add all users to the comboBox if position 6 in users is "Resident" or "Tenant"
+
         for (ArrayList<String> user : users) {
-            if (user.get(5).equals("Vendor")) {
+            if (user.get(6).equals("Resident") || user.get(6).equals("Tenant")) {
                 comboBox.addItem(user.get(1));
             }
         }
+
 
 
 
@@ -116,9 +118,8 @@ public class ChargePaymentResTen extends PageUtils {
         // comboBox_1.setBackground(Color.lightGray);
         comboBox_1.setEditable(false);
         chargepaymentrestenFrame.getContentPane().add(comboBox_1);
-        comboBox_1.addItem("Utilities");
-        comboBox_1.addItem("Rental");
-        comboBox_1.addItem("Services");
+        comboBox_1.addItem("Monthly Room Payment");
+        comboBox_1.addItem("Other Services");
 
 
 		// Amount
@@ -152,7 +153,7 @@ public class ChargePaymentResTen extends PageUtils {
 		chargepaymentrestenFrame.getContentPane().add(errorText);
 
 		// Result Display
-		tblData = crud.read("PendingFee.txt");
+		tblData = crud.read("ResTenPendingFee.txt");
 		String row[] = new String[5];
 		String column[] = { "ID", "Name", "Detail", "Amount", "Date"};
 
@@ -217,10 +218,10 @@ public class ChargePaymentResTen extends PageUtils {
 				
 				String emid = txtEMID.getText().trim();
 				
-				crud.delete("PendingFee.txt", emid, 0, "", 0);
+				crud.delete("ResTenPendingFee.txt", emid, 0, "", 0);
 				
 				// Refresh the data in table
-				tblData = crud.read("PendingFee.txt");
+				tblData = crud.read("ResTenPendingFee.txt");
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 				tableModel.setColumnIdentifiers(column);
 				tableModel.getDataVector().removeAllElements();
@@ -301,7 +302,7 @@ public class ChargePaymentResTen extends PageUtils {
                     data.add(amt);
                     data.add(date);
                     
-                    crud.create("PendingFee.txt", data);
+                    crud.create("ResTenPendingFee.txt", data);
                     
                 } else { // this means update data
                     data.add(emid);
@@ -310,7 +311,7 @@ public class ChargePaymentResTen extends PageUtils {
                     data.add(amt);
                     data.add(date);
 
-                    crud.updateRow("PendingFee.txt", emid, 0, "", 0, data);
+                    crud.updateRow("ResTenPendingFee.txt", emid, 0, "", 0, data);
                 }
                                 
          
@@ -324,7 +325,7 @@ public class ChargePaymentResTen extends PageUtils {
 				txtDate.setText("");
 
 				// Refresh the data in table
-				tblData = crud.read("PendingFee.txt");
+				tblData = crud.read("ResTenPendingFee.txt");
 				DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 				tableModel.setColumnIdentifiers(column);
 				tableModel.getDataVector().removeAllElements();
