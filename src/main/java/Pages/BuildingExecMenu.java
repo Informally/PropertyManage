@@ -68,7 +68,7 @@ public class BuildingExecMenu extends PageUtils{
 		// Assign JOb / Tasks to Employee
 		JButton asgnJobBtn = new JButton("Assign Job/Task");
 		asgnJobBtn.setBounds(44, 93, 315, 42);
-		asgnJobBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		asgnJobBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12));
 		asgnJobBtn.addActionListener(new ActionListener() {
 
 			@Override
@@ -84,7 +84,7 @@ public class BuildingExecMenu extends PageUtils{
 		// View/Search/Update/Delete Job
 		JButton jobBtn = new JButton("View/Search/Update/Delete Job");
 		jobBtn.setBounds(44, 153, 315, 42);
-		jobBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		jobBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12));
 		jobBtn.addActionListener(new ActionListener() {
 
 			@Override
@@ -100,7 +100,7 @@ public class BuildingExecMenu extends PageUtils{
 		// View & Update complaints status
 		JButton viewupcom = new JButton("View & Update complaints status");
 		viewupcom.setBounds(44, 213, 315, 42);
-		viewupcom.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		viewupcom.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12));
 		viewupcom.addActionListener(new ActionListener() {
 
 			@Override
@@ -118,7 +118,7 @@ public class BuildingExecMenu extends PageUtils{
 		// Setup/View/Modify/Delete Patrolling Schedule & Checkpoints
 		JButton patrolBtn = new JButton("Patrolling Schedule & Checkpoints");
 		patrolBtn.setBounds(44, 273, 315, 42);
-		patrolBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		patrolBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12));
 		patrolBtn.addActionListener(new ActionListener() {
 
 			@Override
@@ -136,7 +136,7 @@ public class BuildingExecMenu extends PageUtils{
                 // View Reports (Patrolling, Complaints, Job)
 		JButton viewReportBtn = new JButton("View Reports (Patrolling, Complaints, Job)");
 		viewReportBtn.setBounds(44, 333, 315, 42);
-		viewReportBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		viewReportBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12));
 		viewReportBtn.addActionListener(new ActionListener() {
 
 			@Override
@@ -153,7 +153,7 @@ public class BuildingExecMenu extends PageUtils{
 		// Log Out Btn
 		JButton logOutBtn = new JButton("Log Out");
 		logOutBtn.setBounds(44, 393, 315, 42);
-		logOutBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		logOutBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 12));
 		logOutBtn.addActionListener(new ActionListener() {
 
 			@Override

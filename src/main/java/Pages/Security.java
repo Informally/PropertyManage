@@ -63,6 +63,8 @@ public class Security extends PageUtils{
 		SecPage.setTitle("Setup, View, Modify, Delete Patrolling Schedule");
 		SecPage.setBounds(100, 100, 1000, 800);
 		SecPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//set as non-resizable
+		SecPage.setResizable(false);
 		SecPage.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Patrolling Schedule & Checkpoint");
