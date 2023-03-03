@@ -55,16 +55,16 @@ public class ResPaymentMenu extends PageUtils {
 	private void initialize() {
 		pm = new JFrame();
 		pm.setTitle("Payment Menu");
-		pm.setBounds(100, 100, 871, 622);
+		pm.setBounds(100, 100, 450, 310);
 		pm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		pm.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Payment Menu");
+		JLabel lblNewLabel = new JLabel("    Payment Menu");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		pm.getContentPane().add(lblNewLabel);
 
-		// // Booking Room Payment Button
+		// //Booking Room Payment Button
 		// JButton profileBtn = new JButton("Tenant Booking Payment");
 		// profileBtn.setBounds(44, 93, 315, 42);
 		// profileBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -80,26 +80,26 @@ public class ResPaymentMenu extends PageUtils {
 		// });
 		// pm.getContentPane().add(profileBtn);
 
-		// Monthly Payment Button (Add new page here)
-		// JButton paymentBtn = new JButton("Monthly Payment");
-		// paymentBtn.setBounds(44, 153, 315, 42);
-		// paymentBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		// paymentBtn.addActionListener(new ActionListener() {
+		//Monthly Payment Button (Add new page here)
+		JButton paymentBtn = new JButton("Monthly Payment");
+		paymentBtn.setBounds(44, 93, 315, 42);
+		paymentBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		paymentBtn.addActionListener(new ActionListener() {
 
-		// 	@Override
-		// 	public void actionPerformed(ActionEvent e) {
-		// 		TenMonthlyPayment monthlyPayment = new TenMonthlyPayment();
-        //                         setOriginalFrame(pm);
-		// 		setTargetedFrame(monthlyPayment.mp);
-		// 		navigatePage();
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//TenMonthlyPayment monthlyPayment = new TenMonthlyPayment();
+                                setOriginalFrame(pm);
+				//setTargetedFrame(monthlyPayment.mp);
+				navigatePage();
 
-		// 	}
-		// });
-		// pm.getContentPane().add(paymentBtn);
+			}
+		});
+		pm.getContentPane().add(paymentBtn);
                 
                 // Facility Payment Button
 		JButton facilitytBtn = new JButton("Facility Payment");
-		facilitytBtn.setBounds(44, 213, 315, 42);
+		facilitytBtn.setBounds(44, 153, 315, 42);
 		facilitytBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		facilitytBtn.addActionListener(new ActionListener() {
 
@@ -116,7 +116,7 @@ public class ResPaymentMenu extends PageUtils {
 
 		// Log Out Btn
 		JButton logOutBtn = new JButton("Back");
-		logOutBtn.setBounds(44, 273, 315, 42);
+		logOutBtn.setBounds(44, 213, 315, 42);
 		logOutBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		logOutBtn.addActionListener(new ActionListener() {
 

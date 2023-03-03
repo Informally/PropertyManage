@@ -56,11 +56,11 @@ public class ResidentMenu extends PageUtils{
 	private void initialize() {
 		rm = new JFrame();
 		rm.setTitle("Resident Menu");
-		rm.setBounds(100, 100, 500, 622);
+		rm.setBounds(100, 100, 450, 580);
 		rm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		rm.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("Resident Menu");
+		JLabel lblNewLabel = new JLabel("    Resident Menu");
 		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		rm.getContentPane().add(lblNewLabel);
@@ -101,8 +101,8 @@ public class ResidentMenu extends PageUtils{
 		// rm.getContentPane().add(bookingBtn);
 
 		// User Payment Button
-		JButton paymentBtn = new JButton("Payment");
-		paymentBtn.setBounds(44, 213, 315, 42);
+		JButton paymentBtn = new JButton("Make Payment");
+		paymentBtn.setBounds(44, 153, 315, 42);
 		paymentBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		paymentBtn.addActionListener(new ActionListener() {
 
@@ -117,9 +117,9 @@ public class ResidentMenu extends PageUtils{
 		});
 		rm.getContentPane().add(paymentBtn);
 
-		// View Payment Button
+		// View invoice statement Button
 		JButton payHisBtn = new JButton("View Invoice/Statement");
-		payHisBtn.setBounds(44, 273, 315, 42);
+		payHisBtn.setBounds(44, 213, 315, 42);
 		payHisBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		payHisBtn.addActionListener(new ActionListener() {
 
@@ -128,7 +128,7 @@ public class ResidentMenu extends PageUtils{
 
 				ResTenInvoiceStatement residentPaymentHistoryMenu = new ResTenInvoiceStatement();
                 setOriginalFrame(rm);
-				setTargetedFrame(residentPaymentHistoryMenu.rphm);
+				setTargetedFrame(residentPaymentHistoryMenu.rtis);
 				navigatePage();
 
 			}
@@ -137,7 +137,7 @@ public class ResidentMenu extends PageUtils{
 		
 		// Facility Booking Button
 		JButton facilityBtn = new JButton("Facility Booking");
-		facilityBtn.setBounds(44, 333, 315, 42);
+		facilityBtn.setBounds(44, 273, 315, 42);
 		facilityBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		facilityBtn.addActionListener(new ActionListener() {
 
@@ -155,7 +155,7 @@ public class ResidentMenu extends PageUtils{
 		
 		// Visitor Pass Button
 		JButton visitorPassBtn = new JButton("Visitor Pass");
-		visitorPassBtn.setBounds(44, 393, 315, 42);
+		visitorPassBtn.setBounds(44, 333, 315, 42);
 		visitorPassBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		visitorPassBtn.addActionListener(new ActionListener() {
 
@@ -173,7 +173,7 @@ public class ResidentMenu extends PageUtils{
 		
 		// Resident / Tenant Complaint Button
 		JButton complaintBtn = new JButton("Complaint");
-		complaintBtn.setBounds(44, 453, 315, 42);
+		complaintBtn.setBounds(44, 393, 315, 42);
 		complaintBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		complaintBtn.addActionListener(new ActionListener() {
 
@@ -191,7 +191,7 @@ public class ResidentMenu extends PageUtils{
 
 		// Log Out Btn
 		JButton logOutBtn = new JButton("Log Out");
-		logOutBtn.setBounds(44, 513, 315, 42);
+		logOutBtn.setBounds(44, 453, 315, 42);
 		logOutBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		logOutBtn.addActionListener(new ActionListener() {
 
