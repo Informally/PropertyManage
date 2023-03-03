@@ -150,7 +150,7 @@ public class AccountExecMenu extends PageUtils {
 		aem.getContentPane().add(viewOutStandingBtn2);
                 
         // Charge Payment
-		JButton chargeBtn2 = new JButton("Charge Payment");
+		JButton chargeBtn2 = new JButton("Charge Payment To Vendor");
 		chargeBtn2.setBounds(44, 393, 315, 42);
 		chargeBtn2.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		chargeBtn2.addActionListener(new ActionListener() {
