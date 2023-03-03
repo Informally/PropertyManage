@@ -64,38 +64,38 @@ public class ResPaymentMenu extends PageUtils {
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		pm.getContentPane().add(lblNewLabel);
 
-		// Booking Room Payment Button
-		JButton profileBtn = new JButton("Tenant Booking Payment");
-		profileBtn.setBounds(44, 93, 315, 42);
-		profileBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		profileBtn.addActionListener(new ActionListener() {
+		// // Booking Room Payment Button
+		// JButton profileBtn = new JButton("Tenant Booking Payment");
+		// profileBtn.setBounds(44, 93, 315, 42);
+		// profileBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		// profileBtn.addActionListener(new ActionListener() {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				TenRoomPayment roomPayment = new TenRoomPayment();
-                                setOriginalFrame(pm);
-				setTargetedFrame(roomPayment.rp);
-				navigatePage();
-			}
-		});
-		pm.getContentPane().add(profileBtn);
+		// 	@Override
+		// 	public void actionPerformed(ActionEvent e) {
+		// 		TenRoomPayment roomPayment = new TenRoomPayment();
+        //                         setOriginalFrame(pm);
+		// 		setTargetedFrame(roomPayment.rp);
+		// 		navigatePage();
+		// 	}
+		// });
+		// pm.getContentPane().add(profileBtn);
 
-		// Monthly Payment Button
-		JButton paymentBtn = new JButton("Monthly Payment");
-		paymentBtn.setBounds(44, 153, 315, 42);
-		paymentBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
-		paymentBtn.addActionListener(new ActionListener() {
+		// Monthly Payment Button (Add new page here)
+		// JButton paymentBtn = new JButton("Monthly Payment");
+		// paymentBtn.setBounds(44, 153, 315, 42);
+		// paymentBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
+		// paymentBtn.addActionListener(new ActionListener() {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				TenMonthlyPayment monthlyPayment = new TenMonthlyPayment();
-                                setOriginalFrame(pm);
-				setTargetedFrame(monthlyPayment.mp);
-				navigatePage();
+		// 	@Override
+		// 	public void actionPerformed(ActionEvent e) {
+		// 		TenMonthlyPayment monthlyPayment = new TenMonthlyPayment();
+        //                         setOriginalFrame(pm);
+		// 		setTargetedFrame(monthlyPayment.mp);
+		// 		navigatePage();
 
-			}
-		});
-		pm.getContentPane().add(paymentBtn);
+		// 	}
+		// });
+		// pm.getContentPane().add(paymentBtn);
                 
                 // Facility Payment Button
 		JButton facilitytBtn = new JButton("Facility Payment");

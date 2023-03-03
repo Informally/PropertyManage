@@ -118,7 +118,7 @@ public class ResidentMenu extends PageUtils{
 		rm.getContentPane().add(paymentBtn);
 
 		// View Payment Button
-		JButton payHisBtn = new JButton("View Payment");
+		JButton payHisBtn = new JButton("View Invoice/Statement");
 		payHisBtn.setBounds(44, 273, 315, 42);
 		payHisBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		payHisBtn.addActionListener(new ActionListener() {
@@ -126,8 +126,8 @@ public class ResidentMenu extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				ResidentPaymentHistoryMenu residentPaymentHistoryMenu = new ResidentPaymentHistoryMenu();
-                                setOriginalFrame(rm);
+				ResTenInvoiceStatement residentPaymentHistoryMenu = new ResTenInvoiceStatement();
+                setOriginalFrame(rm);
 				setTargetedFrame(residentPaymentHistoryMenu.rphm);
 				navigatePage();
 
