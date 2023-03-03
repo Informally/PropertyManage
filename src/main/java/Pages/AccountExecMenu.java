@@ -54,7 +54,7 @@ public class AccountExecMenu extends PageUtils {
 	private void initialize() {
 		aem = new JFrame();
 		aem.setTitle("Account Executive Menu");
-		aem.setBounds(100, 100, 871, 622);
+		aem.setBounds(100, 100, 550, 622);
 		aem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		aem.getContentPane().setLayout(null);
 
