@@ -157,13 +157,17 @@ public class ViewOutStanding2 extends PageUtils {
 		
 		ArrayList<ArrayList<String>> pendingData = crud.read("PendingFee.txt");
 
-		String pendingReport = "\t\t<----- Pending Fee ----->\n";
-		
+		String pendingReport = "<--------------- Pending Fee --------------->\n";
+
 		for (ArrayList<String> row : pendingData) {
-			if(Integer.parseInt(row.get(4)) > 0) {
-			pendingReport += "\tPending ID:" + row.get(0) + "\n\n\tDescription\t\t\tPrice(RM)\n\t---------------\t\t\t-----------\n" + "\tName" + "\t\t\t" + row.get(1) + "\n" + "\tRental" + "\t\t\t" + row.get(2) + "\n" + "\tUtilities" + "\t\t\t" + row.get(3) + "\n" + "\tServices" + "\t\t\t" + row.get(4) + "\n" + "\t---------------------------------------------------------------\n\tOutstanding" + "\t\t\t" + row.get(5) + "\n"+ "\tPending fee for " + row.get(6) + " " + row.get(7) + "\n\t---------------------------------------------------------------" + "\n\n" + "\t\t<----- Pending Fee ----->\n";
-			}
+			pendingReport += "\nCharge ID: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Details: " + row.get(2) + "\n" + "Pending Fee: RM" + row.get(3) + "\n" + "Date: " +  row.get(4) + "\n" + "---------------------------------------------------------------"+ "\n---------------------------------------------------------------\n";
 		}
+	
+		// for (ArrayList<String> row : pendingData) {
+		// 	if (row.get(0).equals(id)) {
+		// 	pendingReport += "\tPending ID:" + row.get(0) + "\n\n\tDescription\t\t\tPrice(RM)\n\t---------------\t\t\t-----------\n" + "\tName" + "\t\t\t" + row.get(1) + "\n" + "\tRental" + "\t\t\t" + row.get(2) + "\n" + "\tUtilities" + "\t\t\t" + row.get(3) + "\n" + "\tServices" + "\t\t\t" + row.get(4) + "\n" + "\t---------------------------------------------------------------\n\tOutstanding" + "\t\t\t" + row.get(5) + "\n"+ "\tPending fee for " + row.get(6) + " " + row.get(7) + "\n\t---------------------------------------------------------------" + "\n\n" + "\t\t<----- Pending Fee ----->\n";
+		// 	}
+		// }
 
 		textArea.setText(pendingReport);
 		
