@@ -261,7 +261,7 @@ public class ManageUserPayment2 extends PageUtils{
 			rowPayment[4] = tblDataHistory.get(i).get(4);
 			rowPayment[5] = tblDataHistory.get(i).get(5);
 			rowPayment[6] = tblDataHistory.get(i).get(6);
-                        rowPayment[7] = tblDataHistory.get(i).get(7);
+            rowPayment[7] = tblDataHistory.get(i).get(7);
 			tableModelPayment.addRow(rowPayment);
 
 		}
@@ -269,7 +269,7 @@ public class ManageUserPayment2 extends PageUtils{
 
 
 		JScrollPane scrollPayment = new JScrollPane(jTablePayment, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
-				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollPayment.setBounds(44, 503, 770, 100);
 		mngPayment2.getContentPane().add(scrollPayment);
 
