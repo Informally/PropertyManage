@@ -54,14 +54,14 @@ public class AdminExecMenu extends PageUtils{
 	private void initialize(String adminName) {
 		Aem = new JFrame();
 		Aem.setTitle("Admin Executive Menu");
-		Aem.setBounds(100, 100, 871, 622);
+		Aem.setBounds(100, 100, 450, 622);
 		Aem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//set as non resizable
 		Aem.setResizable(false);
 		Aem.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Admin Executive Menu");
-		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
+		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		Aem.getContentPane().add(lblNewLabel);
 		
