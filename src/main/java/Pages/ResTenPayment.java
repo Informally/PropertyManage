@@ -564,9 +564,9 @@ public class ResTenPayment extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ResidentMenu vm = new ResidentMenu(restenname);
-                                setOriginalFrame(rtpFrame);
-				setTargetedFrame(vm.rm);
+				ResPaymentMenu vm = new ResPaymentMenu(restenname);
+                setOriginalFrame(rtpFrame);
+				setTargetedFrame(vm.pm);
 				navigatePage();
 
 			}

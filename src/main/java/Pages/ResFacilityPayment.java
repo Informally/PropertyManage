@@ -45,7 +45,7 @@ public class ResFacilityPayment extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ResFacilityPayment window = new ResFacilityPayment();
+					ResFacilityPayment window = new ResFacilityPayment(null);
 					window.fp.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -57,17 +57,17 @@ public class ResFacilityPayment extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public ResFacilityPayment() {
-		initialize();
+	public ResFacilityPayment(String restenname) {
+		initialize(restenname);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String restenname) {
 		fp = new JFrame();
 		fp.setTitle("Facility Payment");
-		fp.setBounds(100, 100, 1471, 822);
+		fp.setBounds(100, 100, 850, 670);
 		fp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		fp.getContentPane().setLayout(null);
 
@@ -84,7 +84,6 @@ public class ResFacilityPayment extends PageUtils{
 
 		JTextField txtUID = new JTextField("");
 		txtUID.setBounds(164, 73, 250, 42);
-		txtUID.setBackground(Color.gray);
 		txtUID.setEditable(false);
 		fp.getContentPane().add(txtUID);
 
@@ -199,7 +198,6 @@ public class ResFacilityPayment extends PageUtils{
 		JTextField txtName = new JTextField();
 		txtName.setBounds(554, 273, 250, 42);
                 txtName.setEditable(false);
-                txtName.setBackground(Color.gray);
 		fp.getContentPane().add(txtName);
                 
 		// Amount
@@ -238,8 +236,20 @@ public class ResFacilityPayment extends PageUtils{
 			row[4] = tblData.get(i).get(4);
 			row[5] = tblData.get(i).get(5);
 			row[6] = tblData.get(i).get(6);
-                        row[7] = tblData.get(i).get(7);
-			tableModel.addRow(row);
+            row[7] = tblData.get(i).get(7);
+			//tableModel.addRow(row);
+			boolean match3 = false;
+			for (int q = 0; q < row.length; q++) {
+				if (row[q].toLowerCase().contains(restenname.toLowerCase())) {
+				match3 = true;
+				break;
+				}
+			}
+
+			// Add the row if it matches the search string
+			if (match3) {
+				tableModel.addRow(row);
+				}
 
 		}
 		jTable.setModel(tableModel);
@@ -253,7 +263,7 @@ public class ResFacilityPayment extends PageUtils{
 
 				if (row.length > 0) {
 					txtUID.setText((String) jTable.getValueAt(row[0], 0));
-                                        txtName.setText((String) jTable.getValueAt(row[0], 1));
+                    txtName.setText((String) jTable.getValueAt(row[0], 1));
 					txtFacilityType.setText((String) jTable.getValueAt(row[0], 2));
 					txtPrice.setText((String) jTable.getValueAt(row[0], 3));
 					txtDuration.setText((String) jTable.getValueAt(row[0], 4));
@@ -294,7 +304,19 @@ public class ResFacilityPayment extends PageUtils{
                         rowPayment[6] = tblDataHistory.get(i).get(6);
                         rowPayment[7] = tblDataHistory.get(i).get(7);
                         rowPayment[8] = tblDataHistory.get(i).get(8);
-			tableModelPayment.addRow(rowPayment);
+			//tableModelPayment.addRow(rowPayment);
+			boolean match4 = false;
+			for (int q = 0; q < rowPayment.length; q++) {
+				if (rowPayment[q].toLowerCase().contains(restenname.toLowerCase())) {
+				match4 = true;
+				break;
+				}
+			}
+
+			// Add the row if it matches the search string
+			if (match4) {
+				tableModelPayment.addRow(rowPayment);
+				}
 
 		}
 		jTablePayment.setModel(tableModelPayment);
@@ -442,8 +464,22 @@ public class ResFacilityPayment extends PageUtils{
 					row[4] = tblData.get(i).get(4);
 					row[5] = tblData.get(i).get(5);
 					row[6] = tblData.get(i).get(6);
-                                        row[7] = tblData.get(i).get(7);
-					tableModel.addRow(row);
+                    row[7] = tblData.get(i).get(7);
+					//tableModel.addRow(row);
+						//tableModelPayment.addRow(rowPayment);
+			boolean match5 = false;
+			for (int q = 0; q < row.length; q++) {
+				if (row[q].toLowerCase().contains(restenname.toLowerCase())) {
+				match5 = true;
+				break;
+				}
+			}
+
+			// Add the row if it matches the search string
+			if (match5) {
+				tableModel.addRow(row);
+				}
+					
 				}
 				try {
 					Thread.sleep(100);
@@ -528,13 +564,13 @@ public class ResFacilityPayment extends PageUtils{
 		
 		// back Button
 		JButton backBtn = new JButton("Back");
-		backBtn.setBounds(700, 11, 150, 42);
+		backBtn.setBounds(650, 11, 150, 42);
 		backBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		backBtn.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ResPaymentMenu pm = new ResPaymentMenu();
+				ResPaymentMenu pm = new ResPaymentMenu(restenname);
                                 setOriginalFrame(fp);
 				setTargetedFrame(pm.pm);
 				navigatePage();

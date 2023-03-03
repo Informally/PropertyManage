@@ -62,7 +62,7 @@ public class ResViewProfile extends PageUtils {
             //String search = JOptionPane.showInputDialog(null, "Enter your name:");
 		resview = new JFrame();
 		resview.setTitle("View & Update Profile");
-		resview.setBounds(100, 100, 871, 622);
+		resview.setBounds(100, 100, 871, 450);
 		resview.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		resview.getContentPane().setLayout(null);
 
@@ -91,6 +91,8 @@ public class ResViewProfile extends PageUtils {
 
 		JTextField txtName = new JTextField();
 		txtName.setBounds(554, 73, 250, 42);
+		//set as non-editable
+		txtName.setEditable(false);
 		resview.getContentPane().add(txtName);
 
 		// Email
@@ -109,7 +111,7 @@ public class ResViewProfile extends PageUtils {
 		lblPwd.setBounds(434, 123, 315, 42);
 		resview.getContentPane().add(lblPwd);
 
-		JTextField txtPwd = new JTextField("123abc");
+		JTextField txtPwd = new JTextField();
 		txtPwd.setBounds(554, 123, 250, 42);
 		resview.getContentPane().add(txtPwd);
 
@@ -131,6 +133,8 @@ public class ResViewProfile extends PageUtils {
 
 		JTextField txtUnit = new JTextField();
 		txtUnit.setBounds(164, 173, 250, 42);
+		//set as non-editable
+		txtUnit.setEditable(false);
 		resview.getContentPane().add(txtUnit);
 
 		// Resident or Tenant

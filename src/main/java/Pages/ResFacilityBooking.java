@@ -88,8 +88,10 @@ public class ResFacilityBooking extends PageUtils{
 		lblName.setBounds(444, 73, 315, 42);
 		fb.getContentPane().add(lblName);
 
-		JTextField txtName = new JTextField();
+		JTextField txtName = new JTextField(restenname);
 		txtName.setBounds(584,73, 250, 42);
+		//set as non-editable
+		txtName.setEditable(false);
 		fb.getContentPane().add(txtName);
 
 		// Facility Type
@@ -235,8 +237,21 @@ public class ResFacilityBooking extends PageUtils{
 			row[4] = tblData.get(i).get(4);
 			row[5] = tblData.get(i).get(5);
 			row[6] = tblData.get(i).get(6);
-                        row[7] = tblData.get(i).get(7);
-			tableModel.addRow(row);
+        	row[7] = tblData.get(i).get(7);
+			//tableModel.addRow(row);
+			//add row to the table if the name in position 1 is the same as restenname
+			boolean match3 = false;
+			for (int q = 0; q < row.length; q++) {
+				if (row[q].toLowerCase().contains(restenname.toLowerCase())) {
+				match3 = true;
+				break;
+				}
+			}
+
+			// Add the row if it matches the search string
+			if (match3) {
+				tableModel.addRow(row);
+				}
 
 		}
 		jTable.setModel(tableModel);
@@ -250,8 +265,8 @@ public class ResFacilityBooking extends PageUtils{
 
 				if (row.length > 0) {
 					txtUID.setText((String) jTable.getValueAt(row[0], 0));
-                                        txtName.setText((String) jTable.getValueAt(row[0], 1));
-                                        txtFacilityType.setToolTipText((String) jTable.getValueAt(row[0], 2));
+                    txtName.setText((String) jTable.getValueAt(row[0], 1));
+                    txtFacilityType.setToolTipText((String) jTable.getValueAt(row[0], 2));
 					txtPrice.setText((String) jTable.getValueAt(row[0], 3));					
 					txtDuration.setToolTipText((String) jTable.getValueAt(row[0], 4));
 					txtDate.setText((String) jTable.getValueAt(row[0], 6));
@@ -261,7 +276,7 @@ public class ResFacilityBooking extends PageUtils{
 			}
 		});
 		JScrollPane scroll = new JScrollPane(jTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
-				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scroll.setBounds(44, 323, 770, 250);
 		fb.getContentPane().add(scroll);
 
@@ -285,7 +300,7 @@ public class ResFacilityBooking extends PageUtils{
 				String uid = txtUID.getText().trim();
 				
 				crud.delete("FacilityBooking.txt", uid, 0, "", 0);
-                                crud.delete("ResidentInvoiceStatement.txt", uid, 0, "", 0);
+                crud.delete("ResidentInvoiceStatement.txt", uid, 0, "", 0);
 				
 				// Refresh the data in table
 				tblData = crud.read("FacilityBooking.txt");
@@ -302,8 +317,20 @@ public class ResFacilityBooking extends PageUtils{
 					row[4] = tblData.get(i).get(4);
 					row[5] = tblData.get(i).get(5);
 					row[6] = tblData.get(i).get(6);
-                                        row[7] = tblData.get(i).get(7);
-					tableModel.addRow(row);
+                    row[7] = tblData.get(i).get(7);
+					//tableModel.addRow(row);
+					boolean match3 = false;
+			for (int q = 0; q < row.length; q++) {
+				if (row[q].toLowerCase().contains(restenname.toLowerCase())) {
+				match3 = true;
+				break;
+				}
+			}
+
+			// Add the row if it matches the search string
+			if (match3) {
+				tableModel.addRow(row);
+				}
 				}
 				try {
 					Thread.sleep(100);
@@ -326,16 +353,16 @@ public class ResFacilityBooking extends PageUtils{
 			public void actionPerformed(ActionEvent e) {
 				txtUID.setText("");
 				txtDate.setText("");
-                                txtName.setText("");
+                txtName.setText(restenname);
 				txtPrice.setText("");
-				txtFacilityType.setToolTipText(null);
-				txtDuration.setToolTipText(null);
+				txtFacilityType.setSelectedIndex(-1);
+				txtDuration.setSelectedIndex(-1);
 				txtTime.setText("");
 			}
 		});
 		fb.getContentPane().add(clearBtn);
 
-		// Add user Btn
+		// Save Btn
 		JButton addUserBtn = new JButton("Save");
 		addUserBtn.setBounds(44, 273, 150, 42);
 		addUserBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
@@ -351,7 +378,7 @@ public class ResFacilityBooking extends PageUtils{
 				
 				String userId = txtUID.getText().trim();
 				String date = txtDate.getText().trim();
-                                String name = txtName.getText().trim();
+                String name = txtName.getText().trim();
 				String duration = txtDuration.getSelectedItem().toString().trim();
 				String price = txtPrice.getText().trim();
 				String facilityType = txtFacilityType.getSelectedItem().toString().trim();
@@ -372,12 +399,12 @@ public class ResFacilityBooking extends PageUtils{
 					String uid = uuid.toString();
 					data.add(uid);
 					data.add(name);
-                                        data.add(facilityType);
+                    data.add(facilityType);
 					data.add(price);
 					data.add(duration);
-                                        data.add(String.valueOf(totalPrice));
-                                        data.add(date);
-                                        data.add(time);
+                    data.add(String.valueOf(totalPrice));
+                    data.add(date);
+                    data.add(time);
                                         
                                         dataIs.add(uid);
                                         dataIs.add(name);
@@ -414,9 +441,9 @@ public class ResFacilityBooking extends PageUtils{
 				txtUID.setText("");
 				txtDate.setText("");
 				txtPrice.setText("");
-                                txtName.setText("");
-				txtFacilityType.setToolTipText(null);
-				txtDuration.setToolTipText(null);
+                txtName.setText(restenname);
+				txtFacilityType.setSelectedIndex(-1);
+				txtDuration.setSelectedIndex(-1);
 				txtTime.setText("");
 
 				// Refresh the data in table
@@ -435,7 +462,20 @@ public class ResFacilityBooking extends PageUtils{
 					row[5] = tblData.get(i).get(5);
 					row[6] = tblData.get(i).get(6);
                     row[7] = tblData.get(i).get(7);
-					tableModel.addRow(row);
+					//tableModel.addRow(row);
+					//add row to the table if the name in position 1 is the same as restenname
+			boolean match3 = false;
+			for (int q = 0; q < row.length; q++) {
+				if (row[q].toLowerCase().contains(restenname.toLowerCase())) {
+				match3 = true;
+				break;
+				}
+			}
+
+			// Add the row if it matches the search string
+			if (match3) {
+				tableModel.addRow(row);
+				}
 				}
 				try {
 					Thread.sleep(100);

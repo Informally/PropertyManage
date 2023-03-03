@@ -68,12 +68,12 @@ public class ResTenInvoiceStatement extends PageUtils{
 	private void initialize(String restenname) {
 		rtis = new JFrame();
 		rtis.setTitle("Resident/Tenant Invoice/Statement");
-		rtis.setBounds(100, 100, 871, 822);
+		rtis.setBounds(100, 100, 600, 600);
 		rtis.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		rtis.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Resident/Tenant Invoice/Statement");
-		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
+		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 27));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		rtis.getContentPane().add(lblNewLabel);
 
@@ -85,7 +85,7 @@ public class ResTenInvoiceStatement extends PageUtils{
 
 		JComboBox<String> reportOptions = new JComboBox<>();
 		reportOptions.setBounds(120, 73, 250, 42);
-		ArrayList<ArrayList<String>> paymentHistory = crud.read("PaymentHistory.txt");
+		ArrayList<ArrayList<String>> paymentHistory = crud.read("ResTenPaymentHistory.txt");
 		//add the records with the vendorName to the combobox
 		for (int i = 0; i < paymentHistory.size(); i++) {
 			//if (paymentHistory.get(i).get(1).equals()) {
@@ -100,7 +100,7 @@ public class ResTenInvoiceStatement extends PageUtils{
 		JTextArea textArea = new JTextArea();
 		textArea.setLineWrap(true);
 		textArea.setEditable(false);
-		textArea.setBounds(44, 130, 770, 450);
+		textArea.setBounds(44, 130, 550, 350);
 		
 		// Invoice
 		JLabel lblStatement = new JLabel("------------INVOICE------------");
@@ -177,7 +177,7 @@ public class ResTenInvoiceStatement extends PageUtils{
 				
 		JScrollPane scroll = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 		JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scroll.setBounds(0, 130, 1000, 530);
+		scroll.setBounds(44, 130, 450, 350);
 		rtis.getContentPane().add(scroll);
 
 		reportOptions.addItemListener(new ItemListener() {
@@ -199,7 +199,7 @@ public class ResTenInvoiceStatement extends PageUtils{
 				  if (record.get(0).equals(selectedReportType)) {
 				//print the entire record
 					System.out.println(record);
-					receiptReport +="\n\n\n\n\n\n\n\n\n\n\n\n\n"+"Payment ID: " + record.get(0) + "\n" + "Name: "+record.get(1) + "\n" + "Details: "+record.get(2) + "\n" + "Pending: RM"+record.get(3) + "\n" + "Amount Paid: RM"+record.get(4)+ "\n" + "Outstanding: RM"+record.get(5)+ "\n" + "Charge ID: "+record.get(6)+ "\n" + "Date: "+record.get(7);
+					receiptReport +="\n\n\n\n\n\n\n\n\n\n"+"Payment ID: " + record.get(0) + "\n" + "Name: "+record.get(1) + "\n" + "Details: "+record.get(2) + "\n" + "Pending: RM"+record.get(3) + "\n" + "Amount Paid: RM"+record.get(4)+ "\n" + "Outstanding: RM"+record.get(5)+ "\n" + "Charge ID: "+record.get(6)+ "\n" + "Date: "+record.get(7);
 					textArea.setText(receiptReport);
 					textArea.add(lblStatement);
 						textArea.add(lblCompany);
@@ -249,14 +249,14 @@ public class ResTenInvoiceStatement extends PageUtils{
 
 		// back Button
 		JButton backBtn = new JButton("Back");
-		backBtn.setBounds(700, 11, 150, 42);
+		backBtn.setBounds(44, 500, 150, 42);
 		backBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		backBtn.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ResidentMenu payHis = new ResidentMenu(restenname);
-                                setOriginalFrame(rtis);
+                setOriginalFrame(rtis);
 				setTargetedFrame(payHis.rm);
 				navigatePage();
 

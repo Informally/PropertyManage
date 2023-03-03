@@ -41,7 +41,7 @@ public class ResidentComplaint extends PageUtils {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ResidentComplaint window = new ResidentComplaint();
+					ResidentComplaint window = new ResidentComplaint(null);
 					window.rc.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -53,14 +53,14 @@ public class ResidentComplaint extends PageUtils {
 	/**
 	 * Create the application.
 	 */
-	public ResidentComplaint() {
-		initialize();
+	public ResidentComplaint(String restenname) {
+		initialize(restenname);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String restenname) {
 		rc = new JFrame();
 		rc.setTitle("Resident Complaint");
 		rc.setBounds(100, 100, 1200, 722);
@@ -87,7 +87,7 @@ public class ResidentComplaint extends PageUtils {
 		txtUID.setEditable(false);
 		rc.getContentPane().add(txtUID);
                 
-                // User
+                // Role
 		JLabel lblUser = new JLabel("User: ");
 		lblUser.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblUser.setBounds(434, 73, 315, 42);
@@ -105,8 +105,10 @@ public class ResidentComplaint extends PageUtils {
 		lblName.setBounds(44, 123, 220, 42);
 		rc.getContentPane().add(lblName);
 
-		JTextField txtName = new JTextField();
+		JTextField txtName = new JTextField(restenname);
 		txtName.setBounds(134, 123, 150, 42);
+		//set as non-editable
+		txtName.setEditable(false);
 		rc.getContentPane().add(txtName);
 
 		// Email
@@ -200,9 +202,22 @@ public class ResidentComplaint extends PageUtils {
 			row[4] = tblData.get(i).get(4);
 			row[5] = tblData.get(i).get(5);
 			row[6] = tblData.get(i).get(6);
-                        row[7] = tblData.get(i).get(7);
-                        row[8] = tblData.get(i).get(8);
-			tableModel.addRow(row);
+            row[7] = tblData.get(i).get(7);
+            row[8] = tblData.get(i).get(8);
+			//tableModel.addRow(row);
+			 // Check if the row contains the search string
+			 boolean match = false;
+			 for (int j = 0; j < row.length; j++) {
+				 if (row[j].toLowerCase().contains(restenname.toLowerCase())) {
+				 match = true;
+				 break;
+				 }
+			 }
+
+			 // Add the row if it matches the search string
+			 if (match) {
+				 tableModel.addRow(row);
+				 }
 
 		}
 		jTable.setModel(tableModel);
@@ -222,8 +237,8 @@ public class ResidentComplaint extends PageUtils {
 					txtContact.setText((String) jTable.getValueAt(row[0], 4));
 					txtStatus.setText((String) jTable.getValueAt(row[0], 5));
 					txtDate.setText((String) jTable.getValueAt(row[0], 6));
-                                        txtSubject.setText((String) jTable.getValueAt(row[0], 7));
-                                        txtDetail.setText((String) jTable.getValueAt(row[0], 8));
+                    txtSubject.setText((String) jTable.getValueAt(row[0], 7));
+                    txtDetail.setText((String) jTable.getValueAt(row[0], 8));
 				}
 
 			}
@@ -269,9 +284,22 @@ public class ResidentComplaint extends PageUtils {
 					row[4] = tblData.get(i).get(4);
 					row[5] = tblData.get(i).get(5);
 					row[6] = tblData.get(i).get(6);
-                                        row[7] = tblData.get(i).get(7);
-                                        row[8] = tblData.get(i).get(8);
-					tableModel.addRow(row);
+                	row[7] = tblData.get(i).get(7);
+                    row[8] = tblData.get(i).get(8);
+					//tableModel.addRow(row);
+					 // Check if the row contains the search string
+					 boolean match = false;
+					 for (int j = 0; j < row.length; j++) {
+						 if (row[j].toLowerCase().contains(restenname.toLowerCase())) {
+						 match = true;
+						 break;
+						 }
+					 }
+ 
+					 // Add the row if it matches the search string
+					 if (match) {
+						 tableModel.addRow(row);
+						 }
 				}
 				try {
 					Thread.sleep(100);
@@ -294,13 +322,13 @@ public class ResidentComplaint extends PageUtils {
 			public void actionPerformed(ActionEvent e) {
 				txtUID.setText("");
 				txtUser.setText("Resident/Tenant");
-				txtName.setText("");
+				txtName.setText(restenname);
 				txtEmail.setText("");
 				txtContact.setText("");
-                                txtStatus.setText("Processing");
-                                txtDate.setText("");
+                txtStatus.setText("Processing");
+                txtDate.setText("");
 				txtSubject.setText("");
-                                txtDetail.setText("");
+                txtDetail.setText("");
 			}
 		});
 		rc.getContentPane().add(clearBtn);
@@ -392,9 +420,22 @@ public class ResidentComplaint extends PageUtils {
 					row[4] = tblData.get(i).get(4);
 					row[5] = tblData.get(i).get(5);
 					row[6] = tblData.get(i).get(6);
-                                        row[7] = tblData.get(i).get(7);
-                                        row[8] = tblData.get(i).get(8);
-					tableModel.addRow(row);
+                    row[7] = tblData.get(i).get(7);
+                    row[8] = tblData.get(i).get(8);
+					//tableModel.addRow(row);
+					 // Check if the row contains the search string
+					 boolean match = false;
+					 for (int j = 0; j < row.length; j++) {
+						 if (row[j].toLowerCase().contains(restenname.toLowerCase())) {
+						 match = true;
+						 break;
+						 }
+					 }
+ 
+					 // Add the row if it matches the search string
+					 if (match) {
+						 tableModel.addRow(row);
+						 }
 				}
 				try {
 					Thread.sleep(100);
@@ -416,7 +457,7 @@ public class ResidentComplaint extends PageUtils {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ResidentMenu rm = new ResidentMenu();
+				ResidentMenu rm = new ResidentMenu(restenname);
 				setOriginalFrame(rc);
 				setTargetedFrame(rm.rm);
 				navigatePage();

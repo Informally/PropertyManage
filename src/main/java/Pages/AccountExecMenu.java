@@ -54,12 +54,12 @@ public class AccountExecMenu extends PageUtils {
 	private void initialize() {
 		aem = new JFrame();
 		aem.setTitle("Account Executive Menu");
-		aem.setBounds(100, 100, 550, 622);
+		aem.setBounds(100, 100, 410, 500);
 		aem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		aem.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Account Executive Menu");
-		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
+		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 27));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		aem.getContentPane().add(lblNewLabel);
 

@@ -139,8 +139,10 @@ public class ResTenVisitorPass extends PageUtils{
 		lblOwnerName.setBounds(44, 173, 315, 42);
 		rtvp.getContentPane().add(lblOwnerName);
 
-		JTextField txtOwnerName = new JTextField();
+		JTextField txtOwnerName = new JTextField(restenname);
 		txtOwnerName.setBounds(164, 223, 250, 42);
+		//set as non-editable
+		txtOwnerName.setEditable(false);
 		rtvp.getContentPane().add(txtOwnerName);
 
 		// Owner Contact
@@ -197,8 +199,8 @@ public class ResTenVisitorPass extends PageUtils{
                             if (row[j].toLowerCase().contains(restenname.toLowerCase())) {
                             match = true;
                             break;
-                    }
-                }
+                    		}
+                		}
     
                         // Add the row if it matches the search string
                         if (match) {
@@ -251,7 +253,7 @@ public class ResTenVisitorPass extends PageUtils{
 				txtName.setText("");
 				txtDestination.setText("");
 				txtContact.setText("");
-                                txtOwnerName.setText("");
+                txtOwnerName.setText(restenname);
 				txtOwnerContact.setText("");
 				txtDate.setText("");
 				txtTime.setText("");
@@ -318,7 +320,7 @@ public class ResTenVisitorPass extends PageUtils{
 				txtName.setText("");
 				txtDestination.setText("");
 				txtContact.setText("");
-                                txtOwnerName.setText("");
+                txtOwnerName.setText(restenname);
 				txtOwnerContact.setText("");
 				txtDate.setText("");
 				txtTime.setText("");
@@ -394,6 +396,19 @@ public class ResTenVisitorPass extends PageUtils{
 					row[6] = tblData.get(i).get(6);
                     row[7] = tblData.get(i).get(7);
 					tableModel.addRow(row);
+					 // Check if the row contains the search string
+					 boolean match = false;
+					 for (int j = 0; j < row.length; j++) {
+						 if (row[j].toLowerCase().contains(restenname.toLowerCase())) {
+						 match = true;
+						 break;
+						 }
+					 }
+ 
+					 // Add the row if it matches the search string
+					 if (match) {
+						 tableModel.addRow(row);
+						 }
 				}
 				try {
 					Thread.sleep(100);

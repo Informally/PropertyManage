@@ -105,7 +105,7 @@ public class ResPaymentMenu extends PageUtils {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ResFacilityPayment facilityPayment = new ResFacilityPayment();
+				ResFacilityPayment facilityPayment = new ResFacilityPayment(restenname);
                                 setOriginalFrame(pm);
 				setTargetedFrame(facilityPayment.fp);
 				navigatePage();
