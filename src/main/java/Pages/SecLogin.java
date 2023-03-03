@@ -74,6 +74,8 @@ public class SecLogin extends PageUtils{
 
 		JTextField txtEmail = new JTextField();
 		txtEmail.setBounds(154, 73, 250, 42);
+		//round the corner of the text field
+		txtEmail.setBorder(javax.swing.BorderFactory.createEmptyBorder());
 		seclog.getContentPane().add(txtEmail);
 
 		// Password
