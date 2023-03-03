@@ -60,6 +60,8 @@ public class Login extends PageUtils {
 		loginPage.setTitle("Login");
 		loginPage.setBounds(100, 100, 871, 700);
 		loginPage.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//set as non resizable
+		loginPage.setResizable(false);
 		loginPage.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Property Management System (PMS) Login");
