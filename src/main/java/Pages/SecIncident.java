@@ -86,7 +86,6 @@ public class SecIncident extends PageUtils {
 
 		JTextField txtUID = new JTextField("");
 		txtUID.setBounds(174, 73, 250, 42);
-		txtUID.setBackground(Color.gray);
 		txtUID.setEditable(false);
 		inc.getContentPane().add(txtUID);
 
@@ -96,8 +95,10 @@ public class SecIncident extends PageUtils {
 		lblName.setBounds(444, 73, 315, 42);
 		inc.getContentPane().add(lblName);
 
-		JTextField txtName = new JTextField();
+		JTextField txtName = new JTextField(secname);
 		txtName.setBounds(564, 73, 250, 42);
+		//set as non-editable
+		txtName.setEditable(false);
 		inc.getContentPane().add(txtName);
 
 		// Destination
@@ -240,7 +241,7 @@ public class SecIncident extends PageUtils {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				txtUID.setText("");
-				txtName.setText("");
+				txtName.setText(secname);
 				txtLocation.setText("");
 				txtContact.setText("");
 				txtIncident.setText("");
@@ -303,7 +304,7 @@ public class SecIncident extends PageUtils {
 
 					// Clear text after update or add
 					txtUID.setText("");
-					txtName.setText("");
+					txtName.setText(secname);
 					txtLocation.setText("");
 					txtContact.setText("");
 					txtIncident.setText("");

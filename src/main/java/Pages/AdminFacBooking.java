@@ -61,7 +61,7 @@ public class AdminFacBooking extends PageUtils{
 	private void initialize(String adminName) {
 		afb = new JFrame();
 		afb.setTitle("Facility Booking");
-		afb.setBounds(100, 100, 900, 822);
+		afb.setBounds(100, 100, 900, 550);
 		afb.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//set as non resizable
 		afb.setResizable(false);
@@ -226,7 +226,7 @@ public class AdminFacBooking extends PageUtils{
 		String column[] = {"Facility ID", "Facility Type", "Name", "Facility Price", "Duration", "Total Price", "Date", "Time" };
 
 		JTable jTable = new JTable();
-		jTable.setBounds(44, 323, 770, 250);
+		jTable.setBounds(44, 323, 770, 150);
 		DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 		tableModel.setColumnIdentifiers(column);
 		jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -239,7 +239,20 @@ public class AdminFacBooking extends PageUtils{
 			row[5] = tblData.get(i).get(5);
 			row[6] = tblData.get(i).get(6);
             row[7] = tblData.get(i).get(7);
-			tableModel.addRow(row);
+			//tableModel.addRow(row);
+			// Check if the row contains the search string
+			boolean match = false;
+			for (int j = 0; j < row.length; j++) {
+				if (row[j].toLowerCase().contains(adminName.toLowerCase())) {
+				match = true;
+				break;
+		}
+	}
+
+			// Add the row if it matches the search string
+			if (match) {
+				tableModel.addRow(row);
+				}
 
 		}
 		jTable.setModel(tableModel);
@@ -265,7 +278,7 @@ public class AdminFacBooking extends PageUtils{
 		});
 		JScrollPane scroll = new JScrollPane(jTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scroll.setBounds(44, 323, 770, 250);
+		scroll.setBounds(44, 323, 770, 150);
 		afb.getContentPane().add(scroll);
 
 		// Error text calculation
@@ -305,7 +318,20 @@ public class AdminFacBooking extends PageUtils{
 					row[5] = tblData.get(i).get(5);
 					row[6] = tblData.get(i).get(6);
                     row[7] = tblData.get(i).get(7);
-					tableModel.addRow(row);
+					//tableModel.addRow(row);
+					// Check if the row contains the search string
+					boolean match = false;
+					for (int j = 0; j < row.length; j++) {
+						if (row[j].toLowerCase().contains(adminName.toLowerCase())) {
+						match = true;
+						break;
+				}
+			}
+
+					// Add the row if it matches the search string
+					if (match) {
+						tableModel.addRow(row);
+						}
 				}
 				try {
 					Thread.sleep(100);
@@ -327,7 +353,7 @@ public class AdminFacBooking extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				txtUID.setText("");
-				//txtFacility.setText("");
+				txtFacility.setText(adminName);
 				txtDate.setText("");
 				txtPrice.setText("");
 				txtFacilityType.setSelectedIndex(-1);
@@ -413,7 +439,7 @@ public class AdminFacBooking extends PageUtils{
 
 				// Clear text after update or add
 				txtUID.setText("");
-				//txtFacility.setText("");
+				txtFacility.setText(adminName);
 				txtDate.setText("");
 				txtPrice.setText("");
 				txtFacilityType.setSelectedIndex(-1);
@@ -435,8 +461,21 @@ public class AdminFacBooking extends PageUtils{
 					row[4] = tblData.get(i).get(4);
 					row[5] = tblData.get(i).get(5);
 					row[6] = tblData.get(i).get(6);
-                                        row[7] = tblData.get(i).get(7);
-					tableModel.addRow(row);
+                	row[7] = tblData.get(i).get(7);
+					//tableModel.addRow(row);
+					// Check if the row contains the search string
+					boolean match = false;
+					for (int j = 0; j < row.length; j++) {
+						if (row[j].toLowerCase().contains(adminName.toLowerCase())) {
+						match = true;
+						break;
+				}
+			}
+
+					// Add the row if it matches the search string
+					if (match) {
+						tableModel.addRow(row);
+						}
 				}
 				try {
 					Thread.sleep(100);

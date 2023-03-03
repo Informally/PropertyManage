@@ -69,7 +69,7 @@ public class VisitorViewPass extends PageUtils{
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-        String search = JOptionPane.showInputDialog(null, "Enter the name of your visitor pass.\nThe name should be give to you by the owner:");
+        String search = JOptionPane.showInputDialog(null, "Enter the name of your visitor pass.\nThe name should be given to you by the owner:");
 		vvp = new JFrame();
 		vvp.setTitle("View Visitor Pass");
 		vvp.setBounds(100, 100, 871, 500);

@@ -97,7 +97,7 @@ public class AdminExComplain extends PageUtils{
 
 		JTextField txtUser = new JTextField("Admin Executive");
 		txtUser.setBounds(554, 73, 250, 42);
-                txtUser.setBackground(Color.lightGray);
+        txtUser.setBackground(Color.lightGray);
 		txtUser.setEditable(false);
 		aec.getContentPane().add(txtUser);
 
@@ -107,8 +107,10 @@ public class AdminExComplain extends PageUtils{
 		lblName.setBounds(44, 123, 220, 42);
 		aec.getContentPane().add(lblName);
 
-		JTextField txtName = new JTextField();
+		JTextField txtName = new JTextField(adminName);
 		txtName.setBounds(134, 123, 150, 42);
+		//set as non editable
+		txtName.setEditable(false);
 		aec.getContentPane().add(txtName);
 
 		// Email
@@ -296,7 +298,7 @@ public class AdminExComplain extends PageUtils{
 			public void actionPerformed(ActionEvent e) {
 				txtUID.setText("");
 				txtUser.setText("Admin Executive");
-				txtName.setText("");
+				txtName.setText(adminName);
 				txtEmail.setText("");
 				txtContact.setText("");
                                 txtStatus.setText("Processing");
@@ -371,7 +373,7 @@ public class AdminExComplain extends PageUtils{
 				// Clear text after update or add
 				txtUID.setText("");
 				txtUser.setText("Admin Executive");
-				txtName.setText("");
+				txtName.setText(adminName);
 				txtEmail.setText("");
 				txtContact.setText("");
                                 txtStatus.setText("Processing");

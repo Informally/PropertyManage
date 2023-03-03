@@ -190,9 +190,9 @@ public class ResTenVisitorPass extends PageUtils{
                         row[1] = tblData.get(i).get(1);
                         row[2] = tblData.get(i).get(2);
                         row[3] = tblData.get(i).get(3);
-                        row[4] = tblData.get(i).get(4);
+                        row[4] = tblData.get(i).get(6);
                         row[5] = tblData.get(i).get(5);
-                        row[6] = tblData.get(i).get(6);
+                        row[6] = tblData.get(i).get(4);
                         row[7] = tblData.get(i).get(7);
     
                         // Check if the row contains the search string
@@ -223,9 +223,9 @@ public class ResTenVisitorPass extends PageUtils{
 					txtName.setText((String) jTable.getValueAt(row[0], 1));
 					txtDestination.setText((String) jTable.getValueAt(row[0], 2));
 					txtContact.setText((String) jTable.getValueAt(row[0], 3));
-                    txtOwnerName.setText((String) jTable.getValueAt(row[0], 4));
+                    txtOwnerName.setText((String) jTable.getValueAt(row[0], 6));
 					txtOwnerContact.setText((String) jTable.getValueAt(row[0], 5));
-					txtDate.setText((String) jTable.getValueAt(row[0], 6));
+					txtDate.setText((String) jTable.getValueAt(row[0], 4));
 					txtTime.setText((String) jTable.getValueAt(row[0], 7));
 				}
 
@@ -339,9 +339,9 @@ public class ResTenVisitorPass extends PageUtils{
                                     row[1] = tblData.get(i).get(1);
                                     row[2] = tblData.get(i).get(2);
                                     row[3] = tblData.get(i).get(3);
-                                    row[4] = tblData.get(i).get(4);
+                                    row[4] = tblData.get(i).get(6);
                                     row[5] = tblData.get(i).get(5);
-                                    row[6] = tblData.get(i).get(6);
+                                    row[6] = tblData.get(i).get(4);
                                     row[7] = tblData.get(i).get(7);
     
                                     // Check if the row contains the search string
@@ -393,9 +393,9 @@ public class ResTenVisitorPass extends PageUtils{
 					row[1] = tblData.get(i).get(1);
 					row[2] = tblData.get(i).get(2);
 					row[3] = tblData.get(i).get(3);
-					row[4] = tblData.get(i).get(4);
+					row[4] = tblData.get(i).get(6);
 					row[5] = tblData.get(i).get(5);
-					row[6] = tblData.get(i).get(6);
+					row[6] = tblData.get(i).get(4);
                     row[7] = tblData.get(i).get(7);
 					tableModel.addRow(row);
 					 // Check if the row contains the search string

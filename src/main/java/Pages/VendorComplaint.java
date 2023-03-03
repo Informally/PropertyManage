@@ -102,8 +102,10 @@ public class VendorComplaint extends PageUtils{
 		lblName.setBounds(44, 123, 220, 42);
 		vc.getContentPane().add(lblName);
 
-		JTextField txtName = new JTextField();
+		JTextField txtName = new JTextField(vendorName);
 		txtName.setBounds(134, 123, 150, 42);
+		//set as non-editable
+		txtName.setEditable(false);
 		vc.getContentPane().add(txtName);
 
 		// Email
@@ -290,7 +292,7 @@ public class VendorComplaint extends PageUtils{
 			public void actionPerformed(ActionEvent e) {
 				txtUID.setText("");
 				txtUser.setText("Vendor");
-				txtName.setText("");
+				txtName.setText(vendorName);
 				txtEmail.setText("");
 				txtContact.setText("");
                                 txtStatus.setText("Processing");
@@ -364,7 +366,7 @@ public class VendorComplaint extends PageUtils{
 				// Clear text after update or add
                                 txtUID.setText("");
 				txtUser.setText("Vendor");
-				txtName.setText("");
+				txtName.setText(vendorName);
 				txtEmail.setText("");
 				txtContact.setText("");
                                 txtStatus.setText("Processing");
