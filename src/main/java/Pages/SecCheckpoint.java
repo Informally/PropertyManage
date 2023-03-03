@@ -31,6 +31,7 @@ public class SecCheckpoint extends PageUtils{
 	public JFrame c;
 	CRUD crud = new CRUD();
 	ArrayList<ArrayList<String>> tblData = new ArrayList<>();
+	ArrayList<ArrayList<String>> tblData2 = new ArrayList<>();
 
 	/**
 	 * Launch the application.
@@ -61,13 +62,14 @@ public class SecCheckpoint extends PageUtils{
 	private void initialize(String secname) {
 		c = new JFrame();
 		c.setTitle("Checkpoint Check-in");
-		c.setBounds(100, 100, 871, 722);
+		c.setBounds(100, 100, 871, 600);
 		c.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		c.setResizable(false);
 		c.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Checkpoint Check-in");
-		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
-		lblNewLabel.setBounds(34, 11, 665, 81);
+		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
+		lblNewLabel.setBounds(34, 3, 665, 81);
 		c.getContentPane().add(lblNewLabel);
 
 		// Checkpoint ID
@@ -78,7 +80,6 @@ public class SecCheckpoint extends PageUtils{
 
 		JTextField txtUID = new JTextField("");
 		txtUID.setBounds(174, 73, 250, 42);
-		txtUID.setBackground(Color.gray);
 		txtUID.setEditable(false);
 		c.getContentPane().add(txtUID);
 
@@ -90,9 +91,11 @@ public class SecCheckpoint extends PageUtils{
 
 		JTextField txtName = new JTextField();
 		txtName.setBounds(564, 73, 250, 42);
+		//set as non-editable
+		txtName.setEditable(false);
 		c.getContentPane().add(txtName);
 
-		// Destination
+		// Location
 		JLabel lblLocation = new JLabel("Location: ");
 		lblLocation.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		lblLocation.setBounds(44, 123, 315, 42);
@@ -100,6 +103,8 @@ public class SecCheckpoint extends PageUtils{
 
 		JTextField txtLocation = new JTextField();
 		txtLocation.setBounds(174, 123, 250, 42);
+		//set as non-editable
+		txtLocation.setEditable(false);
 		c.getContentPane().add(txtLocation);
 
 		// Contact
@@ -160,15 +165,77 @@ public class SecCheckpoint extends PageUtils{
 		errorText.setVisible(false);
 		c.getContentPane().add(errorText);
 
-		// Result Display
+		// Table 1 partol schedule and checkpoint table
+		tblData2 = crud.read("Patrol.txt");
+		String row1[] = new String[6];
+		String column1[] = { "Checkpoint Id", "Name", "Job Role", "Patrol Day", "Patrol Schedule", "Checkpoint" };
+
+		JTable jTable1 = new JTable();
+		jTable1.setBounds(44, 323, 770, 100);
+		//set jTabl1 to be uneditable
+		jTable1.setDefaultEditor(Object.class, null);
+		DefaultTableModel tableModel1 = (DefaultTableModel) jTable1.getModel();
+		//set tableModel1 to be non-editable
+		jTable1.setDefaultEditor(Object.class, null);
+		tableModel1.setColumnIdentifiers(column1);
+		jTable1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+              
+		for (int i = 0; i < tblData2.size(); i++) {
+			row1[0] = tblData2.get(i).get(0);
+			row1[1] = tblData2.get(i).get(1);
+			row1[2] = tblData2.get(i).get(2);
+			row1[3] = tblData2.get(i).get(3);
+			row1[4] = tblData2.get(i).get(4);
+			row1[5] = tblData2.get(i).get(5);
+			//tableModel1.addRow(row1);
+			// Check if the row contains the search string
+			boolean match = false;
+			for (int j = 0; j < row1.length; j++) {
+				if (row1[j].toLowerCase().contains(secname.toLowerCase())) {
+				match = true;
+				break;
+				}
+			}	
+
+			// Add the row if it matches the search string
+			if (match) {
+				tableModel1.addRow(row1);
+				}
+		}
+
+
+		jTable1.setModel(tableModel1);
+
+		ListSelectionModel select1 = jTable1.getSelectionModel();
+		select1.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		select1.addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent e) {
+				int[] row1 = jTable1.getSelectedRows();
+				int columnNum1 = jTable1.getColumnCount();
+
+				if (row1.length > 0) {
+					txtName.setText((String) jTable1.getValueAt(row1[0], 1));
+					txtLocation.setText((String) jTable1.getValueAt(row1[0], 5));
+
+				}
+			}
+		});
+		JScrollPane scroll1 = new JScrollPane(jTable1, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+		JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+		scroll1.setBounds(44, 323, 770, 100);
+		c.getContentPane().add(scroll1);
+
+		// Result Display 2
 		tblData = crud.read("Checkpoint.txt");
 		String row[] = new String[8];
 		String column[] = { "Checkpoint ID", "Name", "Location", "Contact", "Status", "Date", "Time in", "Time out"};
 
 		JTable jTable = new JTable();
-		jTable.setBounds(44, 323, 770, 250);
+		jTable.setBounds(44, 433, 770, 100);
 		DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 		tableModel.setColumnIdentifiers(column);
+		//set jTable to be uneditable
+		jTable.setDefaultEditor(Object.class, null);
 		jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		for (int i = 0; i < tblData.size(); i++) {
 			row[0] = tblData.get(i).get(0);
@@ -179,7 +246,19 @@ public class SecCheckpoint extends PageUtils{
 			row[5] = tblData.get(i).get(5);
 			row[6] = tblData.get(i).get(6);
 			row[7] = tblData.get(i).get(7);
-			tableModel.addRow(row);
+			//tableModel.addRow(row);
+			boolean match1 = false;
+			for (int j = 0; j < row.length; j++) {
+				if (row[j].toLowerCase().contains(secname.toLowerCase())) {
+				match1 = true;
+				break;
+				}
+			}	
+
+			// Add the row if it matches the search string
+			if (match1) {
+				tableModel.addRow(row);
+				}
 
 		}
 		jTable.setModel(tableModel);
@@ -206,7 +285,7 @@ public class SecCheckpoint extends PageUtils{
 			});
 		JScrollPane scroll = new JScrollPane(jTable, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
 		JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-		scroll.setBounds(44, 373, 770, 250);
+		scroll.setBounds(44, 433, 770, 100);
 		c.getContentPane().add(scroll);
 
 		// Error text calculation
@@ -219,7 +298,7 @@ public class SecCheckpoint extends PageUtils{
 		
 		// Clear Text field Btn
 		JButton clearBtn = new JButton("Clear All");
-		clearBtn.setBounds(204, 323, 150, 42);
+		clearBtn.setBounds(204, 273, 150, 42);
 		clearBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		clearBtn.addActionListener(new ActionListener() {
 			@Override
@@ -238,7 +317,7 @@ public class SecCheckpoint extends PageUtils{
 
 		// Save Btn
 		JButton addUserBtn = new JButton("Save");
-		addUserBtn.setBounds(44, 323, 150, 42);
+		addUserBtn.setBounds(44, 273, 150, 42);
 		addUserBtn.setFont(new Font("Arial Rounded MT Bold", Font.PLAIN, 17));
 		addUserBtn.addActionListener(new ActionListener() {
 
@@ -315,7 +394,19 @@ public class SecCheckpoint extends PageUtils{
 					row[5] = tblData.get(i).get(5);
 					row[6] = tblData.get(i).get(6);
 					row[7] = tblData.get(i).get(7);
-					tableModel.addRow(row);
+					//tableModel.addRow(row);
+					boolean match2 = false;
+			for (int j = 0; j < row.length; j++) {
+				if (row[j].toLowerCase().contains(secname.toLowerCase())) {
+				match2 = true;
+				break;
+				}
+			}	
+
+			// Add the row if it matches the search string
+			if (match2) {
+				tableModel.addRow(row);
+				}
 				}
 				try {
 					Thread.sleep(100);

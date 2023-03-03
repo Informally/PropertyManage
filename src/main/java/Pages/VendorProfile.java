@@ -153,6 +153,8 @@ public class VendorProfile extends PageUtils {
 		jTable.setBounds(44, 273, 770, 75);
 		DefaultTableModel tableModel = (DefaultTableModel) jTable.getModel();
 		tableModel.setColumnIdentifiers(column);
+		//set table to be uneditable
+		jTable.setDefaultEditor(Object.class, null);
 		jTable.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		for (int i = 0; i < tblData.size(); i++) {
 			row[0] = tblData.get(i).get(0);

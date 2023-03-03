@@ -212,8 +212,8 @@ public class Security extends PageUtils{
 		SecPage.getContentPane().add(scroll);
 
                 
-                // table 2: assign partol schedule and checkpoint table
-                tblData2 = crud.read("Patrol.txt");
+        // table 2: assign partol schedule and checkpoint table
+        tblData2 = crud.read("Patrol.txt");
 		String row1[] = new String[6];
 		String column1[] = { "Checkpoint Id", "Name", "Job Role", "Patrol Day", "Patrol Schedule", "Checkpoint" };
 
