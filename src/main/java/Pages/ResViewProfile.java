@@ -38,7 +38,7 @@ public class ResViewProfile extends PageUtils {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ResViewProfile window = new ResViewProfile();
+					ResViewProfile window = new ResViewProfile(null);
 					window.resview.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -50,16 +50,16 @@ public class ResViewProfile extends PageUtils {
 	/**
 	 * Create the application.
 	 */
-	public ResViewProfile() {
+	public ResViewProfile(String restenname) {
             
-		initialize();
+		initialize(restenname);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
-            String search = JOptionPane.showInputDialog(null, "Enter your name:");
+	private void initialize(String restenname) {
+            //String search = JOptionPane.showInputDialog(null, "Enter your name:");
 		resview = new JFrame();
 		resview.setTitle("View & Update Profile");
 		resview.setBounds(100, 100, 871, 622);
@@ -175,7 +175,7 @@ public class ResViewProfile extends PageUtils {
                         // Check if the row contains the search string
                         boolean match = false;
                         for (int j = 0; j < row.length; j++) {
-                            if (row[j].toLowerCase().contains(search.toLowerCase())) {
+                            if (row[j].toLowerCase().contains(restenname.toLowerCase())) {
                             match = true;
                             break;
                     }
@@ -305,7 +305,7 @@ public class ResViewProfile extends PageUtils {
                                     // Check if the row contains the search string
                                     boolean match = false;
                                     for (int j = 0; j < row.length; j++) {
-                                        if (row[j].toLowerCase().contains(search.toLowerCase())) {
+                                        if (row[j].toLowerCase().contains(restenname.toLowerCase())) {
                                         match = true;
                                         break;
                                         }
@@ -336,8 +336,8 @@ public class ResViewProfile extends PageUtils {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ResidentMenu rm = new ResidentMenu();
-                                setOriginalFrame(resview);
+				ResidentMenu rm = new ResidentMenu(restenname);
+                setOriginalFrame(resview);
 				setTargetedFrame(rm.rm);
 				navigatePage();
 				

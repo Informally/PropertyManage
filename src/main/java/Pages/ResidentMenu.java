@@ -34,7 +34,7 @@ public class ResidentMenu extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ResidentMenu window = new ResidentMenu();
+					ResidentMenu window = new ResidentMenu(null);
 					window.rm.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -46,22 +46,22 @@ public class ResidentMenu extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public ResidentMenu() {
-		initialize();
+	public ResidentMenu(String restenname) {
+		initialize(restenname);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String restenname) {
 		rm = new JFrame();
 		rm.setTitle("Resident Menu");
 		rm.setBounds(100, 100, 450, 580);
 		rm.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		rm.getContentPane().setLayout(null);
 
-		JLabel lblNewLabel = new JLabel("    Resident Menu");
-		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
+		JLabel lblNewLabel = new JLabel("Welcome, " + restenname + " !");
+		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		rm.getContentPane().add(lblNewLabel);
 
@@ -74,7 +74,7 @@ public class ResidentMenu extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ResViewProfile rvp = new ResViewProfile();
+				ResViewProfile rvp = new ResViewProfile(restenname);
                                 setOriginalFrame(rm);
 				setTargetedFrame(rvp.resview);
 				navigatePage();
@@ -108,8 +108,8 @@ public class ResidentMenu extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ResPaymentMenu paymentMenu = new ResPaymentMenu();
-                                setOriginalFrame(rm);
+				ResPaymentMenu paymentMenu = new ResPaymentMenu(restenname);
+                setOriginalFrame(rm);
 				setTargetedFrame(paymentMenu.pm);
 				navigatePage();
 
@@ -126,7 +126,7 @@ public class ResidentMenu extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				ResTenInvoiceStatement residentPaymentHistoryMenu = new ResTenInvoiceStatement();
+				ResTenInvoiceStatement residentPaymentHistoryMenu = new ResTenInvoiceStatement(restenname);
                 setOriginalFrame(rm);
 				setTargetedFrame(residentPaymentHistoryMenu.rtis);
 				navigatePage();
@@ -144,7 +144,7 @@ public class ResidentMenu extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				ResFacilityBooking facilityBooking = new ResFacilityBooking();
+				ResFacilityBooking facilityBooking = new ResFacilityBooking(restenname);
                                 setOriginalFrame(rm);
 				setTargetedFrame(facilityBooking.fb);
 				navigatePage();
@@ -162,7 +162,7 @@ public class ResidentMenu extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				ResTenVisitorPass rtvp = new ResTenVisitorPass();
+				ResTenVisitorPass rtvp = new ResTenVisitorPass(restenname);
                                 setOriginalFrame(rm);
 				setTargetedFrame(rtvp.rtvp);
 				navigatePage();
@@ -180,7 +180,7 @@ public class ResidentMenu extends PageUtils{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				ResidentComplaint residentComplaint = new ResidentComplaint();
+				ResidentComplaint residentComplaint = new ResidentComplaint(restenname);
                                 setOriginalFrame(rm);
 				setTargetedFrame(residentComplaint.rc);
 				navigatePage();

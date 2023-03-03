@@ -33,7 +33,7 @@ public class ResPaymentMenu extends PageUtils {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ResPaymentMenu window = new ResPaymentMenu();
+					ResPaymentMenu window = new ResPaymentMenu(null);
 					window.pm.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -45,14 +45,14 @@ public class ResPaymentMenu extends PageUtils {
 	/**
 	 * Create the application.
 	 */
-	public ResPaymentMenu() {
-		initialize();
+	public ResPaymentMenu(String restenname) {
+		initialize(restenname);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String restenname) {
 		pm = new JFrame();
 		pm.setTitle("Payment Menu");
 		pm.setBounds(100, 100, 450, 310);
@@ -88,9 +88,9 @@ public class ResPaymentMenu extends PageUtils {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//TenMonthlyPayment monthlyPayment = new TenMonthlyPayment();
-                                setOriginalFrame(pm);
-				//setTargetedFrame(monthlyPayment.mp);
+				ResTenPayment monthlyPayment = new ResTenPayment(restenname);
+                setOriginalFrame(pm);
+				setTargetedFrame(monthlyPayment.rtpFrame);
 				navigatePage();
 
 			}
@@ -123,7 +123,7 @@ public class ResPaymentMenu extends PageUtils {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				ResidentMenu rm = new ResidentMenu();
+				ResidentMenu rm = new ResidentMenu(restenname);
 				setOriginalFrame(pm);
 				setTargetedFrame(rm.rm);
 				navigatePage();

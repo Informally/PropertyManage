@@ -39,7 +39,7 @@ public class ResFacilityBooking extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ResFacilityBooking window = new ResFacilityBooking();
+					ResFacilityBooking window = new ResFacilityBooking(null);
 					window.fb.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -51,14 +51,14 @@ public class ResFacilityBooking extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public ResFacilityBooking() {
-		initialize();
+	public ResFacilityBooking(String restenname) {
+		initialize(restenname);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String restenname) {
 		fb = new JFrame();
 		fb.setTitle("Facility Booking");
 		fb.setBounds(100, 100, 900, 700);
@@ -434,7 +434,7 @@ public class ResFacilityBooking extends PageUtils{
 					row[4] = tblData.get(i).get(4);
 					row[5] = tblData.get(i).get(5);
 					row[6] = tblData.get(i).get(6);
-                                        row[7] = tblData.get(i).get(7);
+                    row[7] = tblData.get(i).get(7);
 					tableModel.addRow(row);
 				}
 				try {
@@ -457,7 +457,7 @@ public class ResFacilityBooking extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ResidentMenu rm = new ResidentMenu();
+				ResidentMenu rm = new ResidentMenu(restenname);
 				setOriginalFrame(fb);
 				setTargetedFrame(rm.rm);
 				navigatePage();

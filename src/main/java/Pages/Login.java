@@ -198,7 +198,7 @@ public class Login extends PageUtils {
 					return;
 				}
 				
-                                System.out.println(data);
+                System.out.println(data);
                                 
 				String role = data.get(5);
 				if(role.equals("Building Manager"))
@@ -227,7 +227,7 @@ public class Login extends PageUtils {
 				{
 					String buildingName = data.get(1);
 					BuildingExecMenu Bem = new BuildingExecMenu(buildingName);
-                                        setOriginalFrame(loginPage);
+                    setOriginalFrame(loginPage);
 					setTargetedFrame(Bem.buildExec);
 					navigatePage();
 

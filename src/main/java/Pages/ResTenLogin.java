@@ -130,15 +130,16 @@ public class ResTenLogin extends PageUtils{
 				String role = data.get(6);
 				if(role.equals("Resident"))
 				{
-					ResidentMenu rm = new ResidentMenu();
-
-					rm.rm.setVisible(true);
-					restenlog.setVisible(false);
+					String restenname = data.get(1);
+					ResidentMenu rm = new ResidentMenu(restenname);
+					setOriginalFrame(restenlog);
+					setTargetedFrame(rm.rm);
+					navigatePage();
 
 				}else if(role.equals("Tenant"))
 				{
-					ResidentMenu rm = new ResidentMenu();
-
+					String restenname = data.get(1);
+					ResidentMenu rm = new ResidentMenu(restenname);
 					rm.rm.setVisible(true);
 					restenlog.setVisible(false);
 

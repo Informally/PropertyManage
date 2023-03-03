@@ -49,7 +49,7 @@ public class ResTenVisitorPass extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ResTenVisitorPass window = new ResTenVisitorPass();
+					ResTenVisitorPass window = new ResTenVisitorPass(null);
 					window.rtvp.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -61,15 +61,15 @@ public class ResTenVisitorPass extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public ResTenVisitorPass() {
-		initialize();
+	public ResTenVisitorPass(String restenname) {
+		initialize(restenname);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
-                String search = JOptionPane.showInputDialog(null, "Enter your name:");
+	private void initialize(String restenname) {
+                //String search = JOptionPane.showInputDialog(null, "Enter your name:");
 		rtvp = new JFrame();
 		rtvp.setTitle("Resident/Tenant Visitor Pass");
 		rtvp.setBounds(100, 100, 871, 722);
@@ -194,7 +194,7 @@ public class ResTenVisitorPass extends PageUtils{
                         // Check if the row contains the search string
                         boolean match = false;
                         for (int j = 0; j < row.length; j++) {
-                            if (row[j].toLowerCase().contains(search.toLowerCase())) {
+                            if (row[j].toLowerCase().contains(restenname.toLowerCase())) {
                             match = true;
                             break;
                     }
@@ -343,7 +343,7 @@ public class ResTenVisitorPass extends PageUtils{
                                     // Check if the row contains the search string
                                     boolean match = false;
                                     for (int j = 0; j < row.length; j++) {
-                                        if (row[j].toLowerCase().contains(search.toLowerCase())) {
+                                        if (row[j].toLowerCase().contains(restenname.toLowerCase())) {
                                         match = true;
                                         break;
                                         }
@@ -416,7 +416,7 @@ public class ResTenVisitorPass extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ResidentMenu rm = new ResidentMenu();
+				ResidentMenu rm = new ResidentMenu(restenname);
 				setOriginalFrame(rtvp);
 				setTargetedFrame(rm.rm);
 				navigatePage();

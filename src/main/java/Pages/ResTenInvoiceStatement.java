@@ -46,7 +46,7 @@ public class ResTenInvoiceStatement extends PageUtils{
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					ResTenInvoiceStatement window = new ResTenInvoiceStatement();
+					ResTenInvoiceStatement window = new ResTenInvoiceStatement(null);
 					window.rtis.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -58,14 +58,14 @@ public class ResTenInvoiceStatement extends PageUtils{
 	/**
 	 * Create the application.
 	 */
-	public ResTenInvoiceStatement() {
-		initialize();
+	public ResTenInvoiceStatement(String restenname) {
+		initialize(restenname);
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
-	private void initialize() {
+	private void initialize(String restenname) {
 		rtis = new JFrame();
 		rtis.setTitle("Resident/Tenant Invoice/Statement");
 		rtis.setBounds(100, 100, 871, 822);
@@ -255,7 +255,7 @@ public class ResTenInvoiceStatement extends PageUtils{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ResidentMenu payHis = new ResidentMenu();
+				ResidentMenu payHis = new ResidentMenu(restenname);
                                 setOriginalFrame(rtis);
 				setTargetedFrame(payHis.rm);
 				navigatePage();
