@@ -383,10 +383,10 @@ public class ResFacilityBooking extends PageUtils{
 				String price = txtPrice.getText().trim();
 				String facilityType = txtFacilityType.getSelectedItem().toString().trim();
 				String time = txtTime.getText().trim();
-                                int totalPrice = Integer.parseInt(price) * Integer.parseInt(duration);
+                int totalPrice = Integer.parseInt(price) * Integer.parseInt(duration);
 				
 				ArrayList<String> data = new ArrayList<>();
-                                ArrayList<String> dataIs = new ArrayList<>();
+                ArrayList<String> dataIs = new ArrayList<>();
 
 				try {
 					Thread.sleep(500);
@@ -406,35 +406,35 @@ public class ResFacilityBooking extends PageUtils{
                     data.add(date);
                     data.add(time);
                                         
-                                        dataIs.add(uid);
-                                        dataIs.add(name);
-                                        dataIs.add("Facility");
-                                        dataIs.add(facilityType);
-                                        dataIs.add(String.valueOf(totalPrice));
-                                        dataIs.add(date);
+                    dataIs.add(uid);
+                    dataIs.add(name);
+                    dataIs.add("Facility");
+                    dataIs.add(facilityType);
+                    dataIs.add(String.valueOf(totalPrice));
+                    dataIs.add(date);
 
 					crud.create("FacilityBooking.txt", data);
-                                        crud.create("ResidentInvoiceStatement.txt", dataIs);
+                    crud.create("ResidentInvoiceStatement.txt", dataIs);
 
 				} else { // this means update data
 					data.add(userId);
 					data.add(name);
-                                        data.add(facilityType);
+                    data.add(facilityType);
 					data.add(price);
 					data.add(duration);
-                                        data.add(String.valueOf(totalPrice));
-                                        data.add(date);
-                                        data.add(time);
+                    data.add(String.valueOf(totalPrice));
+                    data.add(date);
+                    data.add(time);
                                         
-                                        dataIs.add(userId);
-                                        dataIs.add(name);
-                                        dataIs.add("Facility");
-                                        dataIs.add(facilityType);
-                                        dataIs.add(String.valueOf(totalPrice));
-                                        dataIs.add(date);
+                    dataIs.add(userId);
+                    dataIs.add(name);
+                    dataIs.add("Facility");
+                    dataIs.add(facilityType);
+                    dataIs.add(String.valueOf(totalPrice));
+                    dataIs.add(date);
                                         
 					crud.updateRow("FacilityBooking.txt", userId, 0, "", 0, data);
-                                        crud.updateRow("ResidentInvoiceStatement.txt", userId, 0, "", 0, dataIs);
+                    crud.updateRow("ResidentInvoiceStatement.txt", userId, 0, "", 0, dataIs);
 				}
 
 				// Clear text after update or add

@@ -56,6 +56,8 @@ public class AccountExecMenu extends PageUtils {
 		aem.setTitle("Account Executive Menu");
 		aem.setBounds(100, 100, 410, 500);
 		aem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//set as non resizable
+		aem.setResizable(false);
 		aem.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("Account Executive Menu");

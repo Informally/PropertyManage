@@ -70,7 +70,7 @@ public class ViewOutStanding extends PageUtils {
 		viewOutStanding.getContentPane().setLayout(null);
 
 		JLabel lblNewLabel = new JLabel("View Outstanding Fees Resident/Tenant");
-		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 37));
+		lblNewLabel.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 30));
 		lblNewLabel.setBounds(34, 11, 665, 81);
 		viewOutStanding.getContentPane().add(lblNewLabel);
                 
@@ -82,9 +82,8 @@ public class ViewOutStanding extends PageUtils {
 
 		JComboBox<String> reportOptions = new JComboBox<>();
 		reportOptions.setBounds(120, 73, 250, 42);
-		reportOptions.addItem("Room Payment");
 		reportOptions.addItem("Monthly Payment");
-                reportOptions.addItem("Facility Payment");
+        reportOptions.addItem("Facility Payment");
 		viewOutStanding.getContentPane().add(reportOptions);
 
 		// Result Display
@@ -102,29 +101,27 @@ public class ViewOutStanding extends PageUtils {
 			@Override
 			public void itemStateChanged(ItemEvent e) {
 				switch ((String) reportOptions.getSelectedItem()) {
-				case "Room Payment":
-					ArrayList<ArrayList<String>> pendingData = crud.read("BookingRoom.txt");
+				// case "Room Payment":
+				// 	ArrayList<ArrayList<String>> pendingData = crud.read("BookingRoom.txt");
 
-		                        String pendingReport = "\t\t<----- Room Pending Fee ----->\n";
+		        //                 String pendingReport = "\t\t<----- Room Pending Fee ----->\n";
 		
-		                        for (ArrayList<String> row : pendingData) {
-			                if(Integer.parseInt(row.get(5)) > 0) {
-			                pendingReport += "\tPending ID:" + row.get(0) + "\n\n\tDescription\t\t\tPrice(RM)\n\t---------------\t\t\t-----------\n" + "\tName" + "\t\t\t" + row.get(1) + "\n" + "\tRoom" + "\t\t\t" + row.get(3) + "\n" + "\tDeposit" + "\t\t\t" + row.get(4) + "\n" + "\t---------------------------------------------------------------\n\tOutstanding" + "\t\t\t" + row.get(5) + "\n"+ "\tPending fee for " + row.get(6) + "/" + row.get(7) + "\n\t---------------------------------------------------------------" + "\n\n" + "\t\t<----- Room Pending Fee ----->\n";
-			                }
-		                        }
+		        //                 for (ArrayList<String> row : pendingData) {
+			    //             if(Integer.parseInt(row.get(5)) > 0) {
+			    //             pendingReport += "\tPending ID:" + row.get(0) + "\n\n\tDescription\t\t\tPrice(RM)\n\t---------------\t\t\t-----------\n" + "\tName" + "\t\t\t" + row.get(1) + "\n" + "\tRoom" + "\t\t\t" + row.get(3) + "\n" + "\tDeposit" + "\t\t\t" + row.get(4) + "\n" + "\t---------------------------------------------------------------\n\tOutstanding" + "\t\t\t" + row.get(5) + "\n"+ "\tPending fee for " + row.get(6) + "/" + row.get(7) + "\n\t---------------------------------------------------------------" + "\n\n" + "\t\t<----- Room Pending Fee ----->\n";
+			    //             }
+		        //                 }
 
-		                        textArea.setText(pendingReport);
-					break;
+		        //                 textArea.setText(pendingReport);
+				// 	break;
 				case "Monthly Payment":
-					ArrayList<ArrayList<String>> monthlyData = crud.read("MonthlyPayment.txt");
+					ArrayList<ArrayList<String>> monthlyData = crud.read("ResTenPendingFee.txt");
 
-		                        String monthlyReport = "\t\t<----- Monthly Pending Fee ----->\n";
+		                        String monthlyReport = "\t\t<--------- Monthly Pending Fee For Resident/Tenant--------->\n";
 		
 		                        for (ArrayList<String> row : monthlyData) {
-			                if(Integer.parseInt(row.get(3)) > 0) {
-			                monthlyReport += "\tPending ID:" + row.get(0) + "\n\n\tDescription\t\t\tPrice(RM)\n\t---------------\t\t\t-----------\n" + "\tName" + "\t\t\t" + row.get(1) + "\n\tRoom Type(" + row.get(2) + ")\n" + "\tRoom Price" + "\t\t\t" + row.get(3) + "\n" + "\t---------------------------------------------------------------\n\tOutstanding" + "\t\t\t" + row.get(4) + "\n"+ "\tPending fee for " + row.get(5) + "/" + row.get(6) + "\n\t---------------------------------------------------------------" + "\n\n" + "\t\t<----- Monthly Pending Fee ----->\n";
-			                }
-		                        }
+									monthlyReport += "\nCharge ID: " + row.get(0) + "\n" + "Name: " + row.get(1) + "\n" + "Details: " + row.get(2) + "\n" + "Pending Fee: RM" + row.get(3) + "\n" + "Date: " +  row.get(4) + "\n" + "---------------------------------------------------------------"+ "\n---------------------------------------------------------------\n";
+								}
 
 		                        textArea.setText(monthlyReport);
 					break;

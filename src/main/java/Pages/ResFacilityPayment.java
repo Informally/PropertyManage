@@ -68,6 +68,8 @@ public class ResFacilityPayment extends PageUtils{
 		fp = new JFrame();
 		fp.setTitle("Facility Payment");
 		fp.setBounds(100, 100, 850, 670);
+		//set jframe not resizable
+		fp.setResizable(false);
 		fp.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		fp.getContentPane().setLayout(null);
 
@@ -433,7 +435,7 @@ public class ResFacilityPayment extends PageUtils{
 				//crud.update("VendorInvoice.txt", userID, 0, "", 0, String.valueOf(totalDebt), 5, "", 0);
 				crud.update("FacilityPaymentHistory.txt", uid, 0,"", 0, String.valueOf(totalDebt), 5, "", 0);
 				crud.update("FacilityPaymentHistory.txt", uid, 0,"", 0, String.valueOf(amount), 6, "", 0);
-                                crud.update("ResidentInvoiceStatement.txt", userID, 0,"", 0, String.valueOf(totalDebt), 4, "", 0);
+                crud.update("ResidentInvoiceStatement.txt", userID, 0,"", 0, String.valueOf(totalDebt), 4, "", 0);
 
 				// Clear text after update or add
 				txtUID.setText("");
@@ -554,8 +556,9 @@ public class ResFacilityPayment extends PageUtils{
 				String lblOut = "\tOutstanding" + "\t\t\t" + out + "\n";
                                 String lblDate = "\tDate Paid " + dtf + "\n\t---------------------------------------------------------------" + "\n";
        				String lblThank = "\t                  Thank you for your payment\n";
-				textArea.setText(receipt + lblpaymentId + paymentId + lblName + lblFacilityType + lblPrice + lblDuration + lblTotal + lblOut + lblDate  + lblThank);
-				
+				//textArea.setText(receipt + lblpaymentId + paymentId + lblName + lblFacilityType + lblPrice + lblDuration + lblTotal + lblOut + lblDate  + lblThank);
+				//use joptionpane for the receipt
+				JOptionPane.showMessageDialog(null, receipt + lblpaymentId + paymentId + lblName + lblFacilityType + lblPrice + lblDuration + lblTotal + lblOut + lblDate  + lblThank);
 			}
 		});
 		viewReceiptBtn.setBounds(234, 323, 170, 42);
