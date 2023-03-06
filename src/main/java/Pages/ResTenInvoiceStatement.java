@@ -88,11 +88,12 @@ public class ResTenInvoiceStatement extends PageUtils{
 		ArrayList<ArrayList<String>> paymentHistory = crud.read("ResTenPaymentHistory.txt");
 		//add the records with the vendorName to the combobox
 		for (int i = 0; i < paymentHistory.size(); i++) {
-			//if (paymentHistory.get(i).get(1).equals()) {
+			if (paymentHistory.get(i).get(1).equals(restenname)) {
 				reportOptions.addItem(paymentHistory.get(i).get(0));
 				reportOptions.setSelectedIndex(-1);
 			}
-		//}
+		}
+
 
 		rtis.getContentPane().add(reportOptions);
 
