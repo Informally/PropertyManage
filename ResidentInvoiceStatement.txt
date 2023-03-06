@@ -1,3 +1,3 @@
 fd89623a-8483-4afa-a012-2adb0ee3e00d~Johnny Sins~Facility~Gym Room~0~2/2/2023
 7572f544-0688-47d2-a13e-cf18356851a3~Johnny Sins~Facility~Meeting Room~0~4/4/2023
-426335af-37b4-40ba-8e1e-6a70e0b0a25e~Johnny Sins~Facility~Barbeque Pit~150~1/1/2023
+426335af-37b4-40ba-8e1e-6a70e0b0a25e~Johnny Sins~Facility~Barbeque Pit~0~1/1/2023
