@@ -508,6 +508,18 @@ public class ResFacilityPayment extends PageUtils{
                                         rowPayment[7] = tblDataHistory.get(i).get(7);
                                         rowPayment[8] = tblDataHistory.get(i).get(8);
 					tableModelPayment.addRow(rowPayment);
+					boolean match4 = false;
+			for (int q = 0; q < rowPayment.length; q++) {
+				if (rowPayment[q].toLowerCase().contains(restenname.toLowerCase())) {
+				match4 = true;
+				break;
+				}
+			}
+
+			// Add the row if it matches the search string
+			if (match4) {
+				tableModelPayment.addRow(rowPayment);
+				}
 
 				}
 				try {
