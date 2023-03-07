@@ -47,7 +47,7 @@ public class BuildingManagerMenu extends PageUtils {
 	public BuildingManagerMenu() {
 		initialize();
 	}
-
+        //test
 	/**
 	 * Initialize the contents of the frame.
 	 */
