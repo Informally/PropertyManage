@@ -2,3 +2,4 @@
 fae1c8f5-02e7-4839-b879-659c16788f0b~Bryan~Security Guard~Tuesday~8am - 12pm~Pit
 6cf9fca3-1a17-4b38-afaa-4e478e8f0bf1~Kaneki~Security Guard~Sunday~8am - 12pm~Meeting Room
 57926c33-638e-4ee8-98e9-d160bcda5646~Kaneki~Security Guard~Wednesday~8pm - 12am~Pool
+d333ccd0-1d53-4e1c-ae50-ed77e3c79a4c~Bryan~Security Guard~Sunday~12am - 4am ~Pool

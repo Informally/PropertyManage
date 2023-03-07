@@ -5,3 +5,4 @@ fd89623a-8483-4afa-a012-2adb0ee3e00d~Johnny Sins~Gym Room~50~2~0~2/2/2023~11:30
 faeceb1d-9d7c-47c2-88ab-5011a0834877~Ben~Barbeque Pit~50~3~150~2/2/2023~5:30
 192b5a2c-4ddc-4228-9e2a-53f82a12c8ff~Ben~Gym Room~50~3~150~2/2/2024~7:40
 db074f84-2c8f-410b-a7ae-a962001d8e45~Josh~Meeting Room~50~2~0~5/3/2023~11:12
+e72e07fe-50a4-4301-a746-2033ce179447~Ben~Gym Room~50~3~150~2/2/2024~11:30
